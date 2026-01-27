@@ -13,7 +13,7 @@ const faqs = [
   },
   {
     question: "Wann startet der Standort?",
-    answer: "Wir befinden uns in der Planungsphase. Sobald der Starttermin feststeht, informieren wir alle Wartelisten-Teilnehmer als Erste.",
+    answer: "Eröffnung zur Saison 2026 – sobald der genaue Starttermin feststeht, informieren wir alle Wartelisten-Teilnehmer als Erste mit Platzgarantie.",
   },
   {
     question: "Wo genau ist der Standort?",
