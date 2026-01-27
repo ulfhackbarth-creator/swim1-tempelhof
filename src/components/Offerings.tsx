@@ -4,19 +4,19 @@ import { Baby, Users, Waves, Award } from "lucide-react";
 const offerings = [{
   icon: Baby,
   title: "Wassergewöhnung",
-  description: "2 Monate bis 2,5 Jahre"
+  description: "Eltern & Kind – ab 2 Monaten bis 2,5 Jahre"
 }, {
   icon: Waves,
   title: "Seepferdchenkurse",
-  description: "Ab 3,5 Jahren"
+  description: "Für Kinder ab 3,5 Jahren"
 }, {
   icon: Award,
-  title: "Fortgeschrittene",
-  description: "Bronze, Silber, Gold"
+  title: "Fortgeschrittenenkurse",
+  description: "Bronze, Silber & Gold"
 }, {
   icon: Users,
   title: "Erwachsenenkurse",
-  description: "Anfänger & Technikkurse"
+  description: "Einstieg & Technik"
 }];
 const Offerings = () => {
   return <section className="py-16 md:py-24 bg-background">
