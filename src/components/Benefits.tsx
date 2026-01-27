@@ -15,7 +15,7 @@ const benefits = [
   {
     icon: Thermometer,
     title: "32 °C warmes Wasser",
-    description: "Angenehme Wassertemperatur für alle Kurse",
+    description: "Angenehme Temperatur für alle Kurse",
   },
   {
     icon: MapPin,
