@@ -1,21 +1,22 @@
 import { motion } from "framer-motion";
-import { Baby, Users, Heart, Waves } from "lucide-react";
+import { Baby, Users, Waves, Award } from "lucide-react";
+
 const offerings = [{
   icon: Baby,
-  title: "Kinder-Schwimmkurse",
-  description: "Für Kinder von 3–10 Jahren"
+  title: "Wassergewöhnung",
+  description: "2 Monate bis 2,5 Jahre"
 }, {
   icon: Waves,
-  title: "Wassergewöhnung",
-  description: "Spielerischer Einstieg für die Kleinsten"
+  title: "Seepferdchenkurse",
+  description: "Ab 3,5 Jahren"
+}, {
+  icon: Award,
+  title: "Fortgeschrittene",
+  description: "Bronze, Silber, Gold"
 }, {
   icon: Users,
-  title: "Erwachsene",
-  description: "Anfänger & Fortgeschrittene"
-}, {
-  icon: Heart,
-  title: "Aquafitness & Reha",
-  description: "Gelenkschonend & effektiv"
+  title: "Erwachsenenkurse",
+  description: "Anfänger & Technikkurse"
 }];
 const Offerings = () => {
   return <section className="py-16 md:py-24 bg-background">
