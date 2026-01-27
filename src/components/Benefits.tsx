@@ -14,7 +14,7 @@ const benefits = [
   },
   {
     icon: Thermometer,
-    title: "Warmes Wasser",
+    title: "32 °C warmes Wasser",
     description: "Angenehme Wassertemperatur für alle Kurse",
   },
   {
