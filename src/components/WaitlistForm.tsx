@@ -16,7 +16,7 @@ const formSchema = z.object({
 });
 
 const interestOptions = [
-  { id: "kinder", label: "Kinder-Schwimmkurse" },
+  { id: "kinder", label: "Babyschwimmen / Eltern-Kind" },
   { id: "erwachsene", label: "Erwachsene" },
   { id: "aqua", label: "Aquafitness" },
   { id: "reha", label: "Reha" },
