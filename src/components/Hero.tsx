@@ -47,7 +47,7 @@ const Hero = () => {
         }} transition={{
           delay: 0.3,
           duration: 0.6
-        }} className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-4 leading-tight">Schwimmkurse im Tempelhofer Hafen starten bald</motion.h1>
+        }} className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-4 leading-tight">Neue Schwimmkurse im Tempelhofer Hafen!</motion.h1>
 
           <motion.p initial={{
           opacity: 0,
