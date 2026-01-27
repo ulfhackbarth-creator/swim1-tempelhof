@@ -5,7 +5,7 @@ const testimonials = [
   {
     name: "Sandra M.",
     location: "Tempelhof",
-    text: "Meine Tochter hatte anfangs große Angst vor dem Wasser. Nach nur 8 Wochen hat sie ihr Seepferdchen geschafft! Die Trainer sind unglaublich geduldig.",
+    text: "Meine Tochter hatte anfangs große Angst vor dem Wasser. Die Trainer sind unglaublich geduldig und am Ende hat sie ihr Seepferdchen geschafft!",
     course: "Seepferdchenkurs",
   },
   {
