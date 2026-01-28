@@ -20,6 +20,8 @@ const interestOptions = [
   { id: "seepferdchen", label: "Seepferdchen ab 3,5 Jahren" },
   { id: "fortgeschrittene", label: "Fortgeschrittene (Bronze / Silber / Gold)" },
   { id: "erwachsene", label: "Erwachsenenkurse (Anfänger & Technik)" },
+  { id: "aquafitness", label: "Aquafitness" },
+  { id: "aquareha", label: "Aqua Reha" },
 ];
 
 const WaitlistForm = () => {
