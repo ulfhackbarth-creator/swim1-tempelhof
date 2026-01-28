@@ -16,10 +16,10 @@ const formSchema = z.object({
 });
 
 const interestOptions = [
-  { id: "kinder", label: "Babyschwimmen / Eltern-Kind" },
-  { id: "erwachsene", label: "Erwachsene" },
-  { id: "aqua", label: "Aquafitness" },
-  { id: "reha", label: "Reha" },
+  { id: "baby", label: "Baby / Eltern-Kind (ab 2 Monate)" },
+  { id: "seepferdchen", label: "Seepferdchen ab 3,5 Jahren" },
+  { id: "fortgeschrittene", label: "Fortgeschrittene (Bronze / Silber / Gold)" },
+  { id: "erwachsene", label: "Erwachsenenkurse (Anfänger & Technik)" },
 ];
 
 const WaitlistForm = () => {
