@@ -65,19 +65,28 @@ const WaitlistForm = () => {
     setIsLoading(true);
     
     try {
-      const { error } = await supabase.from("waitlist").insert({
-        name: result.data.name,
-        email: result.data.email,
-        plz: result.data.plz,
-        interests: result.data.interests,
+      const { data, error } = await supabase.functions.invoke("submit-waitlist", {
+        body: {
+          name: result.data.name,
+          email: result.data.email,
+          plz: result.data.plz,
+          interests: result.data.interests,
+        },
       });
 
       if (error) {
-        if (error.code === "23505") {
-          // Unique constraint violation - email already exists
+        throw error;
+      }
+
+      if (data?.error) {
+        if (data.code === "DUPLICATE_EMAIL") {
           setErrors({ email: "Diese E-Mail ist bereits eingetragen." });
         } else {
-          throw error;
+          toast({
+            title: "Fehler",
+            description: data.error,
+            variant: "destructive",
+          });
         }
         setIsLoading(false);
         return;
