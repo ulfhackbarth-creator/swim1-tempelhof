@@ -7,6 +7,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { CheckCircle2 } from "lucide-react";
 import { z } from "zod";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const formSchema = z.object({
   name: z.string().trim().min(2, "Bitte gib deinen Namen ein").max(100),
@@ -62,15 +63,41 @@ const WaitlistForm = () => {
     }
 
     setIsLoading(true);
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    setIsLoading(false);
-    setIsSubmitted(true);
     
-    toast({
-      title: "Erfolgreich eingetragen!",
-      description: "Du erhältst alle Neuigkeiten zuerst.",
-    });
+    try {
+      const { error } = await supabase.from("waitlist").insert({
+        name: result.data.name,
+        email: result.data.email,
+        plz: result.data.plz,
+        interests: result.data.interests,
+      });
+
+      if (error) {
+        if (error.code === "23505") {
+          // Unique constraint violation - email already exists
+          setErrors({ email: "Diese E-Mail ist bereits eingetragen." });
+        } else {
+          throw error;
+        }
+        setIsLoading(false);
+        return;
+      }
+
+      setIsSubmitted(true);
+      toast({
+        title: "Erfolgreich eingetragen!",
+        description: "Du erhältst alle Neuigkeiten zuerst.",
+      });
+    } catch (error) {
+      console.error("Waitlist submission error:", error);
+      toast({
+        title: "Fehler beim Eintragen",
+        description: "Bitte versuche es später erneut.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   if (isSubmitted) {
