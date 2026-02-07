@@ -11,8 +11,8 @@ const allowedOrigins = [
 function isAllowedOrigin(origin: string | null): boolean {
   if (!origin) return false;
   if (allowedOrigins.includes(origin)) return true;
-  // Allow Lovable preview domains during development
-  if (origin.endsWith(".lovable.app")) return true;
+  // Allow Lovable preview/project domains during development
+  if (origin.endsWith(".lovable.app") || origin.endsWith(".lovableproject.com")) return true;
   return false;
 }
 
