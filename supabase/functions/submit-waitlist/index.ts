@@ -5,6 +5,8 @@ const allowedOrigins = [
   "https://swim1-tempelhof.lovable.app",
   "https://schwimmkurse-tempelhofer-hafen.de",
   "https://www.schwimmkurse-tempelhofer-hafen.de",
+  "https://swim1.de",
+  "https://www.swim1.de",
 ];
 
 // Also allow Lovable preview origins for development
