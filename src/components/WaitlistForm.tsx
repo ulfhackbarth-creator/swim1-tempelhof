@@ -65,31 +65,32 @@ const WaitlistForm = () => {
     setIsLoading(true);
     
     try {
-      const { data, error } = await supabase.functions.invoke("submit-waitlist", {
-        body: {
-          name: result.data.name,
-          email: result.data.email,
-          plz: result.data.plz,
-          interests: result.data.interests,
-        },
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/submit-waitlist`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "apikey": import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY,
+          },
+          body: JSON.stringify({
+            name: result.data.name,
+            email: result.data.email,
+            plz: result.data.plz,
+            interests: result.data.interests,
+          }),
+        }
+      );
 
-      if (error) {
-        throw error;
-      }
+      const data = await response.json();
 
-      if (data?.error) {
+      if (!response.ok) {
         if (data.code === "DUPLICATE_EMAIL") {
           setErrors({ email: "Diese E-Mail ist bereits eingetragen." });
-        } else {
-          toast({
-            title: "Fehler",
-            description: data.error,
-            variant: "destructive",
-          });
+          setIsLoading(false);
+          return;
         }
-        setIsLoading(false);
-        return;
+        throw new Error(data.error || "Unbekannter Fehler");
       }
 
       setIsSubmitted(true);
