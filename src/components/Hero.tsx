@@ -12,7 +12,7 @@ const Hero = () => {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img src={heroImage} alt="Modernes Schwimmbad mit kristallklarem Wasser" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/70 via-primary/50 to-background/95" />
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/40 via-primary/30 to-background/90" />
       </div>
 
       {/* Content */}
@@ -47,7 +47,7 @@ const Hero = () => {
         }} transition={{
           delay: 0.3,
           duration: 0.6
-        }} className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-4 leading-tight">Neue Schwimmkurse am Tempelhofer Hafen!</motion.h1>
+        }} className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-4 leading-tight">Sichere dir einen der begehrten Plätze am Tempelhofer Hafen!</motion.h1>
 
           <motion.p initial={{
           opacity: 0,
@@ -58,7 +58,7 @@ const Hero = () => {
         }} transition={{
           delay: 0.4,
           duration: 0.6
-        }} className="text-lg md:text-xl text-primary-foreground/90 mb-8 max-w-lg mx-auto">Trag dich ein und erhalte Infos zu Startterminen & Kursplätzen als einer der Ersten.</motion.p>
+        }} className="text-lg md:text-xl text-primary-foreground/90 mb-8 max-w-lg mx-auto">Die Nachfrage ist hoch. Trag dich in die kostenlose VIP-Liste ein und erhalte 48 Stunden vor allen anderen Zugriff auf die Kursbuchung.</motion.p>
 
           <motion.div initial={{
           opacity: 0,
@@ -71,7 +71,7 @@ const Hero = () => {
           duration: 0.6
         }}>
             <Button variant="cta" size="xl" onClick={scrollToForm}>
-              Auf die Warteliste
+              Kostenlosen Vorab-Zugang sichern
             </Button>
           </motion.div>
 

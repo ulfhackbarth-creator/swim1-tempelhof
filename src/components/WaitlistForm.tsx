@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, Users } from "lucide-react";
 import { z } from "zod";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
@@ -127,7 +127,7 @@ const WaitlistForm = () => {
               Danke für dein Interesse!
             </h3>
             <p className="text-muted-foreground">
-              Du bist jetzt auf der Warteliste. Wir melden uns mit Startinfo und Kursplätzen zuerst bei dir.
+              Du bist jetzt auf der VIP-Liste. Wir melden uns mit Startinfo und Kursplätzen zuerst bei dir.
             </p>
           </motion.div>
         </div>
@@ -147,11 +147,30 @@ const WaitlistForm = () => {
         >
           <div className="text-center mb-8">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
-              Auf die Warteliste
+              Sichere dir deinen Platz
             </h2>
             <p className="text-muted-foreground">
-              Sichere dir deinen Vorteil – unverbindlich und kostenlos.
+              Bereits über 120 Eltern stehen auf der Liste. Trag dich jetzt unverbindlich ein, bevor die VIP-Liste schließt.
             </p>
+
+            {/* Trust-Badge / Social Proof */}
+            <div className="flex items-center justify-center gap-2 mt-4 mb-2">
+              <div className="flex -space-x-2">
+                <div className="w-8 h-8 rounded-full bg-secondary border-2 border-background flex items-center justify-center">
+                  <Users className="w-4 h-4 text-primary" />
+                </div>
+                <div className="w-8 h-8 rounded-full bg-primary/10 border-2 border-background flex items-center justify-center text-xs font-bold text-primary">
+                  S
+                </div>
+                <div className="w-8 h-8 rounded-full bg-primary/20 border-2 border-background flex items-center justify-center text-xs font-bold text-primary">
+                  T
+                </div>
+                <div className="w-8 h-8 rounded-full bg-primary/30 border-2 border-background flex items-center justify-center text-xs font-bold text-primary">
+                  J
+                </div>
+              </div>
+              <span className="text-sm font-medium text-primary">120+ Eltern warten bereits</span>
+            </div>
           </div>
 
           <form onSubmit={handleSubmit} className="bg-card p-6 md:p-8 rounded-2xl shadow-card space-y-5">
@@ -159,7 +178,7 @@ const WaitlistForm = () => {
               <Label htmlFor="name">Name</Label>
               <Input
                 id="name"
-                placeholder="Max Mustermann"
+                placeholder="Dein Vorname (z.B. Sarah)"
                 value={formData.name}
                 onChange={(e) => {
                   setFormData({ ...formData, name: e.target.value });
@@ -177,7 +196,7 @@ const WaitlistForm = () => {
               <Input
                 id="email"
                 type="email"
-                placeholder="max@beispiel.de"
+                placeholder="deine.email@adresse.de"
                 value={formData.email}
                 onChange={(e) => {
                   setFormData({ ...formData, email: e.target.value });
@@ -239,7 +258,7 @@ const WaitlistForm = () => {
               className="w-full"
               disabled={isLoading}
             >
-              {isLoading ? "Wird eingetragen..." : "Unverbindlich vormerken"}
+              {isLoading ? "Wird eingetragen..." : "Jetzt Platz auf der VIP-Liste sichern"}
             </Button>
 
             <p className="text-xs text-center text-muted-foreground">

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Baby, Users, Waves, Award } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const offerings = [{
   icon: Baby,
@@ -19,6 +20,10 @@ const offerings = [{
   description: "Einstieg & Technik"
 }];
 const Offerings = () => {
+  const scrollToForm = () => {
+    document.getElementById("warteliste")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return <section className="py-16 md:py-24 bg-background">
       <div className="container px-4">
         <motion.div initial={{
@@ -62,6 +67,18 @@ const Offerings = () => {
               </p>
             </motion.div>)}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="mt-12 text-center"
+        >
+          <Button variant="cta" size="lg" onClick={scrollToForm}>
+            Jetzt Kursplatz vormerken
+          </Button>
+        </motion.div>
       </div>
     </section>;
 };
