@@ -150,7 +150,7 @@ const WaitlistForm = () => {
               Sichere dir deinen Platz
             </h2>
             <p className="text-muted-foreground">
-              Bereits über 120 Eltern stehen auf der Liste. Trag dich jetzt unverbindlich ein, bevor die VIP-Liste schließt.
+              Bereits über 120 Eltern stehen auf der Liste. Trag dich jetzt unverbindlich ein, bevor die Warteliste schließt.
             </p>
 
             {/* Trust-Badge / Social Proof */}
