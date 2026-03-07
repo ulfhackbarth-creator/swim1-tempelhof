@@ -127,7 +127,7 @@ const WaitlistForm = () => {
               Danke für dein Interesse!
             </h3>
             <p className="text-muted-foreground">
-              Du bist jetzt auf der VIP-Liste. Wir melden uns mit Startinfo und Kursplätzen zuerst bei dir.
+              Du bist jetzt auf der Warteliste. Wir melden uns mit Startinfo und Kursplätzen zuerst bei dir.
             </p>
           </motion.div>
         </div>
