@@ -57,8 +57,8 @@ const Hero = () => {
           y: 0
         }} transition={{
           delay: 0.4,
-          duration: 0.6
-        }} className="text-lg md:text-xl text-primary-foreground/90 mb-8 max-w-lg mx-auto">Die Nachfrage ist hoch. Trag dich in die kostenlose VIP-Liste ein und erhalte 48 Stunden vor allen anderen Zugriff auf die Kursbuchung.</motion.p>
+           duration: 0.6
+         }} className="text-lg md:text-xl text-primary-foreground mb-8 max-w-lg mx-auto">Die Nachfrage ist hoch. Trag dich in die kostenlose Warteliste ein und erhalte 48 Stunden vor allen anderen Zugriff auf die Kursbuchung.</motion.p>
 
           <motion.div initial={{
           opacity: 0,

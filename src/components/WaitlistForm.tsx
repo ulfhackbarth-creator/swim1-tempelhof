@@ -127,7 +127,7 @@ const WaitlistForm = () => {
               Danke für dein Interesse!
             </h3>
             <p className="text-muted-foreground">
-              Du bist jetzt auf der VIP-Liste. Wir melden uns mit Startinfo und Kursplätzen zuerst bei dir.
+              Du bist jetzt auf der Warteliste. Wir melden uns mit Startinfo und Kursplätzen zuerst bei dir.
             </p>
           </motion.div>
         </div>
@@ -150,7 +150,7 @@ const WaitlistForm = () => {
               Sichere dir deinen Platz
             </h2>
             <p className="text-muted-foreground">
-              Bereits über 120 Eltern stehen auf der Liste. Trag dich jetzt unverbindlich ein, bevor die VIP-Liste schließt.
+              Bereits über 120 Eltern stehen auf der Liste. Trag dich jetzt unverbindlich ein, bevor die Warteliste schließt.
             </p>
 
             {/* Trust-Badge / Social Proof */}
@@ -258,7 +258,7 @@ const WaitlistForm = () => {
               className="w-full"
               disabled={isLoading}
             >
-              {isLoading ? "Wird eingetragen..." : "Jetzt Platz auf der VIP-Liste sichern"}
+              {isLoading ? "Wird eingetragen..." : "Jetzt Platz auf der Warteliste sichern"}
             </Button>
 
             <p className="text-xs text-center text-muted-foreground">

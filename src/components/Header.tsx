@@ -30,7 +30,7 @@ const Header = () => {
             <span className={`font-semibold text-sm md:text-base transition-colors ${isScrolled ? "text-foreground" : "text-primary-foreground"}`}>SWIM1 - Deine Schwimmschule</span>
           </div>
           <Button variant={isScrolled ? "cta" : "outline"} size="sm" onClick={scrollToForm} className={!isScrolled ? "border-primary-foreground/50 text-primary-foreground hover:bg-primary-foreground/10" : ""}>
-            VIP-Liste
+            Warteliste
           </Button>
         </div>
       </div>
