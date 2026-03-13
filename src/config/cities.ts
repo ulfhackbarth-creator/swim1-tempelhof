@@ -146,4 +146,45 @@ export const cityConfigs: Record<string, CityConfig> = {
     metaDescription:
       "SWIM1 eröffnet im A10 Center Wildau! Sichere dir jetzt einen Platz auf der Warteliste für Kinder-Schwimmkurse, Wassergewöhnung, Erwachsenenkurse & Aquafitness.",
   },
+  bremen: {
+    slug: "bremen",
+    cityName: "Bremen",
+    locationLabel: "SWIM1 in der Waterfront Bremen",
+    heroTagline: "SWIM1 in der Waterfront Bremen",
+    heroHeading: "Schwimmkurse für die ganze Familie – jetzt in Bremen!",
+    heroSubtext:
+      "SWIM1 eröffnet in der Waterfront Bremen. Trag dich kostenlos auf die Warteliste ein und sichere dir 48 Stunden vor allen anderen Zugriff auf die Kursbuchung.",
+    locationBenefit: {
+      title: "In der Waterfront",
+      description: "Zentral in Bremen – mit Parkplätzen & bester Anbindung",
+    },
+    aboutUsText:
+      "SWIM1 steht für sichere, liebevolle und professionelle Schwimmausbildung. Mit bewährten Konzepten aus Berlin bringen wir unsere Erfahrung jetzt in die Waterfront Bremen – für Familien aus Bremen und Umgebung.",
+    faqLocationAnswer:
+      "Unser neuer Standort befindet sich in der Waterfront Bremen, zentral gelegen mit guter Anbindung und ausreichend Parkmöglichkeiten.",
+    testimonials: [
+      {
+        name: "Laura M.",
+        location: "Bremen-Mitte",
+        text: "Wir freuen uns riesig, dass SWIM1 nach Bremen kommt! Endlich eine professionelle Schwimmschule mit warmem Wasser direkt vor der Haustür.",
+        course: "Seepferdchenkurs",
+      },
+      {
+        name: "Stefan K.",
+        location: "Bremen-Nord",
+        text: "Meine Kinder lieben Wasser und wir haben lange nach einem guten Kursangebot in Bremen gesucht. SWIM1 klingt perfekt!",
+        course: "Wassergewöhnung",
+      },
+      {
+        name: "Maria S.",
+        location: "Bremen-Ost",
+        text: "Toll, dass es bald auch Aquafitness in der Waterfront Bremen gibt. Ich bin schon auf der Warteliste – kann es kaum erwarten!",
+        course: "Aquafitness",
+      },
+    ],
+    waitlistCount: "60+",
+    metaTitle: "Schwimmkurse Bremen – Waterfront | SWIM1 Warteliste",
+    metaDescription:
+      "SWIM1 eröffnet in der Waterfront Bremen! Sichere dir jetzt einen Platz auf der Warteliste für Kinder-Schwimmkurse, Wassergewöhnung, Erwachsenenkurse & Aquafitness.",
+  },
 };
