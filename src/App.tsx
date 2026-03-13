@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
 import Schwerin from "./pages/Schwerin.tsx";
 import Wildau from "./pages/Wildau.tsx";
+import Bremen from "./pages/Bremen.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
