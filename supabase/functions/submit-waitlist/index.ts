@@ -92,6 +92,10 @@ function validateInput(data: unknown): { valid: boolean; error?: string; data?: 
     }
   }
 
+  // Validate city (optional, defaults to "tempelhof")
+  const validCities = ["tempelhof", "schwerin"];
+  const cityValue = typeof city === "string" && validCities.includes(city) ? city : "tempelhof";
+
   return {
     valid: true,
     data: {
@@ -99,6 +103,7 @@ function validateInput(data: unknown): { valid: boolean; error?: string; data?: 
       email: email.trim().toLowerCase(),
       plz: plz.trim(),
       interests: interests as string[],
+      city: cityValue,
     },
   };
 }
