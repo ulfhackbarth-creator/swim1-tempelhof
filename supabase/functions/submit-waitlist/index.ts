@@ -168,6 +168,7 @@ serve(async (req) => {
       email: validation.data.email,
       plz: validation.data.plz,
       interests: validation.data.interests,
+      city: validation.data.city,
     });
 
     if (insertError) {
