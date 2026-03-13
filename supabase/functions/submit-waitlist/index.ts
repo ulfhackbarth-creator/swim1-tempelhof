@@ -62,7 +62,7 @@ function validateInput(data: unknown): { valid: boolean; error?: string; data?: 
     return { valid: false, error: "Invalid request body" };
   }
 
-  const { name, email, plz, interests } = data as Record<string, unknown>;
+  const { name, email, plz, interests, city } = data as Record<string, unknown>;
 
   // Validate name
   if (typeof name !== "string" || name.trim().length < 2 || name.trim().length > 100) {
