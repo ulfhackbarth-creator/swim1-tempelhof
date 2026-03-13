@@ -14,6 +14,7 @@ const Footer = () => {
             <Link to="/" className="hover:text-primary-foreground transition-colors">Berlin-Tempelhof</Link>
             <Link to="/schwerin" className="hover:text-primary-foreground transition-colors">Schwerin</Link>
             <Link to="/wildau" className="hover:text-primary-foreground transition-colors">Wildau</Link>
+            <Link to="/bremen" className="hover:text-primary-foreground transition-colors">Bremen</Link>
           </nav>
           <p className="text-sm text-primary-foreground/70">
             © {new Date().getFullYear()} Alle Rechte vorbehalten
