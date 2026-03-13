@@ -105,4 +105,45 @@ export const cityConfigs: Record<string, CityConfig> = {
     metaDescription:
       "SWIM1 eröffnet im Schlosspark-Center Schwerin! Sichere dir jetzt einen Platz auf der Warteliste für Kinder-Schwimmkurse, Wassergewöhnung, Erwachsenenkurse & Aquafitness.",
   },
+  wildau: {
+    slug: "wildau",
+    cityName: "Wildau",
+    locationLabel: "SWIM1 im A10 Center Wildau",
+    heroTagline: "SWIM1 im A10 Center Wildau",
+    heroHeading: "Schwimmkurse für die ganze Familie – jetzt in Wildau!",
+    heroSubtext:
+      "SWIM1 eröffnet im A10 Center Wildau. Trag dich kostenlos auf die Warteliste ein und sichere dir 48 Stunden vor allen anderen Zugriff auf die Kursbuchung.",
+    locationBenefit: {
+      title: "Im A10 Center",
+      description: "Zentral in Wildau – mit Parkplätzen & bester Anbindung",
+    },
+    aboutUsText:
+      "SWIM1 steht für sichere, liebevolle und professionelle Schwimmausbildung. Mit bewährten Konzepten aus Berlin bringen wir unsere Erfahrung jetzt ins A10 Center Wildau – für Familien aus Wildau und Umgebung.",
+    faqLocationAnswer:
+      "Unser neuer Standort befindet sich im A10 Center Wildau, zentral gelegen mit guter Anbindung und ausreichend Parkmöglichkeiten.",
+    testimonials: [
+      {
+        name: "Sabine K.",
+        location: "Wildau",
+        text: "Wir freuen uns riesig, dass SWIM1 nach Wildau kommt! Endlich eine professionelle Schwimmschule mit warmem Wasser direkt vor der Haustür.",
+        course: "Seepferdchenkurs",
+      },
+      {
+        name: "Michael B.",
+        location: "Königs Wusterhausen",
+        text: "Meine Kinder lieben Wasser und wir haben lange nach einem guten Kursangebot in der Region gesucht. SWIM1 klingt perfekt!",
+        course: "Wassergewöhnung",
+      },
+      {
+        name: "Petra M.",
+        location: "Zeuthen",
+        text: "Toll, dass es bald auch Aquafitness im A10 Center gibt. Ich bin schon auf der Warteliste – kann es kaum erwarten!",
+        course: "Aquafitness",
+      },
+    ],
+    waitlistCount: "50+",
+    metaTitle: "Schwimmkurse Wildau – A10 Center | SWIM1 Warteliste",
+    metaDescription:
+      "SWIM1 eröffnet im A10 Center Wildau! Sichere dir jetzt einen Platz auf der Warteliste für Kinder-Schwimmkurse, Wassergewöhnung, Erwachsenenkurse & Aquafitness.",
+  },
 };

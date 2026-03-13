@@ -13,6 +13,7 @@ const Footer = () => {
           <nav className="flex items-center gap-4 text-sm text-primary-foreground/80">
             <Link to="/" className="hover:text-primary-foreground transition-colors">Berlin-Tempelhof</Link>
             <Link to="/schwerin" className="hover:text-primary-foreground transition-colors">Schwerin</Link>
+            <Link to="/wildau" className="hover:text-primary-foreground transition-colors">Wildau</Link>
           </nav>
           <p className="text-sm text-primary-foreground/70">
             © {new Date().getFullYear()} Alle Rechte vorbehalten
