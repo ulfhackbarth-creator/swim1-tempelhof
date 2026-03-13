@@ -54,6 +54,7 @@ interface WaitlistRequest {
   email: string;
   plz: string;
   interests: string[];
+  city: string;
 }
 
 function validateInput(data: unknown): { valid: boolean; error?: string; data?: WaitlistRequest } {
