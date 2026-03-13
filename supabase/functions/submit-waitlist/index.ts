@@ -54,6 +54,7 @@ interface WaitlistRequest {
   email: string;
   plz: string;
   interests: string[];
+  city: string;
 }
 
 function validateInput(data: unknown): { valid: boolean; error?: string; data?: WaitlistRequest } {
@@ -61,7 +62,7 @@ function validateInput(data: unknown): { valid: boolean; error?: string; data?: 
     return { valid: false, error: "Invalid request body" };
   }
 
-  const { name, email, plz, interests } = data as Record<string, unknown>;
+  const { name, email, plz, interests, city } = data as Record<string, unknown>;
 
   // Validate name
   if (typeof name !== "string" || name.trim().length < 2 || name.trim().length > 100) {
@@ -91,6 +92,10 @@ function validateInput(data: unknown): { valid: boolean; error?: string; data?: 
     }
   }
 
+  // Validate city (optional, defaults to "tempelhof")
+  const validCities = ["tempelhof", "schwerin"];
+  const cityValue = typeof city === "string" && validCities.includes(city) ? city : "tempelhof";
+
   return {
     valid: true,
     data: {
@@ -98,6 +103,7 @@ function validateInput(data: unknown): { valid: boolean; error?: string; data?: 
       email: email.trim().toLowerCase(),
       plz: plz.trim(),
       interests: interests as string[],
+      city: cityValue,
     },
   };
 }
@@ -162,6 +168,7 @@ serve(async (req) => {
       email: validation.data.email,
       plz: validation.data.plz,
       interests: validation.data.interests,
+      city: validation.data.city,
     });
 
     if (insertError) {
