@@ -90,10 +90,10 @@ const HomeHero = () => {
                 <button
                   key={loc.label}
                   onClick={() => setSelected(loc.label)}
-                  className={`px-4 py-2 rounded-full border-2 text-sm font-semibold transition-all duration-200 ${
+                  className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200 ${
                     selected === loc.label
-                      ? "bg-primary border-primary text-primary-foreground"
-                      : "border-primary text-primary hover:bg-primary/5"
+                      ? "bg-[#1B4F8A] text-white border-2 border-[#1B4F8A]"
+                      : "bg-white border-2 border-[#1B4F8A] text-[#1B4F8A] hover:bg-primary/5"
                   }`}
                 >
                   {loc.label}
