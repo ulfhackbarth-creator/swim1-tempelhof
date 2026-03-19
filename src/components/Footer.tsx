@@ -1,7 +1,15 @@
 import { Waves } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Footer = () => {
+  const navigate = useNavigate();
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
+    e.preventDefault();
+    navigate(path);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <footer className="py-8 bg-primary text-primary-foreground">
       <div className="container px-4">
@@ -11,10 +19,10 @@ const Footer = () => {
             <span className="font-semibold">SWIM1 - Deine Schwimmschule</span>
           </div>
           <nav className="flex items-center gap-4 text-sm text-primary-foreground/80">
-            <Link to="/" className="hover:text-primary-foreground transition-colors">Berlin-Tempelhof</Link>
-            <Link to="/schwerin" className="hover:text-primary-foreground transition-colors">Schwerin</Link>
-            <Link to="/wildau" className="hover:text-primary-foreground transition-colors">Wildau</Link>
-            <Link to="/bremen" className="hover:text-primary-foreground transition-colors">Bremen</Link>
+            <a href="/" onClick={(e) => handleNavClick(e, "/")} className="hover:text-primary-foreground transition-colors">Berlin-Tempelhof</a>
+            <a href="/schwerin" onClick={(e) => handleNavClick(e, "/schwerin")} className="hover:text-primary-foreground transition-colors">Schwerin</a>
+            <a href="/wildau" onClick={(e) => handleNavClick(e, "/wildau")} className="hover:text-primary-foreground transition-colors">Wildau</a>
+            <a href="/bremen" onClick={(e) => handleNavClick(e, "/bremen")} className="hover:text-primary-foreground transition-colors">Bremen</a>
           </nav>
           <p className="text-sm text-primary-foreground/70">
             © {new Date().getFullYear()} Alle Rechte vorbehalten
