@@ -83,7 +83,7 @@ const HomeHero = () => {
             className="bg-white rounded-2xl shadow-card p-6 md:p-8 max-w-2xl mx-auto"
           >
             <p className="text-sm font-medium text-muted-foreground mb-4">
-              Wähle deinen Standort:
+              Wo möchtest du schwimmen lernen?
             </p>
             <div className="flex flex-wrap justify-center gap-3 mb-6">
               {locations.map((loc) => (
