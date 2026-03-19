@@ -106,7 +106,7 @@ const HomeHero = () => {
               className="rounded-full w-full md:w-auto md:px-10"
               onClick={handleCTA}
             >
-              Kurse & Termine anzeigen →
+              Jetzt Kurse entdecken →
             </Button>
             <p className="mt-4 text-xs text-muted-foreground">
               Unverbindlich · Kostenlos · Sofort buchbar
