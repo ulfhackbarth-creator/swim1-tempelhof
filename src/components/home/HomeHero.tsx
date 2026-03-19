@@ -51,9 +51,10 @@ const HomeHero = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className="inline-block px-4 py-1.5 mb-6 text-sm font-medium bg-white/15 backdrop-blur-sm text-white rounded-full"
+            className="inline-block px-5 py-2 mb-6 text-sm font-semibold bg-white/20 backdrop-blur-md text-[#1B4F8A] rounded-full"
+            style={{ color: '#1B4F8A', backgroundColor: 'rgba(255,255,255,0.85)' }}
           >
-            🏊 Schwimmschule mit mehreren Standorten in Deutschland
+            Seit 2019 · 4 Standorte · Über 2.000 Kinder
           </motion.span>
 
           <motion.h1
@@ -82,17 +83,17 @@ const HomeHero = () => {
             className="bg-white rounded-2xl shadow-card p-6 md:p-8 max-w-2xl mx-auto"
           >
             <p className="text-sm font-medium text-muted-foreground mb-4">
-              Wähle deinen Standort:
+              Wo möchtest du schwimmen lernen?
             </p>
             <div className="flex flex-wrap justify-center gap-3 mb-6">
               {locations.map((loc) => (
                 <button
                   key={loc.label}
                   onClick={() => setSelected(loc.label)}
-                  className={`px-4 py-2 rounded-full border-2 text-sm font-semibold transition-all duration-200 ${
+                  className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200 ${
                     selected === loc.label
-                      ? "bg-primary border-primary text-primary-foreground"
-                      : "border-primary text-primary hover:bg-primary/5"
+                      ? "bg-[#1B4F8A] text-white border-2 border-[#1B4F8A]"
+                      : "bg-white border-2 border-[#1B4F8A] text-[#1B4F8A] hover:bg-primary/5"
                   }`}
                 >
                   {loc.label}
@@ -105,10 +106,10 @@ const HomeHero = () => {
               className="rounded-full w-full md:w-auto md:px-10"
               onClick={handleCTA}
             >
-              Kurse & Termine anzeigen →
+              Jetzt Kurse entdecken →
             </Button>
             <p className="mt-4 text-xs text-muted-foreground">
-              Unverbindlich · Kostenlos · Sofort buchbar
+              Kostenlos · Keine Anmeldung · Sofort buchbar
             </p>
           </motion.div>
         </motion.div>
