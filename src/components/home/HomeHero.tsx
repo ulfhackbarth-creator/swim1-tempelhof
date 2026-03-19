@@ -51,9 +51,10 @@ const HomeHero = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className="inline-block px-4 py-1.5 mb-6 text-sm font-medium bg-white/15 backdrop-blur-sm text-white rounded-full"
+            className="inline-block px-5 py-2 mb-6 text-sm font-semibold bg-white/20 backdrop-blur-md text-[#1B4F8A] rounded-full"
+            style={{ color: '#1B4F8A', backgroundColor: 'rgba(255,255,255,0.85)' }}
           >
-            🏊 Schwimmschule mit mehreren Standorten in Deutschland
+            Seit 2019 · 4 Standorte · Über 2.000 Kinder
           </motion.span>
 
           <motion.h1
