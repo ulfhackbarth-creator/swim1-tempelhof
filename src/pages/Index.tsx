@@ -1,27 +1,27 @@
-import Header from "@/components/Header";
-import Hero from "@/components/Hero";
-import Offerings from "@/components/Offerings";
-import Benefits from "@/components/Benefits";
-import Testimonials from "@/components/Testimonials";
-import WaitlistBenefits from "@/components/WaitlistBenefits";
-import AboutUs from "@/components/AboutUs";
-import FAQ from "@/components/FAQ";
-import WaitlistForm from "@/components/WaitlistForm";
-import Footer from "@/components/Footer";
+import HomeHeader from "@/components/home/HomeHeader";
+import HomeHero from "@/components/home/HomeHero";
+import TrustBar from "@/components/home/TrustBar";
+import CourseOverview from "@/components/home/CourseOverview";
+import LocationsSection from "@/components/home/LocationsSection";
+import WhySwim1 from "@/components/home/WhySwim1";
+import HomeTestimonials from "@/components/home/HomeTestimonials";
+import HomeFAQ from "@/components/home/HomeFAQ";
+import FinalCTA from "@/components/home/FinalCTA";
+import HomeFooter from "@/components/home/HomeFooter";
 
 const Index = () => {
   return (
     <main className="min-h-screen">
-      <Header />
-      <Hero />
-      <Offerings />
-      <Benefits />
-      <Testimonials />
-      <WaitlistBenefits />
-      <AboutUs />
-      <FAQ />
-      <WaitlistForm />
-      <Footer />
+      <HomeHeader />
+      <HomeHero />
+      <TrustBar />
+      <CourseOverview />
+      <LocationsSection />
+      <WhySwim1 />
+      <HomeTestimonials />
+      <HomeFAQ />
+      <FinalCTA />
+      <HomeFooter />
     </main>
   );
 };
