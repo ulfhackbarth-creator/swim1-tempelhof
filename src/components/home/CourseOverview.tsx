@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Waves, Fish, Award, User, Activity, HeartPulse, ShieldCheck, LucideIcon } from "lucide-react";
+import { Waves, Fish, Award, User, Activity, HeartPulse, ShieldCheck, Baby, LucideIcon } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
+import type { CourseTab } from "@/pages/Index";
 
 type Course = {
   icon: LucideIcon;
@@ -13,13 +16,14 @@ type Course = {
 };
 
 const tabs = [
-  { id: "schwimmen", label: "Schwimmen" },
-  { id: "fitness", label: "Fitness" },
-  { id: "reha", label: "Reha & Gesundheit" },
-] as const;
+  { id: "wassergewoehnung" as CourseTab, label: "Wassergewöhnung" },
+  { id: "schwimmen" as CourseTab, label: "Schwimmen lernen" },
+  { id: "fitness" as CourseTab, label: "Aqua-Fitness" },
+  { id: "reha" as CourseTab, label: "Rehasport" },
+];
 
-const coursesByTab: Record<string, Course[]> = {
-  schwimmen: [
+const coursesByTab: Record<CourseTab, Course[]> = {
+  wassergewoehnung: [
     {
       icon: Waves,
       accentBorder: "border-sky-400",
@@ -27,8 +31,19 @@ const coursesByTab: Record<string, Course[]> = {
       accentBg: "bg-sky-50",
       title: "Wassergewöhnung",
       tag: "Ab 2 Monate · Eltern-Kind-Kurs",
-      description: "Spielerische Wassergewöhnung für die Kleinsten, gemeinsam mit Mama oder Papa.",
+      description: "Spielerische Wassergewöhnung für die Kleinsten, gemeinsam mit Mama oder Papa. Ideal ab 2 Monaten.",
     },
+    {
+      icon: Baby,
+      accentBorder: "border-sky-300",
+      accentText: "text-sky-300",
+      accentBg: "bg-sky-50",
+      title: "Baby & Kleinkind",
+      tag: "Ab 2 Monate bis 3 Jahre",
+      description: "Erste Erfahrungen im warmen Wasser – sicher, sanft und mit viel Freude.",
+    },
+  ],
+  schwimmen: [
     {
       icon: Fish,
       accentBorder: "border-teal-500",
@@ -36,7 +51,7 @@ const coursesByTab: Record<string, Course[]> = {
       accentBg: "bg-teal-50",
       title: "Seepferdchen",
       tag: "Ab 3,5 Jahre · Erstes Schwimmabzeichen",
-      description: "Der erste große Schritt: Dein Kind lernt sicher zu schwimmen und besteht das Seepferdchen.",
+      description: "Der erste große Schritt: Dein Kind lernt sicher zu schwimmen.",
     },
     {
       icon: Award,
@@ -45,7 +60,7 @@ const coursesByTab: Record<string, Course[]> = {
       accentBg: "bg-blue-50",
       title: "Fortgeschrittene",
       tag: "Bronze · Silber · Gold",
-      description: "Aufbaukurse für Kinder, die ihr Können weiter ausbauen und alle drei Abzeichen erreichen wollen.",
+      description: "Aufbaukurse für Kinder, die alle drei Abzeichen erreichen wollen.",
     },
     {
       icon: User,
@@ -54,7 +69,7 @@ const coursesByTab: Record<string, Course[]> = {
       accentBg: "bg-green-50",
       title: "Erwachsenenschwimmen",
       tag: "Anfänger & Technik · Alle Altersgruppen",
-      description: "Nie zu spät: Schwimmen lernen oder die Technik verbessern – in kleinen Gruppen und ohne Stress.",
+      description: "Nie zu spät: Schwimmen lernen oder die Technik verbessern.",
     },
   ],
   fitness: [
@@ -76,7 +91,7 @@ const coursesByTab: Record<string, Course[]> = {
       accentBg: "bg-violet-50",
       title: "Aqua Reha",
       tag: "Rehabilitation im Wasser",
-      description: "Medizinisches Training nach Verletzungen oder bei Gelenkbeschwerden – auf ärztliches Rezept oder zur Prävention.",
+      description: "Medizinisches Training nach Verletzungen oder bei Gelenkbeschwerden – auf ärztliches Rezept.",
     },
     {
       icon: ShieldCheck,
@@ -90,11 +105,19 @@ const coursesByTab: Record<string, Course[]> = {
   ],
 };
 
-const gridClass: Record<string, string> = {
-  schwimmen: "grid-cols-1 sm:grid-cols-2",
-  fitness: "grid-cols-1 max-w-sm mx-auto",
+const gridClass: Record<CourseTab, string> = {
+  wassergewoehnung: "grid-cols-1 sm:grid-cols-2 max-w-3xl mx-auto",
+  schwimmen: "grid-cols-1 sm:grid-cols-3",
+  fitness: "grid-cols-1 max-w-md mx-auto",
   reha: "grid-cols-1 sm:grid-cols-2 max-w-3xl mx-auto",
 };
+
+const locations = [
+  { label: "Berlin-Tempelhof", route: "/" },
+  { label: "Schwerin", route: "/schwerin" },
+  { label: "Wildau", route: "/wildau" },
+  { label: "Bremen", route: "/bremen" },
+];
 
 const CourseCard = ({ course, index }: { course: Course; index: number }) => (
   <motion.div
@@ -118,8 +141,15 @@ const CourseCard = ({ course, index }: { course: Course; index: number }) => (
   </motion.div>
 );
 
-const CourseOverview = () => {
-  const [activeTab, setActiveTab] = useState<string>("schwimmen");
+const CourseOverview = ({
+  activeTab,
+  onTabChange,
+}: {
+  activeTab: CourseTab;
+  onTabChange: (tab: CourseTab) => void;
+}) => {
+  const [selectedLocation, setSelectedLocation] = useState(locations[0].label);
+  const navigate = useNavigate();
 
   return (
     <section id="kurse" className="py-16 md:py-24 bg-background scroll-mt-20">
@@ -136,12 +166,12 @@ const CourseOverview = () => {
           </h2>
 
           {/* Tab navigation */}
-          <div className="inline-flex bg-slate-100 rounded-full p-1">
+          <div className="inline-flex flex-wrap justify-center bg-slate-100 rounded-full p-1">
             {tabs.map((tab) => (
               <button
                 key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                onClick={() => onTabChange(tab.id)}
+                className={`px-4 md:px-6 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                   activeTab === tab.id
                     ? "bg-white shadow-sm font-semibold text-[#1B4F8A]"
                     : "text-slate-500 hover:text-[#1B4F8A] cursor-pointer"
@@ -167,6 +197,36 @@ const CourseOverview = () => {
             ))}
           </motion.div>
         </AnimatePresence>
+
+        {/* Inline CTA bar */}
+        <div className="mt-12 bg-[#F0F4F8] rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-sm md:text-base font-medium text-slate-700">
+            Bereit? Wähle deinen Standort und buche direkt.
+          </p>
+          <div className="flex items-center gap-3">
+            <select
+              value={selectedLocation}
+              onChange={(e) => setSelectedLocation(e.target.value)}
+              className="rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-primary"
+            >
+              {locations.map((loc) => (
+                <option key={loc.label} value={loc.label}>
+                  {loc.label}
+                </option>
+              ))}
+            </select>
+            <Button
+              variant="cta"
+              className="rounded-full"
+              onClick={() => {
+                const loc = locations.find((l) => l.label === selectedLocation);
+                if (loc) navigate(loc.route);
+              }}
+            >
+              Zum Standort →
+            </Button>
+          </div>
+        </div>
       </div>
     </section>
   );
