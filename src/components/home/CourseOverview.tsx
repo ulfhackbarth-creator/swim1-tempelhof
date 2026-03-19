@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
-import { Waves, Fish, Trophy, User } from "lucide-react";
+import { Waves, Fish, Award, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const courses = [
   {
     icon: Waves,
+    accentColor: "#38BDF8",
     title: "Wassergewöhnung",
     tag: "Ab 2 Monate · Eltern-Kind-Kurs",
     description:
@@ -12,13 +13,15 @@ const courses = [
   },
   {
     icon: Fish,
+    accentColor: "#14B8A6",
     title: "Seepferdchen",
     tag: "Ab 3,5 Jahre · Erstes Schwimmabzeichen",
     description:
       "Der erste große Schritt: Dein Kind lernt sicher zu schwimmen und besteht das Seepferdchen.",
   },
   {
-    icon: Trophy,
+    icon: Award,
+    accentColor: "#1B4F8A",
     title: "Fortgeschrittene",
     tag: "Bronze · Silber · Gold",
     description:
@@ -26,6 +29,7 @@ const courses = [
   },
   {
     icon: User,
+    accentColor: "#22C55E",
     title: "Erwachsene",
     tag: "Anfänger & Technik",
     description:
@@ -56,10 +60,11 @@ const CourseOverview = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: i * 0.1 }}
-            className="bg-card p-6 rounded-2xl shadow-card hover:scale-105 transition-transform duration-300 flex flex-col"
+            className="bg-card p-6 rounded-2xl shadow-card hover:scale-105 transition-transform duration-300 flex flex-col border-t-4"
+            style={{ borderTopColor: course.accentColor }}
           >
             <div className="w-14 h-14 rounded-full bg-secondary flex items-center justify-center mb-4">
-              <course.icon className="w-7 h-7 text-primary" />
+              <course.icon className="w-7 h-7" style={{ color: course.accentColor }} />
             </div>
             <h3 className="font-bold text-foreground text-lg mb-1">{course.title}</h3>
             <p className="text-xs font-medium text-primary mb-3">{course.tag}</p>

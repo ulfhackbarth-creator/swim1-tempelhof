@@ -33,7 +33,7 @@ const HomeTestimonials = () => (
         className="text-center mb-12"
       >
         <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-3">
-          Das sagen Eltern über SWIM1
+          Eltern über ihre Erfahrungen
         </h2>
       </motion.div>
 

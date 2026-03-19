@@ -17,14 +17,15 @@ const FinalCTA = () => {
           className="text-center max-w-2xl mx-auto"
         >
           <h2 className="text-2xl md:text-4xl font-bold text-primary-foreground mb-4">
-            Bereit für den ersten Sprung ins Wasser?
+            Dein Kurs wartet auf dich.
           </h2>
           <p className="text-primary-foreground/80 mb-8">
-            Wähle jetzt deinen Standort und buche deinen Kurs – unverbindlich und kostenlos.
+            Finde jetzt den passenden Kurs an deinem Standort – in weniger als 2 Minuten.
           </p>
           <Button
             size="lg"
-            className="rounded-full bg-white text-primary hover:bg-white/90 font-bold px-10"
+            className="rounded-full font-bold px-10"
+            style={{ backgroundColor: '#F97316', color: '#FFFFFF' }}
             onClick={scrollToLocations}
           >
             Jetzt Kurs buchen

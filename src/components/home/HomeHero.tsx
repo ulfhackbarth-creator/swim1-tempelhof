@@ -109,7 +109,7 @@ const HomeHero = () => {
               Jetzt Kurse entdecken →
             </Button>
             <p className="mt-4 text-xs text-muted-foreground">
-              Unverbindlich · Kostenlos · Sofort buchbar
+              Kostenlos · Keine Anmeldung · Sofort buchbar
             </p>
           </motion.div>
         </motion.div>
