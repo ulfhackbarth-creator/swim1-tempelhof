@@ -5,20 +5,26 @@ import { Waves, Menu, X, ChevronDown } from "lucide-react";
 
 const courseDropdown = [
   {
-    heading: "Schwimmen",
+    heading: "Wassergewöhnung",
     items: [
       { label: "Wassergewöhnung", href: "#" },
+      { label: "Baby & Kleinkind", href: "#" },
+    ],
+  },
+  {
+    heading: "Schwimmen lernen",
+    items: [
       { label: "Seepferdchen", href: "#" },
       { label: "Fortgeschrittene", href: "#" },
       { label: "Erwachsenenschwimmen", href: "#" },
     ],
   },
   {
-    heading: "Fitness",
+    heading: "Aqua-Fitness",
     items: [{ label: "Aquafitness", href: "#" }],
   },
   {
-    heading: "Reha & Gesundheit",
+    heading: "Rehasport",
     items: [
       { label: "Aqua Reha", href: "#" },
       { label: "Aqua Prävention", href: "#" },
@@ -33,17 +39,10 @@ const plainLinks = [
 ];
 
 const HomeHeader = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [mobileKurseOpen, setMobileKurseOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
@@ -80,7 +79,6 @@ const HomeHeader = () => {
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-6">
-            {/* Kurse dropdown */}
             <div
               ref={dropdownRef}
               className="relative"
@@ -102,7 +100,7 @@ const HomeHeader = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 8 }}
                     transition={{ duration: 0.15 }}
-                    className="absolute top-full left-1/2 -translate-x-1/2 mt-3 bg-white rounded-xl shadow-lg p-4 min-w-[420px] grid grid-cols-3 gap-4 border border-slate-100"
+                    className="absolute top-full left-1/2 -translate-x-1/2 mt-3 bg-white rounded-xl shadow-lg p-4 min-w-[480px] grid grid-cols-4 gap-4 border border-slate-100"
                   >
                     {courseDropdown.map((col) => (
                       <div key={col.heading}>
@@ -146,7 +144,6 @@ const HomeHeader = () => {
             </Button>
           </div>
 
-          {/* Mobile hamburger */}
           <button className="md:hidden p-2 text-foreground" onClick={() => setMobileOpen(!mobileOpen)}>
             {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -163,7 +160,6 @@ const HomeHeader = () => {
             className="md:hidden bg-card border-t border-border overflow-hidden"
           >
             <div className="container px-4 py-4 flex flex-col gap-1">
-              {/* Kurse accordion */}
               <button
                 onClick={() => setMobileKurseOpen(!mobileKurseOpen)}
                 className="flex items-center justify-between text-sm font-medium text-muted-foreground hover:text-foreground text-left py-2"
