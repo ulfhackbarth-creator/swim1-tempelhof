@@ -18,7 +18,7 @@ const Index = () => {
   return (
     <main className="min-h-screen">
       <HomeHeader />
-      <HomeHero activeTab={activeTab} />
+      <HomeHero activeTab={activeTab} onTabChange={setActiveTab} />
       <TrustBar />
       <CourseOverview activeTab={activeTab} onTabChange={setActiveTab} />
       <LocationsSection />
