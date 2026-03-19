@@ -1,10 +1,32 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Waves, Menu, X } from "lucide-react";
+import { Waves, Menu, X, ChevronDown } from "lucide-react";
 
-const navLinks = [
-  { label: "Kurse", href: "#kurse" },
+const courseDropdown = [
+  {
+    heading: "Schwimmen",
+    items: [
+      { label: "Wassergewöhnung", href: "#" },
+      { label: "Seepferdchen", href: "#" },
+      { label: "Fortgeschrittene", href: "#" },
+      { label: "Erwachsenenschwimmen", href: "#" },
+    ],
+  },
+  {
+    heading: "Fitness",
+    items: [{ label: "Aquafitness", href: "#" }],
+  },
+  {
+    heading: "Reha & Gesundheit",
+    items: [
+      { label: "Aqua Reha", href: "#" },
+      { label: "Aqua Prävention", href: "#" },
+    ],
+  },
+];
+
+const plainLinks = [
   { label: "Standorte", href: "#standorte" },
   { label: "Über uns", href: "#warum" },
   { label: "FAQ", href: "#faq" },
@@ -13,6 +35,9 @@ const navLinks = [
 const HomeHeader = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [mobileKurseOpen, setMobileKurseOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -20,8 +45,19 @@ const HomeHeader = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, []);
+
   const scrollTo = (href: string) => {
     setMobileOpen(false);
+    setDropdownOpen(false);
     const el = document.querySelector(href);
     el?.scrollIntoView({ behavior: "smooth" });
   };
@@ -44,7 +80,56 @@ const HomeHeader = () => {
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-6">
-            {navLinks.map((l) => (
+            {/* Kurse dropdown */}
+            <div
+              ref={dropdownRef}
+              className="relative"
+              onMouseEnter={() => setDropdownOpen(true)}
+              onMouseLeave={() => setDropdownOpen(false)}
+            >
+              <button
+                onClick={() => setDropdownOpen(!dropdownOpen)}
+                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1"
+              >
+                Kurse
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${dropdownOpen ? "rotate-180" : ""}`} />
+              </button>
+
+              <AnimatePresence>
+                {dropdownOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 8 }}
+                    transition={{ duration: 0.15 }}
+                    className="absolute top-full left-1/2 -translate-x-1/2 mt-3 bg-white rounded-xl shadow-lg p-4 min-w-[420px] grid grid-cols-3 gap-4 border border-slate-100"
+                  >
+                    {courseDropdown.map((col) => (
+                      <div key={col.heading}>
+                        <p className="text-xs font-bold text-[#1B4F8A] uppercase tracking-wide mb-2">
+                          {col.heading}
+                        </p>
+                        <ul className="space-y-1">
+                          {col.items.map((item) => (
+                            <li key={item.label}>
+                              <a
+                                href={item.href}
+                                onClick={(e) => { e.preventDefault(); scrollTo("#kurse"); }}
+                                className="text-sm text-slate-600 hover:text-[#1B4F8A] transition-colors block py-1"
+                              >
+                                {item.label}
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {plainLinks.map((l) => (
               <button
                 key={l.href}
                 onClick={() => scrollTo(l.href)}
@@ -56,20 +141,13 @@ const HomeHeader = () => {
           </nav>
 
           <div className="hidden md:block">
-            <Button
-              variant="cta"
-              className="rounded-full"
-              onClick={() => scrollTo("#standorte")}
-            >
+            <Button variant="cta" className="rounded-full" onClick={() => scrollTo("#standorte")}>
               Kurs buchen
             </Button>
           </div>
 
           {/* Mobile hamburger */}
-          <button
-            className="md:hidden p-2 text-foreground"
-            onClick={() => setMobileOpen(!mobileOpen)}
-          >
+          <button className="md:hidden p-2 text-foreground" onClick={() => setMobileOpen(!mobileOpen)}>
             {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
@@ -84,8 +162,45 @@ const HomeHeader = () => {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden bg-card border-t border-border overflow-hidden"
           >
-            <div className="container px-4 py-4 flex flex-col gap-3">
-              {navLinks.map((l) => (
+            <div className="container px-4 py-4 flex flex-col gap-1">
+              {/* Kurse accordion */}
+              <button
+                onClick={() => setMobileKurseOpen(!mobileKurseOpen)}
+                className="flex items-center justify-between text-sm font-medium text-muted-foreground hover:text-foreground text-left py-2"
+              >
+                Kurse
+                <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobileKurseOpen ? "rotate-180" : ""}`} />
+              </button>
+              <AnimatePresence>
+                {mobileKurseOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    className="overflow-hidden pl-3 flex flex-col gap-1"
+                  >
+                    {courseDropdown.map((col) => (
+                      <div key={col.heading} className="mb-2">
+                        <p className="text-xs font-bold text-[#1B4F8A] uppercase tracking-wide mb-1">
+                          {col.heading}
+                        </p>
+                        {col.items.map((item) => (
+                          <a
+                            key={item.label}
+                            href={item.href}
+                            onClick={(e) => { e.preventDefault(); scrollTo("#kurse"); }}
+                            className="text-sm text-slate-600 hover:text-[#1B4F8A] block py-1 pl-2"
+                          >
+                            {item.label}
+                          </a>
+                        ))}
+                      </div>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              {plainLinks.map((l) => (
                 <button
                   key={l.href}
                   onClick={() => scrollTo(l.href)}
@@ -94,11 +209,7 @@ const HomeHeader = () => {
                   {l.label}
                 </button>
               ))}
-              <Button
-                variant="cta"
-                className="rounded-full mt-2"
-                onClick={() => scrollTo("#standorte")}
-              >
+              <Button variant="cta" className="rounded-full mt-2" onClick={() => scrollTo("#standorte")}>
                 Kurs buchen
               </Button>
             </div>
