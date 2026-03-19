@@ -1,15 +1,9 @@
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Button } from "@/components/ui/button";
+import { Waves, Fish, Activity, HeartPulse } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
 import type { CourseTab } from "@/pages/Index";
-
-const locations = [
-  { label: "Berlin-Tempelhof", route: "/" },
-  { label: "Schwerin", route: "/schwerin" },
-  { label: "Wildau", route: "/wildau" },
-  { label: "Bremen", route: "/bremen" },
-];
 
 const heroContent: Record<CourseTab, { video: string; headline: string; subtext: string }> = {
   wassergewoehnung: {
@@ -34,83 +28,80 @@ const heroContent: Record<CourseTab, { video: string; headline: string; subtext:
   },
 };
 
-const HomeHero = ({ activeTab }: { activeTab: CourseTab }) => {
-  const [selected, setSelected] = useState<string | null>(null);
+const courseButtons: { id: CourseTab; label: string; icon: typeof Waves; color: string }[] = [
+  { id: "wassergewoehnung", label: "Wassergewöhnung", icon: Waves, color: "text-sky-400" },
+  { id: "schwimmen", label: "Schwimmen lernen", icon: Fish, color: "text-teal-500" },
+  { id: "fitness", label: "Aqua-Fitness", icon: Activity, color: "text-orange-400" },
+  { id: "reha", label: "Rehasport", icon: HeartPulse, color: "text-violet-500" },
+];
+
+const allTabs: CourseTab[] = ["wassergewoehnung", "schwimmen", "fitness", "reha"];
+
+const locations = [
+  { label: "Berlin-Tempelhof", route: "/" },
+  { label: "Schwerin", route: "/schwerin" },
+  { label: "Wildau", route: "/wildau" },
+  { label: "Bremen", route: "/bremen" },
+];
+
+const HomeHero = ({
+  activeTab,
+  onTabChange,
+}: {
+  activeTab: CourseTab;
+  onTabChange: (tab: CourseTab) => void;
+}) => {
+  const [selectedLocation, setSelectedLocation] = useState<string>("");
+  const [shakeError, setShakeError] = useState(false);
   const navigate = useNavigate();
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const prevVideoRef = useRef<HTMLVideoElement>(null);
-  const [currentVideo, setCurrentVideo] = useState(heroContent.wassergewoehnung.video);
-  const [nextVideo, setNextVideo] = useState<string | null>(null);
 
   const content = heroContent[activeTab];
 
-  // Crossfade video on tab change
-  useEffect(() => {
-    const newVideo = heroContent[activeTab].video;
-    if (newVideo !== currentVideo) {
-      setNextVideo(newVideo);
-    }
-  }, [activeTab]);
-
-  const handleNextVideoReady = () => {
-    if (nextVideo) {
-      setCurrentVideo(nextVideo);
-      setNextVideo(null);
-    }
-  };
-
   const handleCTA = () => {
-    if (selected) {
-      const loc = locations.find((l) => l.label === selected);
-      if (loc) {
-        navigate(loc.route);
-        window.scrollTo({ top: 0 });
-      }
-    } else {
-      document.getElementById("standorte")?.scrollIntoView({ behavior: "smooth" });
+    if (!selectedLocation) {
+      setShakeError(true);
+      setTimeout(() => setShakeError(false), 600);
+      return;
+    }
+    const loc = locations.find((l) => l.label === selectedLocation);
+    if (loc) {
+      navigate(loc.route);
+      window.scrollTo({ top: 0 });
     }
   };
 
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Current video */}
-      <video
-        ref={videoRef}
-        autoPlay
-        muted
-        loop
-        playsInline
-        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${nextVideo ? "opacity-0" : "opacity-100"}`}
-        src={currentVideo}
-      />
-      {/* Next video (crossfade) */}
-      {nextVideo && (
+      {/* All 4 videos preloaded, only active one visible */}
+      {allTabs.map((tab) => (
         <video
-          ref={prevVideoRef}
+          key={tab}
           autoPlay
           muted
           loop
           playsInline
-          className="absolute inset-0 w-full h-full object-cover animate-fade-in"
-          src={nextVideo}
-          onCanPlay={handleNextVideoReady}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
+            activeTab === tab ? "opacity-100" : "opacity-0"
+          }`}
+          src={heroContent[tab].video}
         />
-      )}
-      <div className="absolute inset-0 bg-black/45" />
+      ))}
+      <div className="absolute inset-0 bg-black/50" />
 
       {/* Content */}
-      <div className="container relative z-10 px-4 pt-16">
-        <div className="max-w-3xl mx-auto text-center">
+      <div className="container relative z-10 px-4">
+        <div className="max-w-2xl mx-auto text-center">
+          {/* Badge */}
           <motion.span
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className="inline-block px-5 py-2 mb-6 text-sm font-semibold rounded-full backdrop-blur-md"
-            style={{ color: '#1B4F8A', backgroundColor: 'rgba(255,255,255,0.85)' }}
+            className="inline-block px-4 py-1.5 mb-6 text-sm font-medium text-white bg-white/20 backdrop-blur-sm rounded-full"
           >
             Seit 2019 · 4 Standorte · Über 2.000 Kinder
           </motion.span>
 
+          {/* Dynamic headline & subtext */}
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}
@@ -119,49 +110,81 @@ const HomeHero = ({ activeTab }: { activeTab: CourseTab }) => {
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.3 }}
             >
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 leading-tight">
+              <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight mb-3">
                 {content.headline}
               </h1>
-              <p className="text-lg md:text-xl text-white/90 mb-8">
+              <p className="text-lg text-white/80 mb-8">
                 {content.subtext}
               </p>
             </motion.div>
           </AnimatePresence>
 
-          {/* Location selector box */}
+          {/* White selection box */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.6 }}
-            className="bg-white rounded-2xl shadow-card p-6 md:p-8 max-w-2xl mx-auto"
+            className="bg-white rounded-2xl shadow-2xl p-6 max-w-xl mx-auto flex flex-col gap-4"
           >
-            <p className="text-sm font-medium text-muted-foreground mb-4">
-              Wo möchtest du schwimmen lernen?
-            </p>
-            <div className="flex flex-wrap justify-center gap-3 mb-6">
-              {locations.map((loc) => (
-                <button
-                  key={loc.label}
-                  onClick={() => setSelected(loc.label)}
-                  className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200 ${
-                    selected === loc.label
-                      ? "bg-[#1B4F8A] text-white border-2 border-[#1B4F8A]"
-                      : "bg-white border-2 border-[#1B4F8A] text-[#1B4F8A] hover:bg-primary/5"
+            {/* Step 1: Course selection */}
+            <div>
+              <p className="text-sm font-semibold text-slate-700 mb-2">Was suchst du?</p>
+              <div className="grid grid-cols-2 gap-2">
+                {courseButtons.map((btn) => {
+                  const Icon = btn.icon;
+                  const isActive = activeTab === btn.id;
+                  return (
+                    <button
+                      key={btn.id}
+                      onClick={() => onTabChange(btn.id)}
+                      className={`flex items-center gap-2 rounded-xl p-3 text-sm transition-all duration-200 ${
+                        isActive
+                          ? "bg-[#1B4F8A] text-white border border-[#1B4F8A] font-semibold"
+                          : "border border-slate-200 text-slate-700 hover:border-[#1B4F8A] hover:text-[#1B4F8A]"
+                      }`}
+                    >
+                      <Icon className={`w-4 h-4 ${isActive ? "text-white" : btn.color}`} />
+                      {btn.label}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Step 2: Location selection */}
+            <div>
+              <p className="text-sm font-semibold text-slate-700 mb-2">An welchem Standort?</p>
+              <Select value={selectedLocation} onValueChange={setSelectedLocation}>
+                <SelectTrigger
+                  className={`w-full rounded-xl p-3 text-slate-700 transition-colors ${
+                    shakeError && !selectedLocation
+                      ? "border-red-500 animate-[shake_0.5s_ease-in-out] ring-2 ring-red-200"
+                      : ""
                   }`}
                 >
-                  {loc.label}
-                </button>
-              ))}
+                  <SelectValue placeholder="Standort wählen..." />
+                </SelectTrigger>
+                <SelectContent>
+                  {locations.map((loc) => (
+                    <SelectItem key={loc.label} value={loc.label}>
+                      {loc.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
-            <Button
-              variant="cta"
-              size="lg"
-              className="rounded-full w-full md:w-auto md:px-10"
+
+            {/* CTA Button */}
+            <button
               onClick={handleCTA}
+              className={`w-full bg-[#F97316] text-white font-bold rounded-xl py-4 text-lg hover:bg-[#EA580C] transition-colors ${
+                shakeError ? "animate-[shake_0.5s_ease-in-out]" : ""
+              }`}
             >
-              Jetzt Kurse entdecken →
-            </Button>
-            <p className="mt-4 text-xs text-muted-foreground">
+              Kurse & Termine anzeigen →
+            </button>
+
+            <p className="text-xs text-slate-400 text-center">
               Kostenlos · Keine Anmeldung · Sofort buchbar
             </p>
           </motion.div>
