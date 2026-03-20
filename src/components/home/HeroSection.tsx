@@ -115,14 +115,6 @@ const HeroSection = ({ activeTab }: { activeTab: CourseTab }) => {
         <div className="absolute inset-0 bg-black/40" />
 
         <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 md:px-6 min-h-[70vh] md:min-h-[85vh] pt-32 md:pt-[120px] pb-8 md:pb-0">
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-            className="text-xs font-medium tracking-widest uppercase text-white/80 mb-6"
-          >
-            Seit 2019 · 4 Standorte · Über 2.000 Kinder
-          </motion.p>
 
           <AnimatePresence mode="wait">
             <motion.div
