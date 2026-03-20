@@ -60,6 +60,19 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
   const faqs = faqsByTab[tab];
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
+  const [kurseSectionVisible, setKurseSectionVisible] = useState(false);
+  const kurseSectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const el = kurseSectionRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setKurseSectionVisible(entry.isIntersecting),
+      { threshold: 0.15 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
   const location = useLocation();
   const navigate = useNavigate();
 
