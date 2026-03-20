@@ -92,6 +92,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
         setTimeout(() => {
           const card = cardRefs.current.get(index);
           if (card) {
+            window.dispatchEvent(new CustomEvent("suppress-header", { detail: { duration: 800 } }));
             const y = card.getBoundingClientRect().top + window.scrollY - 100;
             window.scrollTo({ top: y, behavior: "smooth" });
           }
