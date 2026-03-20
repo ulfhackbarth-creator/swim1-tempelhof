@@ -12,13 +12,6 @@ import { heroContent, coursesByTab, courseSectionTitle, gridClass, trustStats } 
 import { uspsByTab } from "@/data/uspData";
 import { testimonialsByTab } from "@/data/testimonialData";
 import { faqsByTab } from "@/data/faqData";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 
 const slideVariants = {
   enter: (direction: number) => ({
@@ -63,7 +56,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
   const kurseSectionRef = useRef<HTMLElement>(null);
-  const ctaButtonRef = useRef<HTMLDivElement>(null);
+  const cardRefs = useRef<Map<number, HTMLDivElement>>(new Map());
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -90,21 +83,19 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
 
   const scrollTo = (id: string) => document.querySelector(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
 
-  const handleSelectCourse = useCallback((name: string) => {
-    const next = selectedCourse === name ? null : name;
+  const handleSelectCourse = useCallback((name: string, index: number) => {
+    const isClosing = selectedCourse === name;
+    const next = isClosing ? null : name;
     setSelectedCourse(next);
-    if (next && isMobile) {
+
+    if (!isClosing && isMobile) {
       requestAnimationFrame(() => {
         setTimeout(() => {
-          ctaButtonRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
-        }, 100);
+          cardRefs.current.get(index)?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        }, 150);
       });
     }
   }, [selectedCourse, isMobile]);
-
-  const courseParam = selectedCourse
-    ? encodeURIComponent(selectedCourse.toLowerCase().replace(/\s+/g, "-"))
-    : "";
 
   const swipe = useSwipeNavigation();
 
@@ -125,11 +116,11 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-             onClick={() => scrollTo("#kurse")}
-             className="mt-8 md:mt-10 w-full md:w-auto justify-center inline-flex items-center gap-2 rounded-full px-8 py-4 font-bold text-lg text-white transition-colors shadow-lg bg-[#F97316] hover:bg-[#EA580C]"
-             style={{ boxShadow: "0 10px 30px -5px rgba(249,115,22,0.3)" }}
-           >
-             Kurs auswählen & Standort finden <ArrowRight className="w-5 h-5" />
+            onClick={() => scrollTo("#kurse")}
+            className="mt-8 md:mt-10 w-full md:w-auto justify-center inline-flex items-center gap-2 rounded-full px-8 py-4 font-bold text-lg text-white transition-colors shadow-lg bg-[#F97316] hover:bg-[#EA580C]"
+            style={{ boxShadow: "0 10px 30px -5px rgba(249,115,22,0.3)" }}
+          >
+            Kurs auswählen & Standort finden <ArrowRight className="w-5 h-5" />
           </motion.button>
         </div>
       </section>
@@ -140,90 +131,79 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 text-center mb-12 md:mb-16">
             {courseSectionTitle[tab]}
           </h2>
-           <div className={`grid gap-6 md:gap-8 ${gridClass[tab]}`}>
-             {coursesByTab[tab].map((course, i) => {
-               const isSelected = selectedCourse === course.name;
-               return (
-                   <motion.div
-                     key={course.name}
-                     initial={{ opacity: 0, y: 15 }}
-                     whileInView={{ opacity: 1, y: 0 }}
-                     viewport={{ once: true }}
-                     transition={{ duration: 0.3, delay: i * 0.06 }}
-                     onClick={() => handleSelectCourse(course.name)}
-                      className={`relative rounded-[2rem] p-6 md:p-10 shadow-xl shadow-slate-200/40 border-2 transition-all duration-200 cursor-pointer flex flex-col ${
-                        isSelected
-                          ? "bg-[#1B4F8A] border-[#1B4F8A] -translate-y-1"
-                          : "bg-white border-slate-100 hover:-translate-y-1"
-                      }`}
-                    >
-                      {isSelected && (
-                        <div className="absolute top-4 right-4 w-7 h-7 rounded-full bg-white flex items-center justify-center">
-                          <Check className="w-4 h-4 text-[#1B4F8A]" strokeWidth={3} />
-                        </div>
-                      )}
-                      <span className={`text-xs font-bold uppercase tracking-widest mb-4 transition-colors duration-200 ${isSelected ? "text-white/70" : "text-[#1B4F8A]"}`}>{course.tag}</span>
-                      <h3 className={`text-xl xl:text-2xl font-bold mb-3 break-words hyphens-auto transition-colors duration-200 ${isSelected ? "text-white" : "text-slate-900"}`}>{course.name}</h3>
-                      <p className={`leading-relaxed mb-8 flex-1 transition-colors duration-200 ${isSelected ? "text-white/80" : "text-slate-600"}`}>{course.text}</p>
-                      <span className={`mt-auto inline-flex items-center font-semibold transition-all gap-1 ${
-                        isSelected ? "text-white" : "text-[#1B4F8A] hover:gap-3"
-                      }`}>
-                        {isSelected ? "Ausgewählt ✓" : <>Auswählen <span>→</span></>}
-                      </span>
-                   </motion.div>
-                );
-              })}
-            </div>
-
-           {/* Unified CTA below grid */}
-           <AnimatePresence>
-              {selectedCourse && (
+          <div className={`grid gap-6 md:gap-8 ${gridClass[tab]}`}>
+            {coursesByTab[tab].map((course, i) => {
+              const isSelected = selectedCourse === course.name;
+              const courseParam = encodeURIComponent(course.name.toLowerCase().replace(/\s+/g, "-"));
+              return (
                 <motion.div
-                  ref={ctaButtonRef}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 10 }}
-                  transition={{ duration: 0.25 }}
-                  className="flex justify-center pt-8"
+                  key={course.name}
+                  ref={(el) => { if (el) cardRefs.current.set(i, el); }}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: i * 0.06 }}
+                  onClick={() => handleSelectCourse(course.name, i)}
+                  className={`relative rounded-[2rem] p-6 md:p-10 shadow-xl shadow-slate-200/40 border-2 transition-all duration-200 cursor-pointer flex flex-col ${
+                    isSelected
+                      ? "bg-[#1B4F8A] border-[#1B4F8A]"
+                      : "bg-white border-slate-100 hover:-translate-y-1"
+                  }`}
                 >
-                  <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
-                      <button
-                        className="inline-flex items-center gap-2 rounded-full px-8 py-4 font-bold text-lg text-white transition-all shadow-lg bg-[#F97316] hover:bg-[#EA580C] active:scale-[0.97]"
-                        style={{ boxShadow: "0 10px 30px -5px rgba(249,115,22,0.3)" }}
+                  {isSelected && (
+                    <div className="absolute top-4 right-4 w-7 h-7 rounded-full bg-white flex items-center justify-center">
+                      <Check className="w-4 h-4 text-[#1B4F8A]" strokeWidth={3} />
+                    </div>
+                  )}
+                  <span className={`text-xs font-bold uppercase tracking-widest mb-4 transition-colors duration-200 ${isSelected ? "text-white/70" : "text-[#1B4F8A]"}`}>{course.tag}</span>
+                  <h3 className={`text-xl xl:text-2xl font-bold mb-3 break-words hyphens-auto transition-colors duration-200 ${isSelected ? "text-white" : "text-slate-900"}`}>{course.name}</h3>
+                  <p className={`leading-relaxed transition-colors duration-200 ${isSelected ? "text-white/80" : "text-slate-600"}`}>{course.text}</p>
+
+                  {/* Inline accordion detail */}
+                  <AnimatePresence initial={false}>
+                    {isSelected && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                        className="overflow-hidden"
+                        onClick={(e) => e.stopPropagation()}
                       >
-                        Standort für „{selectedCourse}" wählen <ChevronDown className="w-5 h-5" />
-                      </button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent
-                      align="center"
-                      sideOffset={12}
-                      className="w-72 rounded-xl border-border/50 bg-card p-1 shadow-xl"
-                    >
-                      <DropdownMenuLabel className="text-xs text-muted-foreground uppercase tracking-wider px-3 py-2">
-                        Standort wählen
-                      </DropdownMenuLabel>
-                      {standortLinks.map((s) => (
-                        <DropdownMenuItem
-                          key={s.path}
-                          asChild
-                          className="cursor-pointer rounded-lg px-3 py-2.5 focus:bg-primary/5 focus:text-primary"
-                        >
+                        <div className="pt-6 border-t border-white/20 mt-6">
+                          <p className="text-white/85 leading-relaxed mb-5">{course.details}</p>
+                          <ul className="space-y-2.5 mb-6">
+                            {course.highlights.map((h) => (
+                              <li key={h} className="flex items-center gap-2.5 text-white/90 text-sm font-medium">
+                                <span className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
+                                  <Check className="w-3 h-3 text-white" strokeWidth={3} />
+                                </span>
+                                {h}
+                              </li>
+                            ))}
+                          </ul>
                           <Link
-                            to={`${s.path}?course=${courseParam}`}
-                            onClick={() => window.scrollTo({ top: 0 })}
-                            className="flex items-center gap-2.5 w-full"
+                            to={`${standortLinks[0].path}?course=${courseParam}`}
+                            onClick={(e) => { e.stopPropagation(); window.scrollTo({ top: 0 }); }}
+                            className="inline-flex items-center gap-2 rounded-full px-6 py-3.5 font-bold text-base text-white transition-all shadow-lg bg-[#F97316] hover:bg-[#EA580C] active:scale-[0.97]"
+                            style={{ boxShadow: "0 8px 24px -4px rgba(249,115,22,0.35)" }}
                           >
-                            <MapPin className="w-4 h-4 text-primary" />
-                            <span className="font-medium">{s.label}</span>
+                            Standort für „{course.name}" wählen <MapPin className="w-4 h-4" />
                           </Link>
-                        </DropdownMenuItem>
-                      ))}
-                    </DropdownMenuContent>
-                  </DropdownMenu>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+
+                  {!isSelected && (
+                    <span className="mt-6 inline-flex items-center font-semibold text-[#1B4F8A] hover:gap-3 transition-all gap-1">
+                      Mehr erfahren <span>→</span>
+                    </span>
+                  )}
                 </motion.div>
-              )}
-            </AnimatePresence>
+              );
+            })}
+          </div>
 
           {/* Trust Stats */}
           <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-slate-200 text-center pt-12 md:pt-16 pb-8">
