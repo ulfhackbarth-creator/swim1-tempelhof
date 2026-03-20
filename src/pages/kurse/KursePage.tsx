@@ -48,8 +48,10 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
 
   const scrollTo = (id: string) => document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
 
+  const swipe = useSwipeNavigation();
+
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen" onTouchStart={swipe.onTouchStart} onTouchEnd={swipe.onTouchEnd}>
       <GlobalHeader />
 
       {/* HERO */}
