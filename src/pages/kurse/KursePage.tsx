@@ -72,13 +72,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
   const isSwipe = (location.state as any)?.isSwipe === true;
   const direction = (location.state as any)?.direction ?? 1;
 
-  useEffect(() => { setOpenIndex(null); setSelectedCourse(null); setActiveVideo(0); }, [tab]);
-
-  useEffect(() => {
-    if (videos.length <= 1) return;
-    const id = setInterval(() => setActiveVideo((p) => (p + 1) % videos.length), 4000);
-    return () => clearInterval(id);
-  }, [videos]);
+  useEffect(() => { setOpenIndex(null); setSelectedCourse(null); }, [tab]);
 
   useLayoutEffect(() => {
     const scrollY = (location.state as any)?.maintainScrollPosition;
