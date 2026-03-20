@@ -25,30 +25,35 @@ const courses = [
     title: "Wassergewöhnung",
     description: "Für Babys (3–12 Monate) und Kleinkinder (1–3 Jahre). Samstags & Sonntags.",
     cta: "Kurszeiten & Buchung",
+    courseKeys: ["babyschwimmen", "kleinkind-wassergewohnung", "kleinkind-wassergewöhnung", "wassergewoehnung"],
   },
   {
     id: "kinderschwimmen",
     title: "Kinderschwimmen",
     description: "Seepferdchen und Bronze-Kurse. Kleine Gruppen (max. 6 Kinder). Dienstags & Donnerstags.",
     cta: "Kurszeiten & Buchung",
+    courseKeys: ["seepferdchen", "bronze", "silber", "gold", "kinderschwimmen"],
   },
   {
     id: "erwachsene",
     title: "Erwachsenenschwimmen",
     description: "Anfänger und Kraul-Technik. Diskretes Umfeld. Mittwochs.",
     cta: "Kurszeiten & Buchung",
+    courseKeys: ["anfanger-schwimmen", "anfänger-schwimmen", "technik-&-kraulen", "erwachsenenschwimmen", "erwachsene"],
   },
   {
     id: "aquafitness",
     title: "Aquafitness",
     description: "Power-Workout im Wasser. Gelenkschonend. Montags & Freitags.",
     cta: "Kurszeiten & Buchung",
+    courseKeys: ["aquafitness", "ganzkorper-workout", "ganzkörper-workout"],
   },
   {
     id: "reha",
     title: "Aqua Reha",
     description: "Von den Krankenkassen zertifiziert. Mit Rezept 100 % kostenfrei.",
     cta: "Rezept einreichen",
+    courseKeys: ["reha-sport", "praventionskurse", "präventionskurse", "aqua-reha", "reha"],
   },
 ];
 
