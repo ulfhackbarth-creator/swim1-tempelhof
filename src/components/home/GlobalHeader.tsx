@@ -1,6 +1,13 @@
 import { useEffect, useRef, useLayoutEffect } from "react";
-import { Waves, Baby, Activity, HeartPulse, PersonStanding } from "lucide-react";
+import { Waves, Baby, Activity, HeartPulse, PersonStanding, MapPin, ChevronDown } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const SCROLL_KEY = "chip-scroll-left";
 
@@ -12,6 +19,10 @@ const chips = [
   { id: "reha", label: "Aqua Reha", Icon: HeartPulse, path: "/kurse/reha" },
 ];
 
+const standorte = [
+  { label: "Berlin-Tempelhof", path: "/standorte/berlin-tempelhof" },
+];
+
 const GlobalHeader = () => {
   const location = useLocation();
   const containerRef = useRef<HTMLDivElement>(null);
@@ -19,7 +30,6 @@ const GlobalHeader = () => {
 
   const isHome = location.pathname === "/";
 
-  // 1) Restore scroll position or reset on home
   useLayoutEffect(() => {
     if (!containerRef.current) return;
     if (isHome) {
@@ -33,7 +43,6 @@ const GlobalHeader = () => {
     }
   }, [location.pathname, isHome]);
 
-  // 2) Smoothly center the active chip (skip on home)
   useEffect(() => {
     if (isHome) return;
     const container = containerRef.current;
@@ -43,7 +52,6 @@ const GlobalHeader = () => {
     const activeTab = chipRefs.current[activeChip.id];
     if (!activeTab) return;
 
-    // Double rAF + small timeout ensures DOM is settled after swipe navigation
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
         const scrollLeft =
@@ -53,7 +61,6 @@ const GlobalHeader = () => {
     });
   }, [location.pathname, isHome]);
 
-  // Save scroll position before navigating
   const saveScroll = () => {
     if (containerRef.current) {
       sessionStorage.setItem(SCROLL_KEY, String(containerRef.current.scrollLeft));
@@ -62,18 +69,38 @@ const GlobalHeader = () => {
 
   return (
     <header className="sticky top-0 left-0 right-0 z-50" style={{ backgroundColor: "#0F2D52" }}>
-      {/* Row 1 — Logo + CTA */}
+      {/* Row 1 — Logo + Standort Dropdown */}
       <div className="px-4 md:px-10 py-3.5 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2" onClick={() => window.scrollTo({ top: 0 })}>
           <Waves className="w-5 h-5 text-white" />
           <span className="font-bold text-lg text-white">SWIM1</span>
         </Link>
-        <Link
-          to="/#standorte"
-          className="rounded-full px-5 py-2 text-sm font-semibold text-white bg-[#F97316] hover:bg-orange-600 transition-colors"
-        >
-          Standort wählen →
-        </Link>
+
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <button className="rounded-full px-5 py-2 text-sm font-semibold text-white bg-[#F97316] hover:bg-orange-600 transition-colors flex items-center gap-1.5 active:scale-[0.97]">
+              Standort wählen
+              <ChevronDown className="w-3.5 h-3.5" />
+            </button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent
+            align="end"
+            sideOffset={12}
+            className="w-64 rounded-xl border-border/50 bg-card p-1 shadow-xl"
+          >
+            <DropdownMenuLabel className="text-xs text-muted-foreground uppercase tracking-wider px-3 py-2">
+              Unsere Standorte
+            </DropdownMenuLabel>
+            {standorte.map((s) => (
+              <DropdownMenuItem key={s.path} asChild className="cursor-pointer rounded-lg px-3 py-2.5 focus:bg-primary/5 focus:text-primary">
+                <Link to={s.path} className="flex items-center gap-2.5 w-full">
+                  <MapPin className="w-4 h-4 text-primary" />
+                  <span className="font-medium">{s.label}</span>
+                </Link>
+              </DropdownMenuItem>
+            ))}
+          </DropdownMenuContent>
+        </DropdownMenu>
       </div>
 
       {/* Row 2 — Category chips */}
