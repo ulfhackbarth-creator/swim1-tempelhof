@@ -547,24 +547,6 @@ const BerlinTempelhof = () => {
       <HomeFooter />
 
       {/* ═══════════ STICKY MOBILE CTA ═══════════ */}
-      <AnimatePresence>
-        {showStickyCta && !isSubmitted && (
-          <motion.div
-            initial={{ y: 100 }}
-            animate={{ y: 0 }}
-            exit={{ y: 100 }}
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="fixed bottom-0 left-0 right-0 z-50 p-3 bg-white/95 backdrop-blur-md border-t border-slate-200 shadow-lg md:hidden"
-          >
-            <button
-              onClick={() => scrollToForm()}
-              className="w-full rounded-full py-3.5 font-bold text-white bg-[#F97316] hover:bg-[#EA580C] transition-colors inline-flex items-center justify-center gap-2"
-            >
-              Auf die Warteliste <ArrowDown className="w-4 h-4" />
-            </button>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </div>
   );
 };
