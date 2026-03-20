@@ -6,53 +6,90 @@ interface HeroVideoBackgroundProps {
 }
 
 const HeroVideoBackground = ({ videos, intervalMs = 4000 }: HeroVideoBackgroundProps) => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [loadedIndex, setLoadedIndex] = useState(0);
+  const [slot, setSlot] = useState<"A" | "B">("A");
   const videoRefA = useRef<HTMLVideoElement>(null);
   const videoRefB = useRef<HTMLVideoElement>(null);
-  // Toggle between two video elements for crossfade
-  const [slot, setSlot] = useState<"A" | "B">("A");
+  const indexRef = useRef(0);
+  const slotRef = useRef<"A" | "B">("A");
+  const timerRef = useRef<ReturnType<typeof setInterval>>();
 
-  const rotate = useCallback(() => {
-    setActiveIndex((prev) => (prev + 1) % videos.length);
-  }, [videos.length]);
+  const getRef = (s: "A" | "B") => (s === "A" ? videoRefA : videoRefB);
 
+  const playVideo = useCallback((el: HTMLVideoElement) => {
+    // Try play(), and if it rejects retry once after a short delay (mobile quirk)
+    const attempt = () => el.play().catch(() => {
+      setTimeout(() => el.play().catch(() => {}), 200);
+    });
+
+    if (el.readyState >= 3) {
+      attempt();
+    } else {
+      el.addEventListener("canplay", () => attempt(), { once: true });
+    }
+  }, []);
+
+  const loadIntoSlot = useCallback((src: string, targetSlot: "A" | "B", show: boolean) => {
+    const el = getRef(targetSlot).current;
+    if (!el) return;
+
+    // Avoid reloading the same source
+    if (el.currentSrc && el.currentSrc.endsWith(src.replace(/^\//, ""))) {
+      if (show) {
+        playVideo(el);
+        slotRef.current = targetSlot;
+        setSlot(targetSlot);
+      }
+      return;
+    }
+
+    el.src = src;
+    el.load();
+
+    if (show) {
+      const onReady = () => {
+        playVideo(el);
+        slotRef.current = targetSlot;
+        setSlot(targetSlot);
+      };
+      if (el.readyState >= 3) {
+        onReady();
+      } else {
+        el.addEventListener("canplay", onReady, { once: true });
+      }
+    }
+  }, [playVideo]);
+
+  // Initial load & reset when videos prop changes (tab switch)
+  useEffect(() => {
+    indexRef.current = 0;
+    slotRef.current = "A";
+    setSlot("A");
+
+    // Pause slot B
+    const elB = videoRefB.current;
+    if (elB) { elB.pause(); elB.removeAttribute("src"); elB.load(); }
+
+    loadIntoSlot(videos[0], "A", true);
+  }, [videos, loadIntoSlot]);
+
+  // Rotation timer
   useEffect(() => {
     if (videos.length <= 1) return;
-    const id = setInterval(rotate, intervalMs);
-    return () => clearInterval(id);
-  }, [rotate, intervalMs, videos.length]);
 
-  // When activeIndex changes, load the new video into the inactive slot and crossfade
-  useEffect(() => {
-    const nextSlot = slot === "A" ? "B" : "A";
-    const nextRef = nextSlot === "A" ? videoRefA : videoRefB;
-    const el = nextRef.current;
-    if (!el) return;
+    timerRef.current = setInterval(() => {
+      const nextIndex = (indexRef.current + 1) % videos.length;
+      indexRef.current = nextIndex;
+      const nextSlot = slotRef.current === "A" ? "B" : "A";
 
-    el.src = videos[activeIndex];
-    el.load();
+      // Pause the outgoing video after crossfade
+      const outgoing = getRef(slotRef.current).current;
+      setTimeout(() => outgoing?.pause(), 1600);
 
-    const onCanPlay = () => {
-      el.play().catch(() => {});
-      setSlot(nextSlot);
-      setLoadedIndex(activeIndex);
-    };
+      loadIntoSlot(videos[nextIndex], nextSlot, true);
+    }, intervalMs);
 
-    el.addEventListener("canplay", onCanPlay, { once: true });
-    return () => el.removeEventListener("canplay", onCanPlay);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [activeIndex]);
-
-  // Initial load
-  useEffect(() => {
-    const el = videoRefA.current;
-    if (!el) return;
-    el.src = videos[0];
-    el.load();
-    el.addEventListener("canplay", () => el.play().catch(() => {}), { once: true });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    return () => clearInterval(timerRef.current);
+  }, [videos, intervalMs, loadIntoSlot]);
 
   const baseClass = "absolute inset-0 w-full h-full object-cover transition-opacity duration-[1500ms] ease-in-out";
 
