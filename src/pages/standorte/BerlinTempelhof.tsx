@@ -161,7 +161,6 @@ const trustStats = [
 
 const BerlinTempelhof = () => {
   const formRef = useRef<HTMLDivElement>(null);
-  const heroSentinelRef = useRef<HTMLDivElement>(null);
   const [searchParams] = useSearchParams();
   const courseParam = searchParams.get("course") || "";
   const { toast } = useToast();
