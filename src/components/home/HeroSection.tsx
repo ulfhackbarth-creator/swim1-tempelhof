@@ -89,12 +89,6 @@ const trustStats: Record<CourseTab, { value: string; label: string }[]> = {
   ],
 };
 
-const chips: { id: CourseTab; label: string; Icon: typeof Waves }[] = [
-  { id: "schwimmen", label: "Schwimmen lernen", Icon: Waves },
-  { id: "wassergewoehnung", label: "Wassergewöhnung", Icon: Baby },
-  { id: "fitness", label: "Aqua-Fitness", Icon: Activity },
-  { id: "reha", label: "Rehasport", Icon: HeartPulse },
-];
 
 const allTabs: CourseTab[] = ["schwimmen", "wassergewoehnung", "fitness", "reha"];
 
