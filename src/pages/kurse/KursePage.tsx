@@ -87,14 +87,18 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
     const next = isClosing ? null : name;
     setSelectedCourse(next);
 
-    if (!isClosing && isMobile) {
+    if (!isClosing) {
       requestAnimationFrame(() => {
         setTimeout(() => {
-          cardRefs.current.get(index)?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          const card = cardRefs.current.get(index);
+          if (card) {
+            const y = card.getBoundingClientRect().top + window.scrollY - 100;
+            window.scrollTo({ top: y, behavior: "smooth" });
+          }
         }, 150);
       });
     }
-  }, [selectedCourse, isMobile]);
+  }, [selectedCourse]);
 
   const swipe = useSwipeNavigation();
 
