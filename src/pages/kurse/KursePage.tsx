@@ -345,7 +345,8 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
           </div>
         )}
       </AnimatePresence>
-    </main>
+      </main>
+    </div>
   );
 };
 
