@@ -48,7 +48,13 @@ const testimonials = [
   { text: "Nach meiner Hüft-OP war das Training im Wasser die Rettung. Ich konnte Bewegungen machen, die an Land undenkbar waren.", name: "Klaus D.", location: "Berlin-Tempelhof" },
 ];
 
-const scrollTo = (id: string) => document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
+const scrollTo = (id: string) => {
+  const el = document.querySelector(id);
+  if (el) {
+    const y = el.getBoundingClientRect().top + window.scrollY;
+    window.scrollTo({ top: y, behavior: 'smooth' });
+  }
+};
 
 const ROTATION_INTERVAL = 4000;
 
