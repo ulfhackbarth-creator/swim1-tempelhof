@@ -155,33 +155,75 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
              {coursesByTab[tab].map((course, i) => {
                const isSelected = selectedCourse === course.name;
                return (
-                 <motion.div
-                   key={course.name}
-                   initial={{ opacity: 0, y: 15 }}
-                   whileInView={{ opacity: 1, y: 0 }}
-                   viewport={{ once: true }}
-                   transition={{ duration: 0.3, delay: i * 0.06 }}
-                   onClick={() => handleSelectCourse(course.name)}
-                   className={`relative bg-white rounded-[2rem] p-6 md:p-10 shadow-xl shadow-slate-200/40 border-2 transition-all duration-200 cursor-pointer flex flex-col ${
-                     isSelected
-                       ? "border-[#1B4F8A] ring-2 ring-[#1B4F8A]/20 bg-blue-50/40 -translate-y-1"
-                       : "border-slate-100 hover:-translate-y-1"
-                   }`}
-                 >
-                   {isSelected && (
-                     <div className="absolute top-4 right-4 w-7 h-7 rounded-full bg-[#1B4F8A] flex items-center justify-center">
-                       <Check className="w-4 h-4 text-white" strokeWidth={3} />
-                     </div>
-                   )}
-                   <span className="text-xs font-bold uppercase tracking-widest text-[#1B4F8A] mb-4">{course.tag}</span>
-                   <h3 className="text-xl xl:text-2xl font-bold text-slate-900 mb-3 break-words hyphens-auto">{course.name}</h3>
-                   <p className="text-slate-600 leading-relaxed mb-8 flex-1">{course.text}</p>
-                   <span className={`mt-auto inline-flex items-center font-semibold transition-all gap-1 ${
-                     isSelected ? "text-[#1B4F8A]" : "text-[#1B4F8A] hover:gap-3"
-                   }`}>
-                     {isSelected ? "Ausgewählt ✓" : <>Auswählen <span>→</span></>}
-                   </span>
-                 </motion.div>
+                  <motion.div
+                    key={course.name}
+                    ref={(el) => { cardRefs.current[course.name] = el; }}
+                    initial={{ opacity: 0, y: 15 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: i * 0.06 }}
+                    onClick={() => handleSelectCourse(course.name)}
+                    className={`relative bg-white rounded-[2rem] p-6 md:p-10 shadow-xl shadow-slate-200/40 border-2 transition-all duration-200 cursor-pointer flex flex-col ${
+                      isSelected
+                        ? "border-[#1B4F8A] ring-2 ring-[#1B4F8A]/20 bg-blue-50/40 -translate-y-1"
+                        : "border-slate-100 hover:-translate-y-1"
+                    }`}
+                  >
+                    {isSelected && (
+                      <div className="absolute top-4 right-4 w-7 h-7 rounded-full bg-[#1B4F8A] flex items-center justify-center">
+                        <Check className="w-4 h-4 text-white" strokeWidth={3} />
+                      </div>
+                    )}
+                    <span className="text-xs font-bold uppercase tracking-widest text-[#1B4F8A] mb-4">{course.tag}</span>
+                    <h3 className="text-xl xl:text-2xl font-bold text-slate-900 mb-3 break-words hyphens-auto">{course.name}</h3>
+                    <p className="text-slate-600 leading-relaxed mb-8 flex-1">{course.text}</p>
+                    <span className={`mt-auto inline-flex items-center font-semibold transition-all gap-1 ${
+                      isSelected ? "text-[#1B4F8A]" : "text-[#1B4F8A] hover:gap-3"
+                    }`}>
+                      {isSelected ? "Ausgewählt ✓" : <>Auswählen <span>→</span></>}
+                    </span>
+
+                    {/* Desktop inline CTA inside selected card */}
+                    {isSelected && (
+                      <div className="hidden md:block mt-6" onClick={(e) => e.stopPropagation()}>
+                        <DropdownMenu>
+                          <DropdownMenuTrigger asChild>
+                            <button
+                              className="w-full inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 font-bold text-base text-white transition-all bg-[#F97316] hover:bg-[#EA580C] active:scale-[0.97] shadow-lg"
+                              style={{ boxShadow: "0 10px 30px -5px rgba(249,115,22,0.3)" }}
+                            >
+                              Standort für „{course.name}" wählen <ChevronDown className="w-5 h-5" />
+                            </button>
+                          </DropdownMenuTrigger>
+                          <DropdownMenuContent
+                            align="center"
+                            sideOffset={12}
+                            className="w-72 rounded-xl border-border/50 bg-card p-1 shadow-xl"
+                          >
+                            <DropdownMenuLabel className="text-xs text-muted-foreground uppercase tracking-wider px-3 py-2">
+                              Standort wählen
+                            </DropdownMenuLabel>
+                            {standortLinks.map((s) => (
+                              <DropdownMenuItem
+                                key={s.path}
+                                asChild
+                                className="cursor-pointer rounded-lg px-3 py-2.5 focus:bg-primary/5 focus:text-primary"
+                              >
+                                <Link
+                                  to={`${s.path}?course=${courseParam}`}
+                                  onClick={() => window.scrollTo({ top: 0 })}
+                                  className="flex items-center gap-2.5 w-full"
+                                >
+                                  <MapPin className="w-4 h-4 text-primary" />
+                                  <span className="font-medium">{s.label}</span>
+                                </Link>
+                              </DropdownMenuItem>
+                            ))}
+                          </DropdownMenuContent>
+                        </DropdownMenu>
+                      </div>
+                    )}
+                  </motion.div>
                );
              })}
            </div>
