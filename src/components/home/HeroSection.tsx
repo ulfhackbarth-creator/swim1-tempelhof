@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { Waves, Baby, Activity, HeartPulse } from "lucide-react";
+import { Waves, Baby, Activity, HeartPulse, Check } from "lucide-react";
 import type { CourseTab } from "@/pages/Index";
 
 const categoryColors: Record<CourseTab, string> = {
@@ -90,7 +90,7 @@ const trustStats: Record<CourseTab, { value: string; label: string }[]> = {
 };
 
 const chips: { id: CourseTab; label: string; Icon: typeof Waves }[] = [
-  { id: "schwimmen", label: "Schwimmen", Icon: Waves },
+  { id: "schwimmen", label: "Schwimmen lernen", Icon: Waves },
   { id: "wassergewoehnung", label: "Wassergewöhnung", Icon: Baby },
   { id: "fitness", label: "Aqua-Fitness", Icon: Activity },
   { id: "reha", label: "Rehasport", Icon: HeartPulse },
@@ -163,38 +163,6 @@ const HeroSection = ({
               </motion.div>
             </AnimatePresence>
 
-            {/* Category icon tiles */}
-            <div className="flex gap-3 overflow-x-auto pb-2 mb-8 scrollbar-hide">
-              {chips.map((chip) => {
-                const isActive = activeTab === chip.id;
-                return (
-                  <button
-                    key={chip.id}
-                    onClick={() => onTabChange(chip.id)}
-                    className="flex flex-col items-center gap-1 cursor-pointer transition-all duration-200 min-w-[80px]"
-                  >
-                    <div
-                      className={`rounded-2xl p-3 transition-all duration-200 ${
-                        isActive
-                          ? "border-2 scale-105"
-                          : "bg-white/10 backdrop-blur-sm border border-white/15 hover:bg-white/20"
-                      }`}
-                      style={isActive ? { backgroundColor: categoryColors[chip.id], borderColor: "rgba(255,255,255,0.3)" } : undefined}
-                    >
-                      <chip.Icon className={`w-6 h-6 ${isActive ? "text-white" : "text-white/70"}`} />
-                    </div>
-                    <span
-                      className={`text-xs text-center mt-1 ${
-                        isActive ? "text-white font-semibold" : "text-white/60 font-medium"
-                      }`}
-                    >
-                      {chip.label}
-                    </span>
-                  </button>
-                );
-              })}
-            </div>
-
             <button
               onClick={() => scrollTo("#standorte")}
               className="w-full md:w-auto rounded-full px-8 py-4 text-base font-semibold text-white transition-colors shadow-lg"
@@ -204,6 +172,45 @@ const HeroSection = ({
             >
               Standort wählen →
             </button>
+
+            <p className="text-xs font-semibold uppercase tracking-widest mt-6 mb-3" style={{ color: "rgba(255,255,255,0.5)" }}>
+              Kursbereich wählen:
+            </p>
+
+            <div className="flex flex-row gap-3 overflow-x-auto pb-2 flex-wrap scrollbar-hide">
+              {chips.map((chip) => {
+                const isActive = activeTab === chip.id;
+                const chipColor = categoryColors[chip.id];
+                return (
+                  <button
+                    key={chip.id}
+                    onClick={() => onTabChange(chip.id)}
+                    className={`flex items-center gap-2.5 min-w-[155px] py-3 px-4 rounded-full cursor-pointer transition-all duration-200 ${
+                      isActive
+                        ? "text-white border-2 shadow-lg scale-[1.03]"
+                        : "bg-white border-2 border-transparent shadow-md hover:shadow-lg"
+                    }`}
+                    style={
+                      isActive
+                        ? { backgroundColor: chipColor, borderColor: "rgba(255,255,255,0.3)" }
+                        : undefined
+                    }
+                    onMouseEnter={(e) => {
+                      if (!isActive) e.currentTarget.style.borderColor = `${chipColor}66`;
+                    }}
+                    onMouseLeave={(e) => {
+                      if (!isActive) e.currentTarget.style.borderColor = "transparent";
+                    }}
+                  >
+                    <chip.Icon className="w-4 h-4 shrink-0" style={isActive ? { color: "white" } : { color: chipColor }} />
+                    <span className="text-sm font-semibold whitespace-nowrap" style={isActive ? { color: "white" } : { color: chipColor }}>
+                      {chip.label}
+                    </span>
+                    {isActive && <Check className="w-3.5 h-3.5 text-white/80 ml-auto shrink-0" />}
+                  </button>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
