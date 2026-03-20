@@ -108,7 +108,7 @@ const Index = () => {
           className="mt-8 md:mt-10 w-full md:w-auto justify-center inline-flex items-center gap-2 rounded-full px-8 py-4 font-bold text-lg text-white transition-colors shadow-lg bg-[#F97316] hover:bg-[#EA580C]"
           style={{ boxShadow: "0 10px 30px -5px rgba(249,115,22,0.3)" }}
         >
-          Kurs finden <ArrowRight className="w-5 h-5" />
+          Zum Standort in deiner Nähe <ArrowRight className="w-5 h-5" />
         </motion.button>
       </div>
     </section>
