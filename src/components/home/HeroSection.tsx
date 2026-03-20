@@ -190,9 +190,9 @@ const HeroSection = ({ activeTab }: { activeTab: CourseTab }) => {
                   <span className="text-xs font-bold uppercase tracking-widest text-[#1B4F8A] mb-4">
                     {course.tag}
                   </span>
-                  <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">{course.name}</h3>
+                  <h3 className="text-2xl lg:text-3xl font-bold text-slate-900 mb-3">{course.name}</h3>
                   <p className="text-slate-600 leading-relaxed mb-8 flex-1">{course.text}</p>
-                  <span className="inline-flex items-center text-[#1B4F8A] font-semibold hover:gap-3 transition-all cursor-pointer gap-1">
+                  <span className="mt-auto inline-flex items-center text-[#1B4F8A] font-semibold hover:gap-3 transition-all cursor-pointer gap-1">
                     Mehr erfahren <span>→</span>
                   </span>
                 </motion.div>

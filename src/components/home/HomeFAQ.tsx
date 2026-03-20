@@ -78,7 +78,7 @@ const HomeFAQ = ({ activeTab }: { activeTab: CourseTab }) => {
                   onClick={() => setOpenIndex(openIndex === i ? null : i)}
                   className="w-full flex items-center justify-between text-left"
                 >
-                  <span className="text-lg font-semibold text-slate-900 pr-4">{faq.q}</span>
+                  <span className="text-base md:text-lg font-semibold text-slate-900 pr-4">{faq.q}</span>
                   <ChevronDown
                     className={`w-5 h-5 text-slate-400 shrink-0 transition-transform duration-200 ${
                       openIndex === i ? "rotate-180" : ""

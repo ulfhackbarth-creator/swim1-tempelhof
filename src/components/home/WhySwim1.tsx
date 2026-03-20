@@ -67,7 +67,7 @@ const WhySwim1 = ({ activeTab }: { activeTab: CourseTab }) => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-12"
+            className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12"
           >
             {data.items.map((usp, i) => (
               <motion.div
@@ -75,12 +75,15 @@ const WhySwim1 = ({ activeTab }: { activeTab: CourseTab }) => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="flex flex-row items-start gap-6 text-left"
               >
-                <div className="w-14 h-14 rounded-2xl bg-blue-50 text-[#1B4F8A] flex items-center justify-center mb-6">
-                  <usp.Icon className="w-6 h-6" />
+                <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-blue-50 text-[#1B4F8A] flex items-center justify-center">
+                  <usp.Icon className="w-8 h-8" strokeWidth={1.5} />
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">{usp.label}</h3>
-                <p className="text-slate-600 leading-relaxed">{usp.text}</p>
+                <div className="flex flex-col">
+                  <h3 className="text-xl font-bold text-slate-900 mb-2">{usp.label}</h3>
+                  <p className="text-slate-600 leading-relaxed">{usp.text}</p>
+                </div>
               </motion.div>
             ))}
           </motion.div>
