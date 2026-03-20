@@ -18,9 +18,6 @@ import {
   DropdownMenuLabel,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { uspsByTab } from "@/data/uspData";
-import { testimonialsByTab } from "@/data/testimonialData";
-import { faqsByTab } from "@/data/faqData";
 
 const slideVariants = {
   enter: (direction: number) => ({
