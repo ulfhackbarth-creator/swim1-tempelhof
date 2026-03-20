@@ -4,6 +4,7 @@ import { ArrowRight, Star, Waves, Droplets, PersonStanding, Activity, HeartPulse
 import GlobalHeader from "@/components/home/GlobalHeader";
 import HomeFooter from "@/components/home/HomeFooter";
 import HeroVideoBackground from "@/components/HeroVideoBackground";
+import { standorte } from "@/data/standorteData";
 
 const heroVideos = [
   "https://videos.pexels.com/video-files/5888968/5888968-uhd_2560_1440_30fps.mp4",
