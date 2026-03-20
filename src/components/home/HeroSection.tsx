@@ -205,8 +205,8 @@ const HeroSection = ({ activeTab }: { activeTab: CourseTab }) => {
               className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-slate-200 text-center pt-12 md:pt-16 pb-8"
             >
               {trustStats[activeTab].map((s) => (
-                <div key={s.label} className="px-4 py-4 md:py-0">
-                  <span className="block text-4xl md:text-5xl font-bold text-[#1B4F8A] tracking-tight mb-2">
+                <div key={s.label} className="flex-1 min-w-0 px-4 py-4 md:py-0">
+                  <span className="block text-xl md:text-2xl lg:text-3xl font-bold text-[#1B4F8A] tracking-tight mb-2 break-words hyphens-auto">
                     {s.value}
                   </span>
                   <span className="block text-sm font-medium text-slate-500 uppercase tracking-wider">
