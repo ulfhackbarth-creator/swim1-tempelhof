@@ -19,12 +19,12 @@ const Index = () => {
     <main className="min-h-screen">
       <HomeHeader />
       <HomeHero activeTab={activeTab} onTabChange={setActiveTab} />
-      <CourseOverview activeTab={activeTab} onTabChange={setActiveTab} />
       <TrustBar />
-      <LocationsSection />
+      <CourseOverview activeTab={activeTab} onTabChange={setActiveTab} />
       <WhySwim1 />
       <HomeTestimonials />
       <HomeFAQ />
+      <LocationsSection />
       <FinalCTA />
       <HomeFooter />
     </main>

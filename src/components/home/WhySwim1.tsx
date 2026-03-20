@@ -20,21 +20,21 @@ const usps = [
 ];
 
 const WhySwim1 = () => (
-  <section id="warum" className="py-16 md:py-24 bg-muted scroll-mt-20">
+  <section id="warum" className="py-24 bg-slate-50 scroll-mt-20">
     <div className="container px-4">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="text-center mb-12"
+        className="text-center mb-16"
       >
-        <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-3">
+        <h2 className="text-3xl md:text-5xl font-bold text-[#1B4F8A] tracking-tight mb-4">
           Das macht SWIM1 besonders
         </h2>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-5xl mx-auto">
         {usps.map((usp, i) => (
           <motion.div
             key={usp.title}
@@ -44,11 +44,9 @@ const WhySwim1 = () => (
             transition={{ duration: 0.5, delay: i * 0.1 }}
             className="text-center flex flex-col items-center"
           >
-            <div className="bg-blue-50 rounded-xl p-3 mb-4">
-              <usp.icon size={40} color="#1B4F8A" />
-            </div>
-            <h3 className="font-bold text-foreground text-lg mb-2">{usp.title}</h3>
-            <p className="text-sm text-muted-foreground leading-relaxed">{usp.text}</p>
+            <usp.icon className="w-12 h-12 text-[#1B4F8A] mb-6" strokeWidth={1.5} />
+            <h3 className="text-xl font-semibold text-slate-900 mb-4">{usp.title}</h3>
+            <p className="text-slate-600 leading-relaxed">{usp.text}</p>
           </motion.div>
         ))}
       </div>

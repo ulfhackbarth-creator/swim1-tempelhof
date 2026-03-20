@@ -30,16 +30,16 @@ const faqs = [
 ];
 
 const HomeFAQ = () => (
-  <section id="faq" className="py-16 md:py-24 bg-background scroll-mt-20">
+  <section id="faq" className="py-24 bg-slate-50 scroll-mt-20">
     <div className="container px-4">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="text-center mb-12"
+        className="text-center mb-16"
       >
-        <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-3">
+        <h2 className="text-3xl md:text-5xl font-bold text-[#1B4F8A] tracking-tight mb-4">
           Häufig gestellte Fragen
         </h2>
       </motion.div>
@@ -50,12 +50,12 @@ const HomeFAQ = () => (
             <AccordionItem
               key={i}
               value={`faq-${i}`}
-              className="bg-card rounded-xl shadow-soft border-none px-6"
+              className="bg-white rounded-2xl border border-slate-100 px-6 shadow-sm"
             >
-              <AccordionTrigger className="text-left font-semibold text-foreground hover:no-underline">
+              <AccordionTrigger className="text-left font-semibold text-slate-900 hover:no-underline py-5">
                 {faq.q}
               </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
+              <AccordionContent className="text-slate-500 leading-relaxed pb-5">
                 {faq.a}
               </AccordionContent>
             </AccordionItem>
