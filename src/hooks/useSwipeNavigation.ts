@@ -28,15 +28,21 @@ export function useSwipeNavigation() {
       const dy = Math.abs(touchStart.current.y - e.changedTouches[0].clientY);
       touchStart.current = null;
 
-      // Ignore if vertical scroll is dominant or swipe too short
       if (Math.abs(dx) < 60 || dy > Math.abs(dx) * 0.75) return;
 
       const idx = courseRoutes.indexOf(location.pathname);
       if (idx === -1) return;
 
-      const next = dx > 0 ? idx + 1 : idx - 1;
+      const direction = dx > 0 ? 1 : -1;
+      const next = idx + direction;
       if (next >= 0 && next < courseRoutes.length) {
-        navigate(courseRoutes[next], { state: { maintainScrollPosition: window.scrollY } });
+        navigate(courseRoutes[next], {
+          state: {
+            maintainScrollPosition: window.scrollY,
+            isSwipe: true,
+            direction,
+          },
+        });
       }
     },
     [location.pathname, navigate]
