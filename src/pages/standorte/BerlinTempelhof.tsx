@@ -14,6 +14,17 @@ const trustBadges = [
 
 const courses = [
   {
+    id: "wassergewoehnung",
+    title: "Wassergewöhnung",
+    description: "Babyschwimmen und Eltern-Kind-Kurse. Spielerische Wassergewöhnung für die Kleinsten.",
+    cta: "Kurszeiten & Buchung",
+    subCourses: [
+      { name: "Babyschwimmen", key: "babyschwimmen", desc: "Ab 3 Monaten – spielerisch das Wasser entdecken." },
+      { name: "Eltern-Kind-Kurse", key: "eltern-kind-kurse", desc: "Ab 1 Jahr – gemeinsam mit Mama oder Papa." },
+    ],
+    courseKeys: ["babyschwimmen", "eltern-kind-kurse", "eltern-kind", "wassergewoehnung", "wassergewöhnung"],
+  },
+  {
     id: "kinderschwimmen",
     title: "Kinderschwimmen",
     description: "Seepferdchen, Bronze, Silber, Gold und Ferienintensivkurse. Kleine Gruppen (max. 6 Kinder).",
@@ -26,17 +37,6 @@ const courses = [
       { name: "Ferienintensivkurse", key: "ferienintensivkurse", desc: "Tägliche Einheiten in den Schulferien." },
     ],
     courseKeys: ["seepferdchen", "bronze", "silber", "gold", "ferienintensivkurse", "kinderschwimmen"],
-  },
-  {
-    id: "wassergewoehnung",
-    title: "Wassergewöhnung",
-    description: "Babyschwimmen und Eltern-Kind-Kurse. Spielerische Wassergewöhnung für die Kleinsten.",
-    cta: "Kurszeiten & Buchung",
-    subCourses: [
-      { name: "Babyschwimmen", key: "babyschwimmen", desc: "Ab 3 Monaten – spielerisch das Wasser entdecken." },
-      { name: "Eltern-Kind-Kurse", key: "eltern-kind-kurse", desc: "Ab 1 Jahr – gemeinsam mit Mama oder Papa." },
-    ],
-    courseKeys: ["babyschwimmen", "eltern-kind-kurse", "eltern-kind", "wassergewoehnung", "wassergewöhnung"],
   },
   {
     id: "erwachsene",
