@@ -131,11 +131,11 @@ const BerlinTempelhof = () => {
       <GlobalHeader />
 
       {/* ─── HERO ─── */}
-      <section className="relative pt-28 md:pt-36 pb-20 md:pb-28 overflow-hidden">
+      <section className="relative min-h-[85vh] md:min-h-[90vh] overflow-hidden pt-32 md:pt-[120px]">
         <div className="absolute inset-0 bg-gradient-to-br from-primary to-[hsl(200,70%,40%)]" />
         <div className="absolute inset-0 bg-[url('/placeholder.svg')] bg-cover bg-center mix-blend-overlay opacity-20" />
 
-        <div className="relative z-10 max-w-5xl mx-auto px-5 text-center">
+        <div className="relative z-10 flex flex-col items-center justify-center text-center px-5 min-h-[85vh] md:min-h-[90vh] pt-32 md:pt-[120px] pb-8 md:pb-0">
           <motion.span
             variants={reveal}
             initial="hidden"
