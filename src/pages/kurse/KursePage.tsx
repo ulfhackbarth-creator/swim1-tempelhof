@@ -103,9 +103,15 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
 
   const scrollTo = (id: string) => document.querySelector(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
 
-  const handleSelectCourse = (name: string) => {
-    setSelectedCourse((prev) => (prev === name ? null : name));
-  };
+  const handleSelectCourse = useCallback((name: string) => {
+    const next = selectedCourse === name ? null : name;
+    setSelectedCourse(next);
+    if (next && !isMobile) {
+      requestAnimationFrame(() => {
+        cardRefs.current[next]?.scrollIntoView({ behavior: "smooth", block: "center" });
+      });
+    }
+  }, [selectedCourse, isMobile]);
 
   const courseParam = selectedCourse
     ? encodeURIComponent(selectedCourse.toLowerCase().replace(/\s+/g, "-"))
