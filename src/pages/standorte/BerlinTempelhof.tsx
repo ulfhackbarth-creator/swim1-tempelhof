@@ -465,12 +465,14 @@ const BerlinTempelhof = () => {
                       ))}
                     </div>
                   ) : (
-                    <button
-                      onClick={() => scrollToForm((course as any).interest)}
-                      className="inline-flex items-center gap-2 rounded-full px-6 py-3 font-bold text-white bg-[#F97316] hover:bg-[#EA580C] transition-colors"
-                    >
-                      Auf die Warteliste <ChevronRight className="w-4 h-4" />
-                    </button>
+                    <div className="flex justify-end">
+                      <button
+                        onClick={() => scrollToForm((course as any).interest)}
+                        className="inline-flex items-center gap-2 rounded-full px-6 py-3 font-bold text-white bg-[#F97316] hover:bg-[#EA580C] transition-colors"
+                      >
+                        Warteliste <ChevronRight className="w-4 h-4" />
+                      </button>
+                    </div>
                   )}
                 </AccordionContent>
               </AccordionItem>
