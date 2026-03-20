@@ -40,12 +40,6 @@ const locationSubtitle: Record<CourseTab, string> = {
 };
 
 
-const locations = [
-  { name: "Berlin-Tempelhof", address: "Ringbahnstraße 12, 12099 Berlin", route: "/standorte/berlin-tempelhof" },
-  { name: "Schwerin", address: "Wittenburger Chaussee 25, 19059 Schwerin", route: "/schwerin" },
-  { name: "Wildau", address: "Adresse folgt in Kürze", route: "/wildau" },
-  { name: "Bremen", address: "Adresse folgt in Kürze", route: "/bremen" },
-];
 
 const KursePage = ({ tab }: { tab: CourseTab }) => {
   const isMobile = useIsMobile();
