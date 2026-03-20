@@ -73,7 +73,17 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
     }
   }, [location.hash, tab]);
 
-  const scrollTo = (id: string) => document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
+  const scrollTo = (id: string) => document.querySelector(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+
+  const handleSelectCourse = (name: string) => {
+    setSelectedCourse((prev) => (prev === name ? null : name));
+  };
+
+  const handleFindLocation = () => {
+    if (!selectedCourse) return;
+    const param = encodeURIComponent(selectedCourse.toLowerCase().replace(/\s+/g, "-"));
+    window.location.href = `/standorte/berlin-tempelhof?preselect=${param}`;
+  };
 
   const swipe = useSwipeNavigation();
 
