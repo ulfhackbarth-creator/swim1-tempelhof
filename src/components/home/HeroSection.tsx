@@ -115,32 +115,33 @@ const HeroSection = ({
 
   return (
     <>
-      {/* TEIL 1 — HERO */}
-      <div className="relative overflow-hidden min-h-screen">
-        {allTabs.map((tab) => (
-          <video
-            key={tab}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload={tab === "schwimmen" ? "auto" : "none"}
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
-              activeTab === tab ? "opacity-100" : "opacity-0"
-            }`}
-            src={heroContent[tab].video}
-          />
-        ))}
+      {/* SPLIT VIEWPORT HERO */}
+      <section className="h-screen flex flex-col">
+        {/* TEIL A — VIDEO-HERO */}
+        <div className="relative overflow-hidden flex-none h-[55vh] md:h-[62vh]">
+          {allTabs.map((tab) => (
+            <video
+              key={tab}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload={tab === "schwimmen" ? "auto" : "none"}
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
+                activeTab === tab ? "opacity-100" : "opacity-0"
+              }`}
+              src={heroContent[tab].video}
+            />
+          ))}
 
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/45 to-black/70" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/40 to-black/65" />
 
-        <div className="relative min-h-screen flex flex-col justify-end pb-10 px-6 md:px-16">
-          <div className="max-w-5xl">
+          <div className="absolute bottom-0 left-0 right-0 px-8 md:px-16 pb-8">
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className="text-xs font-semibold tracking-widest uppercase mb-5"
+              className="text-xs font-semibold tracking-widest uppercase mb-4"
               style={{ color: "rgba(255,255,255,0.6)" }}
             >
               Seit 2019 · 4 Standorte · Über 2.000 Kinder
@@ -154,10 +155,10 @@ const HeroSection = ({
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.3 }}
               >
-                <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tight leading-none mb-3">
+                <h1 className="text-4xl md:text-6xl font-bold text-white tracking-tight leading-tight mb-3">
                   {content.headline}
                 </h1>
-                <p className="text-base mb-8" style={{ color: "rgba(255,255,255,0.7)" }}>
+                <p className="text-base mb-6" style={{ color: "rgba(255,255,255,0.7)" }}>
                   {content.subtext}
                 </p>
               </motion.div>
@@ -165,55 +166,64 @@ const HeroSection = ({
 
             <button
               onClick={() => scrollTo("#standorte")}
-              className="w-full md:w-auto rounded-full px-8 py-4 text-base font-semibold text-white transition-colors shadow-lg"
-              style={{ backgroundColor: "#F97316", boxShadow: "0 10px 25px -5px rgba(249,115,22,0.3)" }}
+              className="rounded-full px-7 py-3.5 text-sm font-semibold text-white transition-colors"
+              style={{ backgroundColor: "#F97316", boxShadow: "0 10px 25px -5px rgba(249,115,22,0.25)" }}
               onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#ea580c")}
               onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#F97316")}
             >
               Standort wählen →
             </button>
-
-            <p className="text-xs font-semibold uppercase tracking-widest mt-6 mb-3" style={{ color: "rgba(255,255,255,0.5)" }}>
-              Kursbereich wählen:
-            </p>
-
-            <div className="flex flex-row gap-3 overflow-x-auto pb-2 flex-wrap scrollbar-hide">
-              {chips.map((chip) => {
-                const isActive = activeTab === chip.id;
-                const chipColor = categoryColors[chip.id];
-                return (
-                  <button
-                    key={chip.id}
-                    onClick={() => onTabChange(chip.id)}
-                    className={`flex items-center gap-2.5 min-w-[155px] py-3 px-4 rounded-full cursor-pointer transition-all duration-200 ${
-                      isActive
-                        ? "text-white border-2 shadow-lg scale-[1.03]"
-                        : "bg-white border-2 border-transparent shadow-md hover:shadow-lg"
-                    }`}
-                    style={
-                      isActive
-                        ? { backgroundColor: chipColor, borderColor: "rgba(255,255,255,0.3)" }
-                        : undefined
-                    }
-                    onMouseEnter={(e) => {
-                      if (!isActive) e.currentTarget.style.borderColor = `${chipColor}66`;
-                    }}
-                    onMouseLeave={(e) => {
-                      if (!isActive) e.currentTarget.style.borderColor = "transparent";
-                    }}
-                  >
-                    <chip.Icon className="w-4 h-4 shrink-0" style={isActive ? { color: "white" } : { color: chipColor }} />
-                    <span className="text-sm font-semibold whitespace-nowrap" style={isActive ? { color: "white" } : { color: chipColor }}>
-                      {chip.label}
-                    </span>
-                    {isActive && <Check className="w-3.5 h-3.5 text-white/80 ml-auto shrink-0" />}
-                  </button>
-                );
-              })}
-            </div>
           </div>
         </div>
-      </div>
+
+        {/* TEIL B — KATEGORIE-AUSWAHL */}
+        <div className="flex-1 bg-white flex flex-col justify-center px-8 md:px-16 py-6 overflow-y-auto md:overflow-visible">
+          <p className="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-4">
+            Welchen Kurs suchst du?
+          </p>
+
+          <div className="flex flex-row gap-3 overflow-x-auto pb-2 scrollbar-hide">
+            {chips.map((chip) => {
+              const isActive = activeTab === chip.id;
+              const chipColor = categoryColors[chip.id];
+              return (
+                <button
+                  key={chip.id}
+                  onClick={() => onTabChange(chip.id)}
+                  className={`flex items-center gap-2.5 min-w-[140px] md:min-w-[150px] py-3 px-5 rounded-full cursor-pointer transition-all duration-200 border-2 ${
+                    isActive
+                      ? "text-white shadow-md"
+                      : "bg-slate-50 border-slate-200"
+                  }`}
+                  style={
+                    isActive
+                      ? { backgroundColor: chipColor, borderColor: chipColor }
+                      : undefined
+                  }
+                  onMouseEnter={(e) => {
+                    if (!isActive) {
+                      e.currentTarget.style.borderColor = `${chipColor}80`;
+                      e.currentTarget.style.backgroundColor = `${chipColor}0d`;
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (!isActive) {
+                      e.currentTarget.style.borderColor = "";
+                      e.currentTarget.style.backgroundColor = "";
+                    }
+                  }}
+                >
+                  <chip.Icon className="w-4 h-4 shrink-0" style={isActive ? { color: "white" } : { color: chipColor }} />
+                  <span className="text-sm font-semibold whitespace-nowrap" style={isActive ? { color: "white" } : { color: "#334155" }}>
+                    {chip.label}
+                  </span>
+                  {isActive && <Check className="w-3.5 h-3.5 text-white/80 ml-auto shrink-0" />}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      </section>
 
       {/* TEIL 2 — KURSANGEBOT */}
       <section
