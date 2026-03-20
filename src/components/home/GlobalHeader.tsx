@@ -89,7 +89,7 @@ const GlobalHeader = () => {
   };
 
   return (
-    <header className="sticky top-0 left-0 right-0 z-50" style={{ backgroundColor: "#0F2D52" }}>
+    <header className={`sticky top-0 left-0 right-0 z-50 transition-transform duration-300 ${isVisible ? "translate-y-0" : "-translate-y-full"}`} style={{ backgroundColor: "#0F2D52" }}>
       {/* Row 1 — Logo + Standort Dropdown */}
       <div className="px-4 md:px-10 py-3.5 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2" onClick={() => window.scrollTo({ top: 0 })}>
