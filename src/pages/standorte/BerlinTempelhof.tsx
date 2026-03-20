@@ -473,8 +473,20 @@ const BerlinTempelhof = () => {
               <div className="text-center mb-10">
                 <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 mb-4">Sichere dir jetzt deinen Platz!</h2>
                 <p className="text-slate-500">
-                  Unverbindliche Eintragung – wir melden uns, sobald ein Platz frei wird.
+                  Bereits über 120+ Kursteilnehmer stehen auf der Liste. Trag dich jetzt unverbindlich ein, bevor die Warteliste schließt.
                 </p>
+
+                <div className="flex items-center justify-center gap-3 mt-5">
+                  <div className="flex -space-x-2">
+                    <div className="w-8 h-8 rounded-full bg-blue-100 border-2 border-white flex items-center justify-center">
+                      <Users className="w-4 h-4 text-[#1B4F8A]" />
+                    </div>
+                    <div className="w-8 h-8 rounded-full bg-blue-50 border-2 border-white flex items-center justify-center text-xs font-bold text-[#1B4F8A]">S</div>
+                    <div className="w-8 h-8 rounded-full bg-blue-100/70 border-2 border-white flex items-center justify-center text-xs font-bold text-[#1B4F8A]">T</div>
+                    <div className="w-8 h-8 rounded-full bg-blue-200/60 border-2 border-white flex items-center justify-center text-xs font-bold text-[#1B4F8A]">J</div>
+                  </div>
+                  <span className="text-sm font-semibold text-[#1B4F8A]">120+ Kursteilnehmer warten bereits</span>
+                </div>
               </div>
 
               <form onSubmit={handleSubmit} className="bg-white p-6 md:p-10 rounded-[2rem] shadow-xl shadow-slate-200/40 border border-slate-100 space-y-5">
