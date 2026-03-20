@@ -64,6 +64,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
   const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
   const [kurseSectionVisible, setKurseSectionVisible] = useState(false);
   const kurseSectionRef = useRef<HTMLElement>(null);
+  const cardRefs = useRef<Record<string, HTMLDivElement | null>>({});
 
   useEffect(() => {
     const el = kurseSectionRef.current;
