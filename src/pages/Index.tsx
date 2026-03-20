@@ -69,7 +69,7 @@ const Index = () => {
     <GlobalHeader />
 
     {/* ─── HERO ─── */}
-    <section className="relative min-h-[70vh] md:min-h-[90vh] overflow-hidden">
+    <section className="relative min-h-[85vh] md:min-h-[90vh] overflow-hidden">
       {heroVideos.map((src, i) => (
         <video
           key={src}
