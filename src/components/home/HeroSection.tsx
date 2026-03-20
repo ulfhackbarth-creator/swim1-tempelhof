@@ -79,7 +79,7 @@ const trustStats: Record<CourseTab, { value: string; label: string }[]> = {
   ],
   reha: [
     { value: "Auf Rezept", label: "Verordnungsfähig" },
-    { value: "Krankenkasse", label: "Anerkannt" },
+    { value: "Von Kassen", label: "Anerkannt" },
     { value: "Medizinisch", label: "Begleitet" },
   ],
 };
