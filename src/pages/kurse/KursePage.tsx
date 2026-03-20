@@ -76,7 +76,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
       </section>
 
       {/* KURSANGEBOT + TRUST */}
-      <section className="bg-blue-50/50 py-16 md:py-24 px-4 md:px-6">
+      <section id="kurse" className="bg-blue-50/50 py-16 md:py-24 px-4 md:px-6 scroll-mt-28">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 text-center mb-12 md:mb-16">
             {courseSectionTitle[tab]}
