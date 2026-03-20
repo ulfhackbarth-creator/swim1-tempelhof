@@ -12,7 +12,7 @@ export const heroContent: Record<CourseTab, { video: string | string[]; headline
     subtext: "Ab 3 Monaten · Mit Mama oder Papa · Spielerische Wassergewöhnung",
   },
   erwachsene: {
-    video: ["/videos/erwachsene-hero.mp4", "https://videos.pexels.com/video-files/6539555/6539555-hd_1920_1080_25fps.mp4"],
+    video: ["https://files.manuscdn.com/user_upload_by_module/session_file/310419663028281720/sLFSYxdJMAiQdOXX.mp4", "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028281720/jUDOvskOIkWiOmuC.mp4"],
     headline: "Schwimmen lernen ist keine Frage des Alters.",
     subtext: "Ob kompletter Anfänger oder Technik-Feinschliff – lerne in kleiner Gruppe und geschütztem Rahmen schwimmen.",
   },
