@@ -5,7 +5,6 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index";
 import Kinderschwimmen from "./pages/kurse/Kinderschwimmen";
-import Wassergewoehnung from "./pages/kurse/Wassergewoehnung";
 import Erwachsene from "./pages/kurse/Erwachsene";
 import Aquafitness from "./pages/kurse/Aquafitness";
 import AquaReha from "./pages/kurse/AquaReha";
@@ -26,7 +25,6 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/kurse/kinderschwimmen" element={<Kinderschwimmen />} />
-          <Route path="/kurse/wassergewoehnung" element={<Wassergewoehnung />} />
           <Route path="/kurse/erwachsene" element={<Erwachsene />} />
           <Route path="/kurse/aquafitness" element={<Aquafitness />} />
           <Route path="/kurse/reha" element={<AquaReha />} />

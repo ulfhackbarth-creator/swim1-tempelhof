@@ -1,4 +1,4 @@
-import { ShieldCheck, Award, Heart, Thermometer, Smile, Activity, Droplets, Users, HeartPulse, FileText, UserCheck, Shield } from "lucide-react";
+import { ShieldCheck, Award, Heart, Activity, Droplets, Users, HeartPulse, FileText, UserCheck, Shield } from "lucide-react";
 import type { CourseTab } from "@/types/course";
 
 type UspItem = { Icon: typeof Award; label: string; text: string };
@@ -10,14 +10,6 @@ export const uspsByTab: Record<CourseTab, { title: string; items: UspItem[] }> =
       { Icon: ShieldCheck, label: "100% zertifizierte Trainer", text: "Unsere Trainer sind pädagogisch geschult und wissen genau, wie sie Kindern die Angst vor dem Wasser nehmen." },
       { Icon: Award, label: "Kleine Gruppen (Max. 6)", text: "Keine Massenabfertigung. Jedes Kind bekommt die Aufmerksamkeit, die es braucht, um in seinem eigenen Tempo zu lernen." },
       { Icon: Heart, label: "Nachweisbare Erfolge", text: "Vom ersten angstfreien Tauchen bis zum Goldabzeichen – wir feiern jeden kleinen und großen Fortschritt gemeinsam." },
-    ],
-  },
-  wassergewoehnung: {
-    title: "Sicherheit und Geborgenheit für dein Baby",
-    items: [
-      { Icon: Thermometer, label: "Wohlfühl-Temperatur", text: "Mit durchgehend 32°C Wassertemperatur garantieren wir, dass dein Baby nicht friert und sich vollkommen entspannen kann." },
-      { Icon: Smile, label: "Bindung stärken", text: "Haut an Haut im warmen Wasser: Unsere Kurse fördern das Urvertrauen und die motorische Entwicklung deines Kindes." },
-      { Icon: ShieldCheck, label: "Hygiene & Sicherheit", text: "Höchste Wasserqualität und speziell geschulte Kursleiter für Säuglinge und Kleinkinder." },
     ],
   },
   erwachsene: {

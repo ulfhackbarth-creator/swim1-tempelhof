@@ -1,4 +1,4 @@
-import { useState, useEffect, useLayoutEffect, useMemo, useRef, useCallback } from "react";
+import { useState, useEffect, useLayoutEffect, useRef, useCallback } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSwipeNavigation } from "@/hooks/useSwipeNavigation";
@@ -37,7 +37,6 @@ const slideVariants = {
 
 const locationSubtitle: Record<CourseTab, string> = {
   kinderschwimmen: "Finde die passende Schwimmschule in deiner Nähe",
-  wassergewoehnung: "Finde den passenden Standort für Babys und Kleinkinder",
   erwachsene: "Finde den passenden Standort für dein Training",
   fitness: "Finde den passenden Standort für dein Training",
   reha: "Finde deinen Standort für Aqua Reha",
@@ -72,7 +71,6 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
 
   useEffect(() => { setOpenIndex(null); setSelectedCourse(null); }, [tab]);
 
-  // Restore scroll position from swipe navigation
   useLayoutEffect(() => {
     const scrollY = (location.state as any)?.maintainScrollPosition;
     if (typeof scrollY === "number") {
@@ -320,7 +318,6 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
       </section>
 
       <HomeFooter />
-
     </>
   );
 

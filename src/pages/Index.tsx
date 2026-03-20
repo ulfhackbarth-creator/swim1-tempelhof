@@ -1,14 +1,14 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, Star, Waves, Baby, PersonStanding, Activity, HeartPulse, ShieldCheck, Lock, Users } from "lucide-react";
+import { ArrowRight, Star, Waves, PersonStanding, Activity, HeartPulse, ShieldCheck, Lock, Users } from "lucide-react";
 import GlobalHeader from "@/components/home/GlobalHeader";
 import HomeFooter from "@/components/home/HomeFooter";
 
 const heroVideos = [
-  "https://videos.pexels.com/video-files/5888971/5888971-hd_1920_1080_30fps.mp4",
   "https://videos.pexels.com/video-files/9044164/9044164-hd_1920_1080_30fps.mp4",
   "/videos/erwachsene-hero.mp4",
+  "https://videos.pexels.com/video-files/8050098/8050098-hd_1920_1080_25fps.mp4",
   "https://videos.pexels.com/video-files/4115399/4115399-hd_1920_1080_25fps.mp4",
 ];
 
@@ -20,8 +20,7 @@ const trustStats = [
 ];
 
 const categories = [
-  { Icon: Baby, title: "Wassergewöhnung", text: "Haut an Haut das Element Wasser entdecken. Ab 1,5 Monaten.", path: "/kurse/wassergewoehnung#kurse" },
-  { Icon: Waves, title: "Kinderschwimmen", text: "Schwimmen lernen mit Spaß und Sicherheit. Ab 4 Jahren.", path: "/kurse/kinderschwimmen#kurse" },
+  { Icon: Waves, title: "Kinderschwimmen", text: "Schwimmen lernen mit Spaß und Sicherheit. Ab 3,5 Jahren.", path: "/kurse/kinderschwimmen#kurse" },
   { Icon: PersonStanding, title: "Erwachsenenschwimmen", text: "Ängste abbauen oder Technik perfektionieren.", path: "/kurse/erwachsene#kurse" },
   { Icon: Activity, title: "Aquafitness", text: "Gelenkschonendes Ganzkörpertraining.", path: "/kurse/aquafitness#kurse" },
   { Icon: HeartPulse, title: "Aqua Reha", text: "Medizinisch begleitete Rehabilitation im Wasser.", path: "/kurse/reha#kurse" },
@@ -34,7 +33,7 @@ const philosophy = [
 ];
 
 const locations = [
-  { name: "Berlin-Tempelhof", address: "Ringbahnstraße 12, 12099 Berlin", route: "/schwerin" },
+  { name: "Berlin-Tempelhof", address: "Ringbahnstraße 12, 12099 Berlin", route: "/standorte/berlin-tempelhof" },
   { name: "Schwerin", address: "Wittenburger Chaussee 25, 19059 Schwerin", route: "/schwerin" },
   { name: "Wildau", address: "Adresse folgt in Kürze", route: "/wildau" },
   { name: "Bremen", address: "Adresse folgt in Kürze", route: "/bremen" },
@@ -43,7 +42,7 @@ const locations = [
 const testimonials = [
   { text: "Meine Tochter hatte anfangs große Angst vor dem Wasser. Die Trainer sind unglaublich geduldig und am Ende hat sie stolz ihr Seepferdchen geschafft!", name: "Sandra M.", location: "Berlin-Tempelhof" },
   { text: "Ich habe mich mit 45 Jahren endlich getraut. Der Trainer war unglaublich geduldig. Ich fühle mich jetzt sicher im Wasser.", name: "Markus T.", location: "Berlin-Tempelhof" },
-  { text: "Endlich eine Schwimmschule mit richtig warmem Wasser! Mein Sohn liebt die Wassergewöhnung. Tolle, ruhige Atmosphäre.", name: "Thomas K.", location: "Schwerin" },
+  { text: "Wegen meiner Knieprobleme kann ich nicht mehr joggen. Aqua-Fitness ist die perfekte Alternative, um fit zu bleiben.", name: "Peter W.", location: "Schwerin" },
   { text: "Nach meiner Hüft-OP war das Training im Wasser die Rettung. Ich konnte Bewegungen machen, die an Land undenkbar waren.", name: "Klaus D.", location: "Berlin-Tempelhof" },
 ];
 
@@ -69,7 +68,6 @@ const Index = () => {
 
     {/* ─── HERO ─── */}
     <section className="relative min-h-[70vh] md:min-h-[90vh] overflow-hidden">
-      {/* Video Rotator Background */}
       {heroVideos.map((src, i) => (
         <video
           key={src}
@@ -101,7 +99,7 @@ const Index = () => {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="text-base md:text-xl text-white/80 max-w-2xl mx-auto mb-8"
         >
-          Von der ersten Wassergewöhnung bis zur perfekten Kraultechnik. Swim1 ist deine Premium-Schwimmschule an 4 Standorten.
+          Vom Seepferdchen bis zur perfekten Kraultechnik. Swim1 ist deine Premium-Schwimmschule an 4 Standorten.
         </motion.p>
 
         <motion.div
@@ -172,7 +170,7 @@ const Index = () => {
           Finde den passenden Kurs
         </motion.h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {categories.map((cat, i) => (
             <motion.div
               key={cat.title}
@@ -180,11 +178,9 @@ const Index = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className={i >= 3 ? "sm:col-span-1 lg:col-span-1" : ""}
             >
               <Link
                 to={cat.path}
-                onClick={() => { /* scroll handled by #kurse hash */ }}
                 className="group bg-white rounded-[2rem] p-8 md:p-10 shadow-xl shadow-slate-200/40 border border-slate-100 flex flex-col h-full hover:-translate-y-1 transition-transform"
               >
                 <div className="w-14 h-14 rounded-2xl bg-blue-50 text-[#1B4F8A] flex items-center justify-center mb-6 group-hover:scale-105 transition-transform">

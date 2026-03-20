@@ -11,14 +11,6 @@ export const faqsByTab: Record<CourseTab, { title: string; items: FaqItem[] }> =
       { q: "Dürfen Eltern beim Kurs zuschauen?", a: "Um die Konzentration der Kinder bei den Trainern zu halten, bitten wir Eltern, außerhalb des Bades zu warten." },
     ],
   },
-  wassergewoehnung: {
-    title: "Häufige Fragen zum Babyschwimmen",
-    items: [
-      { q: "Ab wann darf mein Baby ins Wasser?", a: "Wir empfehlen den Start ab dem 2. Lebensmonat, wenn der Bauchnabel vollständig verheilt ist." },
-      { q: "Was muss ich mitbringen?", a: "Schwimmwindel, zwei große Handtücher und natürlich viel gute Laune." },
-      { q: "Was passiert, wenn mein Baby weint?", a: "Das ist völlig normal! Unsere Trainer zeigen dir Griffe, wie du dein Baby im Wasser beruhigen kannst." },
-    ],
-  },
   erwachsene: {
     title: "Häufige Fragen zum Erwachsenenschwimmen",
     items: [

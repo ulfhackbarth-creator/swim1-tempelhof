@@ -1,5 +1,5 @@
 import { useEffect, useRef, useLayoutEffect } from "react";
-import { Waves, Baby, Activity, HeartPulse, PersonStanding, MapPin, ChevronDown } from "lucide-react";
+import { Waves, Activity, HeartPulse, PersonStanding, MapPin, ChevronDown } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import {
   DropdownMenu,
@@ -12,7 +12,6 @@ import {
 const SCROLL_KEY = "chip-scroll-left";
 
 const chips = [
-  { id: "wassergewoehnung", label: "Wassergewöhnung", Icon: Baby, path: "/kurse/wassergewoehnung" },
   { id: "kinderschwimmen", label: "Kinderschwimmen", Icon: Waves, path: "/kurse/kinderschwimmen" },
   { id: "erwachsene", label: "Erwachsenenschwimmen", Icon: PersonStanding, path: "/kurse/erwachsene" },
   { id: "fitness", label: "Aquafitness", Icon: Activity, path: "/kurse/aquafitness" },

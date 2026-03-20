@@ -19,7 +19,6 @@ const HomeFooter = () => (
         <div>
           <h4 className="text-white font-bold uppercase tracking-wider text-sm mb-6">Kurse</h4>
           <nav className="flex flex-col gap-2 text-sm text-slate-400">
-            <Link to="/kurse/wassergewoehnung" onClick={scrollTop} className="hover:text-white transition-colors">Wassergewöhnung</Link>
             <Link to="/kurse/kinderschwimmen" onClick={scrollTop} className="hover:text-white transition-colors">Kinderschwimmen</Link>
             <Link to="/kurse/erwachsene" onClick={scrollTop} className="hover:text-white transition-colors">Erwachsenenschwimmen</Link>
             <Link to="/kurse/aquafitness" onClick={scrollTop} className="hover:text-white transition-colors">Aquafitness</Link>
@@ -30,7 +29,7 @@ const HomeFooter = () => (
         <div>
           <h4 className="text-white font-bold uppercase tracking-wider text-sm mb-6">Standorte</h4>
           <nav className="flex flex-col gap-2 text-sm text-slate-400">
-            <Link to="/schwerin" onClick={scrollTop} className="hover:text-white transition-colors">Berlin-Tempelhof</Link>
+            <Link to="/standorte/berlin-tempelhof" onClick={scrollTop} className="hover:text-white transition-colors">Berlin-Tempelhof</Link>
             <Link to="/schwerin" onClick={scrollTop} className="hover:text-white transition-colors">Schwerin</Link>
             <Link to="/wildau" onClick={scrollTop} className="hover:text-white transition-colors">Wildau</Link>
             <Link to="/bremen" onClick={scrollTop} className="hover:text-white transition-colors">Bremen</Link>
