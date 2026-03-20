@@ -1,5 +1,6 @@
 export interface Standort {
   name: string;
+  center: string;
   address: string;
   route: string;
   status: "active" | "coming-soon";
@@ -7,8 +8,8 @@ export interface Standort {
 }
 
 export const standorte: Standort[] = [
-  { name: "Berlin-Tempelhof", address: "Ringbahnstraße 12, 12099 Berlin", route: "/standorte/berlin-tempelhof", status: "active", features: ["32 °C Wasser", "Parkplätze", "Alle Kurse"] },
-  { name: "Schwerin", address: "Wittenburger Chaussee 25, 19059 Schwerin", route: "/schwerin", status: "coming-soon", features: ["32 °C Wasser", "Zentrale Lage"] },
-  { name: "Wildau", address: "A10 Center Wildau", route: "/wildau", status: "coming-soon", features: ["32 °C Wasser", "Parkplätze"] },
-  { name: "Bremen", address: "Waterfront Bremen", route: "/bremen", status: "coming-soon", features: ["32 °C Wasser", "Zentrale Lage"] },
+  { name: "Berlin-Tempelhof", center: "Tempelhofer Hafen", address: "Ordensmeisterstr. 1–3, 12099 Berlin", route: "/standorte/berlin-tempelhof", status: "active", features: ["32 °C Wasser", "Parkplätze", "Alle Kurse"] },
+  { name: "Schwerin", center: "Schlosspark-Center", address: "Marienplatz 5–6, 19053 Schwerin", route: "/schwerin", status: "coming-soon", features: ["32 °C Wasser", "Zentrale Lage"] },
+  { name: "Wildau", center: "A10 Center", address: "Chausseestr. 1, 15745 Wildau", route: "/wildau", status: "coming-soon", features: ["32 °C Wasser", "Parkplätze"] },
+  { name: "Bremen", center: "Waterfront", address: "AG-Weser-Str. 3, 28237 Bremen", route: "/bremen", status: "coming-soon", features: ["32 °C Wasser", "Zentrale Lage"] },
 ];
