@@ -21,11 +21,11 @@ const trustStats = [
 ];
 
 const categories = [
-  { Icon: Droplets, title: "Wassergewöhnung", text: "Babyschwimmen & Eltern-Kind-Kurse. Ab 3 Monaten.", path: "/kurse/wassergewoehnung#kurse" },
-  { Icon: Waves, title: "Kinderschwimmen", text: "Schwimmen lernen mit Spaß und Sicherheit. Ab 3,5 Jahren.", path: "/kurse/kinderschwimmen#kurse" },
-  { Icon: PersonStanding, title: "Erwachsenenschwimmen", text: "Ängste abbauen oder Technik perfektionieren.", path: "/kurse/erwachsene#kurse" },
-  { Icon: Activity, title: "Aquafitness", text: "Gelenkschonendes Ganzkörpertraining.", path: "/kurse/aquafitness#kurse" },
-  { Icon: HeartPulse, title: "Aqua Reha", text: "Medizinisch begleitete Rehabilitation im Wasser.", path: "/kurse/reha#kurse" },
+  { Icon: Droplets, title: "Wassergewöhnung", text: "Babyschwimmen & Eltern-Kind-Kurse. Ab 3 Monaten.", path: "/kurse/wassergewoehnung" },
+  { Icon: Waves, title: "Kinderschwimmen", text: "Schwimmen lernen mit Spaß und Sicherheit. Ab 3,5 Jahren.", path: "/kurse/kinderschwimmen" },
+  { Icon: PersonStanding, title: "Erwachsenenschwimmen", text: "Ängste abbauen oder Technik perfektionieren.", path: "/kurse/erwachsene" },
+  { Icon: Activity, title: "Aquafitness", text: "Gelenkschonendes Ganzkörpertraining.", path: "/kurse/aquafitness" },
+  { Icon: HeartPulse, title: "Aqua Reha", text: "Medizinisch begleitete Rehabilitation im Wasser.", path: "/kurse/reha" },
 ];
 
 const philosophy = [
