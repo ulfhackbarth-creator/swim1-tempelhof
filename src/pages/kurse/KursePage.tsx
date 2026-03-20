@@ -106,9 +106,11 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
   const handleSelectCourse = useCallback((name: string) => {
     const next = selectedCourse === name ? null : name;
     setSelectedCourse(next);
-    if (next && !isMobile) {
+    if (next && isMobile) {
       requestAnimationFrame(() => {
-        cardRefs.current[next]?.scrollIntoView({ behavior: "smooth", block: "center" });
+        setTimeout(() => {
+          ctaButtonRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+        }, 100);
       });
     }
   }, [selectedCourse, isMobile]);
