@@ -45,9 +45,18 @@ const LocationsSection = ({ activeTab }: { activeTab: CourseTab }) => (
         <h2 className="text-4xl font-bold tracking-tight text-slate-900 mb-4">
           Unsere Standorte
         </h2>
-        <p className="text-slate-500">
-          Finde deine Schwimmschule in deiner Nähe.
-        </p>
+        <AnimatePresence mode="wait">
+          <motion.p
+            key={activeTab}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="text-slate-500"
+          >
+            {locationSubtitle[activeTab]}
+          </motion.p>
+        </AnimatePresence>
       </motion.div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
