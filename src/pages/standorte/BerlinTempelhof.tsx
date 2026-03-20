@@ -5,7 +5,6 @@ import { MapPin, Thermometer, Car, Droplets, Train, Shirt, Wind, Coffee, Chevron
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import GlobalHeader from "@/components/home/GlobalHeader";
 import HomeFooter from "@/components/home/HomeFooter";
-import HomeFooter from "@/components/home/HomeFooter";
 
 const trustBadges = [
   { icon: Thermometer, label: "32 °C Wassertemperatur" },
