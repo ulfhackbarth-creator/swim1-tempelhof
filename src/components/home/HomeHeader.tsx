@@ -3,7 +3,7 @@ import { Waves, Baby, Activity, HeartPulse } from "lucide-react";
 import type { CourseTab } from "@/pages/Index";
 
 const chips: { id: CourseTab; label: string; Icon: typeof Waves }[] = [
-  { id: "schwimmen", label: "Schwimmen lernen", Icon: Waves },
+  { id: "schwimmen", label: "Schwimmen", Icon: Waves },
   { id: "wassergewoehnung", label: "Wassergewöhnung", Icon: Baby },
   { id: "fitness", label: "Aqua-Fitness", Icon: Activity },
   { id: "reha", label: "Rehasport", Icon: HeartPulse },
@@ -29,7 +29,7 @@ const HomeHeader = ({
       style={{ backgroundColor: "#0F2D52" }}
     >
       {/* Row 1 — Logo + CTA */}
-      <div className="px-6 md:px-10 py-3.5 flex items-center justify-between">
+      <div className="px-4 md:px-10 py-3.5 flex items-center justify-between">
         <a href="/" className="flex items-center gap-2">
           <Waves className="w-5 h-5 text-white" />
           <span className="font-bold text-lg text-white">SWIM1</span>
@@ -43,17 +43,17 @@ const HomeHeader = ({
       </div>
 
       {/* Row 2 — Category chips */}
-      <div className="px-6 md:px-10 pb-3 pt-3 flex flex-row gap-2 overflow-x-auto scrollbar-hide border-t border-white/10">
+      <div className="px-4 md:px-10 pb-3 pt-3 flex flex-row gap-3 overflow-x-auto scrollbar-hide border-t border-white/10">
         {chips.map((chip) => {
           const isActive = activeTab === chip.id;
           return (
             <button
               key={chip.id}
               onClick={() => onTabChange(chip.id)}
-              className={`flex items-center gap-2 rounded-full px-4 py-1.5 cursor-pointer transition-all duration-200 text-sm font-semibold whitespace-nowrap ${
+              className={`flex items-center gap-2 rounded-full px-4 py-1.5 cursor-pointer transition-colors duration-200 text-sm whitespace-nowrap ${
                 isActive
-                  ? "bg-white text-[#0F2D52]"
-                  : "bg-transparent text-white/60 hover:text-white"
+                  ? "bg-white text-[#0F2D52] border border-white font-bold shadow-sm"
+                  : "bg-transparent text-white/80 border border-white/40 font-medium hover:border-white hover:text-white"
               }`}
             >
               <chip.Icon

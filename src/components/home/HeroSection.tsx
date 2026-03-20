@@ -86,7 +86,7 @@ const HeroSection = ({
   return (
     <>
       {/* HERO — Video */}
-      <section className="relative min-h-[85vh] overflow-hidden" style={{ paddingTop: "120px" }}>
+      <section className="relative min-h-[70vh] md:min-h-[85vh] overflow-hidden pt-32 md:pt-[120px]">
         {allTabs.map((tab) => (
           <video
             key={tab}
@@ -104,7 +104,7 @@ const HeroSection = ({
 
         <div className="absolute inset-0 bg-black/40" />
 
-        <div className="relative z-10 flex flex-col items-center justify-center text-center px-6 min-h-[85vh]" style={{ paddingTop: "120px" }}>
+        <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 md:px-6 min-h-[70vh] md:min-h-[85vh] pt-32 md:pt-[120px] pb-8 md:pb-0">
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -123,10 +123,10 @@ const HeroSection = ({
               transition={{ duration: 0.3 }}
               className="max-w-4xl mx-auto"
             >
-              <h1 className="text-6xl md:text-8xl font-bold text-white tracking-tight leading-[1.1] mb-6">
+              <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold text-white tracking-tight leading-tight md:leading-[1.1] mb-4 md:mb-6">
                 {content.headline}
               </h1>
-              <p className="text-xl text-white/80 max-w-2xl mx-auto">
+              <p className="text-base md:text-xl text-white/80 max-w-2xl mx-auto">
                 {content.subtext}
               </p>
             </motion.div>
@@ -135,7 +135,7 @@ const HeroSection = ({
       </section>
 
       {/* KURSANGEBOT — Premium cards on off-white */}
-      <section className="bg-slate-50 py-24 px-6">
+      <section className="bg-slate-50 py-16 md:py-24 px-4 md:px-6">
         <div className="max-w-6xl mx-auto">
           <AnimatePresence mode="wait">
             <motion.div
@@ -144,7 +144,7 @@ const HeroSection = ({
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className={`grid gap-8 ${gridClass[activeTab]}`}
+              className={`grid gap-6 md:gap-8 ${gridClass[activeTab]}`}
             >
               {coursesByTab[activeTab].map((course, i) => (
                 <motion.div
@@ -152,12 +152,12 @@ const HeroSection = ({
                   initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: i * 0.06 }}
-                  className="bg-white rounded-[2rem] p-10 shadow-xl shadow-slate-200/40 border border-slate-100 transition-transform hover:-translate-y-1 flex flex-col"
+                  className="bg-white rounded-[2rem] p-6 md:p-10 shadow-xl shadow-slate-200/40 border border-slate-100 transition-transform hover:-translate-y-1 flex flex-col"
                 >
                   <span className="text-xs font-bold uppercase tracking-widest text-[#1B4F8A] mb-4">
                     {course.tag}
                   </span>
-                  <h3 className="text-3xl font-bold text-slate-900 mb-4">{course.name}</h3>
+                  <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">{course.name}</h3>
                   <p className="text-slate-600 leading-relaxed mb-8 flex-1">{course.text}</p>
                   <span className="inline-flex items-center text-[#1B4F8A] font-semibold hover:gap-3 transition-all cursor-pointer gap-1">
                     Mehr erfahren <span>→</span>
@@ -167,7 +167,7 @@ const HeroSection = ({
             </motion.div>
           </AnimatePresence>
 
-          {/* TRUST STATS — minimal, inside off-white */}
+          {/* TRUST STATS */}
           <AnimatePresence mode="wait">
             <motion.div
               key={`trust-${activeTab}`}
@@ -175,11 +175,11 @@ const HeroSection = ({
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="max-w-4xl mx-auto grid grid-cols-3 divide-x divide-slate-200 text-center pt-16 pb-8"
+              className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-slate-200 text-center pt-12 md:pt-16 pb-8"
             >
               {trustStats[activeTab].map((s) => (
-                <div key={s.label} className="px-4">
-                  <span className="block text-5xl font-bold text-[#1B4F8A] tracking-tight mb-2">
+                <div key={s.label} className="px-4 py-4 md:py-0">
+                  <span className="block text-4xl md:text-5xl font-bold text-[#1B4F8A] tracking-tight mb-2">
                     {s.value}
                   </span>
                   <span className="block text-sm font-medium text-slate-500 uppercase tracking-wider">

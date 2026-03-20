@@ -20,14 +20,14 @@ const usps = [
 ];
 
 const WhySwim1 = () => (
-  <section id="warum" className="py-32 bg-white scroll-mt-20">
+  <section id="warum" className="py-16 md:py-32 bg-white scroll-mt-20">
     <div className="max-w-6xl mx-auto px-6">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="text-center max-w-2xl mx-auto mb-20"
+        className="text-center max-w-2xl mx-auto mb-12 md:mb-20"
       >
         <h2 className="text-4xl font-bold tracking-tight text-slate-900 mb-4">
           Das macht SWIM1 besonders

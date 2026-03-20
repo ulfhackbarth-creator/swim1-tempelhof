@@ -20,14 +20,14 @@ const testimonials = [
 ];
 
 const HomeTestimonials = () => (
-  <section className="py-32" style={{ backgroundColor: "#0F2D52" }}>
+  <section className="py-16 md:py-32" style={{ backgroundColor: "#0F2D52" }}>
     <div className="max-w-6xl mx-auto px-6">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="text-center mb-20"
+        className="text-center mb-12 md:mb-20"
       >
         <h2 className="text-4xl font-bold tracking-tight text-white mb-4">
           Eltern über ihre Erfahrungen
@@ -43,7 +43,7 @@ const HomeTestimonials = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: i * 0.1 }}
-            className="rounded-[2rem] p-10 border border-white/10 bg-white/5 backdrop-blur-sm"
+            className="rounded-[2rem] p-6 md:p-10 border border-white/10 bg-white/5 backdrop-blur-sm"
           >
             <div className="flex gap-0.5 mb-6">
               {[...Array(5)].map((_, j) => (
