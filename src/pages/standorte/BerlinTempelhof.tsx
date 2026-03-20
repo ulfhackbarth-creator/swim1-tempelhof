@@ -84,6 +84,26 @@ const reveal = {
 
 const BerlinTempelhof = () => {
   const kurseRef = useRef<HTMLDivElement>(null);
+  const [searchParams] = useSearchParams();
+  const courseParam = searchParams.get("course") || searchParams.get("preselect") || "";
+
+  const matchedAccordion = useMemo(() => {
+    if (!courseParam) return "";
+    const normalized = decodeURIComponent(courseParam).toLowerCase();
+    const match = courses.find((c) =>
+      c.courseKeys.some((k) => normalized.includes(k)) || c.id === normalized
+    );
+    return match?.id || "";
+  }, [courseParam]);
+
+  useEffect(() => {
+    if (matchedAccordion) {
+      const timer = setTimeout(() => {
+        kurseRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 300);
+      return () => clearTimeout(timer);
+    }
+  }, [matchedAccordion]);
 
   const scrollToKurse = () =>
     kurseRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
