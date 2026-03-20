@@ -1,4 +1,4 @@
-import { useRef, useEffect, useMemo } from "react";
+import { useRef, useMemo, useState, useCallback } from "react";
 import { useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { MapPin, Thermometer, Car, Droplets, Train, Shirt, Wind, Coffee, ChevronRight, Phone, Clock, ArrowRight, ShowerHead } from "lucide-react";
@@ -87,11 +87,7 @@ const BerlinTempelhof = () => {
   const [searchParams] = useSearchParams();
   const courseParam = searchParams.get("course") || searchParams.get("preselect") || "";
 
-  const displayCourseName = courseParam
-    ? decodeURIComponent(courseParam).replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())
-    : "";
-
-  const matchedAccordion = useMemo(() => {
+  const initialAccordion = useMemo(() => {
     if (!courseParam) return "";
     const normalized = decodeURIComponent(courseParam).toLowerCase();
     const match = courses.find((c) =>
@@ -100,14 +96,17 @@ const BerlinTempelhof = () => {
     return match?.id || "";
   }, [courseParam]);
 
-  useEffect(() => {
-    if (matchedAccordion) {
-      const timer = setTimeout(() => {
-        kurseRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-      }, 300);
-      return () => clearTimeout(timer);
-    }
-  }, [matchedAccordion]);
+  const [activeAccordion, setActiveAccordion] = useState(initialAccordion);
+
+  const displayCourseName = useMemo(() => {
+    if (!activeAccordion) return "";
+    const match = courses.find((c) => c.id === activeAccordion);
+    return match?.title || "";
+  }, [activeAccordion]);
+
+  const handleAccordionChange = useCallback((value: string) => {
+    setActiveAccordion(value);
+  }, []);
 
   const scrollToKurse = () =>
     kurseRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -218,9 +217,9 @@ const BerlinTempelhof = () => {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, delay: 0.12 }}
           >
-            <Accordion type="single" collapsible defaultValue={matchedAccordion} className="space-y-3">
+            <Accordion type="single" collapsible defaultValue={initialAccordion} value={activeAccordion} onValueChange={handleAccordionChange} className="space-y-3">
               {courses.map((course) => {
-                const isHighlighted = matchedAccordion === course.id && !!courseParam;
+                const isHighlighted = activeAccordion === course.id;
                 return (
                   <AccordionItem
                     key={course.id}
