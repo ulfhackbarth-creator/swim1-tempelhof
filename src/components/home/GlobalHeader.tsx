@@ -1,4 +1,4 @@
-import { useEffect, useRef, useLayoutEffect } from "react";
+import { useState, useEffect, useRef, useLayoutEffect, useCallback } from "react";
 import { Waves, Activity, HeartPulse, PersonStanding, Droplets, MapPin, ChevronDown } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import {
@@ -29,6 +29,27 @@ const GlobalHeader = () => {
   const chipRefs = useRef<Record<string, HTMLAnchorElement | null>>({});
 
   const isHome = location.pathname === "/";
+
+  // Hide-on-scroll-down, show-on-scroll-up
+  const [isVisible, setIsVisible] = useState(true);
+  const lastScrollY = useRef(0);
+
+  const handleScroll = useCallback(() => {
+    const currentScrollY = window.scrollY;
+    if (currentScrollY < 50) {
+      setIsVisible(true);
+    } else if (currentScrollY > lastScrollY.current) {
+      setIsVisible(false);
+    } else {
+      setIsVisible(true);
+    }
+    lastScrollY.current = currentScrollY;
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [handleScroll]);
 
   useLayoutEffect(() => {
     if (!containerRef.current) return;
@@ -68,7 +89,7 @@ const GlobalHeader = () => {
   };
 
   return (
-    <header className="sticky top-0 left-0 right-0 z-50" style={{ backgroundColor: "#0F2D52" }}>
+    <header className={`sticky top-0 left-0 right-0 z-50 transition-transform duration-300 ${isVisible ? "translate-y-0" : "-translate-y-full"}`} style={{ backgroundColor: "#0F2D52" }}>
       {/* Row 1 — Logo + Standort Dropdown */}
       <div className="px-4 md:px-10 py-3.5 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2" onClick={() => window.scrollTo({ top: 0 })}>
