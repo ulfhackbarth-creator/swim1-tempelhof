@@ -380,7 +380,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 80, opacity: 0 }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed bottom-4 left-4 right-4 z-50 md:left-auto md:right-6 md:bottom-6 md:max-w-sm"
+            className="fixed bottom-4 left-4 right-4 z-50 md:hidden"
           >
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
