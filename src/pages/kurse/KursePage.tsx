@@ -164,21 +164,49 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
              })}
            </div>
 
-           {/* Dynamic CTA */}
+           {/* Dynamic CTA with Dropdown */}
            <motion.div
              initial={{ opacity: 0, y: 10 }}
              animate={{ opacity: selectedCourse ? 1 : 0, y: selectedCourse ? 0 : 10 }}
              transition={{ duration: 0.25 }}
              className={`flex justify-center pt-10 ${!selectedCourse ? "pointer-events-none" : ""}`}
            >
-             <button
-               onClick={handleFindLocation}
-               disabled={!selectedCourse}
-               className="inline-flex items-center gap-2 rounded-full px-8 py-4 font-bold text-lg text-white transition-all shadow-lg bg-[#F97316] hover:bg-[#EA580C] disabled:opacity-40 disabled:cursor-not-allowed active:scale-[0.97]"
-               style={{ boxShadow: selectedCourse ? "0 10px 30px -5px rgba(249,115,22,0.3)" : "none" }}
-             >
-               Standort für „{selectedCourse || "…"}" finden <ArrowRight className="w-5 h-5" />
-             </button>
+             <DropdownMenu>
+               <DropdownMenuTrigger asChild>
+                 <button
+                   disabled={!selectedCourse}
+                   className="inline-flex items-center gap-2 rounded-full px-8 py-4 font-bold text-lg text-white transition-all shadow-lg bg-[#F97316] hover:bg-[#EA580C] disabled:opacity-40 disabled:cursor-not-allowed active:scale-[0.97]"
+                   style={{ boxShadow: selectedCourse ? "0 10px 30px -5px rgba(249,115,22,0.3)" : "none" }}
+                 >
+                   Standort für „{selectedCourse || "…"}" wählen <ChevronDown className="w-5 h-5" />
+                 </button>
+               </DropdownMenuTrigger>
+               <DropdownMenuContent
+                 align="center"
+                 sideOffset={12}
+                 className="w-72 rounded-xl border-border/50 bg-card p-1 shadow-xl"
+               >
+                 <DropdownMenuLabel className="text-xs text-muted-foreground uppercase tracking-wider px-3 py-2">
+                   Standort wählen
+                 </DropdownMenuLabel>
+                 {standortLinks.map((s) => (
+                   <DropdownMenuItem
+                     key={s.path}
+                     asChild
+                     className="cursor-pointer rounded-lg px-3 py-2.5 focus:bg-primary/5 focus:text-primary"
+                   >
+                     <Link
+                       to={`${s.path}?course=${courseParam}`}
+                       onClick={() => window.scrollTo({ top: 0 })}
+                       className="flex items-center gap-2.5 w-full"
+                     >
+                       <MapPin className="w-4 h-4 text-primary" />
+                       <span className="font-medium">{s.label}</span>
+                     </Link>
+                   </DropdownMenuItem>
+                 ))}
+               </DropdownMenuContent>
+             </DropdownMenu>
            </motion.div>
 
           {/* Trust Stats */}
