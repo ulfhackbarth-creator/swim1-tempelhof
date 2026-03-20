@@ -312,24 +312,6 @@ const BerlinTempelhof = () => {
         
       </section>
 
-      {/* ═══════════ TRUST STATS BAR ═══════════ */}
-      <section className="bg-[#0F2D52] py-12 md:py-16">
-        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 px-6">
-          {trustStats.map((s, i) => (
-            <motion.div
-              key={s.label}
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="text-center"
-            >
-              <span className="block text-2xl md:text-3xl font-bold text-white tracking-tight mb-1">{s.value}</span>
-              <span className="block text-xs font-semibold text-white/50 uppercase tracking-wider">{s.label}</span>
-            </motion.div>
-          ))}
-        </div>
-      </section>
 
       {/* ═══════════ 2. STANDORT & AUSSTATTUNG ═══════════ */}
       <section className="py-16 md:py-32 bg-white">
