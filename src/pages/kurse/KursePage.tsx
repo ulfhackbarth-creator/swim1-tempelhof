@@ -1,4 +1,4 @@
-import { useState, useEffect, useLayoutEffect } from "react";
+import { useState, useEffect, useLayoutEffect, useMemo } from "react";
 import { useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSwipeNavigation } from "@/hooks/useSwipeNavigation";
@@ -11,6 +11,21 @@ import { heroContent, coursesByTab, courseSectionTitle, gridClass, trustStats } 
 import { uspsByTab } from "@/data/uspData";
 import { testimonialsByTab } from "@/data/testimonialData";
 import { faqsByTab } from "@/data/faqData";
+
+const slideVariants = {
+  enter: (direction: number) => ({
+    x: direction > 0 ? "100%" : "-100%",
+    opacity: 0,
+  }),
+  center: {
+    x: 0,
+    opacity: 1,
+  },
+  exit: (direction: number) => ({
+    x: direction < 0 ? "100%" : "-100%",
+    opacity: 0,
+  }),
+};
 
 const locationSubtitle: Record<CourseTab, string> = {
   kinderschwimmen: "Finde die passende Schwimmschule in deiner Nähe",
