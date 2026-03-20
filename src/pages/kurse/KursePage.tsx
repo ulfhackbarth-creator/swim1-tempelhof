@@ -55,6 +55,7 @@ const locations = [
 ];
 
 const KursePage = ({ tab }: { tab: CourseTab }) => {
+  const isMobile = useIsMobile();
   const content = heroContent[tab];
   const usps = uspsByTab[tab];
   const tests = testimonialsByTab[tab];
