@@ -91,11 +91,9 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
     setSelectedCourse((prev) => (prev === name ? null : name));
   };
 
-  const handleFindLocation = () => {
-    if (!selectedCourse) return;
-    const param = encodeURIComponent(selectedCourse.toLowerCase().replace(/\s+/g, "-"));
-    navigate(`/standorte/berlin-tempelhof?preselect=${param}`);
-  };
+  const courseParam = selectedCourse
+    ? encodeURIComponent(selectedCourse.toLowerCase().replace(/\s+/g, "-"))
+    : "";
 
   const swipe = useSwipeNavigation();
 
