@@ -100,31 +100,7 @@ const GlobalHeader = () => {
           <span className="font-bold text-lg text-white">SWIM1</span>
         </Link>
 
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <button className="rounded-full px-5 py-2 text-sm font-semibold text-white bg-[#F97316] hover:bg-orange-600 transition-colors flex items-center gap-1.5 active:scale-[0.97]">
-              Standort wählen
-              <ChevronDown className="w-3.5 h-3.5" />
-            </button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent
-            align="end"
-            sideOffset={12}
-            className="w-64 rounded-xl border-border/50 bg-card p-1 shadow-xl"
-          >
-            <DropdownMenuLabel className="text-xs text-muted-foreground uppercase tracking-wider px-3 py-2">
-              Unsere Standorte
-            </DropdownMenuLabel>
-            {standorte.map((s) => (
-              <DropdownMenuItem key={s.path} asChild className="cursor-pointer rounded-lg px-3 py-2.5 focus:bg-primary/5 focus:text-primary">
-                <Link to={s.path} className="flex items-center gap-2.5 w-full">
-                  <MapPin className="w-4 h-4 text-primary" />
-                  <span className="font-medium">{s.label}</span>
-                </Link>
-              </DropdownMenuItem>
-            ))}
-          </DropdownMenuContent>
-        </DropdownMenu>
+        <StandortDropdown variant="orange" align="end" />
       </div>
 
       {/* Row 2 — Category chips */}
