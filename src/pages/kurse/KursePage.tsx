@@ -1,4 +1,4 @@
-import { useState, useEffect, useLayoutEffect, useMemo } from "react";
+import { useState, useEffect, useLayoutEffect, useMemo, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSwipeNavigation } from "@/hooks/useSwipeNavigation";
@@ -60,6 +60,19 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
   const faqs = faqsByTab[tab];
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
+  const [kurseSectionVisible, setKurseSectionVisible] = useState(false);
+  const kurseSectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const el = kurseSectionRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setKurseSectionVisible(entry.isIntersecting),
+      { threshold: 0.15 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -124,7 +137,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
       </section>
 
       {/* KURSANGEBOT + TRUST */}
-      <section id="kurse" className="bg-blue-50/50 py-16 md:py-24 px-4 md:px-6 scroll-mt-28">
+      <section id="kurse" ref={kurseSectionRef} className="bg-blue-50/50 py-16 md:py-24 px-4 md:px-6 scroll-mt-28">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 text-center mb-12 md:mb-16">
             {courseSectionTitle[tab]}
@@ -303,6 +316,58 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
       </section>
 
       <HomeFooter />
+
+      {/* Sticky Bottom CTA */}
+      <AnimatePresence>
+        {selectedCourse && !kurseSectionVisible && (
+          <motion.div
+            initial={{ y: 80, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: 80, opacity: 0 }}
+            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="fixed bottom-4 left-4 right-4 z-50 md:left-auto md:right-6 md:bottom-6 md:max-w-sm"
+          >
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <button
+                  className="w-full inline-flex items-center justify-center gap-2 rounded-2xl px-6 py-4 font-bold text-base text-white bg-[#1B4F8A] hover:bg-[#164172] active:scale-[0.97] transition-all shadow-xl backdrop-blur-md border border-white/10"
+                  style={{ boxShadow: "0 12px 40px -8px rgba(27,79,138,0.45)" }}
+                >
+                  <MapPin className="w-4 h-4" />
+                  Standort für „{selectedCourse}" finden
+                  <ChevronDown className="w-4 h-4 ml-auto" />
+                </button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent
+                side="top"
+                align="center"
+                sideOffset={12}
+                className="w-[calc(100vw-2rem)] md:w-72 rounded-xl border-border/50 bg-card p-1 shadow-xl"
+              >
+                <DropdownMenuLabel className="text-xs text-muted-foreground uppercase tracking-wider px-3 py-2">
+                  Standort wählen
+                </DropdownMenuLabel>
+                {standortLinks.map((s) => (
+                  <DropdownMenuItem
+                    key={s.path}
+                    asChild
+                    className="cursor-pointer rounded-lg px-3 py-2.5 focus:bg-primary/5 focus:text-primary"
+                  >
+                    <Link
+                      to={`${s.path}?course=${courseParam}`}
+                      onClick={() => window.scrollTo({ top: 0 })}
+                      className="flex items-center gap-2.5 w-full"
+                    >
+                      <MapPin className="w-4 h-4 text-primary" />
+                      <span className="font-medium">{s.label}</span>
+                    </Link>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 
