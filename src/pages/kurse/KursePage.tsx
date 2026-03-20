@@ -241,15 +241,29 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
             })}
           </div>
 
-          {/* Trust Stats */}
-          <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-slate-200 text-center pt-12 md:pt-16 pb-8">
-            {trustStats[tab].map((s) => (
-              <div key={s.label} className="flex-1 min-w-0 px-4 py-4 md:py-0">
-                <span className="block text-xl md:text-2xl lg:text-3xl font-bold text-[#1B4F8A] tracking-tight mb-2 break-words hyphens-auto">{s.value}</span>
-                <span className="block text-sm font-medium text-slate-500 uppercase tracking-wider">{s.label}</span>
-              </div>
-            ))}
-          </div>
+        </div>
+      </section>
+
+      {/* Trust Stats */}
+      <section className="bg-[#0F2D52] py-12 md:py-16">
+        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-3 gap-6 px-6">
+          {trustStats[tab].map((s, i) => (
+            <motion.div
+              key={s.label}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+              className="text-center"
+            >
+              <span className="block text-2xl md:text-3xl font-bold text-white tracking-tight mb-1">
+                {s.value}
+              </span>
+              <span className="block text-xs font-semibold text-white/50 uppercase tracking-wider">
+                {s.label}
+              </span>
+            </motion.div>
+          ))}
         </div>
       </section>
 
