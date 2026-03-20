@@ -22,7 +22,7 @@ export const heroContent: Record<CourseTab, { video: string; headline: string; s
     subtext: "Gelenkschonend · Alle Level · Viel Spaß in der Gruppe",
   },
   reha: {
-    video: "https://videos.pexels.com/video-files/4115399/4115399-hd_1920_1080_25fps.mp4",
+    video: "https://videos.pexels.com/video-files/6539674/6539674-hd_1920_1080_25fps.mp4",
     headline: "Gesundheit beginnt im Wasser.",
     subtext: "Auf ärztliches Rezept · Krankenkassen-anerkannt · Medizinisch begleitet",
   },
