@@ -1,4 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 import type { CourseTab } from "@/pages/Index";
 
 const heroContent: Record<CourseTab, { video: string; headline: string; subtext: string }> = {
@@ -22,6 +23,13 @@ const heroContent: Record<CourseTab, { video: string; headline: string; subtext:
     headline: "Gesundheit beginnt im Wasser.",
     subtext: "Auf ärztliches Rezept · Krankenkassen-anerkannt · Medizinisch begleitet",
   },
+};
+
+const courseSectionTitle: Record<CourseTab, string> = {
+  schwimmen: "Der Weg zum sicheren Schwimmer",
+  wassergewoehnung: "Gemeinsam das Element Wasser entdecken",
+  fitness: "Dein Workout im Wasser",
+  reha: "Gesundheit und Mobilität fördern",
 };
 
 type Course = { tag: string; name: string; text: string };
@@ -76,12 +84,12 @@ const trustStats: Record<CourseTab, { value: string; label: string }[]> = {
 
 const allTabs: CourseTab[] = ["schwimmen", "wassergewoehnung", "fitness", "reha"];
 
-const HeroSection = ({
-  activeTab,
-}: {
-  activeTab: CourseTab;
-}) => {
+const HeroSection = ({ activeTab }: { activeTab: CourseTab }) => {
   const content = heroContent[activeTab];
+
+  const scrollTo = (id: string) => {
+    document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <>
@@ -126,17 +134,42 @@ const HeroSection = ({
               <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold text-white tracking-tight leading-tight md:leading-[1.1] mb-4 md:mb-6">
                 {content.headline}
               </h1>
-              <p className="text-base md:text-xl text-white/80 max-w-2xl mx-auto">
+              <p className="text-base md:text-xl text-white/80 max-w-2xl mx-auto mb-8">
                 {content.subtext}
               </p>
             </motion.div>
           </AnimatePresence>
+
+          <motion.button
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            onClick={() => scrollTo("#standorte")}
+            className="inline-flex items-center gap-2 rounded-full px-8 py-4 font-bold text-lg text-white transition-colors shadow-lg bg-[#F97316] hover:bg-[#EA580C]"
+            style={{ boxShadow: "0 10px 30px -5px rgba(249,115,22,0.3)" }}
+          >
+            Standort wählen & Kurse finden
+            <ArrowRight className="w-5 h-5" />
+          </motion.button>
         </div>
       </section>
 
-      {/* KURSANGEBOT — Premium cards on off-white */}
-      <section className="bg-slate-50 py-16 md:py-24 px-4 md:px-6">
+      {/* KURSANGEBOT */}
+      <section className="bg-blue-50/50 py-16 md:py-24 px-4 md:px-6">
         <div className="max-w-6xl mx-auto">
+          <AnimatePresence mode="wait">
+            <motion.h2
+              key={`title-${activeTab}`}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 text-center mb-12 md:mb-16"
+            >
+              {courseSectionTitle[activeTab]}
+            </motion.h2>
+          </AnimatePresence>
+
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}
