@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index";
 import Kinderschwimmen from "./pages/kurse/Kinderschwimmen";
+import Wassergewoehnung from "./pages/kurse/Wassergewoehnung";
 import Erwachsene from "./pages/kurse/Erwachsene";
 import Aquafitness from "./pages/kurse/Aquafitness";
 import AquaReha from "./pages/kurse/AquaReha";
