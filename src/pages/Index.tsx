@@ -56,19 +56,7 @@ const scrollTo = (id: string) => {
   }
 };
 
-const ROTATION_INTERVAL = 4000;
-
 const Index = () => {
-  const [activeVideo, setActiveVideo] = useState(0);
-
-  const rotate = useCallback(() => {
-    setActiveVideo((prev) => (prev + 1) % heroVideos.length);
-  }, []);
-
-  useEffect(() => {
-    const id = setInterval(rotate, ROTATION_INTERVAL);
-    return () => clearInterval(id);
-  }, [rotate]);
 
   return (
   <main className="min-h-screen">
