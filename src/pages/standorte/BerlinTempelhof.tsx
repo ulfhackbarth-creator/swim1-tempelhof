@@ -1,6 +1,6 @@
 import { useRef, useMemo, useState, useCallback, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   MapPin, Thermometer, Car, Droplets, Train, Shirt, Clock, ArrowDown, ArrowRight,
   ChevronRight, Star, ShieldCheck, Users, Baby, Fish, Medal, Trophy, Sun,
@@ -161,23 +161,10 @@ const trustStats = [
 
 const BerlinTempelhof = () => {
   const formRef = useRef<HTMLDivElement>(null);
-  const heroSentinelRef = useRef<HTMLDivElement>(null);
   const [searchParams] = useSearchParams();
   const courseParam = searchParams.get("course") || "";
   const { toast } = useToast();
-  const [showStickyCta, setShowStickyCta] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-
-  useEffect(() => {
-    const sentinel = heroSentinelRef.current;
-    if (!sentinel) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => setShowStickyCta(!entry.isIntersecting),
-      { threshold: 0 }
-    );
-    observer.observe(sentinel);
-    return () => observer.disconnect();
-  }, []);
 
   const initialInterest = useMemo(() => {
     if (!courseParam) return "";
@@ -322,7 +309,7 @@ const BerlinTempelhof = () => {
           </motion.button>
         </div>
 
-        <div ref={heroSentinelRef} className="absolute bottom-0 h-1 w-full" />
+        
       </section>
 
       {/* ═══════════ TRUST STATS BAR ═══════════ */}
@@ -346,74 +333,36 @@ const BerlinTempelhof = () => {
 
       {/* ═══════════ 2. STANDORT & AUSSTATTUNG ═══════════ */}
       <section className="py-16 md:py-32 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-4xl mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="text-center mb-12 md:mb-20">
-            <h2 className="text-4xl font-bold tracking-tight text-slate-900 mb-4">Standort & Ausstattung</h2>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 mb-4">Standort & Ausstattung</h2>
             <p className="text-slate-500">Alles, was du für ein optimales Schwimmerlebnis brauchst – an einem Ort.</p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-start">
-            {/* Left: Address & info */}
-            <div className="space-y-8">
-              <div className="flex items-start gap-5">
-                <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-blue-50 text-[#1B4F8A] flex items-center justify-center">
-                  <MapPin className="w-7 h-7" strokeWidth={1.5} />
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold text-slate-900 mb-1">Adresse</h3>
-                  <p className="text-slate-600 leading-relaxed">Ringbahnstraße 12, 12099 Berlin</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-5">
-                <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-blue-50 text-[#1B4F8A] flex items-center justify-center">
-                  <Train className="w-7 h-7" strokeWidth={1.5} />
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold text-slate-900 mb-1">ÖPNV</h3>
-                  <p className="text-slate-600 leading-relaxed">S+U Tempelhof, 3 Min. Fußweg</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-5">
-                <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-blue-50 text-[#1B4F8A] flex items-center justify-center">
-                  <Clock className="w-7 h-7" strokeWidth={1.5} />
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold text-slate-900 mb-1">Öffnungszeiten</h3>
-                  <p className="text-slate-600 leading-relaxed">Mo–Fr 07:00–21:00 · Sa–So 08:00–18:00</p>
-                </div>
-              </div>
-
-              <a
-                href="https://maps.google.com/?q=Ringbahnstraße+12,+12099+Berlin"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-[#1B4F8A] font-semibold hover:underline"
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-10">
+            {[
+              { icon: MapPin, title: "Adresse", text: "Ringbahnstraße 12, 12099 Berlin" },
+              { icon: Train, title: "ÖPNV", text: "S+U Tempelhof, 3 Min. Fußweg" },
+              { icon: Clock, title: "Öffnungszeiten", text: "Mo–Fr 07:00–21:00 · Sa–So 08:00–18:00" },
+              { icon: Car, title: "Kostenlose Parkplätze", text: "Direkt vor der Tür" },
+            ].map((item, i) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.08 }}
+                className="flex items-start gap-5"
               >
-                Route auf Google Maps öffnen <ExternalLink className="w-4 h-4" />
-              </a>
-            </div>
-
-            {/* Right: Amenities grid */}
-            <div className="grid grid-cols-2 gap-8">
-              {amenities.map((a, i) => (
-                <motion.div
-                  key={a.label}
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: i * 0.08 }}
-                  className="text-center"
-                >
-                  <div className="w-16 h-16 rounded-2xl bg-blue-50 text-[#1B4F8A] flex items-center justify-center mx-auto mb-4">
-                    <a.icon className="w-8 h-8" strokeWidth={1.5} />
-                  </div>
-                  <h4 className="font-bold text-slate-900 mb-1">{a.label}</h4>
-                  <p className="text-sm text-slate-500">{a.desc}</p>
-                </motion.div>
-              ))}
-            </div>
+                <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-blue-50 text-[#1B4F8A] flex items-center justify-center">
+                  <item.icon className="w-7 h-7" strokeWidth={1.5} />
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-slate-900 mb-1">{item.title}</h3>
+                  <p className="text-slate-600 leading-relaxed">{item.text}</p>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -597,24 +546,6 @@ const BerlinTempelhof = () => {
       <HomeFooter />
 
       {/* ═══════════ STICKY MOBILE CTA ═══════════ */}
-      <AnimatePresence>
-        {showStickyCta && !isSubmitted && (
-          <motion.div
-            initial={{ y: 100 }}
-            animate={{ y: 0 }}
-            exit={{ y: 100 }}
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="fixed bottom-0 left-0 right-0 z-50 p-3 bg-white/95 backdrop-blur-md border-t border-slate-200 shadow-lg md:hidden"
-          >
-            <button
-              onClick={() => scrollToForm()}
-              className="w-full rounded-full py-3.5 font-bold text-white bg-[#F97316] hover:bg-[#EA580C] transition-colors inline-flex items-center justify-center gap-2"
-            >
-              Auf die Warteliste <ArrowDown className="w-4 h-4" />
-            </button>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </div>
   );
 };
