@@ -252,7 +252,6 @@ const Index = () => {
         <div className="bg-white rounded-[2.5rem] p-6 md:p-10 shadow-xl shadow-slate-200/40 border border-slate-100">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {standorte.map((loc, i) => {
-              const isActive = loc.status === "active";
               return (
                 <motion.div
                   key={loc.name}
@@ -260,18 +259,13 @@ const Index = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className={`rounded-[2rem] p-6 border flex flex-col ${
-                    isActive
-                      ? "bg-slate-50 border-slate-100"
-                      : "bg-slate-50/50 border-slate-100/60 opacity-80"
-                  }`}
+                  className="rounded-[2rem] p-6 border bg-slate-50 border-slate-100 flex flex-col"
                 >
-                  <span className={`inline-block text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-4 w-fit ${
-                    isActive ? "bg-green-50 text-green-700" : "bg-orange-50 text-orange-600"
-                  }`}>
-                    {isActive ? "✓ Jetzt buchbar" : "Bald verfügbar"}
+                  <span className="inline-block text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-4 w-fit bg-green-50 text-green-700">
+                    ✓ Warteliste
                   </span>
                   <h3 className="text-xl font-bold text-slate-900 mb-1">{loc.name}</h3>
+                  <p className="text-sm font-medium text-[#1B4F8A] mb-0.5">{loc.center}</p>
                   <p className="text-slate-500 text-sm mb-4">{loc.address}</p>
                   <div className="flex flex-wrap gap-1.5 mb-5">
                     {loc.features.map((f) => (
@@ -281,13 +275,9 @@ const Index = () => {
                   <Link
                     to={loc.route}
                     onClick={() => window.scrollTo({ top: 0 })}
-                    className={`w-full mt-auto rounded-full py-3 text-sm text-center font-semibold transition-colors ${
-                      isActive
-                        ? "bg-[#F97316] hover:bg-[#EA580C] text-white"
-                        : "bg-slate-200 text-slate-500 hover:bg-slate-300"
-                    }`}
+                    className="w-full mt-auto rounded-full py-3 text-sm text-center font-semibold transition-colors bg-[#F97316] hover:bg-[#EA580C] text-white"
                   >
-                    {isActive ? "Standort entdecken" : "Zur Warteliste"}
+                    Standort entdecken
                   </Link>
                 </motion.div>
               );
