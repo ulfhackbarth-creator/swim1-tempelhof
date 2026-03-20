@@ -48,7 +48,13 @@ const testimonials = [
   { text: "Nach meiner Hüft-OP war das Training im Wasser die Rettung. Ich konnte Bewegungen machen, die an Land undenkbar waren.", name: "Klaus D.", location: "Berlin-Tempelhof" },
 ];
 
-const scrollTo = (id: string) => document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
+const scrollTo = (id: string) => {
+  const el = document.querySelector(id);
+  if (el) {
+    const y = el.getBoundingClientRect().top + window.scrollY;
+    window.scrollTo({ top: y, behavior: 'smooth' });
+  }
+};
 
 const ROTATION_INTERVAL = 4000;
 
@@ -108,7 +114,7 @@ const Index = () => {
     </section>
 
     {/* ─── KURS-ÜBERSICHT ─── */}
-    <section id="kurse" className="py-16 md:py-28 bg-blue-50/50 scroll-mt-20">
+    <section id="kurse" className="py-16 md:py-28 bg-blue-50/50">
       <div className="max-w-6xl mx-auto px-6">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
