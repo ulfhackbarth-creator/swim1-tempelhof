@@ -1,10 +1,6 @@
 import { motion } from "framer-motion";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import { useState } from "react";
+import { ChevronDown } from "lucide-react";
 
 const faqs = [
   {
@@ -29,41 +25,47 @@ const faqs = [
   },
 ];
 
-const HomeFAQ = () => (
-  <section id="faq" className="py-24 bg-slate-50 scroll-mt-20">
-    <div className="container px-4">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="text-center mb-16"
-      >
-        <h2 className="text-3xl md:text-5xl font-bold text-[#1B4F8A] tracking-tight mb-4">
-          Häufig gestellte Fragen
-        </h2>
-      </motion.div>
+const HomeFAQ = () => {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-      <div className="max-w-2xl mx-auto">
-        <Accordion type="single" collapsible className="space-y-3">
+  return (
+    <section id="faq" className="py-16 md:py-24 bg-[#F8FAFC] scroll-mt-20">
+      <div className="max-w-2xl mx-auto px-6">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-4xl font-bold tracking-tight text-[#0F172A] text-center mb-16"
+        >
+          Häufige Fragen
+        </motion.h2>
+
+        <div className="divide-y divide-slate-200">
           {faqs.map((faq, i) => (
-            <AccordionItem
-              key={i}
-              value={`faq-${i}`}
-              className="bg-white rounded-2xl border border-slate-100 px-6 shadow-sm"
-            >
-              <AccordionTrigger className="text-left font-semibold text-slate-900 hover:no-underline py-5">
-                {faq.q}
-              </AccordionTrigger>
-              <AccordionContent className="text-slate-500 leading-relaxed pb-5">
-                {faq.a}
-              </AccordionContent>
-            </AccordionItem>
+            <div key={i} className="py-5">
+              <button
+                onClick={() => setOpenIndex(openIndex === i ? null : i)}
+                className="w-full flex items-center justify-between text-left"
+              >
+                <span className="font-semibold text-[#0F172A] pr-4">{faq.q}</span>
+                <ChevronDown
+                  className={`w-5 h-5 text-slate-400 shrink-0 transition-transform duration-200 ${
+                    openIndex === i ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+              {openIndex === i && (
+                <p className="text-[#64748B] text-sm leading-relaxed pt-3">
+                  {faq.a}
+                </p>
+              )}
+            </div>
           ))}
-        </Accordion>
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default HomeFAQ;

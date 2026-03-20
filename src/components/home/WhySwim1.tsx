@@ -1,52 +1,50 @@
 import { motion } from "framer-motion";
-import { ShieldCheck, Heart, Award } from "lucide-react";
 
 const usps = [
   {
-    icon: ShieldCheck,
-    title: "Sicherheit zuerst",
-    text: "Alle Trainer sind ausgebildete Rettungsschwimmer. Maximale Gruppengröße: 6 Kinder für optimale Betreuung.",
+    value: "100%",
+    label: "Zertifizierte Trainer",
+    text: "Alle unsere Trainer sind nach DLRG-Standard ausgebildet und regelmäßig weitergebildet.",
   },
   {
-    icon: Heart,
-    title: "Geduld & Methodik",
-    text: "Bewährte Lernmethoden, die auch ängstlichen Kindern helfen. Wir nehmen uns die Zeit, die jedes Kind braucht.",
+    value: "Max. 6",
+    label: "Kinder pro Kurs",
+    text: "Jedes Kind bekommt die Aufmerksamkeit, die es braucht. Keine Massenveranstaltungen.",
   },
   {
-    icon: Award,
-    title: "Nachweisbare Erfolge",
-    text: "Über 2.000 Kinder haben bei SWIM1 schwimmen gelernt. Von der Wassergewöhnung bis zum Goldabzeichen.",
+    value: "2.000+",
+    label: "Kinder sicher schwimmen gelernt",
+    text: "Seit 2019 helfen wir Kindern und Erwachsenen, sicher und selbstbewusst im Wasser zu sein.",
   },
 ];
 
 const WhySwim1 = () => (
-  <section id="warum" className="py-24 bg-slate-50 scroll-mt-20">
-    <div className="container px-4">
-      <motion.div
+  <section id="warum" className="py-16 md:py-24 bg-[#F8FAFC] scroll-mt-20">
+    <div className="max-w-5xl mx-auto px-6">
+      <motion.h2
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="text-center mb-16"
+        className="text-4xl font-bold tracking-tight text-[#0F172A] text-center mb-16"
       >
-        <h2 className="text-3xl md:text-5xl font-bold text-[#1B4F8A] tracking-tight mb-4">
-          Das macht SWIM1 besonders
-        </h2>
-      </motion.div>
+        Das macht SWIM1 besonders
+      </motion.h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-5xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
         {usps.map((usp, i) => (
           <motion.div
-            key={usp.title}
+            key={usp.label}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: i * 0.1 }}
-            className="text-center flex flex-col items-center"
           >
-            <usp.icon className="w-12 h-12 text-[#1B4F8A] mb-6" strokeWidth={1.5} />
-            <h3 className="text-xl font-semibold text-slate-900 mb-4">{usp.title}</h3>
-            <p className="text-slate-600 leading-relaxed">{usp.text}</p>
+            <span className="block text-5xl font-bold text-[#1B4F8A] mb-1">{usp.value}</span>
+            <span className="block text-sm font-semibold uppercase tracking-wider text-slate-400 mb-4">
+              {usp.label}
+            </span>
+            <p className="text-[#64748B] leading-relaxed text-sm">{usp.text}</p>
           </motion.div>
         ))}
       </div>
