@@ -1,4 +1,6 @@
 import type { CourseTab } from "@/types/course";
+import type { LucideIcon } from "lucide-react";
+import { Fish, Medal, Trophy, Sun, Baby, Users, LifeBuoy, Timer, Dumbbell, HeartPulse } from "lucide-react";
 
 export const heroContent: Record<CourseTab, { video: string | string[]; headline: string; subtext: string }> = {
   kinderschwimmen: {
@@ -37,6 +39,7 @@ export const courseSectionTitle: Record<CourseTab, string> = {
 };
 
 export type Course = {
+  icon: LucideIcon;
   tag: string;
   name: string;
   text: string;
