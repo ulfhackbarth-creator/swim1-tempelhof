@@ -50,7 +50,7 @@ const testimonials = [
 
 const scrollTo = (id: string) => document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
 
-const ROTATION_INTERVAL = 7000;
+const ROTATION_INTERVAL = 4000;
 
 const Index = () => {
   const [activeVideo, setActiveVideo] = useState(0);
