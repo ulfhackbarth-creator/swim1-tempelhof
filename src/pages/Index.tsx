@@ -1,6 +1,6 @@
 import { useState } from "react";
 import HomeHeader from "@/components/home/HomeHeader";
-import HomeHero from "@/components/home/HomeHero";
+import HeroSection from "@/components/home/HeroSection";
 import WhySwim1 from "@/components/home/WhySwim1";
 import HomeTestimonials from "@/components/home/HomeTestimonials";
 import HomeFAQ from "@/components/home/HomeFAQ";
@@ -15,7 +15,7 @@ const Index = () => {
   return (
     <main className="min-h-screen">
       <HomeHeader />
-      <HomeHero activeTab={activeTab} onTabChange={setActiveTab} />
+      <HeroSection activeTab={activeTab} onTabChange={setActiveTab} />
       <WhySwim1 />
       <HomeTestimonials />
       <HomeFAQ />
