@@ -1,5 +1,13 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
+import type { CourseTab } from "@/pages/Index";
+
+const locationSubtitle: Record<CourseTab, string> = {
+  schwimmen: "Finde die passende Schwimmschule in deiner Nähe",
+  wassergewoehnung: "Finde den passenden Standort für Babys und Kleinkinder",
+  fitness: "Finde den passenden Standort für dein Training",
+  reha: "Finde deinen Standort für Aqua Reha",
+};
 
 const locations = [
   {
