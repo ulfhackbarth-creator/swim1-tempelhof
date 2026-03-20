@@ -297,7 +297,7 @@ const BerlinTempelhof = () => {
 
       {/* ═══════════ 1. HERO – matches KursePage exactly ═══════════ */}
       <section className="relative min-h-[85vh] md:min-h-[90vh] overflow-hidden">
-        <img src={heroImage} alt="Swim1 Schwimmschule Berlin-Tempelhof" className="absolute inset-0 w-full h-full object-cover" />
+        <HeroVideoBackground videos={heroVideos} />
         <div className="absolute inset-0 bg-[#0F2D52]/45" />
 
         <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 md:px-6 min-h-[85vh] md:min-h-[90vh] pt-32 md:pt-[120px] pb-8 md:pb-0">
