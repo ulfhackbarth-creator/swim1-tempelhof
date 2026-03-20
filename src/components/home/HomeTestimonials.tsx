@@ -1,4 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
+import { Star } from "lucide-react";
 import type { CourseTab } from "@/pages/Index";
 
 type Testimonial = { text: string; name: string; location: string };
@@ -42,7 +43,7 @@ const HomeTestimonials = ({ activeTab }: { activeTab: CourseTab }) => {
   const data = testimonialsByTab[activeTab];
 
   return (
-    <section className="py-16 md:py-32 bg-white">
+    <section className="py-16 md:py-32 bg-[#0F2D52]">
       <div className="max-w-6xl mx-auto px-6">
         <AnimatePresence mode="wait">
           <motion.div
@@ -53,10 +54,10 @@ const HomeTestimonials = ({ activeTab }: { activeTab: CourseTab }) => {
             transition={{ duration: 0.4 }}
             className="text-center mb-12 md:mb-20"
           >
-            <h2 className="text-4xl font-bold tracking-tight text-slate-900 mb-4">
+            <h2 className="text-4xl font-bold tracking-tight text-white mb-4">
               {data.title}
             </h2>
-            <p className="text-slate-500 font-medium">Über 4,9 Sterne auf Google</p>
+            <p className="text-white/70 font-medium">Über 4,9 Sterne auf Google</p>
           </motion.div>
         </AnimatePresence>
 
@@ -75,14 +76,19 @@ const HomeTestimonials = ({ activeTab }: { activeTab: CourseTab }) => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="bg-white border border-slate-100 rounded-[2rem] p-6 md:p-10 shadow-lg shadow-slate-200/40 h-full flex flex-col"
+                className="bg-[#1B4F8A]/40 border border-white/10 rounded-[2rem] p-6 md:p-10 backdrop-blur-sm h-full flex flex-col"
               >
-                <p className="text-lg text-slate-800 font-medium leading-relaxed italic mb-8 flex-1">
+                <div className="flex gap-0.5 mb-6">
+                  {[...Array(5)].map((_, j) => (
+                    <Star key={j} className="w-4 h-4 fill-current text-[#F59E0B]" />
+                  ))}
+                </div>
+                <p className="text-lg text-white/90 font-medium leading-relaxed italic mb-8 flex-1">
                   „{t.text}"
                 </p>
                 <div className="flex flex-col">
-                  <p className="text-slate-900 font-bold">{t.name}</p>
-                  <p className="text-slate-500 text-sm">{t.location}</p>
+                  <p className="text-white font-bold">{t.name}</p>
+                  <p className="text-white/50 text-sm">{t.location}</p>
                 </div>
               </motion.div>
             ))}
