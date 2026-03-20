@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Waves, Baby, Activity, HeartPulse, SwimmingPool } from "lucide-react";
+import { Waves, Baby, Activity, HeartPulse, PersonStanding } from "lucide-react";
 import type { CourseTab } from "@/pages/Index";
 
 const chips: { id: CourseTab; label: string; Icon: typeof Waves }[] = [
