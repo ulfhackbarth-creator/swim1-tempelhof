@@ -153,7 +153,7 @@ const interestOptions = [
 const trustStats = [
   { value: "32 °C", label: "Wassertemperatur" },
   { value: "5:1", label: "Betreuungsverhältnis" },
-  { value: "100 %", label: "Zertifizierte Trainer" },
+  { value: "100 %", label: "Vertrauen" },
   { value: "4,9 ★", label: "Google Bewertung" },
 ];
 
