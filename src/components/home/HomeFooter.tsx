@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const scrollTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
 const HomeFooter = () => (
-  <footer className="bg-[#0F2D52] py-12 md:py-16">
+  <footer className="bg-slate-900 py-20">
     <div className="max-w-7xl mx-auto px-6">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
         {/* Logo */}
@@ -13,14 +13,14 @@ const HomeFooter = () => (
             <Waves className="w-5 h-5 text-white" />
             <span className="font-bold text-white">SWIM1</span>
           </div>
-          <p className="text-sm text-white/60 mb-2">Sicher schwimmen lernen.</p>
-          <p className="text-xs text-white/40">© {new Date().getFullYear()} SWIM1</p>
+          <p className="text-sm text-slate-400 mb-2">Sicher schwimmen lernen.</p>
+          <p className="text-xs text-slate-500">© {new Date().getFullYear()} SWIM1</p>
         </div>
 
         {/* Kurse */}
         <div>
-          <h4 className="text-white font-semibold text-sm uppercase tracking-wider mb-4">Kurse</h4>
-          <nav className="flex flex-col gap-2 text-sm text-white/60">
+          <h4 className="text-white font-bold uppercase tracking-wider text-sm mb-6">Kurse</h4>
+          <nav className="flex flex-col gap-2 text-sm text-slate-400">
             <a href="#kurse" className="hover:text-white transition-colors">Schwimmen lernen</a>
             <a href="#kurse" className="hover:text-white transition-colors">Wassergewöhnung</a>
             <a href="#kurse" className="hover:text-white transition-colors">Aqua-Fitness</a>
@@ -30,8 +30,8 @@ const HomeFooter = () => (
 
         {/* Standorte */}
         <div>
-          <h4 className="text-white font-semibold text-sm uppercase tracking-wider mb-4">Standorte</h4>
-          <nav className="flex flex-col gap-2 text-sm text-white/60">
+          <h4 className="text-white font-bold uppercase tracking-wider text-sm mb-6">Standorte</h4>
+          <nav className="flex flex-col gap-2 text-sm text-slate-400">
             <Link to="/" onClick={scrollTop} className="hover:text-white transition-colors">Berlin-Tempelhof</Link>
             <Link to="/schwerin" onClick={scrollTop} className="hover:text-white transition-colors">Schwerin</Link>
             <Link to="/wildau" onClick={scrollTop} className="hover:text-white transition-colors">Wildau</Link>
@@ -41,8 +41,8 @@ const HomeFooter = () => (
 
         {/* Rechtliches */}
         <div>
-          <h4 className="text-white font-semibold text-sm uppercase tracking-wider mb-4">Rechtliches</h4>
-          <nav className="flex flex-col gap-2 text-sm text-white/60">
+          <h4 className="text-white font-bold uppercase tracking-wider text-sm mb-6">Rechtliches</h4>
+          <nav className="flex flex-col gap-2 text-sm text-slate-400">
             <a href="#" className="hover:text-white transition-colors">Impressum</a>
             <a href="#" className="hover:text-white transition-colors">Datenschutz</a>
             <a href="#" className="hover:text-white transition-colors">AGB</a>

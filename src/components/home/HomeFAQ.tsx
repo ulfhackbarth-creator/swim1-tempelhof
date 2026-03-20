@@ -29,26 +29,26 @@ const HomeFAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="py-16 md:py-24 bg-[#F8FAFC] scroll-mt-20">
-      <div className="max-w-2xl mx-auto px-6">
+    <section id="faq" className="py-32 bg-white scroll-mt-20">
+      <div className="max-w-3xl mx-auto px-6">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-4xl font-bold tracking-tight text-[#0F172A] text-center mb-16"
+          className="text-4xl font-bold tracking-tight text-slate-900 text-center mb-20"
         >
           Häufige Fragen
         </motion.h2>
 
-        <div className="divide-y divide-slate-200">
+        <div>
           {faqs.map((faq, i) => (
-            <div key={i} className="py-5">
+            <div key={i} className="border-b border-slate-100 py-6">
               <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
                 className="w-full flex items-center justify-between text-left"
               >
-                <span className="font-semibold text-[#0F172A] pr-4">{faq.q}</span>
+                <span className="text-lg font-semibold text-slate-900 pr-4">{faq.q}</span>
                 <ChevronDown
                   className={`w-5 h-5 text-slate-400 shrink-0 transition-transform duration-200 ${
                     openIndex === i ? "rotate-180" : ""
@@ -56,7 +56,7 @@ const HomeFAQ = () => {
                 />
               </button>
               {openIndex === i && (
-                <p className="text-[#64748B] text-sm leading-relaxed pt-3">
+                <p className="text-slate-600 leading-relaxed pt-4">
                   {faq.a}
                 </p>
               )}

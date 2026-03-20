@@ -2,13 +2,6 @@ import { motion } from "framer-motion";
 import { Waves, Baby, Activity, HeartPulse } from "lucide-react";
 import type { CourseTab } from "@/pages/Index";
 
-const categoryColors: Record<CourseTab, string> = {
-  schwimmen: "#1B4F8A",
-  wassergewoehnung: "#0891B2",
-  fitness: "#059669",
-  reha: "#7C3AED",
-};
-
 const chips: { id: CourseTab; label: string; Icon: typeof Waves }[] = [
   { id: "schwimmen", label: "Schwimmen lernen", Icon: Waves },
   { id: "wassergewoehnung", label: "Wassergewöhnung", Icon: Baby },
@@ -33,7 +26,7 @@ const HomeHeader = ({
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       className="fixed top-0 left-0 right-0 z-50"
-      style={{ backgroundColor: "#1B4F8A" }}
+      style={{ backgroundColor: "#0F2D52" }}
     >
       {/* Row 1 — Logo + CTA */}
       <div className="px-6 md:px-10 py-3.5 flex items-center justify-between">
@@ -43,39 +36,31 @@ const HomeHeader = ({
         </a>
         <button
           onClick={() => scrollTo("#standorte")}
-          className="rounded-full px-5 py-2 text-sm font-semibold text-white transition-colors"
-          style={{ backgroundColor: "#F97316" }}
-          onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#ea580c")}
-          onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#F97316")}
+          className="rounded-full px-5 py-2 text-sm font-semibold text-white bg-[#F97316] hover:bg-orange-600 transition-colors"
         >
           Standort wählen →
         </button>
       </div>
 
       {/* Row 2 — Category chips */}
-      <div
-        className="px-6 md:px-10 pb-3 flex flex-row gap-2 overflow-x-auto scrollbar-hide"
-        style={{ borderTop: "1px solid rgba(255,255,255,0.12)" }}
-      >
+      <div className="px-6 md:px-10 pb-3 pt-3 flex flex-row gap-2 overflow-x-auto scrollbar-hide border-t border-white/10">
         {chips.map((chip) => {
           const isActive = activeTab === chip.id;
           return (
             <button
               key={chip.id}
               onClick={() => onTabChange(chip.id)}
-              className={`flex items-center gap-2 rounded-full px-4 py-2 cursor-pointer transition-all duration-200 text-sm font-semibold whitespace-nowrap mt-3 ${
+              className={`flex items-center gap-2 rounded-full px-4 py-1.5 cursor-pointer transition-all duration-200 text-sm font-semibold whitespace-nowrap ${
                 isActive
-                  ? "bg-white"
-                  : "bg-transparent text-white/70 hover:text-white hover:bg-white/10"
+                  ? "bg-white text-[#0F2D52]"
+                  : "bg-transparent text-white/60 hover:text-white"
               }`}
             >
               <chip.Icon
                 className="w-4 h-4"
-                style={{ color: isActive ? categoryColors[chip.id] : undefined }}
+                style={{ color: isActive ? "#0F2D52" : undefined }}
               />
-              <span style={isActive ? { color: "#1B4F8A" } : undefined}>
-                {chip.label}
-              </span>
+              <span>{chip.label}</span>
             </button>
           );
         })}
