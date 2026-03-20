@@ -3,7 +3,7 @@ import HeroVideoBackground from "@/components/HeroVideoBackground";
 import { useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSwipeNavigation } from "@/hooks/useSwipeNavigation";
-import { ArrowRight, Star, Check } from "lucide-react";
+import { ArrowRight, ChevronDown, Star, Check } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Link } from "react-router-dom";
 import GlobalHeader from "@/components/home/GlobalHeader";
