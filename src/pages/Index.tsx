@@ -17,7 +17,7 @@ const trustStats = [
   { value: "Über 2.000", label: "Zufriedene Schwimmer" },
   { value: "4", label: "Moderne Standorte" },
   { value: "32°C", label: "Warmes Wasser" },
-  { value: "Max. 8", label: "Kinder pro Gruppe" },
+  { value: "Kleine", label: "Kursgruppen" },
 ];
 
 const categories = [
