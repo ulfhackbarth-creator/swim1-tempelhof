@@ -69,15 +69,10 @@ const StandortDropdown = ({
               <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
                 <MapPin className="w-4 h-4 text-[#1B4F8A]" />
               </div>
-              <div className="flex flex-col">
+              <div className="flex flex-col min-w-0 flex-1">
                 <span className="font-semibold text-sm">{s.name}</span>
-                <span className="text-xs text-muted-foreground">{s.address}</span>
+                <span className="text-xs text-muted-foreground truncate">{s.center}</span>
               </div>
-              {s.status === "coming-soon" && (
-                <span className="ml-auto text-[10px] font-bold uppercase tracking-wider text-orange-500 bg-orange-50 px-2 py-0.5 rounded-full">
-                  Bald
-                </span>
-              )}
             </Link>
           </DropdownMenuItem>
         ))}
