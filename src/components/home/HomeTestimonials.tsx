@@ -1,5 +1,4 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { Quote } from "lucide-react";
 import type { CourseTab } from "@/pages/Index";
 
 type Testimonial = { text: string; name: string; location: string };
