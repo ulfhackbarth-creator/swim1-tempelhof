@@ -1,8 +1,10 @@
-import { useRef } from "react";
+import { useRef, useEffect, useMemo } from "react";
+import { useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { MapPin, Thermometer, Car, Droplets, Train, Shirt, Wind, Coffee, ChevronRight, Phone, Clock, ArrowRight } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import GlobalHeader from "@/components/home/GlobalHeader";
+import HomeFooter from "@/components/home/HomeFooter";
 import HomeFooter from "@/components/home/HomeFooter";
 
 const trustBadges = [
