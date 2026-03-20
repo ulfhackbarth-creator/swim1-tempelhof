@@ -184,7 +184,7 @@ const Index = () => {
             >
               <Link
                 to={cat.path}
-                onClick={() => window.scrollTo({ top: 0 })}
+                onClick={() => { /* scroll handled by #kurse hash */ }}
                 className="group bg-white rounded-[2rem] p-8 md:p-10 shadow-xl shadow-slate-200/40 border border-slate-100 flex flex-col h-full hover:-translate-y-1 transition-transform"
               >
                 <div className="w-14 h-14 rounded-2xl bg-blue-50 text-[#1B4F8A] flex items-center justify-center mb-6 group-hover:scale-105 transition-transform">
