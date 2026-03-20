@@ -37,6 +37,14 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
 
   useEffect(() => { setOpenIndex(null); }, [tab]);
 
+  // Restore scroll position from swipe navigation
+  useLayoutEffect(() => {
+    const scrollY = (location.state as any)?.maintainScrollPosition;
+    if (typeof scrollY === "number") {
+      window.scrollTo({ top: scrollY, behavior: "auto" });
+    }
+  }, [location.key]);
+
   useEffect(() => {
     if (location.hash === "#kurse") {
       const timer = setTimeout(() => {
