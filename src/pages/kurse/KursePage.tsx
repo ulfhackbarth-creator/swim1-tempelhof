@@ -78,16 +78,6 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
     }
   }, [location.key]);
 
-  useEffect(() => {
-    if (location.hash === "#kurse") {
-      const timer = setTimeout(() => {
-        document.getElementById("kurse")?.scrollIntoView({ behavior: "smooth", block: "start" });
-      }, 200);
-      return () => clearTimeout(timer);
-    }
-  }, [location.hash, tab]);
-
-  const scrollTo = (id: string) => document.querySelector(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
 
   const handleSelectCourse = useCallback((name: string, index: number) => {
     const isClosing = selectedCourse === name;
