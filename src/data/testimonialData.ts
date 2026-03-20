@@ -11,14 +11,6 @@ export const testimonialsByTab: Record<CourseTab, { title: string; items: Testim
       { text: "Die kleinen Gruppen machen den Unterschied. Mein Sohn geht jede Woche mit einem Lächeln zum Kurs.", name: "Michael T.", location: "Bremen" },
     ],
   },
-  wassergewoehnung: {
-    title: "Erfahrungen von anderen Mamas & Papas",
-    items: [
-      { text: "Endlich eine Schwimmschule mit richtig warmem Wasser! Mein Sohn liebt die Wassergewöhnung. Tolle, ruhige Atmosphäre.", name: "Thomas K.", location: "Schwerin" },
-      { text: "Unsere Trainerin hat so eine beruhigende Art. Selbst beim ersten Tauchen gab es keine Tränen. Ein wunderbares Erlebnis für uns beide.", name: "Lisa M.", location: "Berlin-Tempelhof" },
-      { text: "Der Kurs ist unser wöchentliches Highlight. Die Lieder und Spiele sind super auf die Kleinen abgestimmt.", name: "Sarah B.", location: "Wildau" },
-    ],
-  },
   erwachsene: {
     title: "Das sagen unsere erwachsenen Teilnehmer",
     items: [

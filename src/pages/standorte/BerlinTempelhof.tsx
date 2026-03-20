@@ -1,7 +1,7 @@
 import { useRef, useMemo, useState, useCallback } from "react";
 import { useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
-import { MapPin, Thermometer, Car, Droplets, Train, Shirt, Wind, Coffee, ChevronRight, Phone, Clock, ArrowRight, ShowerHead } from "lucide-react";
+import { MapPin, Thermometer, Car, Droplets, Train, Shirt, Wind, Coffee, ChevronRight, Clock, ArrowRight } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import GlobalHeader from "@/components/home/GlobalHeader";
 import HomeFooter from "@/components/home/HomeFooter";
@@ -12,69 +12,54 @@ const trustBadges = [
   { icon: Droplets, label: "Salzwasser-Pool" },
 ];
 
-const amenities = [
-  { icon: Shirt, label: "Einzelumkleiden" },
-  { icon: Wind, label: "Föhn-Stationen" },
-  { icon: Coffee, label: "Café-Lounge" },
-];
-
 const courses = [
-  {
-    id: "wassergewoehnung",
-    title: "Wassergewöhnung",
-    description: "Für Babys (3–12 Monate) und Kleinkinder (1–3 Jahre). Samstags & Sonntags.",
-    cta: "Kurszeiten & Buchung",
-    courseKeys: ["babyschwimmen", "kleinkind-wassergewohnung", "kleinkind-wassergewöhnung", "wassergewoehnung"],
-  },
   {
     id: "kinderschwimmen",
     title: "Kinderschwimmen",
-    description: "Seepferdchen und Bronze-Kurse. Kleine Gruppen (max. 6 Kinder). Dienstags & Donnerstags.",
+    description: "Seepferdchen, Bronze, Silber, Gold und Ferienintensivkurse. Kleine Gruppen (max. 6 Kinder).",
     cta: "Kurszeiten & Buchung",
-    courseKeys: ["seepferdchen", "bronze", "silber", "gold", "kinderschwimmen"],
+    subCourses: [
+      { name: "Seepferdchen", key: "seepferdchen", desc: "Ab 3,5 Jahren – der erste Schritt zum sicheren Schwimmer." },
+      { name: "Bronze", key: "bronze", desc: "Aufbaukurs nach dem Seepferdchen." },
+      { name: "Silber", key: "silber", desc: "Fortgeschrittener Kurs für sichere Schwimmer." },
+      { name: "Gold", key: "gold", desc: "Das höchste Jugendschwimmabzeichen." },
+      { name: "Ferienintensivkurse", key: "ferienintensivkurse", desc: "Tägliche Einheiten in den Schulferien." },
+    ],
+    courseKeys: ["seepferdchen", "bronze", "silber", "gold", "ferienintensivkurse", "kinderschwimmen"],
   },
   {
     id: "erwachsene",
     title: "Erwachsenenschwimmen",
-    description: "Anfänger und Kraul-Technik. Diskretes Umfeld. Mittwochs.",
+    description: "Anfängerschwimmen und Technik-Training. Diskretes Umfeld.",
     cta: "Kurszeiten & Buchung",
-    courseKeys: ["anfanger-schwimmen", "anfänger-schwimmen", "technik-&-kraulen", "erwachsenenschwimmen", "erwachsene"],
+    subCourses: [
+      { name: "Anfängerschwimmen", key: "anfängerschwimmen", desc: "Schwimmen lernen im geschützten Rahmen." },
+      { name: "Technik", key: "technik", desc: "Kraulen lernen und Technik verbessern." },
+    ],
+    courseKeys: ["anfängerschwimmen", "anfaengerschwimmen", "anfanger-schwimmen", "technik", "erwachsene", "erwachsenenschwimmen"],
   },
   {
     id: "aquafitness",
     title: "Aquafitness",
-    description: "Power-Workout im Wasser. Gelenkschonend. Montags & Freitags.",
+    description: "Power-Workout im Wasser. Gelenkschonend. Für alle Level.",
     cta: "Kurszeiten & Buchung",
-    courseKeys: ["aquafitness", "ganzkorper-workout", "ganzkörper-workout"],
+    subCourses: [],
+    courseKeys: ["aquafitness"],
   },
   {
-    id: "reha",
-    title: "Aqua Reha",
+    id: "aquareha",
+    title: "Aquareha",
     description: "Von den Krankenkassen zertifiziert. Mit Rezept 100 % kostenfrei.",
     cta: "Rezept einreichen",
-    courseKeys: ["reha-sport", "praventionskurse", "präventionskurse", "aqua-reha", "reha"],
+    subCourses: [],
+    courseKeys: ["aquareha", "aqua-reha", "reha"],
   },
 ];
 
 const pricingCards = [
-  {
-    title: "Flex-Ticket",
-    subtitle: "Einzelkarte für Aquafitness",
-    price: "15 €",
-    highlight: false,
-  },
-  {
-    title: "Kurs-Block",
-    subtitle: "10er Block Kinderschwimmen",
-    price: "180 €",
-    highlight: true,
-  },
-  {
-    title: "Reha-Sport",
-    subtitle: "Mit ärztlicher Verordnung",
-    price: "0 €",
-    highlight: false,
-  },
+  { title: "Flex-Ticket", subtitle: "Einzelkarte für Aquafitness", price: "15 €", highlight: false },
+  { title: "Kurs-Block", subtitle: "10er Block Kinderschwimmen", price: "180 €", highlight: true },
+  { title: "Reha-Sport", subtitle: "Mit ärztlicher Verordnung", price: "0 €", highlight: false },
 ];
 
 const reveal = {
@@ -87,25 +72,44 @@ const BerlinTempelhof = () => {
   const [searchParams] = useSearchParams();
   const courseParam = searchParams.get("course") || searchParams.get("preselect") || "";
 
-  const initialAccordion = useMemo(() => {
-    if (!courseParam) return "";
+  const initialMatch = useMemo(() => {
+    if (!courseParam) return { accordionId: "", subKey: "" };
     const normalized = decodeURIComponent(courseParam).toLowerCase();
-    const match = courses.find((c) =>
-      c.courseKeys.some((k) => normalized.includes(k)) || c.id === normalized
-    );
-    return match?.id || "";
+    for (const c of courses) {
+      // Check sub-courses first
+      const sub = c.subCourses.find((s) => normalized.includes(s.key));
+      if (sub) return { accordionId: c.id, subKey: sub.key };
+      // Check category keys
+      if (c.courseKeys.some((k) => normalized.includes(k)) || c.id === normalized) {
+        return { accordionId: c.id, subKey: "" };
+      }
+    }
+    return { accordionId: "", subKey: "" };
   }, [courseParam]);
 
-  const [activeAccordion, setActiveAccordion] = useState(initialAccordion);
+  const [activeAccordion, setActiveAccordion] = useState(initialMatch.accordionId);
+  const [highlightedSubKey, setHighlightedSubKey] = useState(initialMatch.subKey);
 
   const displayCourseName = useMemo(() => {
     if (!activeAccordion) return "";
     const match = courses.find((c) => c.id === activeAccordion);
-    return match?.title || "";
-  }, [activeAccordion]);
+    if (!match) return "";
+    // If a sub-course is highlighted, show that name
+    if (highlightedSubKey) {
+      const sub = match.subCourses.find((s) => s.key === highlightedSubKey);
+      if (sub) return sub.name;
+    }
+    return match.title;
+  }, [activeAccordion, highlightedSubKey]);
 
   const handleAccordionChange = useCallback((value: string) => {
     setActiveAccordion(value);
+    setHighlightedSubKey("");
+  }, []);
+
+  const handleSubCourseClick = useCallback((courseId: string, subKey: string) => {
+    setActiveAccordion(courseId);
+    setHighlightedSubKey((prev) => (prev === subKey ? "" : subKey));
   }, []);
 
   const scrollToKurse = () =>
@@ -217,7 +221,7 @@ const BerlinTempelhof = () => {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, delay: 0.12 }}
           >
-            <Accordion type="single" collapsible defaultValue={initialAccordion} value={activeAccordion} onValueChange={handleAccordionChange} className="space-y-3">
+            <Accordion type="single" collapsible defaultValue={initialMatch.accordionId} value={activeAccordion} onValueChange={handleAccordionChange} className="space-y-3">
               {courses.map((course) => {
                 const isHighlighted = activeAccordion === course.id;
                 return (
@@ -235,16 +239,53 @@ const BerlinTempelhof = () => {
                     </AccordionTrigger>
                     <AccordionContent className="pb-6">
                       <p className="text-muted-foreground mb-5 leading-relaxed">{course.description}</p>
-                      <button
-                        className={`inline-flex items-center gap-2 font-semibold text-sm px-5 py-2.5 rounded-full transition-all active:scale-[0.97] ${
-                          isHighlighted
-                            ? "bg-accent text-accent-foreground shadow-lg hover:brightness-110"
-                            : "bg-primary text-primary-foreground hover:brightness-110"
-                        }`}
-                      >
-                        {isHighlighted ? "Kurs buchen" : course.cta}
-                        <ChevronRight className="w-4 h-4" />
-                      </button>
+                      
+                      {course.subCourses.length > 0 ? (
+                        <div className="space-y-3 mb-5">
+                          {course.subCourses.map((sub) => {
+                            const isSubHighlighted = highlightedSubKey === sub.key;
+                            return (
+                              <div
+                                key={sub.key}
+                                onClick={() => handleSubCourseClick(course.id, sub.key)}
+                                className={`rounded-xl p-4 border transition-all duration-200 cursor-pointer ${
+                                  isSubHighlighted
+                                    ? "bg-blue-50/80 border-primary/30 ring-1 ring-primary/20"
+                                    : "bg-secondary/50 border-border hover:border-primary/20"
+                                }`}
+                              >
+                                <div className="flex items-center justify-between">
+                                  <div>
+                                    <p className={`font-semibold ${isSubHighlighted ? "text-primary" : "text-foreground"}`}>{sub.name}</p>
+                                    <p className="text-sm text-muted-foreground">{sub.desc}</p>
+                                  </div>
+                                  <button
+                                    className={`shrink-0 ml-4 inline-flex items-center gap-1 font-semibold text-sm px-4 py-2 rounded-full transition-all active:scale-[0.97] ${
+                                      isSubHighlighted
+                                        ? "bg-accent text-accent-foreground shadow-lg hover:brightness-110"
+                                        : "bg-primary text-primary-foreground hover:brightness-110"
+                                    }`}
+                                  >
+                                    {isSubHighlighted ? "Jetzt buchen" : "Auswählen"}
+                                    <ChevronRight className="w-3.5 h-3.5" />
+                                  </button>
+                                </div>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      ) : (
+                        <button
+                          className={`inline-flex items-center gap-2 font-semibold text-sm px-5 py-2.5 rounded-full transition-all active:scale-[0.97] ${
+                            isHighlighted
+                              ? "bg-accent text-accent-foreground shadow-lg hover:brightness-110"
+                              : "bg-primary text-primary-foreground hover:brightness-110"
+                          }`}
+                        >
+                          {course.cta}
+                          <ChevronRight className="w-4 h-4" />
+                        </button>
+                      )}
                     </AccordionContent>
                   </AccordionItem>
                 );
@@ -462,16 +503,6 @@ const BerlinTempelhof = () => {
       </section>
 
       <HomeFooter />
-
-      {/* ─── STICKY MOBILE CTA ─── */}
-      <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-card/95 backdrop-blur-md border-t border-border px-4 py-3 safe-area-pb">
-        <button
-          onClick={scrollToKurse}
-          className="w-full bg-accent text-accent-foreground font-bold text-base py-3.5 rounded-full shadow-[var(--shadow-cta)] active:scale-[0.97] transition-transform"
-        >
-          Jetzt Platz sichern
-        </button>
-      </div>
     </div>
   );
 };
