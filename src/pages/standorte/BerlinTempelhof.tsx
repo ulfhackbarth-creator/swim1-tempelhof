@@ -217,9 +217,9 @@ const BerlinTempelhof = () => {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, delay: 0.12 }}
           >
-            <Accordion type="single" collapsible defaultValue={matchedAccordion} className="space-y-3">
+            <Accordion type="single" collapsible defaultValue={initialAccordion} value={activeAccordion} onValueChange={handleAccordionChange} className="space-y-3">
               {courses.map((course) => {
-                const isHighlighted = matchedAccordion === course.id && !!courseParam;
+                const isHighlighted = activeAccordion === course.id;
                 return (
                   <AccordionItem
                     key={course.id}
