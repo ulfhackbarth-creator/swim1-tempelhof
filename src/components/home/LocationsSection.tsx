@@ -25,14 +25,14 @@ const locations = [
 ];
 
 const LocationsSection = () => (
-  <section id="standorte" className="py-32 bg-slate-50 scroll-mt-20">
+  <section id="standorte" className="py-16 md:py-32 bg-slate-50 scroll-mt-20">
     <div className="max-w-6xl mx-auto px-6">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="text-center mb-20"
+        className="text-center mb-12 md:mb-20"
       >
         <h2 className="text-4xl font-bold tracking-tight text-slate-900 mb-4">
           Unsere Standorte
@@ -50,7 +50,7 @@ const LocationsSection = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: i * 0.1 }}
-            className="bg-white rounded-[2rem] p-8 shadow-lg shadow-slate-200/50 border border-slate-100 flex flex-col"
+            className="bg-white rounded-[2rem] p-6 md:p-8 shadow-lg shadow-slate-200/50 border border-slate-100 flex flex-col"
           >
             <span className="inline-block bg-blue-50 text-[#1B4F8A] text-xs font-bold px-3 py-1 rounded-full mb-6 w-fit">
               Jetzt buchbar
