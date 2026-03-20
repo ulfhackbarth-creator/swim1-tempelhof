@@ -1,3 +1,4 @@
+import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, Star, Waves, Baby, PersonStanding, Activity, HeartPulse, ShieldCheck, Lock, Users } from "lucide-react";
@@ -48,18 +49,39 @@ const testimonials = [
 
 const scrollTo = (id: string) => document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
 
-const Index = () => (
+const ROTATION_INTERVAL = 7000;
+
+const Index = () => {
+  const [activeVideo, setActiveVideo] = useState(0);
+
+  const rotate = useCallback(() => {
+    setActiveVideo((prev) => (prev + 1) % heroVideos.length);
+  }, []);
+
+  useEffect(() => {
+    const id = setInterval(rotate, ROTATION_INTERVAL);
+    return () => clearInterval(id);
+  }, [rotate]);
+
+  return (
   <main className="min-h-screen">
     <GlobalHeader />
 
     {/* ─── HERO ─── */}
-    <section className="relative min-h-[70vh] md:min-h-[90vh] overflow-hidden pt-32 md:pt-[120px]">
-      {/* Video Grid Background */}
-      <div className="absolute inset-0 grid grid-cols-2 grid-rows-2">
-        {heroVideos.map((src, i) => (
-          <video key={i} autoPlay muted loop playsInline className="w-full h-full object-cover" src={src} />
-        ))}
-      </div>
+    <section className="relative min-h-[70vh] md:min-h-[90vh] overflow-hidden">
+      {/* Video Rotator Background */}
+      {heroVideos.map((src, i) => (
+        <video
+          key={src}
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover transition-opacity duration-[1500ms] ease-in-out"
+          style={{ opacity: i === activeVideo ? 1 : 0 }}
+          src={src}
+        />
+      ))}
       <div className="absolute inset-0 bg-[#0F2D52]/70" />
 
       <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 md:px-6 min-h-[70vh] md:min-h-[90vh] pt-20 md:pt-[80px]">
@@ -306,6 +328,7 @@ const Index = () => (
 
     <HomeFooter />
   </main>
-);
+  );
+};
 
 export default Index;
