@@ -6,7 +6,7 @@ import type { CourseTab } from "@/pages/Index";
 type FaqItem = { q: string; a: string };
 
 const faqsByTab: Record<CourseTab, { title: string; items: FaqItem[] }> = {
-  schwimmen: {
+  kinderschwimmen: {
     title: "Häufige Fragen zum Schwimmenlernen",
     items: [
       { q: "Ab welchem Alter kann mein Kind starten?", a: "Für das Seepferdchen empfehlen wir ein Alter ab 3,5 Jahren." },
@@ -20,6 +20,14 @@ const faqsByTab: Record<CourseTab, { title: string; items: FaqItem[] }> = {
       { q: "Ab wann darf mein Baby ins Wasser?", a: "Wir empfehlen den Start ab dem 2. Lebensmonat, wenn der Bauchnabel vollständig verheilt ist." },
       { q: "Was muss ich mitbringen?", a: "Schwimmwindel, zwei große Handtücher und natürlich viel gute Laune." },
       { q: "Was passiert, wenn mein Baby weint?", a: "Das ist völlig normal! Unsere Trainer zeigen dir Griffe, wie du dein Baby im Wasser beruhigen kannst." },
+    ],
+  },
+  erwachsene: {
+    title: "Häufige Fragen zum Erwachsenenschwimmen",
+    items: [
+      { q: "Ich habe große Angst vor Wasser. Ist der Kurs für mich geeignet?", a: "Ja, absolut. Unsere Anfängerkurse sind genau dafür konzipiert. Wir starten im flachen Wasser und gehen komplett auf dein Tempo ein." },
+      { q: "Brauche ich Vorkenntnisse für den Technikkurs?", a: "Du solltest dich sicher im tiefen Wasser bewegen können und mindestens eine Schwimmart (meist Brustschwimmen) grundlegend beherrschen." },
+      { q: "Sind Zuschauer beim Kurs erlaubt?", a: "Nein. Wir legen großen Wert auf eine diskrete und geschützte Atmosphäre, in der sich alle Teilnehmer wohlfühlen." },
     ],
   },
   fitness: {

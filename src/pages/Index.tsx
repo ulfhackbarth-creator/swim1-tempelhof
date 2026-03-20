@@ -7,10 +7,10 @@ import HomeFAQ from "@/components/home/HomeFAQ";
 import LocationsSection from "@/components/home/LocationsSection";
 import HomeFooter from "@/components/home/HomeFooter";
 
-export type CourseTab = "wassergewoehnung" | "schwimmen" | "fitness" | "reha";
+export type CourseTab = "kinderschwimmen" | "wassergewoehnung" | "erwachsene" | "fitness" | "reha";
 
 const Index = () => {
-  const [activeTab, setActiveTab] = useState<CourseTab>("schwimmen");
+  const [activeTab, setActiveTab] = useState<CourseTab>("kinderschwimmen");
 
   return (
     <main className="min-h-screen">

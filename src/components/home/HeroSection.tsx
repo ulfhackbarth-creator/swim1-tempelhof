@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 import type { CourseTab } from "@/pages/Index";
 
 const heroContent: Record<CourseTab, { video: string; headline: string; subtext: string }> = {
-  schwimmen: {
+  kinderschwimmen: {
     video: "https://videos.pexels.com/video-files/9044164/9044164-hd_1920_1080_30fps.mp4",
     headline: "Vom Seepferdchen bis zum Goldabzeichen.",
     subtext: "Kleine Gruppen · Zertifizierte Trainer · Bewährte Methodik",
@@ -12,6 +12,11 @@ const heroContent: Record<CourseTab, { video: string; headline: string; subtext:
     video: "https://videos.pexels.com/video-files/5888971/5888971-hd_1920_1080_30fps.mp4",
     headline: "Sicher ins Wasser. Von Anfang an.",
     subtext: "Eltern-Kind-Kurse · Ab 2 Monate · 32°C warmes Wasser",
+  },
+  erwachsene: {
+    video: "https://videos.pexels.com/video-files/8000724/8000724-hd_1920_1080_25fps.mp4",
+    headline: "Schwimmen lernen ist keine Frage des Alters.",
+    subtext: "Ob kompletter Anfänger oder Technik-Feinschliff – lerne in kleiner Gruppe und geschütztem Rahmen schwimmen.",
   },
   fitness: {
     video: "https://videos.pexels.com/video-files/8050098/8050098-hd_1920_1080_25fps.mp4",
@@ -26,8 +31,9 @@ const heroContent: Record<CourseTab, { video: string; headline: string; subtext:
 };
 
 const courseSectionTitle: Record<CourseTab, string> = {
-  schwimmen: "Der Weg zum sicheren Schwimmer",
+  kinderschwimmen: "Der Weg zum sicheren Schwimmer",
   wassergewoehnung: "Gemeinsam das Element Wasser entdecken",
+  erwachsene: "Schwimmkurse für Erwachsene",
   fitness: "Dein Workout im Wasser",
   reha: "Gesundheit und Mobilität fördern",
 };
@@ -35,15 +41,17 @@ const courseSectionTitle: Record<CourseTab, string> = {
 type Course = { tag: string; name: string; text: string };
 
 const coursesByTab: Record<CourseTab, Course[]> = {
-  schwimmen: [
+  kinderschwimmen: [
     { tag: "Kinder", name: "Seepferdchen", text: "Strukturierter Kurs für Kinder ab 3,5 Jahren. Schritt für Schritt zum ersten Schwimmabzeichen." },
     { tag: "Kinder", name: "Fortgeschrittene", text: "Aufbaukurse für Kinder mit Seepferdchen. Bronze, Silber und Gold — wir begleiten jeden Schritt." },
-    { tag: "Erwachsene", name: "Schwimmen lernen", text: "Für Erwachsene, die noch nicht schwimmen können. In einem geschützten Rahmen ohne Leistungsdruck sicher schwimmen lernen." },
-    { tag: "Erwachsene", name: "Technik & Kraulen", text: "Für sichere Schwimmer, die ihren Schwimmstil verbessern oder Kraulen lernen möchten. Ideal auch für Triathleten." },
   ],
   wassergewoehnung: [
     { tag: "Ab 1,5 Monate", name: "Babyschwimmen", text: "Für Babys von 1,5 Monaten bis ca. 1,5 Jahre. Haut an Haut im 32°C warmen Wasser fördern wir das Urvertrauen und die motorische Entwicklung deines Kindes." },
     { tag: "Ab 1,5 Jahre", name: "Wassergewöhnung", text: "Für Kleinkinder von 1,5 bis 3,5 Jahren. Gemeinsam mit einem Elternteil entdecken wir spielerisch das Element Wasser und bereiten auf den ersten Schwimmkurs vor." },
+  ],
+  erwachsene: [
+    { tag: "Für Anfänger", name: "Erwachsenenschwimmen Anfänger", text: "Überwinde deine Ängste im geschützten Rahmen. Wir gewöhnen dich behutsam ans Wasser und bringen dir die Grundlagen des Brustschwimmens bei." },
+    { tag: "Für Fortgeschrittene", name: "Erwachsenenschwimmen Technik", text: "Du kannst bereits schwimmen, möchtest aber deine Technik verbessern oder Kraulen lernen? Hier feilen wir an deiner Wasserlage und Ausdauer." },
   ],
   fitness: [
     { tag: "Alle Level", name: "Aquafitness", text: "Gelenkschonendes Ganzkörper-Training im Wasser. Effektiv, motivierend, für jeden geeignet." },
@@ -55,14 +63,15 @@ const coursesByTab: Record<CourseTab, Course[]> = {
 };
 
 const gridClass: Record<CourseTab, string> = {
-  schwimmen: "grid-cols-1 md:grid-cols-2 lg:grid-cols-4",
+  kinderschwimmen: "grid-cols-1 md:grid-cols-2 max-w-3xl mx-auto",
   wassergewoehnung: "grid-cols-1 md:grid-cols-2 max-w-3xl mx-auto",
+  erwachsene: "grid-cols-1 md:grid-cols-2 max-w-3xl mx-auto",
   fitness: "grid-cols-1 max-w-lg mx-auto",
   reha: "grid-cols-1 md:grid-cols-2 max-w-3xl mx-auto",
 };
 
 const trustStats: Record<CourseTab, { value: string; label: string }[]> = {
-  schwimmen: [
+  kinderschwimmen: [
     { value: "Ab 3,5 Jahre", label: "Kursstart" },
     { value: "Max. 6", label: "Kinder pro Gruppe" },
     { value: "Seepferdchen bis Gold", label: "Abzeichen" },
@@ -71,6 +80,11 @@ const trustStats: Record<CourseTab, { value: string; label: string }[]> = {
     { value: "Ab 2 Monate", label: "Kursstart" },
     { value: "32°C", label: "Warmes Wasser" },
     { value: "Eltern-Kind", label: "Kursformat" },
+  ],
+  erwachsene: [
+    { value: "Kleine Gruppen", label: "Max. 8 Personen" },
+    { value: "Diskretes Umfeld", label: "Ohne Zuschauer" },
+    { value: "Jedes Level", label: "Anfänger bis Technik" },
   ],
   fitness: [
     { value: "Alle Level", label: "Für jeden" },
@@ -84,7 +98,7 @@ const trustStats: Record<CourseTab, { value: string; label: string }[]> = {
   ],
 };
 
-const allTabs: CourseTab[] = ["schwimmen", "wassergewoehnung", "fitness", "reha"];
+const allTabs: CourseTab[] = ["kinderschwimmen", "wassergewoehnung", "erwachsene", "fitness", "reha"];
 
 const HeroSection = ({ activeTab }: { activeTab: CourseTab }) => {
   const content = heroContent[activeTab];
@@ -104,7 +118,7 @@ const HeroSection = ({ activeTab }: { activeTab: CourseTab }) => {
             muted
             loop
             playsInline
-            preload={tab === "schwimmen" ? "auto" : "none"}
+            preload={tab === "kinderschwimmen" ? "auto" : "none"}
             className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
               activeTab === tab ? "opacity-100" : "opacity-0"
             }`}
@@ -115,7 +129,6 @@ const HeroSection = ({ activeTab }: { activeTab: CourseTab }) => {
         <div className="absolute inset-0 bg-black/40" />
 
         <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 md:px-6 min-h-[70vh] md:min-h-[85vh] pt-32 md:pt-[120px] pb-8 md:pb-0">
-
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}
