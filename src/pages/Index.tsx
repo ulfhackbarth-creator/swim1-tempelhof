@@ -328,6 +328,7 @@ const Index = () => {
 
     <HomeFooter />
   </main>
-);
+  );
+};
 
 export default Index;
