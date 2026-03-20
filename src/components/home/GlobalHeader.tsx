@@ -30,6 +30,27 @@ const GlobalHeader = () => {
 
   const isHome = location.pathname === "/";
 
+  // Hide-on-scroll-down, show-on-scroll-up
+  const [isVisible, setIsVisible] = useState(true);
+  const lastScrollY = useRef(0);
+
+  const handleScroll = useCallback(() => {
+    const currentScrollY = window.scrollY;
+    if (currentScrollY < 50) {
+      setIsVisible(true);
+    } else if (currentScrollY > lastScrollY.current) {
+      setIsVisible(false);
+    } else {
+      setIsVisible(true);
+    }
+    lastScrollY.current = currentScrollY;
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [handleScroll]);
+
   useLayoutEffect(() => {
     if (!containerRef.current) return;
     if (isHome) {
