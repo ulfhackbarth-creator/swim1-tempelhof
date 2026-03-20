@@ -14,6 +14,7 @@ import { heroContent, coursesByTab, courseSectionTitle, gridClass, trustStats } 
 import { uspsByTab } from "@/data/uspData";
 import { testimonialsByTab } from "@/data/testimonialData";
 import { faqsByTab } from "@/data/faqData";
+import { standorte } from "@/data/standorteData";
 
 const slideVariants = {
   enter: (direction: number) => ({
