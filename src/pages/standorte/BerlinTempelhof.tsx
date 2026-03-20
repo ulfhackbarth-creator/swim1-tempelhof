@@ -2,9 +2,9 @@ import { useRef, useMemo, useState, useCallback, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  MapPin, Thermometer, Car, Droplets, Train, Shirt, Clock, ArrowDown,
+  MapPin, Thermometer, Car, Droplets, Train, Shirt, Clock, ArrowDown, ArrowRight,
   ChevronRight, Star, ShieldCheck, Users, Baby, Fish, Medal, Trophy, Sun,
-  LifeBuoy, Timer, Dumbbell, HeartPulse, CheckCircle2, ChevronDown,
+  LifeBuoy, Timer, Dumbbell, HeartPulse, CheckCircle2, ChevronDown, Check, ExternalLink,
 } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
@@ -19,15 +19,9 @@ import heroImage from "@/assets/hero-pool.jpg";
 
 /* ─── DATA ─── */
 
-const trustBadges = [
-  { icon: ShieldCheck, label: "Zertifizierte Trainer" },
-  { icon: Users, label: "Kleine Gruppen (max. 6–8)" },
-  { icon: Thermometer, label: "32 °C warmes Wasser" },
-];
-
 const amenities = [
   { icon: Car, label: "Kostenlose Parkplätze", desc: "Direkt vor der Tür" },
-  { icon: Shirt, label: "Familien-Umkleiden", desc: "Geräumig mit Wickeltisch" },
+  { icon: Shirt, label: "Familien-Umkleiden", desc: "Geräumig & Wickeltisch" },
   { icon: Droplets, label: "Salzwasser-Pool", desc: "Schonend für Haut & Augen" },
   { icon: Thermometer, label: "32 °C Wassertemperatur", desc: "Angenehm warm" },
 ];
@@ -152,10 +146,12 @@ const interestOptions = [
   { id: "aquareha", label: "Aqua Reha" },
 ];
 
-const reveal = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 },
-};
+const trustStats = [
+  { value: "32 °C", label: "Wassertemperatur" },
+  { value: "6–8", label: "Kinder pro Gruppe" },
+  { value: "100 %", label: "Zertifizierte Trainer" },
+  { value: "4,9 ★", label: "Google Bewertung" },
+];
 
 /* ─── COMPONENT ─── */
 
@@ -165,9 +161,8 @@ const BerlinTempelhof = () => {
   const [searchParams] = useSearchParams();
   const courseParam = searchParams.get("course") || "";
   const { toast } = useToast();
-
-  // Sticky CTA visibility
   const [showStickyCta, setShowStickyCta] = useState(false);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   useEffect(() => {
     const sentinel = heroSentinelRef.current;
@@ -180,7 +175,6 @@ const BerlinTempelhof = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Pre-select course interest from URL param
   const initialInterest = useMemo(() => {
     if (!courseParam) return "";
     const normalized = decodeURIComponent(courseParam).toLowerCase();
@@ -194,7 +188,6 @@ const BerlinTempelhof = () => {
     return "";
   }, [courseParam]);
 
-  // Accordion initial match
   const initialAccordion = useMemo(() => {
     if (!courseParam) return "";
     const normalized = decodeURIComponent(courseParam).toLowerCase();
@@ -207,7 +200,6 @@ const BerlinTempelhof = () => {
 
   const [activeAccordion, setActiveAccordion] = useState(initialAccordion);
 
-  // ─── FORM STATE ───
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -289,7 +281,6 @@ const BerlinTempelhof = () => {
     }
   };
 
-  // SEO
   useEffect(() => {
     document.title = "Swim1 Schwimmschule Berlin-Tempelhof – Warteliste";
     const desc = document.querySelector('meta[name="description"]');
@@ -297,176 +288,185 @@ const BerlinTempelhof = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen">
       <GlobalHeader />
 
-      {/* ═══════════ 1. HERO ═══════════ */}
-      <section className="relative min-h-[85vh] md:min-h-[90vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img src={heroImage} alt="Swim1 Schwimmschule Berlin-Tempelhof" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/60 via-primary/40 to-background/90" />
-        </div>
+      {/* ═══════════ 1. HERO – matches KursePage exactly ═══════════ */}
+      <section className="relative min-h-[85vh] md:min-h-[90vh] overflow-hidden">
+        <img src={heroImage} alt="Swim1 Schwimmschule Berlin-Tempelhof" className="absolute inset-0 w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-[#0F2D52]/45" />
 
-        <div className="container relative z-10 px-4 pt-28 pb-12 text-center">
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="max-w-2xl mx-auto">
-            <span className="inline-block px-4 py-1.5 mb-5 text-sm font-semibold bg-white/20 text-white rounded-full backdrop-blur-sm border border-white/20">
-              Standort Berlin-Tempelhof
-            </span>
-
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight">
+        <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 md:px-6 min-h-[85vh] md:min-h-[90vh] pt-32 md:pt-[120px] pb-8 md:pb-0">
+          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="max-w-4xl mx-auto">
+            <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold text-white tracking-tight leading-tight md:leading-[1.1] mb-4 md:mb-6">
               Swim1 Schwimmschule in Berlin-Tempelhof
             </h1>
-
-            <p className="text-lg md:text-xl text-white/85 mb-8 max-w-xl mx-auto">
-              Professionelle Schwimmkurse für Kinder & Erwachsene. Kleine Gruppen, zertifizierte Trainer, 32 °C warmes Wasser.
+            <p className="text-base md:text-xl text-white/80 max-w-2xl mx-auto">
+              Kleine Gruppen · Zertifizierte Trainer · 32 °C warmes Wasser
             </p>
-
-            <Button variant="cta" size="xl" onClick={() => scrollToForm()} className="mb-8">
-              Jetzt auf die Warteliste setzen
-              <ArrowDown className="w-5 h-5 ml-1" />
-            </Button>
-
-            {/* Trust Badges */}
-            <div className="flex flex-wrap justify-center gap-3">
-              {trustBadges.map((b) => (
-                <span key={b.label} className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm text-white text-sm font-medium px-4 py-2 rounded-full border border-white/20">
-                  <b.icon className="w-4 h-4" />
-                  {b.label}
-                </span>
-              ))}
-            </div>
           </motion.div>
+
+          <motion.button
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            onClick={() => scrollToForm()}
+            className="mt-8 md:mt-10 w-full md:w-auto justify-center inline-flex items-center gap-2 rounded-full px-8 py-4 font-bold text-lg text-white transition-colors shadow-lg bg-[#F97316] hover:bg-[#EA580C]"
+            style={{ boxShadow: "0 10px 30px -5px rgba(249,115,22,0.3)" }}
+          >
+            Jetzt auf die Warteliste setzen <ArrowDown className="w-5 h-5" />
+          </motion.button>
         </div>
 
-        {/* Sentinel for sticky CTA */}
         <div ref={heroSentinelRef} className="absolute bottom-0 h-1 w-full" />
       </section>
 
-      {/* ═══════════ 2. QUICK FACTS & STANDORT ═══════════ */}
-      <section className="py-16 md:py-24 px-4">
-        <div className="max-w-5xl mx-auto">
-          <motion.h2 variants={reveal} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-3xl md:text-4xl font-bold text-foreground text-center mb-4">
-            Standort & Ausstattung
-          </motion.h2>
-          <motion.p variants={reveal} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.05 }} className="text-muted-foreground text-center mb-12 max-w-xl mx-auto">
-            Alles, was du für ein optimales Schwimmerlebnis brauchst – an einem Ort.
-          </motion.p>
+      {/* ═══════════ TRUST STATS BAR ═══════════ */}
+      <section className="bg-[#0F2D52] py-12 md:py-16">
+        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 px-6">
+          {trustStats.map((s, i) => (
+            <motion.div
+              key={s.label}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+              className="text-center"
+            >
+              <span className="block text-2xl md:text-3xl font-bold text-white tracking-tight mb-1">{s.value}</span>
+              <span className="block text-xs font-semibold text-white/50 uppercase tracking-wider">{s.label}</span>
+            </motion.div>
+          ))}
+        </div>
+      </section>
 
-          <motion.div variants={reveal} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} className="bg-card rounded-3xl p-6 md:p-10 shadow-card border border-border">
-            <div className="grid md:grid-cols-2 gap-8">
-              {/* Left: Address + Map */}
-              <div className="space-y-5">
-                <div className="flex items-start gap-4">
-                  <div className="w-11 h-11 rounded-xl bg-secondary flex items-center justify-center shrink-0">
-                    <MapPin className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <p className="font-bold text-foreground">Adresse</p>
-                    <p className="text-muted-foreground">Ringbahnstraße 12, 12099 Berlin</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-11 h-11 rounded-xl bg-secondary flex items-center justify-center shrink-0">
-                    <Train className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <p className="font-bold text-foreground">ÖPNV</p>
-                    <p className="text-muted-foreground">S+U Tempelhof, 3 Min. Fußweg</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-11 h-11 rounded-xl bg-secondary flex items-center justify-center shrink-0">
-                    <Clock className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <p className="font-bold text-foreground">Öffnungszeiten</p>
-                    <p className="text-muted-foreground">Mo–Fr 07:00–21:00 · Sa–So 08:00–18:00</p>
-                  </div>
-                </div>
-
-                {/* Map placeholder */}
-                <div className="bg-secondary rounded-2xl border border-border flex flex-col items-center justify-center min-h-[180px] text-center p-6">
-                  <MapPin className="w-10 h-10 text-muted-foreground/30 mb-2" />
-                  <p className="text-sm text-muted-foreground">Google Maps – Karte wird geladen…</p>
-                </div>
-              </div>
-
-              {/* Right: Amenities */}
-              <div className="grid grid-cols-2 gap-4">
-                {amenities.map((a, i) => (
-                  <motion.div key={a.label} variants={reveal} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ duration: 0.4, delay: 0.1 + i * 0.05 }} className="bg-secondary/60 rounded-2xl p-5 text-center flex flex-col items-center gap-2">
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                      <a.icon className="w-6 h-6 text-primary" />
-                    </div>
-                    <p className="font-semibold text-foreground text-sm">{a.label}</p>
-                    <p className="text-xs text-muted-foreground">{a.desc}</p>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
+      {/* ═══════════ 2. STANDORT & AUSSTATTUNG ═══════════ */}
+      <section className="py-16 md:py-32 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="text-center mb-12 md:mb-20">
+            <h2 className="text-4xl font-bold tracking-tight text-slate-900 mb-4">Standort & Ausstattung</h2>
+            <p className="text-slate-500">Alles, was du für ein optimales Schwimmerlebnis brauchst – an einem Ort.</p>
           </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-start">
+            {/* Left: Address & info */}
+            <div className="space-y-8">
+              <div className="flex items-start gap-5">
+                <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-blue-50 text-[#1B4F8A] flex items-center justify-center">
+                  <MapPin className="w-7 h-7" strokeWidth={1.5} />
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-slate-900 mb-1">Adresse</h3>
+                  <p className="text-slate-600 leading-relaxed">Ringbahnstraße 12, 12099 Berlin</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-5">
+                <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-blue-50 text-[#1B4F8A] flex items-center justify-center">
+                  <Train className="w-7 h-7" strokeWidth={1.5} />
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-slate-900 mb-1">ÖPNV</h3>
+                  <p className="text-slate-600 leading-relaxed">S+U Tempelhof, 3 Min. Fußweg</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-5">
+                <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-blue-50 text-[#1B4F8A] flex items-center justify-center">
+                  <Clock className="w-7 h-7" strokeWidth={1.5} />
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-slate-900 mb-1">Öffnungszeiten</h3>
+                  <p className="text-slate-600 leading-relaxed">Mo–Fr 07:00–21:00 · Sa–So 08:00–18:00</p>
+                </div>
+              </div>
+
+              <a
+                href="https://maps.google.com/?q=Ringbahnstraße+12,+12099+Berlin"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-[#1B4F8A] font-semibold hover:underline"
+              >
+                Route auf Google Maps öffnen <ExternalLink className="w-4 h-4" />
+              </a>
+            </div>
+
+            {/* Right: Amenities grid */}
+            <div className="grid grid-cols-2 gap-8">
+              {amenities.map((a, i) => (
+                <motion.div
+                  key={a.label}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.08 }}
+                  className="text-center"
+                >
+                  <div className="w-16 h-16 rounded-2xl bg-blue-50 text-[#1B4F8A] flex items-center justify-center mx-auto mb-4">
+                    <a.icon className="w-8 h-8" strokeWidth={1.5} />
+                  </div>
+                  <h4 className="font-bold text-slate-900 mb-1">{a.label}</h4>
+                  <p className="text-sm text-slate-500">{a.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
       {/* ═══════════ 3. KURSANGEBOT AKKORDEON ═══════════ */}
-      <section className="py-16 md:py-24 bg-secondary/40 px-4">
+      <section className="py-16 md:py-32 bg-blue-50/50 px-4 md:px-6">
         <div className="max-w-3xl mx-auto">
-          <motion.h2 variants={reveal} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-3xl md:text-4xl font-bold text-foreground text-center mb-4">
-            Unser Kursangebot
-          </motion.h2>
-          <motion.p variants={reveal} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.05 }} className="text-muted-foreground text-center mb-12">
-            Wähle eine Kategorie und sichere dir deinen Platz auf der Warteliste.
-          </motion.p>
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="text-center mb-12 md:mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mb-4">Unser Kursangebot</h2>
+            <p className="text-slate-500">Wähle eine Kategorie und sichere dir deinen Platz auf der Warteliste.</p>
+          </motion.div>
 
           <Accordion type="single" collapsible value={activeAccordion} onValueChange={setActiveAccordion} className="space-y-3">
             {courses.map((course) => (
               <AccordionItem
                 key={course.id}
                 value={course.id}
-                className={`bg-card rounded-2xl border shadow-soft px-6 transition-all ${activeAccordion === course.id ? "border-primary ring-2 ring-primary/20 shadow-card" : "border-border"}`}
+                className={`bg-white rounded-[2rem] border-2 shadow-xl shadow-slate-200/40 px-6 md:px-8 transition-all ${
+                  activeAccordion === course.id ? "border-[#1B4F8A]" : "border-slate-100"
+                }`}
               >
-                <AccordionTrigger className="hover:no-underline py-5">
-                  <span className="flex items-center gap-3 text-left">
-                    <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                      <course.icon className="w-5 h-5 text-primary" />
+                <AccordionTrigger className="hover:no-underline py-6">
+                  <span className="flex items-center gap-4 text-left">
+                    <div className="w-12 h-12 rounded-2xl bg-blue-50 text-[#1B4F8A] flex items-center justify-center shrink-0">
+                      <course.icon className="w-6 h-6" strokeWidth={1.5} />
                     </div>
                     <span>
-                      <span className="text-lg font-bold text-foreground block">{course.title}</span>
+                      <span className="text-lg font-bold text-slate-900 block">{course.title}</span>
+                      <span className="text-sm text-slate-500">{course.description}</span>
                     </span>
                   </span>
                 </AccordionTrigger>
                 <AccordionContent className="pb-6">
-                  <p className="text-muted-foreground mb-5 leading-relaxed">{course.description}</p>
-
                   {course.subCourses.length > 0 ? (
-                    <div className="space-y-2.5">
+                    <div className="space-y-3">
                       {course.subCourses.map((sub) => (
-                        <div key={sub.key} className="flex items-center justify-between bg-secondary/60 rounded-xl p-4 border border-border">
+                        <div key={sub.key} className="flex items-center justify-between bg-blue-50/60 rounded-2xl p-4 md:p-5">
                           <div>
-                            <p className="font-semibold text-foreground">{sub.name}</p>
-                            <p className="text-sm text-muted-foreground">{sub.desc}</p>
+                            <p className="font-bold text-slate-900">{sub.name}</p>
+                            <p className="text-sm text-slate-500">{sub.desc}</p>
                           </div>
-                          <Button
-                            variant="cta"
-                            size="sm"
-                            className="shrink-0 ml-3"
+                          <button
                             onClick={() => scrollToForm(sub.interest)}
+                            className="shrink-0 ml-3 inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 text-sm font-bold text-white bg-[#F97316] hover:bg-[#EA580C] transition-colors"
                           >
-                            Auf die Warteliste
-                            <ChevronRight className="w-3.5 h-3.5" />
-                          </Button>
+                            Auf die Warteliste <ChevronRight className="w-3.5 h-3.5" />
+                          </button>
                         </div>
                       ))}
                     </div>
                   ) : (
-                    <Button
-                      variant="cta"
-                      size="default"
+                    <button
                       onClick={() => scrollToForm((course as any).interest)}
+                      className="inline-flex items-center gap-2 rounded-full px-6 py-3 font-bold text-white bg-[#F97316] hover:bg-[#EA580C] transition-colors"
                     >
-                      Auf die Warteliste
-                      <ChevronRight className="w-4 h-4" />
-                    </Button>
+                      Auf die Warteliste <ChevronRight className="w-4 h-4" />
+                    </button>
                   )}
                 </AccordionContent>
               </AccordionItem>
@@ -476,24 +476,25 @@ const BerlinTempelhof = () => {
       </section>
 
       {/* ═══════════ 4. TESTIMONIALS ═══════════ */}
-      <section className="py-16 md:py-24 px-4" style={{ backgroundColor: "hsl(213 65% 18%)" }}>
-        <div className="max-w-5xl mx-auto">
-          <motion.h2 variants={reveal} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-3xl md:text-4xl font-bold text-white text-center mb-12">
-            Das sagen unsere Teilnehmer
-          </motion.h2>
+      <section className="py-16 md:py-32 bg-[#0F2D52]">
+        <div className="max-w-6xl mx-auto px-6">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="text-center mb-12 md:mb-20">
+            <h2 className="text-4xl font-bold tracking-tight text-white mb-4">Das sagen unsere Teilnehmer</h2>
+            <p className="text-white/70 font-medium">Über 4,9 Sterne auf Google</p>
+          </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((t, i) => (
-              <motion.div key={t.name} variants={reveal} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.08 }} className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
-                <div className="flex gap-0.5 mb-3">
+              <motion.div key={t.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }} className="bg-[#1B4F8A]/40 border border-white/10 rounded-[2rem] p-6 md:p-10 backdrop-blur-sm h-full flex flex-col">
+                <div className="flex gap-0.5 mb-6">
                   {Array.from({ length: t.stars }).map((_, j) => (
-                    <Star key={j} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                    <Star key={j} className="w-4 h-4 fill-current text-[#F59E0B]" />
                   ))}
                 </div>
-                <p className="text-white/90 italic mb-4 leading-relaxed text-sm">"{t.text}"</p>
+                <p className="text-lg text-white/90 font-medium leading-relaxed italic mb-8 flex-1">„{t.text}"</p>
                 <div>
-                  <p className="font-semibold text-white text-sm">{t.name}</p>
-                  <p className="text-white/60 text-xs">{t.location} · {t.course}</p>
+                  <p className="text-white font-bold">{t.name}</p>
+                  <p className="text-white/50 text-sm">{t.location} · {t.course}</p>
                 </div>
               </motion.div>
             ))}
@@ -502,62 +503,67 @@ const BerlinTempelhof = () => {
       </section>
 
       {/* ═══════════ 5. WARTELISTEN-FORMULAR ═══════════ */}
-      <section ref={formRef} id="warteliste" className="py-16 md:py-24 bg-secondary/50 px-4 scroll-mt-0">
+      <section ref={formRef} id="warteliste" className="py-16 md:py-32 bg-white px-4 scroll-mt-0">
         <div className="max-w-md mx-auto">
           {isSubmitted ? (
-            <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="text-center bg-card p-8 md:p-10 rounded-2xl shadow-card">
+            <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="text-center bg-blue-50 p-8 md:p-10 rounded-[2rem]">
               <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-green-50 flex items-center justify-center">
                 <CheckCircle2 className="w-8 h-8 text-green-600" />
               </div>
-              <h3 className="text-2xl font-bold text-foreground mb-3">Danke für dein Interesse!</h3>
-              <p className="text-muted-foreground">Du bist jetzt auf der Warteliste. Wir melden uns mit Startinfo und Kursplätzen zuerst bei dir.</p>
+              <h3 className="text-2xl font-bold text-slate-900 mb-3">Danke für dein Interesse!</h3>
+              <p className="text-slate-600">Du bist jetzt auf der Warteliste. Wir melden uns mit Startinfo und Kursplätzen zuerst bei dir.</p>
             </motion.div>
           ) : (
-            <motion.div variants={reveal} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ duration: 0.6 }}>
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
               <div className="text-center mb-8">
-                <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">Sichere dir jetzt deinen Platz!</h2>
-                <p className="text-muted-foreground">
+                <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mb-3">Sichere dir jetzt deinen Platz!</h2>
+                <p className="text-slate-500">
                   Unverbindliche Eintragung – wir melden uns, sobald ein Platz frei wird.
                 </p>
               </div>
 
-              <form onSubmit={handleSubmit} className="bg-card p-6 md:p-8 rounded-2xl shadow-card space-y-5">
+              <form onSubmit={handleSubmit} className="bg-blue-50/60 p-6 md:p-8 rounded-[2rem] space-y-5">
                 <div className="space-y-2">
-                  <Label htmlFor="wl-name">Name</Label>
-                  <Input id="wl-name" placeholder="Dein Vorname" value={formData.name} onChange={(e) => { setFormData({ ...formData, name: e.target.value }); setErrors((p) => ({ ...p, name: "" })); }} className={errors.name ? "border-destructive" : ""} />
+                  <Label htmlFor="wl-name" className="text-slate-900 font-semibold">Name</Label>
+                  <Input id="wl-name" placeholder="Dein Vorname" value={formData.name} onChange={(e) => { setFormData({ ...formData, name: e.target.value }); setErrors((p) => ({ ...p, name: "" })); }} className={`bg-white border-slate-200 ${errors.name ? "border-destructive" : ""}`} />
                   {errors.name && <p className="text-sm text-destructive">{errors.name}</p>}
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="wl-email">E-Mail</Label>
-                  <Input id="wl-email" type="email" placeholder="deine.email@adresse.de" value={formData.email} onChange={(e) => { setFormData({ ...formData, email: e.target.value }); setErrors((p) => ({ ...p, email: "" })); }} className={errors.email ? "border-destructive" : ""} />
+                  <Label htmlFor="wl-email" className="text-slate-900 font-semibold">E-Mail</Label>
+                  <Input id="wl-email" type="email" placeholder="deine.email@adresse.de" value={formData.email} onChange={(e) => { setFormData({ ...formData, email: e.target.value }); setErrors((p) => ({ ...p, email: "" })); }} className={`bg-white border-slate-200 ${errors.email ? "border-destructive" : ""}`} />
                   {errors.email && <p className="text-sm text-destructive">{errors.email}</p>}
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="wl-plz">PLZ / Stadtteil</Label>
-                  <Input id="wl-plz" placeholder="z.B. 12099" value={formData.plz} onChange={(e) => { setFormData({ ...formData, plz: e.target.value }); setErrors((p) => ({ ...p, plz: "" })); }} className={errors.plz ? "border-destructive" : ""} />
+                  <Label htmlFor="wl-plz" className="text-slate-900 font-semibold">PLZ / Stadtteil</Label>
+                  <Input id="wl-plz" placeholder="z.B. 12099" value={formData.plz} onChange={(e) => { setFormData({ ...formData, plz: e.target.value }); setErrors((p) => ({ ...p, plz: "" })); }} className={`bg-white border-slate-200 ${errors.plz ? "border-destructive" : ""}`} />
                   {errors.plz && <p className="text-sm text-destructive">{errors.plz}</p>}
                 </div>
 
                 <div className="space-y-3">
-                  <Label>Interesse an</Label>
+                  <Label className="text-slate-900 font-semibold">Interesse an</Label>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                     {interestOptions.map((option) => (
-                      <label key={option.id} className="flex items-center gap-3 p-3 rounded-lg border border-border hover:bg-secondary/50 cursor-pointer transition-colors">
+                      <label key={option.id} className="flex items-center gap-3 p-3 rounded-xl bg-white border border-slate-200 hover:border-[#1B4F8A]/30 cursor-pointer transition-colors">
                         <Checkbox checked={formData.interests.includes(option.id)} onCheckedChange={(checked) => handleInterestChange(option.id, checked as boolean)} />
-                        <span className="text-sm font-medium text-foreground">{option.label}</span>
+                        <span className="text-sm font-medium text-slate-700">{option.label}</span>
                       </label>
                     ))}
                   </div>
                   {errors.interests && <p className="text-sm text-destructive">{errors.interests}</p>}
                 </div>
 
-                <Button type="submit" variant="cta" size="lg" className="w-full" disabled={isLoading}>
+                <button
+                  type="submit"
+                  disabled={isLoading}
+                  className="w-full rounded-full py-4 font-bold text-lg text-white bg-[#F97316] hover:bg-[#EA580C] transition-colors disabled:opacity-50 shadow-lg"
+                  style={{ boxShadow: "0 10px 30px -5px rgba(249,115,22,0.3)" }}
+                >
                   {isLoading ? "Wird eingetragen..." : "Jetzt Platz sichern"}
-                </Button>
+                </button>
 
-                <p className="text-xs text-center text-muted-foreground">
+                <p className="text-xs text-center text-slate-400">
                   Deine Daten werden vertraulich behandelt und nur für die Kontaktaufnahme verwendet.
                 </p>
               </form>
@@ -567,24 +573,18 @@ const BerlinTempelhof = () => {
       </section>
 
       {/* ═══════════ 6. FAQ ═══════════ */}
-      <section className="py-16 md:py-24 px-4">
-        <div className="max-w-3xl mx-auto">
-          <motion.h2 variants={reveal} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-3xl md:text-4xl font-bold text-foreground text-center mb-12">
-            Häufige Fragen
-          </motion.h2>
-
-          <Accordion type="single" collapsible className="space-y-3">
-            {faqs.map((faq, i) => (
-              <AccordionItem key={i} value={`faq-${i}`} className="bg-card rounded-2xl border border-border shadow-soft px-6 data-[state=open]:shadow-card transition-shadow">
-                <AccordionTrigger className="text-base font-bold text-foreground hover:no-underline py-5">
-                  {faq.q}
-                </AccordionTrigger>
-                <AccordionContent className="pb-5">
-                  <p className="text-muted-foreground leading-relaxed">{faq.a}</p>
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+      <section className="py-16 md:py-32 bg-white">
+        <div className="max-w-3xl mx-auto px-6 md:px-8">
+          <h2 className="text-4xl font-bold tracking-tight text-slate-900 text-center mb-12 md:mb-20">Häufige Fragen</h2>
+          {faqs.map((faq, i) => (
+            <div key={i} className="border-b border-slate-100 py-6">
+              <button onClick={() => setOpenFaq(openFaq === i ? null : i)} className="w-full flex items-center justify-between text-left">
+                <span className="text-base md:text-lg font-semibold text-slate-900 pr-4">{faq.q}</span>
+                <ChevronDown className={`w-5 h-5 text-slate-400 shrink-0 transition-transform duration-200 ${openFaq === i ? "rotate-180" : ""}`} />
+              </button>
+              {openFaq === i && <p className="text-slate-600 leading-relaxed pt-4">{faq.a}</p>}
+            </div>
+          ))}
         </div>
       </section>
 
@@ -598,12 +598,14 @@ const BerlinTempelhof = () => {
             animate={{ y: 0 }}
             exit={{ y: 100 }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="fixed bottom-0 left-0 right-0 z-50 p-3 bg-white/95 backdrop-blur-md border-t border-border shadow-lg md:hidden"
+            className="fixed bottom-0 left-0 right-0 z-50 p-3 bg-white/95 backdrop-blur-md border-t border-slate-200 shadow-lg md:hidden"
           >
-            <Button variant="cta" size="lg" className="w-full" onClick={() => scrollToForm()}>
-              Auf die Warteliste
-              <ArrowDown className="w-4 h-4 ml-1" />
-            </Button>
+            <button
+              onClick={() => scrollToForm()}
+              className="w-full rounded-full py-3.5 font-bold text-white bg-[#F97316] hover:bg-[#EA580C] transition-colors inline-flex items-center justify-center gap-2"
+            >
+              Auf die Warteliste <ArrowDown className="w-4 h-4" />
+            </button>
           </motion.div>
         )}
       </AnimatePresence>
