@@ -43,10 +43,13 @@ const GlobalHeader = () => {
     const activeTab = chipRefs.current[activeChip.id];
     if (!activeTab) return;
 
+    // Double rAF + small timeout ensures DOM is settled after swipe navigation
     requestAnimationFrame(() => {
-      const scrollLeft =
-        activeTab.offsetLeft - container.offsetWidth / 2 + activeTab.offsetWidth / 2;
-      container.scrollTo({ left: scrollLeft, behavior: "smooth" });
+      requestAnimationFrame(() => {
+        const scrollLeft =
+          activeTab.offsetLeft - container.offsetWidth / 2 + activeTab.offsetWidth / 2;
+        container.scrollTo({ left: scrollLeft, behavior: "smooth" });
+      });
     });
   }, [location.pathname, isHome]);
 
