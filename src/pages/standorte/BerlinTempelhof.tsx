@@ -165,19 +165,7 @@ const BerlinTempelhof = () => {
   const [searchParams] = useSearchParams();
   const courseParam = searchParams.get("course") || "";
   const { toast } = useToast();
-  const [showStickyCta, setShowStickyCta] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-
-  useEffect(() => {
-    const sentinel = heroSentinelRef.current;
-    if (!sentinel) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => setShowStickyCta(!entry.isIntersecting),
-      { threshold: 0 }
-    );
-    observer.observe(sentinel);
-    return () => observer.disconnect();
-  }, []);
 
   const initialInterest = useMemo(() => {
     if (!courseParam) return "";
