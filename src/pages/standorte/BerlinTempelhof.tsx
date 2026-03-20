@@ -323,7 +323,7 @@ const BerlinTempelhof = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-10">
             {[
-              { icon: MapPin, title: "Adresse", text: "Ringbahnstraße 12, 12099 Berlin" },
+              { icon: MapPin, title: "Adresse", text: "Tempelhofer Hafen, Ordensmeisterstr. 1–3, 12099 Berlin" },
               { icon: Train, title: "ÖPNV", text: "S+U Tempelhof, 3 Min. Fußweg" },
               { icon: Clock, title: "Öffnungszeiten", text: "Mo–Fr 07:00–21:00 · Sa–So 08:00–18:00" },
               { icon: Car, title: "Kostenlose Parkplätze", text: "Direkt vor der Tür" },
