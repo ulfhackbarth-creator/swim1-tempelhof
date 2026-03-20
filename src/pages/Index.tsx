@@ -22,11 +22,11 @@ const trustStats = [
 ];
 
 const categories = [
-  { Icon: Droplets, title: "Wassergewöhnung", text: "Babyschwimmen & Eltern-Kind-Kurse. Ab 3 Monaten.", path: "/kurse/wassergewoehnung" },
-  { Icon: Waves, title: "Kinderschwimmen", text: "Schwimmen lernen mit Spaß und Sicherheit. Ab 3,5 Jahren.", path: "/kurse/kinderschwimmen" },
-  { Icon: PersonStanding, title: "Erwachsenenschwimmen", text: "Ängste abbauen oder Technik perfektionieren.", path: "/kurse/erwachsene" },
-  { Icon: Activity, title: "Aquafitness", text: "Gelenkschonendes Ganzkörpertraining.", path: "/kurse/aquafitness" },
-  { Icon: HeartPulse, title: "Aqua Reha", text: "Medizinisch begleitete Rehabilitation im Wasser.", path: "/kurse/reha" },
+  { Icon: Droplets, tag: "Ab 3 Monaten", title: "Wassergewöhnung", text: "Babyschwimmen & Eltern-Kind-Kurse für die Kleinsten.", path: "/kurse/wassergewoehnung" },
+  { Icon: Waves, tag: "Ab 3,5 Jahren", title: "Kinderschwimmen", text: "Vom Seepferdchen bis zum Goldabzeichen – mit Spaß und Sicherheit.", path: "/kurse/kinderschwimmen" },
+  { Icon: PersonStanding, tag: "Alle Level", title: "Erwachsenenschwimmen", text: "Ängste abbauen oder Technik perfektionieren – in kleiner Gruppe.", path: "/kurse/erwachsene" },
+  { Icon: Activity, tag: "Gelenkschonend", title: "Aquafitness", text: "Effektives Ganzkörpertraining im 32 °C warmen Wasser.", path: "/kurse/aquafitness" },
+  { Icon: HeartPulse, tag: "Auf Rezept", title: "Aqua Reha", text: "Medizinisch begleitete Rehabilitation – von Krankenkassen anerkannt.", path: "/kurse/reha" },
 ];
 
 const philosophy = [
@@ -118,9 +118,10 @@ const Index = () => {
                 onClick={() => window.scrollTo({ top: 0 })}
                 className="group bg-white rounded-[2rem] p-8 md:p-10 shadow-xl shadow-slate-200/40 border border-slate-100 flex flex-col h-full hover:-translate-y-1 transition-transform"
               >
-                <div className="w-14 h-14 rounded-2xl bg-blue-50 text-[#1B4F8A] flex items-center justify-center mb-6 group-hover:scale-105 transition-transform">
+                <div className="w-14 h-14 rounded-2xl bg-blue-50 text-[#1B4F8A] flex items-center justify-center mb-5 group-hover:scale-105 transition-transform">
                   <cat.Icon className="w-7 h-7" strokeWidth={1.5} />
                 </div>
+                <span className="text-xs font-bold uppercase tracking-widest text-[#1B4F8A] mb-3">{cat.tag}</span>
                 <h3 className="text-xl font-bold text-slate-900 mb-2">{cat.title}</h3>
                 <p className="text-slate-600 leading-relaxed mb-6 flex-1">{cat.text}</p>
                 <span className="inline-flex items-center text-[#1B4F8A] font-semibold gap-1 group-hover:gap-2 transition-all">
