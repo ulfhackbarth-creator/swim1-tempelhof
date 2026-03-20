@@ -12,6 +12,12 @@ import { heroContent, coursesByTab, courseSectionTitle, gridClass, trustStats } 
 import { uspsByTab } from "@/data/uspData";
 import { testimonialsByTab } from "@/data/testimonialData";
 import { faqsByTab } from "@/data/faqData";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const slideVariants = {
   enter: (direction: number) => ({
