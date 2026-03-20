@@ -32,7 +32,7 @@ const locations = [
   },
 ];
 
-const LocationsSection = () => (
+const LocationsSection = ({ activeTab }: { activeTab: CourseTab }) => (
   <section id="standorte" className="py-16 md:py-32 bg-slate-50 scroll-mt-20">
     <div className="max-w-6xl mx-auto px-6">
       <motion.div
