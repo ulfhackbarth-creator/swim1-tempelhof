@@ -451,15 +451,15 @@ const BerlinTempelhof = () => {
                     <div className="space-y-3">
                       {course.subCourses.map((sub) => (
                         <div key={sub.key} className="flex items-center justify-between bg-blue-50/60 rounded-2xl p-4 md:p-5">
-                          <div>
+                          <div className="min-w-0 flex-1">
                             <p className="font-bold text-slate-900">{sub.name}</p>
                             <p className="text-sm text-slate-500">{sub.desc}</p>
                           </div>
                           <button
                             onClick={() => scrollToForm(sub.interest)}
-                            className="shrink-0 ml-3 inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 text-sm font-bold text-white bg-[#F97316] hover:bg-[#EA580C] transition-colors"
+                            className="shrink-0 ml-4 inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 text-sm font-bold text-white bg-[#F97316] hover:bg-[#EA580C] transition-colors"
                           >
-                            Auf die Warteliste <ChevronRight className="w-3.5 h-3.5" />
+                            Warteliste <ChevronRight className="w-3.5 h-3.5" />
                           </button>
                         </div>
                       ))}
