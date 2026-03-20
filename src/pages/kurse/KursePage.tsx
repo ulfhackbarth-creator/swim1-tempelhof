@@ -38,9 +38,6 @@ const locationSubtitle: Record<CourseTab, string> = {
   reha: "Finde deinen Standort für Aqua Reha",
 };
 
-const standortLinks = [
-  { label: "Berlin-Tempelhof", path: "/standorte/berlin-tempelhof" },
-];
 
 const locations = [
   { name: "Berlin-Tempelhof", address: "Ringbahnstraße 12, 12099 Berlin", route: "/standorte/berlin-tempelhof" },
