@@ -1,33 +1,32 @@
 import { motion } from "framer-motion";
-import { MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const locations = [
   {
     name: "Berlin-Tempelhof",
-    detail: "Tempelhofer Hafen · Direkt am S+U Tempelhof",
+    address: "Ringbahnstraße 12, 12099 Berlin",
     route: "/",
   },
   {
     name: "Schwerin",
-    detail: "Schlosspark-Center · Zentral mit Parkplätzen",
+    address: "Wittenburger Chaussee 25, 19059 Schwerin",
     route: "/schwerin",
   },
   {
     name: "Wildau",
-    detail: "Bei Berlin · Gut erreichbar",
+    address: "Adresse folgt in Kürze",
     route: "/wildau",
   },
   {
     name: "Bremen",
-    detail: "Norddeutschland · Bald verfügbar",
+    address: "Adresse folgt in Kürze",
     route: "/bremen",
   },
 ];
 
 const LocationsSection = () => (
-  <section id="standorte" className="py-24 bg-white scroll-mt-20">
-    <div className="container px-4">
+  <section id="standorte" className="py-16 md:py-24 bg-white scroll-mt-20">
+    <div className="max-w-6xl mx-auto px-6">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -35,12 +34,15 @@ const LocationsSection = () => (
         transition={{ duration: 0.6 }}
         className="text-center mb-16"
       >
-        <h2 className="text-3xl md:text-5xl font-bold text-[#1B4F8A] tracking-tight mb-4">
+        <h2 className="text-4xl font-bold tracking-tight text-[#0F172A] mb-4">
           Unsere Standorte
         </h2>
+        <p className="text-slate-400">
+          Finde deine Schwimmschule in deiner Nähe.
+        </p>
       </motion.div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {locations.map((loc, i) => (
           <motion.div
             key={loc.name}
@@ -48,17 +50,17 @@ const LocationsSection = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: i * 0.1 }}
-            className="bg-white p-8 rounded-2xl border border-slate-100 hover:border-[#1B4F8A]/20 transition-colors duration-300 flex flex-col"
+            className="border border-slate-100 rounded-2xl p-8 hover:border-[#1B4F8A]/30 hover:shadow-md transition-all flex flex-col"
           >
-            <div className="bg-slate-50 w-12 h-12 rounded-xl flex items-center justify-center mb-5">
-              <MapPin className="w-6 h-6 text-[#1B4F8A]" />
-            </div>
-            <h3 className="font-bold text-slate-900 text-lg mb-2">{loc.name}</h3>
-            <p className="text-sm text-slate-500 mb-8 flex-1 leading-relaxed">{loc.detail}</p>
+            <h3 className="text-xl font-bold text-[#0F172A] mb-2">{loc.name}</h3>
+            <p className="text-sm text-[#64748B] mb-4">{loc.address}</p>
+            <span className="inline-block bg-green-50 text-green-700 text-xs rounded-full px-2 py-0.5 mb-6 w-fit">
+              Jetzt buchbar
+            </span>
             <Link
               to={loc.route}
               onClick={() => window.scrollTo({ top: 0 })}
-              className="w-full border border-slate-200 rounded-xl py-3 text-center font-medium text-slate-700 hover:border-[#1B4F8A] hover:text-[#1B4F8A] transition-colors"
+              className="w-full mt-auto border border-slate-200 rounded-full py-2.5 text-sm text-center font-medium text-[#64748B] hover:border-[#1B4F8A] hover:text-[#1B4F8A] transition-colors"
             >
               Standort entdecken →
             </Link>

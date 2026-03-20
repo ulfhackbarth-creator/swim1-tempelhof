@@ -4,41 +4,48 @@ import { Link } from "react-router-dom";
 const scrollTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
 const HomeFooter = () => (
-  <footer className="py-12 bg-[hsl(213,65%,16%)] text-white">
-    <div className="container px-4">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {/* Logo & Copyright */}
-        <div>
+  <footer className="bg-[#0F2D52] py-12 md:py-16">
+    <div className="max-w-7xl mx-auto px-6">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+        {/* Logo */}
+        <div className="col-span-2 md:col-span-1">
           <div className="flex items-center gap-2 mb-3">
-            <Waves className="w-5 h-5" />
-            <span className="font-bold">SWIM1 – Deine Schwimmschule</span>
+            <Waves className="w-5 h-5 text-white" />
+            <span className="font-bold text-white">SWIM1</span>
           </div>
-          <p className="text-sm text-white/60">
-            © {new Date().getFullYear()} SWIM1 – Alle Rechte vorbehalten
-          </p>
+          <p className="text-sm text-white/60 mb-2">Sicher schwimmen lernen.</p>
+          <p className="text-xs text-white/40">© {new Date().getFullYear()} SWIM1</p>
         </div>
 
-        {/* Links */}
+        {/* Kurse */}
         <div>
-          <h4 className="font-semibold mb-3 text-sm">Navigation</h4>
-          <nav className="flex flex-col gap-2 text-sm text-white/70">
-            <a href="#kurse" className="hover:text-white transition-colors">Kurse</a>
-            <a href="#standorte" className="hover:text-white transition-colors">Standorte</a>
-            <a href="#warum" className="hover:text-white transition-colors">Über uns</a>
-            <a href="#faq" className="hover:text-white transition-colors">FAQ</a>
-            <a href="#" className="hover:text-white transition-colors">Impressum</a>
-            <a href="#" className="hover:text-white transition-colors">Datenschutz</a>
+          <h4 className="text-white font-semibold text-sm uppercase tracking-wider mb-4">Kurse</h4>
+          <nav className="flex flex-col gap-2 text-sm text-white/60">
+            <a href="#kurse" className="hover:text-white transition-colors">Schwimmen lernen</a>
+            <a href="#kurse" className="hover:text-white transition-colors">Wassergewöhnung</a>
+            <a href="#kurse" className="hover:text-white transition-colors">Aqua-Fitness</a>
+            <a href="#kurse" className="hover:text-white transition-colors">Rehasport</a>
           </nav>
         </div>
 
         {/* Standorte */}
         <div>
-          <h4 className="font-semibold mb-3 text-sm">Standorte</h4>
-          <nav className="flex flex-col gap-2 text-sm text-white/70">
+          <h4 className="text-white font-semibold text-sm uppercase tracking-wider mb-4">Standorte</h4>
+          <nav className="flex flex-col gap-2 text-sm text-white/60">
             <Link to="/" onClick={scrollTop} className="hover:text-white transition-colors">Berlin-Tempelhof</Link>
             <Link to="/schwerin" onClick={scrollTop} className="hover:text-white transition-colors">Schwerin</Link>
             <Link to="/wildau" onClick={scrollTop} className="hover:text-white transition-colors">Wildau</Link>
             <Link to="/bremen" onClick={scrollTop} className="hover:text-white transition-colors">Bremen</Link>
+          </nav>
+        </div>
+
+        {/* Rechtliches */}
+        <div>
+          <h4 className="text-white font-semibold text-sm uppercase tracking-wider mb-4">Rechtliches</h4>
+          <nav className="flex flex-col gap-2 text-sm text-white/60">
+            <a href="#" className="hover:text-white transition-colors">Impressum</a>
+            <a href="#" className="hover:text-white transition-colors">Datenschutz</a>
+            <a href="#" className="hover:text-white transition-colors">AGB</a>
           </nav>
         </div>
       </div>
