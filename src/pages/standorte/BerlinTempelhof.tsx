@@ -334,74 +334,36 @@ const BerlinTempelhof = () => {
 
       {/* ═══════════ 2. STANDORT & AUSSTATTUNG ═══════════ */}
       <section className="py-16 md:py-32 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-4xl mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="text-center mb-12 md:mb-20">
-            <h2 className="text-4xl font-bold tracking-tight text-slate-900 mb-4">Standort & Ausstattung</h2>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 mb-4">Standort & Ausstattung</h2>
             <p className="text-slate-500">Alles, was du für ein optimales Schwimmerlebnis brauchst – an einem Ort.</p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-start">
-            {/* Left: Address & info */}
-            <div className="space-y-8">
-              <div className="flex items-start gap-5">
-                <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-blue-50 text-[#1B4F8A] flex items-center justify-center">
-                  <MapPin className="w-7 h-7" strokeWidth={1.5} />
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold text-slate-900 mb-1">Adresse</h3>
-                  <p className="text-slate-600 leading-relaxed">Ringbahnstraße 12, 12099 Berlin</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-5">
-                <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-blue-50 text-[#1B4F8A] flex items-center justify-center">
-                  <Train className="w-7 h-7" strokeWidth={1.5} />
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold text-slate-900 mb-1">ÖPNV</h3>
-                  <p className="text-slate-600 leading-relaxed">S+U Tempelhof, 3 Min. Fußweg</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-5">
-                <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-blue-50 text-[#1B4F8A] flex items-center justify-center">
-                  <Clock className="w-7 h-7" strokeWidth={1.5} />
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold text-slate-900 mb-1">Öffnungszeiten</h3>
-                  <p className="text-slate-600 leading-relaxed">Mo–Fr 07:00–21:00 · Sa–So 08:00–18:00</p>
-                </div>
-              </div>
-
-              <a
-                href="https://maps.google.com/?q=Ringbahnstraße+12,+12099+Berlin"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-[#1B4F8A] font-semibold hover:underline"
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-10">
+            {[
+              { icon: MapPin, title: "Adresse", text: "Ringbahnstraße 12, 12099 Berlin" },
+              { icon: Train, title: "ÖPNV", text: "S+U Tempelhof, 3 Min. Fußweg" },
+              { icon: Clock, title: "Öffnungszeiten", text: "Mo–Fr 07:00–21:00 · Sa–So 08:00–18:00" },
+              { icon: Car, title: "Kostenlose Parkplätze", text: "Direkt vor der Tür" },
+            ].map((item, i) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.08 }}
+                className="flex items-start gap-5"
               >
-                Route auf Google Maps öffnen <ExternalLink className="w-4 h-4" />
-              </a>
-            </div>
-
-            {/* Right: Amenities grid */}
-            <div className="grid grid-cols-2 gap-8">
-              {amenities.map((a, i) => (
-                <motion.div
-                  key={a.label}
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: i * 0.08 }}
-                  className="text-center"
-                >
-                  <div className="w-16 h-16 rounded-2xl bg-blue-50 text-[#1B4F8A] flex items-center justify-center mx-auto mb-4">
-                    <a.icon className="w-8 h-8" strokeWidth={1.5} />
-                  </div>
-                  <h4 className="font-bold text-slate-900 mb-1">{a.label}</h4>
-                  <p className="text-sm text-slate-500">{a.desc}</p>
-                </motion.div>
-              ))}
-            </div>
+                <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-blue-50 text-[#1B4F8A] flex items-center justify-center">
+                  <item.icon className="w-7 h-7" strokeWidth={1.5} />
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-slate-900 mb-1">{item.title}</h3>
+                  <p className="text-slate-600 leading-relaxed">{item.text}</p>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
