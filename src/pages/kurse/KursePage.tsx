@@ -32,8 +32,18 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
   const tests = testimonialsByTab[tab];
   const faqs = faqsByTab[tab];
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const location = useLocation();
 
   useEffect(() => { setOpenIndex(null); }, [tab]);
+
+  useEffect(() => {
+    if (location.hash === "#kurse") {
+      const timer = setTimeout(() => {
+        document.getElementById("kurse")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 200);
+      return () => clearTimeout(timer);
+    }
+  }, [location.hash, tab]);
 
   const scrollTo = (id: string) => document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
 
