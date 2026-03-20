@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { Waves, Baby, Activity, HeartPulse } from "lucide-react";
+import { Waves, Baby, Activity, HeartPulse, Check } from "lucide-react";
 import type { CourseTab } from "@/pages/Index";
 
 const categoryColors: Record<CourseTab, string> = {
