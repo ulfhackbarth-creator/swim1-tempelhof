@@ -271,7 +271,7 @@ const Index = () => {
           transition={{ duration: 0.6 }}
           className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 text-center mb-14 md:mb-20"
         >
-          Immer in deiner Nähe
+          Swim1 in deiner Nähe
         </motion.h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
