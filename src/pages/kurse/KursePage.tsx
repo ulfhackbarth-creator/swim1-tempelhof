@@ -165,7 +165,12 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
                       <Check className="w-4 h-4 text-[#1B4F8A]" strokeWidth={3} />
                     </div>
                   )}
-                  <span className={`text-xs font-bold uppercase tracking-widest mb-4 transition-colors duration-200 ${isSelected ? "text-white/70" : "text-[#1B4F8A]"}`}>{course.tag}</span>
+                  <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-5 transition-colors duration-200 ${
+                    isSelected ? "bg-white/15" : "bg-blue-50 text-[#1B4F8A]"
+                  }`}>
+                    <course.icon className={`w-6 h-6 transition-colors duration-200 ${isSelected ? "text-white" : ""}`} strokeWidth={1.5} />
+                  </div>
+                  <span className={`text-xs font-bold uppercase tracking-widest mb-3 transition-colors duration-200 ${isSelected ? "text-white/70" : "text-[#1B4F8A]"}`}>{course.tag}</span>
                   <h3 className={`text-xl xl:text-2xl font-bold mb-3 break-words hyphens-auto transition-colors duration-200 ${isSelected ? "text-white" : "text-slate-900"}`}>{course.name}</h3>
                   <p className={`leading-relaxed transition-colors duration-200 ${isSelected ? "text-white/80" : "text-slate-600"}`}>{course.text}</p>
 

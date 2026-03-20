@@ -1,4 +1,6 @@
 import type { CourseTab } from "@/types/course";
+import type { LucideIcon } from "lucide-react";
+import { Fish, Medal, Trophy, Sun, Baby, Users, LifeBuoy, Timer, Dumbbell, HeartPulse } from "lucide-react";
 
 export const heroContent: Record<CourseTab, { video: string | string[]; headline: string; subtext: string }> = {
   kinderschwimmen: {
@@ -37,6 +39,7 @@ export const courseSectionTitle: Record<CourseTab, string> = {
 };
 
 export type Course = {
+  icon: LucideIcon;
   tag: string;
   name: string;
   text: string;
@@ -47,31 +50,31 @@ export type Course = {
 export const coursesByTab: Record<CourseTab, Course[]> = {
   kinderschwimmen: [
     {
-      tag: "Abzeichen", name: "Seepferdchen",
+      icon: Fish, tag: "Abzeichen", name: "Seepferdchen",
       text: "Strukturierter Kurs für Kinder ab 3,5 Jahren. Schritt für Schritt zum ersten Schwimmabzeichen.",
       details: "Im Seepferdchen-Kurs lernen Kinder ab 3,5 Jahren die Grundlagen des Schwimmens. Ziel ist es, 25 Meter ohne Hilfe zu schwimmen und einen Gegenstand aus schultertiefem Wasser zu holen.",
       highlights: ["Ab 3,5 Jahren", "Max. 6 Kinder pro Gruppe", "Inkl. Schwimmabzeichen"],
     },
     {
-      tag: "Abzeichen", name: "Bronze",
+      icon: Medal, tag: "Abzeichen", name: "Bronze",
       text: "Aufbaukurs nach dem Seepferdchen. Dein Kind festigt seine Technik und erlangt das Bronzeabzeichen.",
       details: "Im Bronze-Kurs wird die Schwimmtechnik gefestigt. Dein Kind lernt 200 m in max. 15 Minuten zu schwimmen, vom Beckenrand zu springen und 2 m tief zu tauchen.",
       highlights: ["Nach Seepferdchen", "200 m Schwimmen", "Sprung & Tauchen"],
     },
     {
-      tag: "Abzeichen", name: "Silber",
+      icon: Medal, tag: "Abzeichen", name: "Silber",
       text: "Fortgeschrittener Kurs für sichere Schwimmer. Ausdauer und Technik auf dem Weg zum Silberabzeichen.",
       details: "Im Silber-Kurs trainieren Kinder Ausdauer und erweiterte Techniken. 400 m Schwimmen in max. 25 Minuten, 10 m Streckentauchen und ein Sprung aus 3 m Höhe gehören dazu.",
       highlights: ["400 m Schwimmen", "10 m Streckentauchen", "Sprung aus 3 m Höhe"],
     },
     {
-      tag: "Abzeichen", name: "Gold",
+      icon: Trophy, tag: "Abzeichen", name: "Gold",
       text: "Das höchste Jugendschwimmabzeichen. Für starke Schwimmer, die sich im Wasser zu Hause fühlen.",
       details: "Das Goldabzeichen ist die Königsdisziplin: 600 m in max. 24 Minuten, 25 m Streckentauchen und Transportschwimmen. Für Kinder, die echte Sicherheit im Wasser bewiesen haben.",
       highlights: ["600 m Schwimmen", "25 m Streckentauchen", "Transportschwimmen"],
     },
     {
-      tag: "Ferien", name: "Ferienintensivkurse",
+      icon: Sun, tag: "Ferien", name: "Ferienintensivkurse",
       text: "Tägliche Kurseinheiten in den Schulferien für schnelle Fortschritte in kompakter Zeit.",
       details: "Jeden Tag eine Stunde Schwimmunterricht – ideal für schnelle Fortschritte in den Ferien. Ob Seepferdchen oder Aufbaukurs, hier wird intensiv und mit viel Spaß trainiert.",
       highlights: ["Tägliche Einheiten", "Alle Levels", "In den Schulferien"],
@@ -79,13 +82,13 @@ export const coursesByTab: Record<CourseTab, Course[]> = {
   ],
   wassergewoehnung: [
     {
-      tag: "Ab 3 Monate", name: "Babyschwimmen",
+      icon: Baby, tag: "Ab 3 Monate", name: "Babyschwimmen",
       text: "Spielerische Wassergewöhnung für Babys ab 3 Monaten mit einem Elternteil. Fördert Motorik und Bindung.",
       details: "Babyschwimmen fördert die motorische Entwicklung und stärkt die Bindung zwischen Eltern und Kind. In 32 °C warmem Wasser entdecken Babys spielerisch das Element Wasser.",
       highlights: ["Ab 3 Monaten", "Mit Mama oder Papa", "32 °C Wassertemperatur"],
     },
     {
-      tag: "Ab 1 Jahr", name: "Eltern-Kind-Kurse",
+      icon: Users, tag: "Ab 1 Jahr", name: "Eltern-Kind-Kurse",
       text: "Gemeinsam mit Mama oder Papa das Wasser entdecken. Spaß und Sicherheit für Kleinkinder ab 1 Jahr.",
       details: "Kleinkinder ab 1 Jahr erkunden gemeinsam mit einem Elternteil das Wasser. Mit altersgerechten Spielen und Übungen wird Vertrauen aufgebaut und erste Schwimmbewegungen geübt.",
       highlights: ["Ab 1 Jahr", "Spielerisches Lernen", "Vertrauensaufbau im Wasser"],
@@ -93,13 +96,13 @@ export const coursesByTab: Record<CourseTab, Course[]> = {
   ],
   erwachsene: [
     {
-      tag: "Für Anfänger", name: "Anfängerschwimmen",
+      icon: LifeBuoy, tag: "Für Anfänger", name: "Anfängerschwimmen",
       text: "Überwinde deine Ängste im geschützten Rahmen. Wir gewöhnen dich behutsam ans Wasser und bringen dir die Grundlagen des Brustschwimmens bei.",
       details: "Der perfekte Einstieg für Erwachsene, die noch nicht schwimmen können oder Angst vor dem Wasser haben. In kleinen Gruppen und ohne Zuschauer lernst du die Grundlagen sicher und entspannt.",
       highlights: ["Kleine Gruppen (max. 8)", "Ohne Zuschauer", "Behutsamer Aufbau"],
     },
     {
-      tag: "Für Fortgeschrittene", name: "Technik",
+      icon: Timer, tag: "Für Fortgeschrittene", name: "Technik",
       text: "Du kannst bereits schwimmen, möchtest aber deine Technik verbessern oder Kraulen lernen? Hier feilen wir an deiner Wasserlage und Ausdauer.",
       details: "Verbessere deine Schwimmtechnik gezielt: Kraulschwimmen, Wasserlage, Atmung und Ausdauer. Unser Trainer gibt dir individuelles Feedback für spürbare Fortschritte.",
       highlights: ["Kraul- & Brusttechnik", "Individuelles Feedback", "Für alle Fitnesslevel"],
@@ -107,7 +110,7 @@ export const coursesByTab: Record<CourseTab, Course[]> = {
   ],
   fitness: [
     {
-      tag: "Alle Level", name: "Aquafitness",
+      icon: Dumbbell, tag: "Alle Level", name: "Aquafitness",
       text: "Gelenkschonendes Ganzkörper-Training im Wasser. Effektiv, motivierend, für jeden geeignet.",
       details: "Aquafitness bietet ein effektives Ganzkörper-Workout, das Gelenke schont und gleichzeitig Kraft, Ausdauer und Beweglichkeit trainiert. Ideal für alle, die Spaß an Bewegung im Wasser haben.",
       highlights: ["Gelenkschonend", "Max. 8 Teilnehmer", "Für jedes Fitnesslevel"],
@@ -115,7 +118,7 @@ export const coursesByTab: Record<CourseTab, Course[]> = {
   ],
   reha: [
     {
-      tag: "Auf Rezept", name: "Aquareha",
+      icon: HeartPulse, tag: "Auf Rezept", name: "Aquareha",
       text: "Medizinisches Training im Wasser nach Verletzungen oder bei Gelenkbeschwerden. Von allen gesetzlichen Krankenkassen anerkannt.",
       details: "Aquareha ist ein medizinisch begleitetes Rehabilitationstraining im Wasser. Es hilft bei Gelenkbeschwerden, nach Operationen oder Verletzungen – verordnungsfähig auf Rezept.",
       highlights: ["Auf ärztliches Rezept", "Krankenkassen-anerkannt", "Medizinisch begleitet"],
