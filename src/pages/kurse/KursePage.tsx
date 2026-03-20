@@ -152,25 +152,25 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
                      viewport={{ once: true }}
                      transition={{ duration: 0.3, delay: i * 0.06 }}
                      onClick={() => handleSelectCourse(course.name)}
-                     className={`relative bg-white rounded-[2rem] p-6 md:p-10 shadow-xl shadow-slate-200/40 border-2 transition-all duration-200 cursor-pointer flex flex-col ${
-                       isSelected
-                         ? "border-[#1B4F8A] ring-2 ring-[#1B4F8A]/20 bg-blue-50/40 -translate-y-1"
-                         : "border-slate-100 hover:-translate-y-1"
-                     }`}
-                   >
-                     {isSelected && (
-                       <div className="absolute top-4 right-4 w-7 h-7 rounded-full bg-[#1B4F8A] flex items-center justify-center">
-                         <Check className="w-4 h-4 text-white" strokeWidth={3} />
-                       </div>
-                     )}
-                     <span className="text-xs font-bold uppercase tracking-widest text-[#1B4F8A] mb-4">{course.tag}</span>
-                     <h3 className="text-xl xl:text-2xl font-bold text-slate-900 mb-3 break-words hyphens-auto">{course.name}</h3>
-                     <p className="text-slate-600 leading-relaxed mb-8 flex-1">{course.text}</p>
-                     <span className={`mt-auto inline-flex items-center font-semibold transition-all gap-1 ${
-                       isSelected ? "text-[#1B4F8A]" : "text-[#1B4F8A] hover:gap-3"
-                     }`}>
-                       {isSelected ? "Ausgewählt ✓" : <>Auswählen <span>→</span></>}
-                     </span>
+                      className={`relative rounded-[2rem] p-6 md:p-10 shadow-xl shadow-slate-200/40 border-2 transition-all duration-200 cursor-pointer flex flex-col ${
+                        isSelected
+                          ? "bg-[#1B4F8A] border-[#1B4F8A] -translate-y-1"
+                          : "bg-white border-slate-100 hover:-translate-y-1"
+                      }`}
+                    >
+                      {isSelected && (
+                        <div className="absolute top-4 right-4 w-7 h-7 rounded-full bg-white flex items-center justify-center">
+                          <Check className="w-4 h-4 text-[#1B4F8A]" strokeWidth={3} />
+                        </div>
+                      )}
+                      <span className={`text-xs font-bold uppercase tracking-widest mb-4 transition-colors duration-200 ${isSelected ? "text-white/70" : "text-[#1B4F8A]"}`}>{course.tag}</span>
+                      <h3 className={`text-xl xl:text-2xl font-bold mb-3 break-words hyphens-auto transition-colors duration-200 ${isSelected ? "text-white" : "text-slate-900"}`}>{course.name}</h3>
+                      <p className={`leading-relaxed mb-8 flex-1 transition-colors duration-200 ${isSelected ? "text-white/80" : "text-slate-600"}`}>{course.text}</p>
+                      <span className={`mt-auto inline-flex items-center font-semibold transition-all gap-1 ${
+                        isSelected ? "text-white" : "text-[#1B4F8A] hover:gap-3"
+                      }`}>
+                        {isSelected ? "Ausgewählt ✓" : <>Auswählen <span>→</span></>}
+                      </span>
                    </motion.div>
                 );
               })}
