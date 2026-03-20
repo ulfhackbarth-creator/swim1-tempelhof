@@ -36,12 +36,6 @@ const philosophy = [
   { Icon: Users, title: "Individuelles Tempo", text: "Jeder lernt anders. Unsere kleinen Gruppen garantieren persönliche Betreuung." },
 ];
 
-const locations = [
-  { name: "Berlin-Tempelhof", address: "Ringbahnstraße 12, 12099 Berlin", route: "/standorte/berlin-tempelhof" },
-  { name: "Schwerin", address: "Wittenburger Chaussee 25, 19059 Schwerin", route: "/schwerin" },
-  { name: "Wildau", address: "Adresse folgt in Kürze", route: "/wildau" },
-  { name: "Bremen", address: "Adresse folgt in Kürze", route: "/bremen" },
-];
 
 const testimonials = [
   { text: "Meine Tochter hatte anfangs große Angst vor dem Wasser. Die Trainer sind unglaublich geduldig und am Ende hat sie stolz ihr Seepferdchen geschafft!", name: "Sandra M.", location: "Berlin-Tempelhof" },
