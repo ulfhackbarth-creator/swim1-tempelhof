@@ -51,8 +51,17 @@ const GlobalHeader = () => {
   }, []);
 
   useEffect(() => {
+    const onSuppress = (e: Event) => {
+      const duration = (e as CustomEvent).detail?.duration ?? 800;
+      suppressHideUntil.current = Date.now() + duration;
+      setIsVisible(false);
+    };
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("suppress-header", onSuppress);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("suppress-header", onSuppress);
+    };
   }, [handleScroll]);
 
   useLayoutEffect(() => {
