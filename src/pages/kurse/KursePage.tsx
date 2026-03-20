@@ -112,7 +112,13 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            onClick={() => kurseSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+            onClick={() => {
+              if (kurseSectionRef.current) {
+                const headerHeight = document.querySelector('header')?.offsetHeight ?? 80;
+                const sectionTop = kurseSectionRef.current.getBoundingClientRect().top + window.scrollY;
+                window.scrollTo({ top: sectionTop - headerHeight, behavior: 'smooth' });
+              }
+            }}
             className="mt-8 md:mt-10 w-full md:w-auto justify-center inline-flex items-center gap-2 rounded-full px-8 py-4 font-bold text-lg text-white transition-colors shadow-lg bg-[#F97316] hover:bg-[#EA580C]"
             style={{ boxShadow: "0 10px 30px -5px rgba(249,115,22,0.3)" }}
           >
