@@ -15,7 +15,11 @@ import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
 import GlobalHeader from "@/components/home/GlobalHeader";
 import HomeFooter from "@/components/home/HomeFooter";
-import heroImage from "@/assets/hero-pool.jpg";
+import HeroVideoBackground from "@/components/HeroVideoBackground";
+
+const heroVideos = [
+  "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028281720/gBnQiwwnZrqJaDTm.mp4",
+];
 
 /* ─── DATA ─── */
 
