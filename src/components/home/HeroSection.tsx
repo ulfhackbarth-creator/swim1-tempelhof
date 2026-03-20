@@ -42,7 +42,8 @@ const coursesByTab: Record<CourseTab, Course[]> = {
     { tag: "Erwachsene", name: "Technik & Kraulen", text: "Für sichere Schwimmer, die ihren Schwimmstil verbessern oder Kraulen lernen möchten. Ideal auch für Triathleten." },
   ],
   wassergewoehnung: [
-    { tag: "Ab 2 Monate", name: "Wassergewöhnung", text: "Spielerische Eingewöhnung ins Wasser für die Kleinsten — gemeinsam mit Mama oder Papa." },
+    { tag: "Ab 1,5 Monate", name: "Babyschwimmen", text: "Für Babys von 1,5 Monaten bis ca. 1,5 Jahre. Haut an Haut im 32°C warmen Wasser fördern wir das Urvertrauen und die motorische Entwicklung deines Kindes." },
+    { tag: "Ab 1,5 Jahre", name: "Wassergewöhnung", text: "Für Kleinkinder von 1,5 bis 3,5 Jahren. Gemeinsam mit einem Elternteil entdecken wir spielerisch das Element Wasser und bereiten auf den ersten Schwimmkurs vor." },
   ],
   fitness: [
     { tag: "Alle Level", name: "Aquafitness", text: "Gelenkschonendes Ganzkörper-Training im Wasser. Effektiv, motivierend, für jeden geeignet." },
@@ -55,7 +56,7 @@ const coursesByTab: Record<CourseTab, Course[]> = {
 
 const gridClass: Record<CourseTab, string> = {
   schwimmen: "grid-cols-1 md:grid-cols-2 lg:grid-cols-4",
-  wassergewoehnung: "grid-cols-1 max-w-lg mx-auto",
+  wassergewoehnung: "grid-cols-1 md:grid-cols-2 max-w-3xl mx-auto",
   fitness: "grid-cols-1 max-w-lg mx-auto",
   reha: "grid-cols-1 md:grid-cols-2 max-w-3xl mx-auto",
 };
@@ -114,14 +115,6 @@ const HeroSection = ({ activeTab }: { activeTab: CourseTab }) => {
         <div className="absolute inset-0 bg-black/40" />
 
         <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 md:px-6 min-h-[70vh] md:min-h-[85vh] pt-32 md:pt-[120px] pb-8 md:pb-0">
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-            className="text-xs font-medium tracking-widest uppercase text-white/80 mb-6"
-          >
-            Seit 2019 · 4 Standorte · Über 2.000 Kinder
-          </motion.p>
 
           <AnimatePresence mode="wait">
             <motion.div
