@@ -11,6 +11,14 @@ export const testimonialsByTab: Record<CourseTab, { title: string; items: Testim
       { text: "Die kleinen Gruppen machen den Unterschied. Mein Sohn geht jede Woche mit einem Lächeln zum Kurs.", name: "Michael T.", location: "Bremen" },
     ],
   },
+  wassergewoehnung: {
+    title: "Das sagen andere Eltern",
+    items: [
+      { text: "Unser Baby liebt das Wasser! Die Kursleiterin geht so liebevoll mit den Kleinen um. Eine wunderbare Erfahrung für uns beide.", name: "Lisa K.", location: "Berlin-Tempelhof" },
+      { text: "Der Eltern-Kind-Kurs ist das Highlight unserer Woche. Mein Sohn hat keine Scheu vor dem Wasser und planscht mit Begeisterung.", name: "Anna S.", location: "Schwerin" },
+      { text: "Toll, wie spielerisch die Wassergewöhnung abläuft. Man merkt, dass die Trainer Erfahrung mit Babys haben.", name: "Carolin F.", location: "Wildau" },
+    ],
+  },
   erwachsene: {
     title: "Das sagen unsere erwachsenen Teilnehmer",
     items: [

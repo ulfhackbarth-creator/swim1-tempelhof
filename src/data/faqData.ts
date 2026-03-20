@@ -11,6 +11,14 @@ export const faqsByTab: Record<CourseTab, { title: string; items: FaqItem[] }> =
       { q: "Dürfen Eltern beim Kurs zuschauen?", a: "Um die Konzentration der Kinder bei den Trainern zu halten, bitten wir Eltern, außerhalb des Bades zu warten." },
     ],
   },
+  wassergewoehnung: {
+    title: "Häufige Fragen zur Wassergewöhnung",
+    items: [
+      { q: "Ab welchem Alter kann mein Baby teilnehmen?", a: "Babyschwimmen ist ab 3 Monaten möglich. Für Eltern-Kind-Kurse empfehlen wir ein Alter ab 1 Jahr." },
+      { q: "Muss mein Baby bereits geimpft sein?", a: "Wir empfehlen, die Grundimmunisierung abgeschlossen zu haben. Sprich am besten mit eurem Kinderarzt." },
+      { q: "Wie warm ist das Wasser?", a: "Unser Becken hat angenehme 32°C – perfekt für die empfindliche Babyhaut." },
+    ],
+  },
   erwachsene: {
     title: "Häufige Fragen zum Erwachsenenschwimmen",
     items: [

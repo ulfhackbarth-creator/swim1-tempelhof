@@ -28,6 +28,17 @@ const courses = [
     courseKeys: ["seepferdchen", "bronze", "silber", "gold", "ferienintensivkurse", "kinderschwimmen"],
   },
   {
+    id: "wassergewoehnung",
+    title: "Wassergewöhnung",
+    description: "Babyschwimmen und Eltern-Kind-Kurse. Spielerische Wassergewöhnung für die Kleinsten.",
+    cta: "Kurszeiten & Buchung",
+    subCourses: [
+      { name: "Babyschwimmen", key: "babyschwimmen", desc: "Ab 3 Monaten – spielerisch das Wasser entdecken." },
+      { name: "Eltern-Kind-Kurse", key: "eltern-kind-kurse", desc: "Ab 1 Jahr – gemeinsam mit Mama oder Papa." },
+    ],
+    courseKeys: ["babyschwimmen", "eltern-kind-kurse", "eltern-kind", "wassergewoehnung", "wassergewöhnung"],
+  },
+  {
     id: "erwachsene",
     title: "Erwachsenenschwimmen",
     description: "Anfängerschwimmen und Technik-Training. Diskretes Umfeld.",

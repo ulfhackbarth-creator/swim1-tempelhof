@@ -1,1 +1,1 @@
-export type CourseTab = "kinderschwimmen" | "erwachsene" | "fitness" | "reha";
+export type CourseTab = "kinderschwimmen" | "wassergewoehnung" | "erwachsene" | "fitness" | "reha";
