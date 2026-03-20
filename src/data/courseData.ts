@@ -2,7 +2,7 @@ import type { CourseTab } from "@/types/course";
 
 export const heroContent: Record<CourseTab, { video: string; headline: string; subtext: string }> = {
   kinderschwimmen: {
-    video: "https://videos.pexels.com/video-files/9044164/9044164-hd_1920_1080_30fps.mp4",
+    video: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028281720/oNJkUzlVKWrdgGBV.mp4",
     headline: "Vom Seepferdchen bis zum Goldabzeichen.",
     subtext: "Kleine Gruppen · Zertifizierte Trainer · Bewährte Methodik",
   },
