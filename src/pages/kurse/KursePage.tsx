@@ -54,7 +54,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
   const isSwipe = (location.state as any)?.isSwipe === true;
   const direction = (location.state as any)?.direction ?? 1;
 
-  useEffect(() => { setOpenIndex(null); }, [tab]);
+  useEffect(() => { setOpenIndex(null); setSelectedCourse(null); }, [tab]);
 
   // Restore scroll position from swipe navigation
   useLayoutEffect(() => {
