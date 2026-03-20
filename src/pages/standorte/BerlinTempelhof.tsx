@@ -301,25 +301,38 @@ const BerlinTempelhof = () => {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, delay: 0.12 }}
           >
-            <Accordion type="single" collapsible className="space-y-3">
-              {courses.map((course) => (
-                <AccordionItem
-                  key={course.id}
-                  value={course.id}
-                  className="bg-card rounded-2xl border border-border shadow-[var(--shadow-soft)] px-6 data-[state=open]:shadow-[var(--shadow-card)] transition-shadow"
-                >
-                  <AccordionTrigger className="text-lg font-bold text-foreground hover:no-underline py-5">
-                    {course.title}
-                  </AccordionTrigger>
-                  <AccordionContent className="pb-6">
-                    <p className="text-muted-foreground mb-5 leading-relaxed">{course.description}</p>
-                    <button className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-semibold text-sm px-5 py-2.5 rounded-full hover:brightness-110 transition-all active:scale-[0.97]">
-                      {course.cta}
-                      <ChevronRight className="w-4 h-4" />
-                    </button>
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
+            <Accordion type="single" collapsible defaultValue={matchedAccordion} className="space-y-3">
+              {courses.map((course) => {
+                const isHighlighted = matchedAccordion === course.id && !!courseParam;
+                return (
+                  <AccordionItem
+                    key={course.id}
+                    value={course.id}
+                    className={`bg-card rounded-2xl border shadow-[var(--shadow-soft)] px-6 data-[state=open]:shadow-[var(--shadow-card)] transition-all ${
+                      isHighlighted
+                        ? "border-primary ring-2 ring-primary/20"
+                        : "border-border"
+                    }`}
+                  >
+                    <AccordionTrigger className="text-lg font-bold text-foreground hover:no-underline py-5">
+                      {course.title}
+                    </AccordionTrigger>
+                    <AccordionContent className="pb-6">
+                      <p className="text-muted-foreground mb-5 leading-relaxed">{course.description}</p>
+                      <button
+                        className={`inline-flex items-center gap-2 font-semibold text-sm px-5 py-2.5 rounded-full transition-all active:scale-[0.97] ${
+                          isHighlighted
+                            ? "bg-accent text-accent-foreground shadow-lg hover:brightness-110"
+                            : "bg-primary text-primary-foreground hover:brightness-110"
+                        }`}
+                      >
+                        {isHighlighted ? "Kurs buchen" : course.cta}
+                        <ChevronRight className="w-4 h-4" />
+                      </button>
+                    </AccordionContent>
+                  </AccordionItem>
+                );
+              })}
             </Accordion>
           </motion.div>
         </div>
