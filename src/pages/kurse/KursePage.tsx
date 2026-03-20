@@ -100,7 +100,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
       {/* HERO */}
       <section className="relative min-h-[70vh] md:min-h-[85vh] overflow-hidden pt-32 md:pt-[120px]">
         <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover" src={content.video} />
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-[#0F2D52]/60" />
         <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 md:px-6 min-h-[70vh] md:min-h-[85vh] pt-32 md:pt-[120px] pb-8 md:pb-0">
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold text-white tracking-tight leading-tight md:leading-[1.1] mb-4 md:mb-6">

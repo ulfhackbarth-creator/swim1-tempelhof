@@ -6,10 +6,11 @@ import GlobalHeader from "@/components/home/GlobalHeader";
 import HomeFooter from "@/components/home/HomeFooter";
 
 const heroVideos = [
-  "https://videos.pexels.com/video-files/9044164/9044164-hd_1920_1080_30fps.mp4",
+  "https://videos.pexels.com/video-files/5888968/5888968-uhd_2560_1440_30fps.mp4",
+  "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028281720/oNJkUzlVKWrdgGBV.mp4",
   "/videos/erwachsene-hero.mp4",
   "https://videos.pexels.com/video-files/8050098/8050098-hd_1920_1080_25fps.mp4",
-  "https://videos.pexels.com/video-files/4115399/4115399-hd_1920_1080_25fps.mp4",
+  "https://videos.pexels.com/video-files/6539674/6539674-hd_1920_1080_25fps.mp4",
 ];
 
 const trustStats = [
@@ -49,7 +50,7 @@ const testimonials = [
 
 const scrollTo = (id: string) => document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
 
-const ROTATION_INTERVAL = 7000;
+const ROTATION_INTERVAL = 4000;
 
 const Index = () => {
   const [activeVideo, setActiveVideo] = useState(0);
@@ -81,7 +82,7 @@ const Index = () => {
           src={src}
         />
       ))}
-      <div className="absolute inset-0 bg-[#0F2D52]/70" />
+      <div className="absolute inset-0 bg-[#0F2D52]/60" />
 
       <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 md:px-6 min-h-[70vh] md:min-h-[90vh] pt-20 md:pt-[80px]">
         <motion.h1
