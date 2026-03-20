@@ -19,8 +19,8 @@ const HomeFooter = () => (
         <div>
           <h4 className="text-white font-bold uppercase tracking-wider text-sm mb-6">Kurse</h4>
           <nav className="flex flex-col gap-2 text-sm text-slate-400">
-            <Link to="/kurse/kinderschwimmen" onClick={scrollTop} className="hover:text-white transition-colors">Kinderschwimmen</Link>
             <Link to="/kurse/wassergewoehnung" onClick={scrollTop} className="hover:text-white transition-colors">Wassergewöhnung</Link>
+            <Link to="/kurse/kinderschwimmen" onClick={scrollTop} className="hover:text-white transition-colors">Kinderschwimmen</Link>
             <Link to="/kurse/erwachsene" onClick={scrollTop} className="hover:text-white transition-colors">Erwachsenenschwimmen</Link>
             <Link to="/kurse/aquafitness" onClick={scrollTop} className="hover:text-white transition-colors">Aquafitness</Link>
             <Link to="/kurse/reha" onClick={scrollTop} className="hover:text-white transition-colors">Aqua Reha</Link>

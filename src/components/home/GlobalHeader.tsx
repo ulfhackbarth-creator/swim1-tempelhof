@@ -5,8 +5,8 @@ import { Link, useLocation } from "react-router-dom";
 const SCROLL_KEY = "chip-scroll-left";
 
 const chips = [
-  { id: "kinderschwimmen", label: "Kinderschwimmen", Icon: Waves, path: "/kurse/kinderschwimmen" },
   { id: "wassergewoehnung", label: "Wassergewöhnung", Icon: Baby, path: "/kurse/wassergewoehnung" },
+  { id: "kinderschwimmen", label: "Kinderschwimmen", Icon: Waves, path: "/kurse/kinderschwimmen" },
   { id: "erwachsene", label: "Erwachsenenschwimmen", Icon: PersonStanding, path: "/kurse/erwachsene" },
   { id: "fitness", label: "Aquafitness", Icon: Activity, path: "/kurse/aquafitness" },
   { id: "reha", label: "Aqua Reha", Icon: HeartPulse, path: "/kurse/reha" },

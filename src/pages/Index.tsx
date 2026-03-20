@@ -20,8 +20,8 @@ const trustStats = [
 ];
 
 const categories = [
-  { Icon: Waves, title: "Kinderschwimmen", text: "Schwimmen lernen mit Spaß und Sicherheit. Ab 4 Jahren.", path: "/kurse/kinderschwimmen" },
   { Icon: Baby, title: "Wassergewöhnung", text: "Haut an Haut das Element Wasser entdecken. Ab 1,5 Monaten.", path: "/kurse/wassergewoehnung" },
+  { Icon: Waves, title: "Kinderschwimmen", text: "Schwimmen lernen mit Spaß und Sicherheit. Ab 4 Jahren.", path: "/kurse/kinderschwimmen" },
   { Icon: PersonStanding, title: "Erwachsenenschwimmen", text: "Ängste abbauen oder Technik perfektionieren.", path: "/kurse/erwachsene" },
   { Icon: Activity, title: "Aquafitness", text: "Gelenkschonendes Ganzkörpertraining.", path: "/kurse/aquafitness" },
   { Icon: HeartPulse, title: "Aqua Reha", text: "Medizinisch begleitete Rehabilitation im Wasser.", path: "/kurse/reha" },
