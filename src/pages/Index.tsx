@@ -1,9 +1,9 @@
-import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, Star, Waves, Droplets, PersonStanding, Activity, HeartPulse, ShieldCheck, Lock, Users } from "lucide-react";
 import GlobalHeader from "@/components/home/GlobalHeader";
 import HomeFooter from "@/components/home/HomeFooter";
+import HeroVideoBackground from "@/components/HeroVideoBackground";
 
 const heroVideos = [
   "https://videos.pexels.com/video-files/5888968/5888968-uhd_2560_1440_30fps.mp4",
