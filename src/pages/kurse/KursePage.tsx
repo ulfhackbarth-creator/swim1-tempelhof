@@ -119,25 +119,57 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 text-center mb-12 md:mb-16">
             {courseSectionTitle[tab]}
           </h2>
-          <div className={`grid gap-6 md:gap-8 ${gridClass[tab]}`}>
-            {coursesByTab[tab].map((course, i) => (
-              <motion.div
-                key={course.name}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: i * 0.06 }}
-                className="bg-white rounded-[2rem] p-6 md:p-10 shadow-xl shadow-slate-200/40 border border-slate-100 transition-transform hover:-translate-y-1 flex flex-col"
-              >
-                <span className="text-xs font-bold uppercase tracking-widest text-[#1B4F8A] mb-4">{course.tag}</span>
-                <h3 className="text-xl xl:text-2xl font-bold text-slate-900 mb-3 break-words hyphens-auto">{course.name}</h3>
-                <p className="text-slate-600 leading-relaxed mb-8 flex-1">{course.text}</p>
-                <span className="mt-auto inline-flex items-center text-[#1B4F8A] font-semibold hover:gap-3 transition-all cursor-pointer gap-1">
-                  Mehr erfahren <span>→</span>
-                </span>
-              </motion.div>
-            ))}
-          </div>
+           <div className={`grid gap-6 md:gap-8 ${gridClass[tab]}`}>
+             {coursesByTab[tab].map((course, i) => {
+               const isSelected = selectedCourse === course.name;
+               return (
+                 <motion.div
+                   key={course.name}
+                   initial={{ opacity: 0, y: 15 }}
+                   whileInView={{ opacity: 1, y: 0 }}
+                   viewport={{ once: true }}
+                   transition={{ duration: 0.3, delay: i * 0.06 }}
+                   onClick={() => handleSelectCourse(course.name)}
+                   className={`relative bg-white rounded-[2rem] p-6 md:p-10 shadow-xl shadow-slate-200/40 border-2 transition-all duration-200 cursor-pointer flex flex-col ${
+                     isSelected
+                       ? "border-[#1B4F8A] ring-2 ring-[#1B4F8A]/20 bg-blue-50/40 -translate-y-1"
+                       : "border-slate-100 hover:-translate-y-1"
+                   }`}
+                 >
+                   {isSelected && (
+                     <div className="absolute top-4 right-4 w-7 h-7 rounded-full bg-[#1B4F8A] flex items-center justify-center">
+                       <Check className="w-4 h-4 text-white" strokeWidth={3} />
+                     </div>
+                   )}
+                   <span className="text-xs font-bold uppercase tracking-widest text-[#1B4F8A] mb-4">{course.tag}</span>
+                   <h3 className="text-xl xl:text-2xl font-bold text-slate-900 mb-3 break-words hyphens-auto">{course.name}</h3>
+                   <p className="text-slate-600 leading-relaxed mb-8 flex-1">{course.text}</p>
+                   <span className={`mt-auto inline-flex items-center font-semibold transition-all gap-1 ${
+                     isSelected ? "text-[#1B4F8A]" : "text-[#1B4F8A] hover:gap-3"
+                   }`}>
+                     {isSelected ? "Ausgewählt ✓" : <>Auswählen <span>→</span></>}
+                   </span>
+                 </motion.div>
+               );
+             })}
+           </div>
+
+           {/* Dynamic CTA */}
+           <motion.div
+             initial={{ opacity: 0, y: 10 }}
+             animate={{ opacity: selectedCourse ? 1 : 0, y: selectedCourse ? 0 : 10 }}
+             transition={{ duration: 0.25 }}
+             className={`flex justify-center pt-10 ${!selectedCourse ? "pointer-events-none" : ""}`}
+           >
+             <button
+               onClick={handleFindLocation}
+               disabled={!selectedCourse}
+               className="inline-flex items-center gap-2 rounded-full px-8 py-4 font-bold text-lg text-white transition-all shadow-lg bg-[#F97316] hover:bg-[#EA580C] disabled:opacity-40 disabled:cursor-not-allowed active:scale-[0.97]"
+               style={{ boxShadow: selectedCourse ? "0 10px 30px -5px rgba(249,115,22,0.3)" : "none" }}
+             >
+               Standort für „{selectedCourse || "…"}" finden <ArrowRight className="w-5 h-5" />
+             </button>
+           </motion.div>
 
           {/* Trust Stats */}
           <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-slate-200 text-center pt-12 md:pt-16 pb-8">
