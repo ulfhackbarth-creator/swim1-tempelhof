@@ -89,43 +89,39 @@ const GlobalHeader = () => {
   };
 
   return (
-    <header className="sticky top-0 left-0 right-0 z-50" style={{ backgroundColor: "#0F2D52" }}>
-      {/* Row 1 — Logo + Standort Dropdown (hides on scroll down) */}
-      <div
-        className={`transition-all duration-300 overflow-hidden ${isVisible ? "max-h-20 opacity-100" : "max-h-0 opacity-0"}`}
-      >
-        <div className="px-4 md:px-10 py-3.5 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2" onClick={() => window.scrollTo({ top: 0 })}>
-            <Waves className="w-5 h-5 text-white" />
-            <span className="font-bold text-lg text-white">SWIM1</span>
-          </Link>
+    <header className={`sticky top-0 left-0 right-0 z-50 transition-transform duration-300 ${isVisible ? "translate-y-0" : "-translate-y-full"}`} style={{ backgroundColor: "#0F2D52" }}>
+      {/* Row 1 — Logo + Standort Dropdown */}
+      <div className="px-4 md:px-10 py-3.5 flex items-center justify-between">
+        <Link to="/" className="flex items-center gap-2" onClick={() => window.scrollTo({ top: 0 })}>
+          <Waves className="w-5 h-5 text-white" />
+          <span className="font-bold text-lg text-white">SWIM1</span>
+        </Link>
 
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <button className="rounded-full px-5 py-2 text-sm font-semibold text-white bg-[#F97316] hover:bg-orange-600 transition-colors flex items-center gap-1.5 active:scale-[0.97]">
-                Standort wählen
-                <ChevronDown className="w-3.5 h-3.5" />
-              </button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent
-              align="end"
-              sideOffset={12}
-              className="w-64 rounded-xl border-border/50 bg-card p-1 shadow-xl"
-            >
-              <DropdownMenuLabel className="text-xs text-muted-foreground uppercase tracking-wider px-3 py-2">
-                Unsere Standorte
-              </DropdownMenuLabel>
-              {standorte.map((s) => (
-                <DropdownMenuItem key={s.path} asChild className="cursor-pointer rounded-lg px-3 py-2.5 focus:bg-primary/5 focus:text-primary">
-                  <Link to={s.path} className="flex items-center gap-2.5 w-full">
-                    <MapPin className="w-4 h-4 text-primary" />
-                    <span className="font-medium">{s.label}</span>
-                  </Link>
-                </DropdownMenuItem>
-              ))}
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </div>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <button className="rounded-full px-5 py-2 text-sm font-semibold text-white bg-[#F97316] hover:bg-orange-600 transition-colors flex items-center gap-1.5 active:scale-[0.97]">
+              Standort wählen
+              <ChevronDown className="w-3.5 h-3.5" />
+            </button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent
+            align="end"
+            sideOffset={12}
+            className="w-64 rounded-xl border-border/50 bg-card p-1 shadow-xl"
+          >
+            <DropdownMenuLabel className="text-xs text-muted-foreground uppercase tracking-wider px-3 py-2">
+              Unsere Standorte
+            </DropdownMenuLabel>
+            {standorte.map((s) => (
+              <DropdownMenuItem key={s.path} asChild className="cursor-pointer rounded-lg px-3 py-2.5 focus:bg-primary/5 focus:text-primary">
+                <Link to={s.path} className="flex items-center gap-2.5 w-full">
+                  <MapPin className="w-4 h-4 text-primary" />
+                  <span className="font-medium">{s.label}</span>
+                </Link>
+              </DropdownMenuItem>
+            ))}
+          </DropdownMenuContent>
+        </DropdownMenu>
       </div>
 
       {/* Row 2 — Category chips */}
