@@ -25,19 +25,19 @@ const locations = [
 ];
 
 const LocationsSection = () => (
-  <section id="standorte" className="py-16 md:py-24 bg-white scroll-mt-20">
+  <section id="standorte" className="py-32 bg-slate-50 scroll-mt-20">
     <div className="max-w-6xl mx-auto px-6">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="text-center mb-16"
+        className="text-center mb-20"
       >
-        <h2 className="text-4xl font-bold tracking-tight text-[#0F172A] mb-4">
+        <h2 className="text-4xl font-bold tracking-tight text-slate-900 mb-4">
           Unsere Standorte
         </h2>
-        <p className="text-slate-400">
+        <p className="text-slate-500">
           Finde deine Schwimmschule in deiner Nähe.
         </p>
       </motion.div>
@@ -50,19 +50,19 @@ const LocationsSection = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: i * 0.1 }}
-            className="border border-slate-100 rounded-2xl p-8 hover:border-[#1B4F8A]/30 hover:shadow-md transition-all flex flex-col"
+            className="bg-white rounded-[2rem] p-8 shadow-lg shadow-slate-200/50 border border-slate-100 flex flex-col"
           >
-            <h3 className="text-xl font-bold text-[#0F172A] mb-2">{loc.name}</h3>
-            <p className="text-sm text-[#64748B] mb-4">{loc.address}</p>
-            <span className="inline-block bg-green-50 text-green-700 text-xs rounded-full px-2 py-0.5 mb-6 w-fit">
+            <span className="inline-block bg-blue-50 text-[#1B4F8A] text-xs font-bold px-3 py-1 rounded-full mb-6 w-fit">
               Jetzt buchbar
             </span>
+            <h3 className="text-2xl font-bold text-slate-900 mb-2">{loc.name}</h3>
+            <p className="text-slate-500 mb-8">{loc.address}</p>
             <Link
               to={loc.route}
               onClick={() => window.scrollTo({ top: 0 })}
-              className="w-full mt-auto border border-slate-200 rounded-full py-2.5 text-sm text-center font-medium text-[#64748B] hover:border-[#1B4F8A] hover:text-[#1B4F8A] transition-colors"
+              className="w-full mt-auto bg-slate-900 text-white rounded-full py-3.5 text-sm text-center font-semibold hover:bg-slate-800 transition-colors"
             >
-              Standort entdecken →
+              Standort entdecken
             </Link>
           </motion.div>
         ))}

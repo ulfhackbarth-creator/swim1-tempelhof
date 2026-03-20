@@ -15,7 +15,7 @@ const Index = () => {
   return (
     <main className="min-h-screen">
       <HomeHeader activeTab={activeTab} onTabChange={setActiveTab} />
-      <HeroSection activeTab={activeTab} onTabChange={setActiveTab} />
+      <HeroSection activeTab={activeTab} />
       <WhySwim1 />
       <HomeTestimonials />
       <HomeFAQ />

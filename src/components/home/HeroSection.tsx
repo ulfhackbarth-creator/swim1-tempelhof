@@ -1,20 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { Waves, Baby, Activity, HeartPulse } from "lucide-react";
 import type { CourseTab } from "@/pages/Index";
-
-const categoryColors: Record<CourseTab, string> = {
-  schwimmen: "#1B4F8A",
-  wassergewoehnung: "#0891B2",
-  fitness: "#059669",
-  reha: "#7C3AED",
-};
-
-const categoryColorsDark: Record<CourseTab, string> = {
-  schwimmen: "#153d6b",
-  wassergewoehnung: "#067a99",
-  fitness: "#047857",
-  reha: "#6322c5",
-};
 
 const heroContent: Record<CourseTab, { video: string; headline: string; subtext: string }> = {
   schwimmen: {
@@ -61,9 +46,9 @@ const coursesByTab: Record<CourseTab, Course[]> = {
 
 const gridClass: Record<CourseTab, string> = {
   schwimmen: "grid-cols-1 md:grid-cols-3",
-  wassergewoehnung: "grid-cols-1 max-w-sm mx-auto",
-  fitness: "grid-cols-1 max-w-sm mx-auto",
-  reha: "grid-cols-1 md:grid-cols-2 max-w-2xl mx-auto",
+  wassergewoehnung: "grid-cols-1 max-w-lg mx-auto",
+  fitness: "grid-cols-1 max-w-lg mx-auto",
+  reha: "grid-cols-1 md:grid-cols-2 max-w-3xl mx-auto",
 };
 
 const trustStats: Record<CourseTab, { value: string; label: string }[]> = {
@@ -89,28 +74,19 @@ const trustStats: Record<CourseTab, { value: string; label: string }[]> = {
   ],
 };
 
-
 const allTabs: CourseTab[] = ["schwimmen", "wassergewoehnung", "fitness", "reha"];
 
 const HeroSection = ({
   activeTab,
-  onTabChange,
 }: {
   activeTab: CourseTab;
-  onTabChange: (tab: CourseTab) => void;
 }) => {
   const content = heroContent[activeTab];
-  const color = categoryColors[activeTab];
-  const colorDark = categoryColorsDark[activeTab];
-
-  const scrollTo = (id: string) => {
-    document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
-  };
 
   return (
     <>
-      {/* HERO — full screen with pt for sticky header */}
-      <section className="relative min-h-screen overflow-hidden" style={{ paddingTop: "110px" }}>
+      {/* HERO — Video */}
+      <section className="relative min-h-[85vh] overflow-hidden" style={{ paddingTop: "120px" }}>
         {allTabs.map((tab) => (
           <video
             key={tab}
@@ -126,15 +102,14 @@ const HeroSection = ({
           />
         ))}
 
-        <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/40 to-black/65" />
+        <div className="absolute inset-0 bg-black/40" />
 
-        <div className="absolute bottom-0 left-0 right-0 px-8 md:px-16 pb-12">
+        <div className="relative z-10 flex flex-col items-center justify-center text-center px-6 min-h-[85vh]" style={{ paddingTop: "120px" }}>
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="text-xs font-semibold tracking-widest uppercase mb-4"
-            style={{ color: "rgba(255,255,255,0.6)" }}
+            className="text-xs font-medium tracking-widest uppercase text-white/80 mb-6"
           >
             Seit 2019 · 4 Standorte · Über 2.000 Kinder
           </motion.p>
@@ -146,11 +121,12 @@ const HeroSection = ({
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.3 }}
+              className="max-w-4xl mx-auto"
             >
-              <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tight leading-none mb-3">
+              <h1 className="text-6xl md:text-8xl font-bold text-white tracking-tight leading-[1.1] mb-6">
                 {content.headline}
               </h1>
-              <p className="text-lg" style={{ color: "rgba(255,255,255,0.7)" }}>
+              <p className="text-xl text-white/80 max-w-2xl mx-auto">
                 {content.subtext}
               </p>
             </motion.div>
@@ -158,74 +134,62 @@ const HeroSection = ({
         </div>
       </section>
 
-      {/* TEIL 2 — KURSANGEBOT */}
-      <section
-        className="py-12 px-6 md:px-16 transition-colors duration-500"
-        style={{ backgroundColor: color }}
-      >
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activeTab}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className={`grid gap-4 max-w-5xl mx-auto ${gridClass[activeTab]}`}
-          >
-            {coursesByTab[activeTab].map((course, i) => (
-              <motion.div
-                key={course.name}
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: i * 0.06 }}
-                className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md hover:scale-[1.01] transition-all flex flex-col"
-              >
-                <span
-                  className="text-xs font-semibold uppercase tracking-wider mb-2"
-                  style={{ color }}
+      {/* KURSANGEBOT — Premium cards on off-white */}
+      <section className="bg-slate-50 py-24 px-6">
+        <div className="max-w-6xl mx-auto">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeTab}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className={`grid gap-8 ${gridClass[activeTab]}`}
+            >
+              {coursesByTab[activeTab].map((course, i) => (
+                <motion.div
+                  key={course.name}
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: i * 0.06 }}
+                  className="bg-white rounded-[2rem] p-10 shadow-xl shadow-slate-200/40 border border-slate-100 transition-transform hover:-translate-y-1 flex flex-col"
                 >
-                  {course.tag}
-                </span>
-                <h3 className="text-lg font-bold text-slate-900 mb-2">{course.name}</h3>
-                <p className="text-slate-500 text-sm leading-relaxed mb-5 flex-1">{course.text}</p>
-                <button
-                  className="w-full rounded-full py-2.5 text-sm font-semibold text-white transition-all hover:brightness-90"
-                  style={{ backgroundColor: color }}
-                >
-                  Mehr erfahren →
-                </button>
-              </motion.div>
-            ))}
-          </motion.div>
-        </AnimatePresence>
-      </section>
+                  <span className="text-xs font-bold uppercase tracking-widest text-[#1B4F8A] mb-4">
+                    {course.tag}
+                  </span>
+                  <h3 className="text-3xl font-bold text-slate-900 mb-4">{course.name}</h3>
+                  <p className="text-slate-600 leading-relaxed mb-8 flex-1">{course.text}</p>
+                  <span className="inline-flex items-center text-[#1B4F8A] font-semibold hover:gap-3 transition-all cursor-pointer gap-1">
+                    Mehr erfahren <span>→</span>
+                  </span>
+                </motion.div>
+              ))}
+            </motion.div>
+          </AnimatePresence>
 
-      {/* TEIL 3 — TRUST-BAR */}
-      <section
-        className="py-8 px-6 transition-colors duration-500"
-        style={{ backgroundColor: colorDark, borderTop: "1px solid rgba(255,255,255,0.15)" }}
-      >
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activeTab}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="max-w-3xl mx-auto grid grid-cols-3 divide-x divide-white/15 text-center"
-          >
-            {trustStats[activeTab].map((s) => (
-              <div key={s.label} className="px-4">
-                <span className="block text-2xl font-bold text-white tracking-tight">
-                  {s.value}
-                </span>
-                <span className="block text-xs font-medium mt-1 uppercase tracking-wider" style={{ color: "rgba(255,255,255,0.5)" }}>
-                  {s.label}
-                </span>
-              </div>
-            ))}
-          </motion.div>
-        </AnimatePresence>
+          {/* TRUST STATS — minimal, inside off-white */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={`trust-${activeTab}`}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="max-w-4xl mx-auto grid grid-cols-3 divide-x divide-slate-200 text-center pt-16 pb-8"
+            >
+              {trustStats[activeTab].map((s) => (
+                <div key={s.label} className="px-4">
+                  <span className="block text-5xl font-bold text-[#1B4F8A] tracking-tight mb-2">
+                    {s.value}
+                  </span>
+                  <span className="block text-sm font-medium text-slate-500 uppercase tracking-wider">
+                    {s.label}
+                  </span>
+                </div>
+              ))}
+            </motion.div>
+          </AnimatePresence>
+        </div>
       </section>
     </>
   );
