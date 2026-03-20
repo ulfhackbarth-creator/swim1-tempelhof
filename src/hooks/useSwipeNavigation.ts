@@ -2,8 +2,8 @@ import { useRef, useCallback } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
 const courseRoutes = [
-  "/kurse/kinderschwimmen",
   "/kurse/wassergewoehnung",
+  "/kurse/kinderschwimmen",
   "/kurse/erwachsene",
   "/kurse/aquafitness",
   "/kurse/reha",
