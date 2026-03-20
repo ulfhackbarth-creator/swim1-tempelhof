@@ -293,7 +293,7 @@ const BerlinTempelhof = () => {
               Swim1 Schwimmschule in Berlin-Tempelhof
             </h1>
             <p className="text-base md:text-xl text-white/80 max-w-2xl mx-auto">
-              Kleine Gruppen · Zertifizierte Trainer · 32 °C warmes Wasser
+              Kleine Gruppen · Ausgebildeter Trainerstab · 32 °C warmes Wasser
             </p>
           </motion.div>
 
