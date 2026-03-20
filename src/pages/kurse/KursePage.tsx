@@ -58,7 +58,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
   const isMobile = useIsMobile();
   const content = heroContent[tab];
   const videos = useMemo(() => Array.isArray(content.video) ? content.video : [content.video], [content.video]);
-  const [activeVideo, setActiveVideo] = useState(0);
+  const [_activeVideo, _setActiveVideo] = useState(0); // kept for tab reset
   const usps = uspsByTab[tab];
   const tests = testimonialsByTab[tab];
   const faqs = faqsByTab[tab];
