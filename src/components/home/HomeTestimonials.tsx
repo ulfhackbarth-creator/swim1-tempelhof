@@ -76,18 +76,16 @@ const HomeTestimonials = ({ activeTab }: { activeTab: CourseTab }) => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="rounded-[2rem] p-6 md:p-10 border border-white/10 bg-white/5 backdrop-blur-sm"
+                className="rounded-[2rem] p-6 md:p-10 border border-white/10 bg-white/5 backdrop-blur-sm h-full flex flex-col"
               >
-                <div className="flex gap-0.5 mb-6">
-                  {[...Array(5)].map((_, j) => (
-                    <Star key={j} className="w-4 h-4 fill-amber-400 text-amber-400" />
-                  ))}
-                </div>
-                <p className="text-lg text-white/90 font-medium leading-relaxed mb-8">
+                <Quote className="w-8 h-8 text-white/20 mb-4" />
+                <p className="text-lg text-white/90 font-medium leading-relaxed italic mb-6 flex-1">
                   „{t.text}"
                 </p>
-                <p className="font-bold text-white">{t.name}</p>
-                <p className="text-white/50 text-sm">{t.location}</p>
+                <div>
+                  <p className="font-bold text-white">{t.name}</p>
+                  <p className="text-white/50 text-sm">{t.location}</p>
+                </div>
               </motion.div>
             ))}
           </motion.div>
