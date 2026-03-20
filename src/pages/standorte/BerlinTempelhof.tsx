@@ -183,93 +183,6 @@ const BerlinTempelhof = () => {
         </div>
       </section>
 
-      {/* ─── STANDORT-INFO ─── */}
-      <section className="py-16 md:py-24 px-5">
-        <div className="max-w-5xl mx-auto">
-          <motion.h2
-            variants={reveal}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6 }}
-            className="text-3xl md:text-4xl font-bold tracking-tight text-foreground text-center mb-14"
-          >
-            So findest du uns
-          </motion.h2>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Details */}
-            <motion.div
-              variants={reveal}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.6, delay: 0.08 }}
-              className="bg-card rounded-3xl p-8 shadow-[var(--shadow-card)] border border-border space-y-7"
-            >
-              <div className="flex items-start gap-4">
-                <div className="w-11 h-11 rounded-xl bg-secondary flex items-center justify-center shrink-0">
-                  <MapPin className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <p className="font-bold text-foreground">Adresse</p>
-                  <p className="text-muted-foreground">Ringbahnstraße 12, 12099 Berlin</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-11 h-11 rounded-xl bg-secondary flex items-center justify-center shrink-0">
-                  <Train className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <p className="font-bold text-foreground">Anfahrt</p>
-                  <p className="text-muted-foreground">Direkt an der U6, 50 m Fußweg</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-11 h-11 rounded-xl bg-secondary flex items-center justify-center shrink-0">
-                  <Clock className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <p className="font-bold text-foreground">Öffnungszeiten</p>
-                  <p className="text-muted-foreground">Mo–Fr 08:00–21:00 · Sa–So 09:00–18:00</p>
-                </div>
-              </div>
-
-              <div className="pt-2">
-                <p className="font-bold text-foreground mb-3">Ausstattung</p>
-                <div className="flex flex-wrap gap-2">
-                  {amenities.map((a) => (
-                    <span
-                      key={a.label}
-                      className="inline-flex items-center gap-1.5 text-sm text-secondary-foreground bg-secondary px-3 py-1.5 rounded-full font-medium"
-                    >
-                      <a.icon className="w-3.5 h-3.5" />
-                      {a.label}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Map Placeholder */}
-            <motion.div
-              variants={reveal}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.6, delay: 0.16 }}
-              className="bg-muted rounded-3xl border border-border flex flex-col items-center justify-center min-h-[320px] text-center p-8"
-            >
-              <MapPin className="w-12 h-12 text-muted-foreground/40 mb-4" />
-              <p className="text-muted-foreground font-semibold mb-1">Google Maps</p>
-              <p className="text-sm text-muted-foreground/70">Kartenansicht wird geladen</p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
       {/* ─── KURSANGEBOT (AKKORDEON) ─── */}
       <section ref={kurseRef} className="py-16 md:py-24 bg-secondary/50 px-5 scroll-mt-24">
         <div className="max-w-3xl mx-auto">
@@ -399,29 +312,148 @@ const BerlinTempelhof = () => {
         </div>
       </section>
 
-      {/* ─── KONTAKT CTA ─── */}
+      {/* ─── SO FINDEST DU UNS ─── */}
       <section className="py-16 md:py-24 bg-secondary/50 px-5">
-        <div className="max-w-3xl mx-auto text-center">
-          <motion.div
+        <div className="max-w-5xl mx-auto">
+          <motion.h2
             variants={reveal}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6 }}
+            className="text-3xl md:text-4xl font-bold tracking-tight text-foreground text-center mb-14"
           >
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground mb-4">
-              Noch Fragen?
-            </h2>
-            <p className="text-muted-foreground mb-8">
-              Ruf uns an oder schreib uns – wir beraten dich gerne persönlich.
-            </p>
-            <a
-              href="tel:+4930123456789"
-              className="inline-flex items-center gap-2 bg-accent text-accent-foreground font-bold text-lg px-8 py-4 rounded-full shadow-[var(--shadow-cta)] hover:brightness-110 transition-all active:scale-[0.97]"
-            >
-              <Phone className="w-5 h-5" />
-              030 123 456 789
-            </a>
+            So findest du uns
+          </motion.h2>
+
+          <motion.div
+            variants={reveal}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.08 }}
+            className="bg-card rounded-3xl p-8 shadow-[var(--shadow-card)] border border-border"
+          >
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="space-y-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-11 h-11 rounded-xl bg-secondary flex items-center justify-center shrink-0">
+                    <MapPin className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <p className="font-bold text-foreground">Adresse</p>
+                    <p className="text-muted-foreground">Musterstraße 123, 12099 Berlin-Tempelhof</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-11 h-11 rounded-xl bg-secondary flex items-center justify-center shrink-0">
+                    <Train className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <p className="font-bold text-foreground">ÖPNV</p>
+                    <p className="text-muted-foreground">U6 Tempelhof, 3 Minuten Fußweg</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-11 h-11 rounded-xl bg-secondary flex items-center justify-center shrink-0">
+                    <Car className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <p className="font-bold text-foreground">Parken</p>
+                    <p className="text-muted-foreground">Kostenlose Parkplätze direkt vor Ort</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-11 h-11 rounded-xl bg-secondary flex items-center justify-center shrink-0">
+                    <Clock className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <p className="font-bold text-foreground">Öffnungszeiten</p>
+                    <p className="text-muted-foreground">Mo–Fr 07:00–21:00 Uhr · Sa–So 08:00–18:00 Uhr</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Map Placeholder */}
+              <div className="bg-muted rounded-2xl border border-border flex flex-col items-center justify-center min-h-[280px] text-center p-8">
+                <MapPin className="w-12 h-12 text-muted-foreground/40 mb-4" />
+                <p className="text-muted-foreground font-semibold mb-1">Google Maps</p>
+                <p className="text-sm text-muted-foreground/70">Karte wird geladen…</p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ─── FAQ ─── */}
+      <section className="py-16 md:py-24 px-5">
+        <div className="max-w-3xl mx-auto">
+          <motion.h2
+            variants={reveal}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6 }}
+            className="text-3xl md:text-4xl font-bold tracking-tight text-foreground text-center mb-12 md:mb-16"
+          >
+            Häufige Fragen zu unserem Standort
+          </motion.h2>
+
+          <motion.div
+            variants={reveal}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.08 }}
+          >
+            <Accordion type="single" collapsible className="space-y-3">
+              <AccordionItem value="anmeldung" className="bg-card rounded-2xl border border-border shadow-[var(--shadow-soft)] px-6 data-[state=open]:shadow-[var(--shadow-card)] transition-shadow">
+                <AccordionTrigger className="text-base font-bold text-foreground hover:no-underline py-5">
+                  Wie melde ich mein Kind für einen Kurs an?
+                </AccordionTrigger>
+                <AccordionContent className="pb-6">
+                  <p className="text-muted-foreground leading-relaxed">
+                    Du kannst dich direkt über den „Kurs Buchen" Button anmelden oder uns telefonisch kontaktieren.
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="umkleiden" className="bg-card rounded-2xl border border-border shadow-[var(--shadow-soft)] px-6 data-[state=open]:shadow-[var(--shadow-card)] transition-shadow">
+                <AccordionTrigger className="text-base font-bold text-foreground hover:no-underline py-5">
+                  Gibt es Umkleiden und Duschen?
+                </AccordionTrigger>
+                <AccordionContent className="pb-6">
+                  <p className="text-muted-foreground leading-relaxed">
+                    Ja, unser Standort verfügt über geräumige Einzelumkleiden, Duschen und Föhn-Stationen.
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="probestunde" className="bg-card rounded-2xl border border-border shadow-[var(--shadow-soft)] px-6 data-[state=open]:shadow-[var(--shadow-card)] transition-shadow">
+                <AccordionTrigger className="text-base font-bold text-foreground hover:no-underline py-5">
+                  Kann ich eine Probestunde buchen?
+                </AccordionTrigger>
+                <AccordionContent className="pb-6">
+                  <p className="text-muted-foreground leading-relaxed">
+                    Ja, wir bieten für alle Kurse eine kostenlose Schnupperstunde an.
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="krankenkasse" className="bg-card rounded-2xl border border-border shadow-[var(--shadow-soft)] px-6 data-[state=open]:shadow-[var(--shadow-card)] transition-shadow">
+                <AccordionTrigger className="text-base font-bold text-foreground hover:no-underline py-5">
+                  Werden die Kosten von der Krankenkasse übernommen?
+                </AccordionTrigger>
+                <AccordionContent className="pb-6">
+                  <p className="text-muted-foreground leading-relaxed">
+                    Für unsere zertifizierten Aqua Reha Kurse übernehmen alle gesetzlichen Krankenkassen die Kosten vollständig bei Vorlage eines Rezepts.
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
           </motion.div>
         </div>
       </section>
