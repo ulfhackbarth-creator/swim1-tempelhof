@@ -1,8 +1,9 @@
-import { useState, useEffect, useLayoutEffect, useMemo, useRef } from "react";
+import { useState, useEffect, useLayoutEffect, useMemo, useRef, useCallback } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSwipeNavigation } from "@/hooks/useSwipeNavigation";
 import { ArrowRight, ChevronDown, Star, Check, MapPin } from "lucide-react";
+import { useIsMobile } from "@/hooks/use-mobile";
 import { Link } from "react-router-dom";
 import GlobalHeader from "@/components/home/GlobalHeader";
 import HomeFooter from "@/components/home/HomeFooter";
@@ -54,6 +55,7 @@ const locations = [
 ];
 
 const KursePage = ({ tab }: { tab: CourseTab }) => {
+  const isMobile = useIsMobile();
   const content = heroContent[tab];
   const usps = uspsByTab[tab];
   const tests = testimonialsByTab[tab];
@@ -62,6 +64,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
   const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
   const [kurseSectionVisible, setKurseSectionVisible] = useState(false);
   const kurseSectionRef = useRef<HTMLElement>(null);
+  const cardRefs = useRef<Record<string, HTMLDivElement | null>>({});
 
   useEffect(() => {
     const el = kurseSectionRef.current;
@@ -100,9 +103,15 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
 
   const scrollTo = (id: string) => document.querySelector(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
 
-  const handleSelectCourse = (name: string) => {
-    setSelectedCourse((prev) => (prev === name ? null : name));
-  };
+  const handleSelectCourse = useCallback((name: string) => {
+    const next = selectedCourse === name ? null : name;
+    setSelectedCourse(next);
+    if (next && !isMobile) {
+      requestAnimationFrame(() => {
+        cardRefs.current[next]?.scrollIntoView({ behavior: "smooth", block: "center" });
+      });
+    }
+  }, [selectedCourse, isMobile]);
 
   const courseParam = selectedCourse
     ? encodeURIComponent(selectedCourse.toLowerCase().replace(/\s+/g, "-"))
@@ -146,81 +155,127 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
              {coursesByTab[tab].map((course, i) => {
                const isSelected = selectedCourse === course.name;
                return (
-                 <motion.div
-                   key={course.name}
-                   initial={{ opacity: 0, y: 15 }}
-                   whileInView={{ opacity: 1, y: 0 }}
-                   viewport={{ once: true }}
-                   transition={{ duration: 0.3, delay: i * 0.06 }}
-                   onClick={() => handleSelectCourse(course.name)}
-                   className={`relative bg-white rounded-[2rem] p-6 md:p-10 shadow-xl shadow-slate-200/40 border-2 transition-all duration-200 cursor-pointer flex flex-col ${
-                     isSelected
-                       ? "border-[#1B4F8A] ring-2 ring-[#1B4F8A]/20 bg-blue-50/40 -translate-y-1"
-                       : "border-slate-100 hover:-translate-y-1"
-                   }`}
-                 >
-                   {isSelected && (
-                     <div className="absolute top-4 right-4 w-7 h-7 rounded-full bg-[#1B4F8A] flex items-center justify-center">
-                       <Check className="w-4 h-4 text-white" strokeWidth={3} />
-                     </div>
-                   )}
-                   <span className="text-xs font-bold uppercase tracking-widest text-[#1B4F8A] mb-4">{course.tag}</span>
-                   <h3 className="text-xl xl:text-2xl font-bold text-slate-900 mb-3 break-words hyphens-auto">{course.name}</h3>
-                   <p className="text-slate-600 leading-relaxed mb-8 flex-1">{course.text}</p>
-                   <span className={`mt-auto inline-flex items-center font-semibold transition-all gap-1 ${
-                     isSelected ? "text-[#1B4F8A]" : "text-[#1B4F8A] hover:gap-3"
-                   }`}>
-                     {isSelected ? "Ausgewählt ✓" : <>Auswählen <span>→</span></>}
-                   </span>
-                 </motion.div>
+                  <motion.div
+                    key={course.name}
+                    ref={(el) => { cardRefs.current[course.name] = el; }}
+                    initial={{ opacity: 0, y: 15 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: i * 0.06 }}
+                    onClick={() => handleSelectCourse(course.name)}
+                    className={`relative bg-white rounded-[2rem] p-6 md:p-10 shadow-xl shadow-slate-200/40 border-2 transition-all duration-200 cursor-pointer flex flex-col ${
+                      isSelected
+                        ? "border-[#1B4F8A] ring-2 ring-[#1B4F8A]/20 bg-blue-50/40 -translate-y-1"
+                        : "border-slate-100 hover:-translate-y-1"
+                    }`}
+                  >
+                    {isSelected && (
+                      <div className="absolute top-4 right-4 w-7 h-7 rounded-full bg-[#1B4F8A] flex items-center justify-center">
+                        <Check className="w-4 h-4 text-white" strokeWidth={3} />
+                      </div>
+                    )}
+                    <span className="text-xs font-bold uppercase tracking-widest text-[#1B4F8A] mb-4">{course.tag}</span>
+                    <h3 className="text-xl xl:text-2xl font-bold text-slate-900 mb-3 break-words hyphens-auto">{course.name}</h3>
+                    <p className="text-slate-600 leading-relaxed mb-8 flex-1">{course.text}</p>
+                    <span className={`mt-auto inline-flex items-center font-semibold transition-all gap-1 ${
+                      isSelected ? "text-[#1B4F8A]" : "text-[#1B4F8A] hover:gap-3"
+                    }`}>
+                      {isSelected ? "Ausgewählt ✓" : <>Auswählen <span>→</span></>}
+                    </span>
+
+                    {/* Desktop inline CTA inside selected card */}
+                    {isSelected && (
+                      <div className="hidden md:block mt-6" onClick={(e) => e.stopPropagation()}>
+                        <DropdownMenu>
+                          <DropdownMenuTrigger asChild>
+                            <button
+                              className="w-full inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 font-bold text-base text-white transition-all bg-[#F97316] hover:bg-[#EA580C] active:scale-[0.97] shadow-lg"
+                              style={{ boxShadow: "0 10px 30px -5px rgba(249,115,22,0.3)" }}
+                            >
+                              Standort für „{course.name}" wählen <ChevronDown className="w-5 h-5" />
+                            </button>
+                          </DropdownMenuTrigger>
+                          <DropdownMenuContent
+                            align="center"
+                            sideOffset={12}
+                            className="w-72 rounded-xl border-border/50 bg-card p-1 shadow-xl"
+                          >
+                            <DropdownMenuLabel className="text-xs text-muted-foreground uppercase tracking-wider px-3 py-2">
+                              Standort wählen
+                            </DropdownMenuLabel>
+                            {standortLinks.map((s) => (
+                              <DropdownMenuItem
+                                key={s.path}
+                                asChild
+                                className="cursor-pointer rounded-lg px-3 py-2.5 focus:bg-primary/5 focus:text-primary"
+                              >
+                                <Link
+                                  to={`${s.path}?course=${courseParam}`}
+                                  onClick={() => window.scrollTo({ top: 0 })}
+                                  className="flex items-center gap-2.5 w-full"
+                                >
+                                  <MapPin className="w-4 h-4 text-primary" />
+                                  <span className="font-medium">{s.label}</span>
+                                </Link>
+                              </DropdownMenuItem>
+                            ))}
+                          </DropdownMenuContent>
+                        </DropdownMenu>
+                      </div>
+                    )}
+                  </motion.div>
                );
              })}
            </div>
 
-           {/* Dynamic CTA with Dropdown */}
-           <motion.div
-             initial={{ opacity: 0, y: 10 }}
-             animate={{ opacity: selectedCourse ? 1 : 0, y: selectedCourse ? 0 : 10 }}
-             transition={{ duration: 0.25 }}
-             className={`flex justify-center pt-10 ${!selectedCourse ? "pointer-events-none" : ""}`}
-           >
-             <DropdownMenu>
-               <DropdownMenuTrigger asChild>
-                 <button
-                   disabled={!selectedCourse}
-                   className="inline-flex items-center gap-2 rounded-full px-8 py-4 font-bold text-lg text-white transition-all shadow-lg bg-[#F97316] hover:bg-[#EA580C] disabled:opacity-40 disabled:cursor-not-allowed active:scale-[0.97]"
-                   style={{ boxShadow: selectedCourse ? "0 10px 30px -5px rgba(249,115,22,0.3)" : "none" }}
-                 >
-                   Standort für „{selectedCourse || "…"}" wählen <ChevronDown className="w-5 h-5" />
-                 </button>
-               </DropdownMenuTrigger>
-               <DropdownMenuContent
-                 align="center"
-                 sideOffset={12}
-                 className="w-72 rounded-xl border-border/50 bg-card p-1 shadow-xl"
+           {/* Mobile-only inline CTA (visible below cards on small screens when no sticky shown yet) */}
+           <AnimatePresence>
+             {selectedCourse && (
+               <motion.div
+                 initial={{ opacity: 0, y: 10 }}
+                 animate={{ opacity: 1, y: 0 }}
+                 exit={{ opacity: 0, y: 10 }}
+                 transition={{ duration: 0.25 }}
+                 className="flex md:hidden justify-center pt-8"
                >
-                 <DropdownMenuLabel className="text-xs text-muted-foreground uppercase tracking-wider px-3 py-2">
-                   Standort wählen
-                 </DropdownMenuLabel>
-                 {standortLinks.map((s) => (
-                   <DropdownMenuItem
-                     key={s.path}
-                     asChild
-                     className="cursor-pointer rounded-lg px-3 py-2.5 focus:bg-primary/5 focus:text-primary"
-                   >
-                     <Link
-                       to={`${s.path}?course=${courseParam}`}
-                       onClick={() => window.scrollTo({ top: 0 })}
-                       className="flex items-center gap-2.5 w-full"
+                 <DropdownMenu>
+                   <DropdownMenuTrigger asChild>
+                     <button
+                       className="inline-flex items-center gap-2 rounded-full px-8 py-4 font-bold text-lg text-white transition-all shadow-lg bg-[#F97316] hover:bg-[#EA580C] active:scale-[0.97]"
+                       style={{ boxShadow: "0 10px 30px -5px rgba(249,115,22,0.3)" }}
                      >
-                       <MapPin className="w-4 h-4 text-primary" />
-                       <span className="font-medium">{s.label}</span>
-                     </Link>
-                   </DropdownMenuItem>
-                 ))}
-               </DropdownMenuContent>
-             </DropdownMenu>
-           </motion.div>
+                       Standort für „{selectedCourse}" wählen <ChevronDown className="w-5 h-5" />
+                     </button>
+                   </DropdownMenuTrigger>
+                   <DropdownMenuContent
+                     align="center"
+                     sideOffset={12}
+                     className="w-72 rounded-xl border-border/50 bg-card p-1 shadow-xl"
+                   >
+                     <DropdownMenuLabel className="text-xs text-muted-foreground uppercase tracking-wider px-3 py-2">
+                       Standort wählen
+                     </DropdownMenuLabel>
+                     {standortLinks.map((s) => (
+                       <DropdownMenuItem
+                         key={s.path}
+                         asChild
+                         className="cursor-pointer rounded-lg px-3 py-2.5 focus:bg-primary/5 focus:text-primary"
+                       >
+                         <Link
+                           to={`${s.path}?course=${courseParam}`}
+                           onClick={() => window.scrollTo({ top: 0 })}
+                           className="flex items-center gap-2.5 w-full"
+                         >
+                           <MapPin className="w-4 h-4 text-primary" />
+                           <span className="font-medium">{s.label}</span>
+                         </Link>
+                       </DropdownMenuItem>
+                     ))}
+                   </DropdownMenuContent>
+                 </DropdownMenu>
+               </motion.div>
+             )}
+           </AnimatePresence>
 
           {/* Trust Stats */}
           <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-slate-200 text-center pt-12 md:pt-16 pb-8">
@@ -325,7 +380,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 80, opacity: 0 }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed bottom-4 left-4 right-4 z-50 md:left-auto md:right-6 md:bottom-6 md:max-w-sm"
+            className="fixed bottom-4 left-4 right-4 z-50 md:hidden"
           >
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
