@@ -5,7 +5,7 @@ import type { CourseTab } from "@/pages/Index";
 const chips: { id: CourseTab; label: string; Icon: typeof Waves }[] = [
   { id: "kinderschwimmen", label: "Kinderschwimmen", Icon: Waves },
   { id: "wassergewoehnung", label: "Wassergewöhnung", Icon: Baby },
-  { id: "erwachsene", label: "Erwachsenenschwimmen", Icon: SwimmingPool },
+  { id: "erwachsene", label: "Erwachsenenschwimmen", Icon: PersonStanding },
   { id: "fitness", label: "Aquafitness", Icon: Activity },
   { id: "reha", label: "Aqua Reha", Icon: HeartPulse },
 ];
