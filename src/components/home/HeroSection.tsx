@@ -134,7 +134,7 @@ const HeroSection = ({ activeTab }: { activeTab: CourseTab }) => {
               <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold text-white tracking-tight leading-tight md:leading-[1.1] mb-4 md:mb-6">
                 {content.headline}
               </h1>
-              <p className="text-base md:text-xl text-white/80 max-w-2xl mx-auto mb-8">
+              <p className="text-base md:text-xl text-white/80 max-w-2xl mx-auto">
                 {content.subtext}
               </p>
             </motion.div>
