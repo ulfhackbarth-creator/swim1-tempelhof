@@ -134,7 +134,7 @@ const HeroSection = ({ activeTab }: { activeTab: CourseTab }) => {
               <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold text-white tracking-tight leading-tight md:leading-[1.1] mb-4 md:mb-6">
                 {content.headline}
               </h1>
-              <p className="text-base md:text-xl text-white/80 max-w-2xl mx-auto mb-8">
+              <p className="text-base md:text-xl text-white/80 max-w-2xl mx-auto">
                 {content.subtext}
               </p>
             </motion.div>
@@ -145,7 +145,7 @@ const HeroSection = ({ activeTab }: { activeTab: CourseTab }) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
             onClick={() => scrollTo("#standorte")}
-            className="inline-flex items-center gap-2 rounded-full px-8 py-4 font-bold text-lg text-white transition-colors shadow-lg bg-[#F97316] hover:bg-[#EA580C]"
+            className="mt-8 md:mt-10 w-full md:w-auto justify-center inline-flex items-center gap-2 rounded-full px-8 py-4 font-bold text-lg text-white transition-colors shadow-lg bg-[#F97316] hover:bg-[#EA580C]"
             style={{ boxShadow: "0 10px 30px -5px rgba(249,115,22,0.3)" }}
           >
             Standort wählen & Kurse finden
@@ -190,9 +190,9 @@ const HeroSection = ({ activeTab }: { activeTab: CourseTab }) => {
                   <span className="text-xs font-bold uppercase tracking-widest text-[#1B4F8A] mb-4">
                     {course.tag}
                   </span>
-                  <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">{course.name}</h3>
+                  <h3 className="text-2xl lg:text-3xl font-bold text-slate-900 mb-3">{course.name}</h3>
                   <p className="text-slate-600 leading-relaxed mb-8 flex-1">{course.text}</p>
-                  <span className="inline-flex items-center text-[#1B4F8A] font-semibold hover:gap-3 transition-all cursor-pointer gap-1">
+                  <span className="mt-auto inline-flex items-center text-[#1B4F8A] font-semibold hover:gap-3 transition-all cursor-pointer gap-1">
                     Mehr erfahren <span>→</span>
                   </span>
                 </motion.div>

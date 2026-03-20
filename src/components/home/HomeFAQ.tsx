@@ -50,7 +50,7 @@ const HomeFAQ = ({ activeTab }: { activeTab: CourseTab }) => {
 
   return (
     <section id="faq" className="py-16 md:py-32 bg-white scroll-mt-20">
-      <div className="max-w-3xl mx-auto px-6">
+      <div className="max-w-3xl mx-auto px-6 md:px-8">
         <AnimatePresence mode="wait">
           <motion.h2
             key={`faq-title-${activeTab}`}
@@ -78,7 +78,7 @@ const HomeFAQ = ({ activeTab }: { activeTab: CourseTab }) => {
                   onClick={() => setOpenIndex(openIndex === i ? null : i)}
                   className="w-full flex items-center justify-between text-left"
                 >
-                  <span className="text-lg font-semibold text-slate-900 pr-4">{faq.q}</span>
+                  <span className="text-base md:text-lg font-semibold text-slate-900 pr-4">{faq.q}</span>
                   <ChevronDown
                     className={`w-5 h-5 text-slate-400 shrink-0 transition-transform duration-200 ${
                       openIndex === i ? "rotate-180" : ""
