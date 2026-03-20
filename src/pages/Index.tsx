@@ -82,7 +82,7 @@ const Index = () => {
           src={src}
         />
       ))}
-      <div className="absolute inset-0 bg-[#0F2D52]/60" />
+      <div className="absolute inset-0 bg-[#0F2D52]/45" />
 
       <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 md:px-6 min-h-[70vh] md:min-h-[90vh] pt-20 md:pt-[80px]">
         <motion.h1
@@ -108,7 +108,6 @@ const Index = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
-          className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
         >
           <button
             onClick={() => scrollTo("#kurse")}
@@ -117,22 +116,6 @@ const Index = () => {
           >
             Kurs finden <ArrowRight className="w-5 h-5" />
           </button>
-          <button
-            onClick={() => scrollTo("#standorte")}
-            className="inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 font-bold text-lg text-white border-2 border-white/60 hover:bg-white/10 transition-colors"
-          >
-            Standort wählen
-          </button>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.8 }}
-          className="mt-8 flex items-center gap-2 text-white/70 text-sm"
-        >
-          <Star className="w-4 h-4 fill-current text-[#F59E0B]" />
-          <span>4.8/5 bei über 500 Google-Bewertungen</span>
         </motion.div>
       </div>
     </section>
