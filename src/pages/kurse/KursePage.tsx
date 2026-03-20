@@ -297,9 +297,11 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
             <p className="text-slate-500">{locationSubtitle[tab]}</p>
           </motion.div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {locations.map((loc, i) => (
+            {standorte.map((loc, i) => (
               <motion.div key={loc.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }} className="bg-white rounded-[2rem] p-6 md:p-8 shadow-lg shadow-slate-200/50 border border-slate-100 flex flex-col">
-                <span className="inline-block bg-blue-50 text-[#1B4F8A] text-xs font-bold px-3 py-1 rounded-full mb-6 w-fit">Jetzt buchbar</span>
+                <span className={`inline-block text-xs font-bold px-3 py-1 rounded-full mb-6 w-fit ${loc.status === "active" ? "bg-blue-50 text-[#1B4F8A]" : "bg-orange-50 text-orange-600"}`}>
+                  {loc.status === "active" ? "Jetzt buchbar" : "Bald verfügbar"}
+                </span>
                 <h3 className="text-2xl font-bold text-slate-900 mb-2">{loc.name}</h3>
                 <p className="text-slate-500 mb-8">{loc.address}</p>
                 <Link to={loc.route} onClick={() => window.scrollTo({ top: 0 })} className="w-full mt-auto bg-slate-900 text-white rounded-full py-3.5 text-sm text-center font-semibold hover:bg-slate-800 transition-colors">
