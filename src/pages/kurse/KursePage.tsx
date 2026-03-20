@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ChevronDown, Star } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -31,8 +32,18 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
   const tests = testimonialsByTab[tab];
   const faqs = faqsByTab[tab];
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const location = useLocation();
 
   useEffect(() => { setOpenIndex(null); }, [tab]);
+
+  useEffect(() => {
+    if (location.hash === "#kurse") {
+      const timer = setTimeout(() => {
+        document.getElementById("kurse")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 200);
+      return () => clearTimeout(timer);
+    }
+  }, [location.hash, tab]);
 
   const scrollTo = (id: string) => document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
 
@@ -65,7 +76,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
       </section>
 
       {/* KURSANGEBOT + TRUST */}
-      <section className="bg-blue-50/50 py-16 md:py-24 px-4 md:px-6">
+      <section id="kurse" className="bg-blue-50/50 py-16 md:py-24 px-4 md:px-6 scroll-mt-28">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 text-center mb-12 md:mb-16">
             {courseSectionTitle[tab]}

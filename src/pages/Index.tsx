@@ -20,11 +20,11 @@ const trustStats = [
 ];
 
 const categories = [
-  { Icon: Baby, title: "Wassergewöhnung", text: "Haut an Haut das Element Wasser entdecken. Ab 1,5 Monaten.", path: "/kurse/wassergewoehnung" },
-  { Icon: Waves, title: "Kinderschwimmen", text: "Schwimmen lernen mit Spaß und Sicherheit. Ab 4 Jahren.", path: "/kurse/kinderschwimmen" },
-  { Icon: PersonStanding, title: "Erwachsenenschwimmen", text: "Ängste abbauen oder Technik perfektionieren.", path: "/kurse/erwachsene" },
-  { Icon: Activity, title: "Aquafitness", text: "Gelenkschonendes Ganzkörpertraining.", path: "/kurse/aquafitness" },
-  { Icon: HeartPulse, title: "Aqua Reha", text: "Medizinisch begleitete Rehabilitation im Wasser.", path: "/kurse/reha" },
+  { Icon: Baby, title: "Wassergewöhnung", text: "Haut an Haut das Element Wasser entdecken. Ab 1,5 Monaten.", path: "/kurse/wassergewoehnung#kurse" },
+  { Icon: Waves, title: "Kinderschwimmen", text: "Schwimmen lernen mit Spaß und Sicherheit. Ab 4 Jahren.", path: "/kurse/kinderschwimmen#kurse" },
+  { Icon: PersonStanding, title: "Erwachsenenschwimmen", text: "Ängste abbauen oder Technik perfektionieren.", path: "/kurse/erwachsene#kurse" },
+  { Icon: Activity, title: "Aquafitness", text: "Gelenkschonendes Ganzkörpertraining.", path: "/kurse/aquafitness#kurse" },
+  { Icon: HeartPulse, title: "Aqua Reha", text: "Medizinisch begleitete Rehabilitation im Wasser.", path: "/kurse/reha#kurse" },
 ];
 
 const philosophy = [
@@ -184,7 +184,7 @@ const Index = () => {
             >
               <Link
                 to={cat.path}
-                onClick={() => window.scrollTo({ top: 0 })}
+                onClick={() => { /* scroll handled by #kurse hash */ }}
                 className="group bg-white rounded-[2rem] p-8 md:p-10 shadow-xl shadow-slate-200/40 border border-slate-100 flex flex-col h-full hover:-translate-y-1 transition-transform"
               >
                 <div className="w-14 h-14 rounded-2xl bg-blue-50 text-[#1B4F8A] flex items-center justify-center mb-6 group-hover:scale-105 transition-transform">
