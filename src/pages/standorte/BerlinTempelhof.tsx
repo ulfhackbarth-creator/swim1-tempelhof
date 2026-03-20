@@ -87,6 +87,10 @@ const BerlinTempelhof = () => {
   const [searchParams] = useSearchParams();
   const courseParam = searchParams.get("course") || searchParams.get("preselect") || "";
 
+  const displayCourseName = courseParam
+    ? decodeURIComponent(courseParam).replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())
+    : "";
+
   const matchedAccordion = useMemo(() => {
     if (!courseParam) return "";
     const normalized = decodeURIComponent(courseParam).toLowerCase();
