@@ -309,7 +309,7 @@ const BerlinTempelhof = () => {
           </motion.button>
         </div>
 
-        <div ref={heroSentinelRef} className="absolute bottom-0 h-1 w-full" />
+        
       </section>
 
       {/* ═══════════ TRUST STATS BAR ═══════════ */}
