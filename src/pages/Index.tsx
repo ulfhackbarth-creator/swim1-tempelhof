@@ -64,18 +64,7 @@ const Index = () => {
 
     {/* ─── HERO ─── */}
     <section className="relative min-h-[85vh] md:min-h-[90vh] overflow-hidden pt-32 md:pt-[120px]">
-      {heroVideos.map((src, i) => (
-        <video
-          key={src}
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover transition-opacity duration-[1500ms] ease-in-out"
-          style={{ opacity: i === activeVideo ? 1 : 0 }}
-          src={src}
-        />
-      ))}
+      <HeroVideoBackground videos={heroVideos} />
       <div className="absolute inset-0 bg-[#0F2D52]/45" />
       <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 md:px-6 min-h-[85vh] md:min-h-[90vh] pt-32 md:pt-[120px] pb-8 md:pb-0">
         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="max-w-4xl mx-auto">
