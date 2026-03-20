@@ -56,6 +56,8 @@ const locations = [
 const KursePage = ({ tab }: { tab: CourseTab }) => {
   const isMobile = useIsMobile();
   const content = heroContent[tab];
+  const videos = useMemo(() => Array.isArray(content.video) ? content.video : [content.video], [content.video]);
+  const [activeVideo, setActiveVideo] = useState(0);
   const usps = uspsByTab[tab];
   const tests = testimonialsByTab[tab];
   const faqs = faqsByTab[tab];
@@ -69,7 +71,13 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
   const isSwipe = (location.state as any)?.isSwipe === true;
   const direction = (location.state as any)?.direction ?? 1;
 
-  useEffect(() => { setOpenIndex(null); setSelectedCourse(null); }, [tab]);
+  useEffect(() => { setOpenIndex(null); setSelectedCourse(null); setActiveVideo(0); }, [tab]);
+
+  useEffect(() => {
+    if (videos.length <= 1) return;
+    const id = setInterval(() => setActiveVideo((p) => (p + 1) % videos.length), 4000);
+    return () => clearInterval(id);
+  }, [videos]);
 
   useLayoutEffect(() => {
     const scrollY = (location.state as any)?.maintainScrollPosition;
