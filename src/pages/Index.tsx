@@ -249,30 +249,49 @@ const Index = () => {
           Swim1 in deiner Nähe
         </motion.h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {standorte.map((loc, i) => (
-            <motion.div
-              key={loc.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="bg-white rounded-[2rem] p-6 md:p-8 shadow-lg shadow-slate-200/50 border border-slate-100 flex flex-col"
-            >
-              <span className={`inline-block text-xs font-bold px-3 py-1 rounded-full mb-6 w-fit ${loc.status === "active" ? "bg-blue-50 text-[#1B4F8A]" : "bg-orange-50 text-orange-600"}`}>
-                {loc.status === "active" ? "Jetzt buchbar" : "Bald verfügbar"}
-              </span>
-              <h3 className="text-2xl font-bold text-slate-900 mb-2">{loc.name}</h3>
-              <p className="text-slate-500 mb-8">{loc.address}</p>
-              <Link
-                to={loc.route}
-                onClick={() => window.scrollTo({ top: 0 })}
-                className="w-full mt-auto bg-slate-900 text-white rounded-full py-3.5 text-sm text-center font-semibold hover:bg-slate-800 transition-colors"
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {standorte.map((loc, i) => {
+            const isActive = loc.status === "active";
+            return (
+              <motion.div
+                key={loc.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className={`rounded-[2rem] p-6 shadow-lg border flex flex-col ${
+                  isActive
+                    ? "bg-white shadow-slate-200/50 border-slate-100"
+                    : "bg-slate-50 shadow-slate-100/30 border-slate-100/60 opacity-80"
+                }`}
               >
-                Standort entdecken
-              </Link>
-            </motion.div>
-          ))}
+                <span className={`inline-block text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-4 w-fit ${
+                  isActive ? "bg-green-50 text-green-700" : "bg-orange-50 text-orange-600"
+                }`}>
+                  {isActive ? "✓ Jetzt buchbar" : "Bald verfügbar"}
+                </span>
+                <h3 className="text-xl font-bold text-slate-900 mb-1">{loc.name}</h3>
+                <p className="text-slate-500 text-sm mb-4">{loc.address}</p>
+                <div className="flex flex-wrap gap-1.5 mb-5">
+                  {loc.features.map((f) => (
+                    <span key={f} className="text-[11px] font-medium text-[#1B4F8A] bg-blue-50 px-2.5 py-0.5 rounded-full">{f}</span>
+                  ))}
+                </div>
+                <Link
+                  to={loc.route}
+                  onClick={() => window.scrollTo({ top: 0 })}
+                  className={`w-full mt-auto rounded-full py-3 text-sm text-center font-semibold transition-colors ${
+                    isActive
+                      ? "bg-[#F97316] hover:bg-[#EA580C] text-white"
+                      : "bg-slate-200 text-slate-500 hover:bg-slate-300"
+                  }`}
+                >
+                  {isActive ? "Standort entdecken" : "Zur Warteliste"}
+                </Link>
+              </motion.div>
+            );
+          })}
+        </div>
         </div>
       </div>
     </section>
