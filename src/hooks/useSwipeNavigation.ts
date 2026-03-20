@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 
 const courseRoutes = [
   "/kurse/kinderschwimmen",
+  "/kurse/wassergewoehnung",
   "/kurse/erwachsene",
   "/kurse/aquafitness",
   "/kurse/reha",

@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, Star, Waves, PersonStanding, Activity, HeartPulse, ShieldCheck, Lock, Users } from "lucide-react";
+import { ArrowRight, Star, Waves, Droplets, PersonStanding, Activity, HeartPulse, ShieldCheck, Lock, Users } from "lucide-react";
 import GlobalHeader from "@/components/home/GlobalHeader";
 import HomeFooter from "@/components/home/HomeFooter";
 
@@ -21,6 +21,7 @@ const trustStats = [
 
 const categories = [
   { Icon: Waves, title: "Kinderschwimmen", text: "Schwimmen lernen mit Spaß und Sicherheit. Ab 3,5 Jahren.", path: "/kurse/kinderschwimmen#kurse" },
+  { Icon: Droplets, title: "Wassergewöhnung", text: "Babyschwimmen & Eltern-Kind-Kurse. Ab 3 Monaten.", path: "/kurse/wassergewoehnung#kurse" },
   { Icon: PersonStanding, title: "Erwachsenenschwimmen", text: "Ängste abbauen oder Technik perfektionieren.", path: "/kurse/erwachsene#kurse" },
   { Icon: Activity, title: "Aquafitness", text: "Gelenkschonendes Ganzkörpertraining.", path: "/kurse/aquafitness#kurse" },
   { Icon: HeartPulse, title: "Aqua Reha", text: "Medizinisch begleitete Rehabilitation im Wasser.", path: "/kurse/reha#kurse" },
@@ -170,7 +171,7 @@ const Index = () => {
           Finde den passenden Kurs
         </motion.h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {categories.map((cat, i) => (
             <motion.div
               key={cat.title}
