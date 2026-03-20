@@ -135,26 +135,31 @@ export const trustStats: Record<CourseTab, { value: string; label: string }[]> =
   kinderschwimmen: [
     { value: "Ab 3,5 Jahre", label: "Kursstart" },
     { value: "Max. 6", label: "Kinder pro Gruppe" },
+    { value: "32 °C", label: "Wassertemperatur" },
     { value: "Seepferdchen bis Gold", label: "Abzeichen" },
   ],
   wassergewoehnung: [
     { value: "Ab 3 Monate", label: "Kursstart" },
     { value: "Mit Elternteil", label: "Begleitung" },
     { value: "32 °C", label: "Wassertemperatur" },
+    { value: "Spielerisch", label: "Methodik" },
   ],
   erwachsene: [
     { value: "Kleine Gruppen", label: "Max. 8 Personen" },
     { value: "Diskretes Umfeld", label: "Ohne Zuschauer" },
+    { value: "32 °C", label: "Wassertemperatur" },
     { value: "Jedes Level", label: "Anfänger bis Technik" },
   ],
   fitness: [
     { value: "Alle Level", label: "Für jeden" },
     { value: "Max. 8", label: "Teilnehmer" },
+    { value: "32 °C", label: "Wassertemperatur" },
     { value: "Gelenkschonend", label: "Trainingsform" },
   ],
   reha: [
     { value: "Auf Rezept", label: "Verordnungsfähig" },
     { value: "Von Kassen", label: "Anerkannt" },
+    { value: "32 °C", label: "Wassertemperatur" },
     { value: "Medizinisch", label: "Begleitet" },
   ],
 };
