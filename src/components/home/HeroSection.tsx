@@ -14,7 +14,7 @@ const heroContent: Record<CourseTab, { video: string; headline: string; subtext:
     subtext: "Eltern-Kind-Kurse · Ab 2 Monate · 32°C warmes Wasser",
   },
   erwachsene: {
-    video: "https://videos.pexels.com/video-files/3121459/3121459-uhd_2560_1440_24fps.mp4",
+    video: "https://videos.pexels.com/video-files/6539521/6539521-uhd_2560_1440_25fps.mp4",
     headline: "Schwimmen lernen ist keine Frage des Alters.",
     subtext: "Ob kompletter Anfänger oder Technik-Feinschliff – lerne in kleiner Gruppe und geschütztem Rahmen schwimmen.",
   },
