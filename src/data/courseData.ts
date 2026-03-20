@@ -7,7 +7,7 @@ export const heroContent: Record<CourseTab, { video: string; headline: string; s
     subtext: "Kleine Gruppen · Zertifizierte Trainer · Bewährte Methodik",
   },
   wassergewoehnung: {
-    video: "https://videos.pexels.com/video-files/9044164/9044164-hd_1920_1080_30fps.mp4",
+    video: "https://videos.pexels.com/video-files/5888968/5888968-uhd_2560_1440_30fps.mp4",
     headline: "Erste Schritte im Wasser. Für die Kleinsten.",
     subtext: "Ab 3 Monaten · Mit Mama oder Papa · Spielerische Wassergewöhnung",
   },
