@@ -28,11 +28,11 @@ const heroContent: Record<CourseTab, { video: string; headline: string; subtext:
   },
 };
 
-const courseButtons: { id: CourseTab; label: string; icon: typeof Waves; color: string }[] = [
-  { id: "wassergewoehnung", label: "Wassergewöhnung", icon: Waves, color: "text-sky-400" },
-  { id: "schwimmen", label: "Schwimmen lernen", icon: Fish, color: "text-teal-500" },
-  { id: "fitness", label: "Aqua-Fitness", icon: Activity, color: "text-orange-400" },
-  { id: "reha", label: "Rehasport", icon: HeartPulse, color: "text-violet-500" },
+const courseButtons: { id: CourseTab; label: string; icon: typeof Waves }[] = [
+  { id: "wassergewoehnung", label: "Wassergewöhnung", icon: Waves },
+  { id: "schwimmen", label: "Schwimmen lernen", icon: Fish },
+  { id: "fitness", label: "Aqua-Fitness", icon: Activity },
+  { id: "reha", label: "Rehasport", icon: HeartPulse },
 ];
 
 const allTabs: CourseTab[] = ["wassergewoehnung", "schwimmen", "fitness", "reha"];
@@ -72,7 +72,6 @@ const HomeHero = ({
 
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* All 4 videos preloaded, only active one visible */}
       {allTabs.map((tab) => (
         <video
           key={tab}
@@ -88,10 +87,8 @@ const HomeHero = ({
       ))}
       <div className="absolute inset-0 bg-black/50" />
 
-      {/* Content */}
       <div className="container relative z-10 px-4">
         <div className="max-w-2xl mx-auto text-center">
-          {/* Badge */}
           <motion.span
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -101,7 +98,6 @@ const HomeHero = ({
             Seit 2019 · 4 Standorte · Über 2.000 Kinder
           </motion.span>
 
-          {/* Dynamic headline & subtext */}
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}
@@ -110,7 +106,7 @@ const HomeHero = ({
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.3 }}
             >
-              <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight mb-3">
+              <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight tracking-tight mb-3">
                 {content.headline}
               </h1>
               <p className="text-lg text-white/80 mb-8">
@@ -119,16 +115,15 @@ const HomeHero = ({
             </motion.div>
           </AnimatePresence>
 
-          {/* White selection box */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.6 }}
-            className="bg-white rounded-2xl shadow-2xl p-6 max-w-xl mx-auto flex flex-col gap-4"
+            className="bg-white/95 backdrop-blur-md border border-white/20 rounded-3xl shadow-2xl p-8 max-w-xl mx-auto flex flex-col gap-5"
           >
             {/* Step 1: Course selection */}
             <div>
-              <p className="text-sm font-semibold text-slate-700 mb-2">Was suchst du?</p>
+              <p className="text-sm font-semibold text-slate-700 mb-3">Was suchst du?</p>
               <div className="grid grid-cols-2 gap-2">
                 {courseButtons.map((btn) => {
                   const Icon = btn.icon;
@@ -143,7 +138,7 @@ const HomeHero = ({
                           : "border border-slate-200 text-slate-700 hover:border-[#1B4F8A] hover:text-[#1B4F8A]"
                       }`}
                     >
-                      <Icon className={`w-4 h-4 ${isActive ? "text-white" : btn.color}`} />
+                      <Icon className={`w-4 h-4 ${isActive ? "text-white" : "text-[#1B4F8A]"}`} />
                       {btn.label}
                     </button>
                   );
@@ -153,13 +148,13 @@ const HomeHero = ({
 
             {/* Step 2: Location selection */}
             <div>
-              <p className="text-sm font-semibold text-slate-700 mb-2">An welchem Standort?</p>
+              <p className="text-sm font-semibold text-slate-700 mb-3">An welchem Standort?</p>
               <Select value={selectedLocation} onValueChange={setSelectedLocation}>
                 <SelectTrigger
                   className={`w-full rounded-xl p-3 text-slate-700 transition-colors ${
                     shakeError && !selectedLocation
                       ? "border-red-500 animate-[shake_0.5s_ease-in-out] ring-2 ring-red-200"
-                      : ""
+                      : "border-slate-200"
                   }`}
                 >
                   <SelectValue placeholder="Standort wählen..." />

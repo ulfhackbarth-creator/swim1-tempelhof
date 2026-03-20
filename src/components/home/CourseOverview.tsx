@@ -1,15 +1,11 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Waves, Fish, Award, User, Activity, HeartPulse, ShieldCheck, Baby, LucideIcon } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Waves, Fish, Award, User, Activity, HeartPulse, ShieldCheck, Baby, ArrowRight, LucideIcon } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import type { CourseTab } from "@/pages/Index";
 
 type Course = {
   icon: LucideIcon;
-  accentBorder: string;
-  accentText: string;
-  accentBg: string;
   title: string;
   tag: string;
   description: string;
@@ -26,18 +22,12 @@ const coursesByTab: Record<CourseTab, Course[]> = {
   wassergewoehnung: [
     {
       icon: Waves,
-      accentBorder: "border-sky-400",
-      accentText: "text-sky-400",
-      accentBg: "bg-sky-50",
       title: "Wassergewöhnung",
       tag: "Ab 2 Monate · Eltern-Kind-Kurs",
       description: "Spielerische Wassergewöhnung für die Kleinsten, gemeinsam mit Mama oder Papa. Ideal ab 2 Monaten.",
     },
     {
       icon: Baby,
-      accentBorder: "border-sky-300",
-      accentText: "text-sky-300",
-      accentBg: "bg-sky-50",
       title: "Baby & Kleinkind",
       tag: "Ab 2 Monate bis 3 Jahre",
       description: "Erste Erfahrungen im warmen Wasser – sicher, sanft und mit viel Freude.",
@@ -46,27 +36,18 @@ const coursesByTab: Record<CourseTab, Course[]> = {
   schwimmen: [
     {
       icon: Fish,
-      accentBorder: "border-teal-500",
-      accentText: "text-teal-500",
-      accentBg: "bg-teal-50",
       title: "Seepferdchen",
       tag: "Ab 3,5 Jahre · Erstes Schwimmabzeichen",
       description: "Der erste große Schritt: Dein Kind lernt sicher zu schwimmen.",
     },
     {
       icon: Award,
-      accentBorder: "border-[#1B4F8A]",
-      accentText: "text-[#1B4F8A]",
-      accentBg: "bg-blue-50",
       title: "Fortgeschrittene",
       tag: "Bronze · Silber · Gold",
       description: "Aufbaukurse für Kinder, die alle drei Abzeichen erreichen wollen.",
     },
     {
       icon: User,
-      accentBorder: "border-green-500",
-      accentText: "text-green-500",
-      accentBg: "bg-green-50",
       title: "Erwachsenenschwimmen",
       tag: "Anfänger & Technik · Alle Altersgruppen",
       description: "Nie zu spät: Schwimmen lernen oder die Technik verbessern.",
@@ -75,9 +56,6 @@ const coursesByTab: Record<CourseTab, Course[]> = {
   fitness: [
     {
       icon: Activity,
-      accentBorder: "border-orange-400",
-      accentText: "text-orange-400",
-      accentBg: "bg-orange-50",
       title: "Aquafitness",
       tag: "Ganzkörper-Workout im Wasser",
       description: "Gelenkschonend, effektiv und mit viel Spaß in der Gruppe. Ideal für alle Fitness-Level – kein Schwimmen erforderlich.",
@@ -86,18 +64,12 @@ const coursesByTab: Record<CourseTab, Course[]> = {
   reha: [
     {
       icon: HeartPulse,
-      accentBorder: "border-violet-500",
-      accentText: "text-violet-500",
-      accentBg: "bg-violet-50",
       title: "Aqua Reha",
       tag: "Rehabilitation im Wasser",
       description: "Medizinisches Training nach Verletzungen oder bei Gelenkbeschwerden – auf ärztliches Rezept.",
     },
     {
       icon: ShieldCheck,
-      accentBorder: "border-purple-400",
-      accentText: "text-purple-400",
-      accentBg: "bg-purple-50",
       title: "Aqua Prävention",
       tag: "Gesundheitsvorsorge",
       description: "Krankenkassen-anerkannte Präventionskurse für Rücken, Gelenke und Herz-Kreislauf.",
@@ -124,19 +96,19 @@ const CourseCard = ({ course, index }: { course: Course; index: number }) => (
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.3, delay: index * 0.08 }}
-    className={`bg-white rounded-2xl shadow-sm hover:shadow-md hover:scale-[1.02] transition-all duration-200 p-6 flex flex-col gap-3 border-t-4 ${course.accentBorder}`}
+    className="group bg-white rounded-2xl shadow-sm hover:shadow-xl hover:shadow-slate-200/50 transition-shadow duration-300 p-8 flex flex-col gap-4"
   >
-    <div className={`${course.accentBg} rounded-xl p-3 w-fit`}>
-      <course.icon className={`w-6 h-6 ${course.accentText}`} />
+    <div className="bg-slate-50 rounded-xl p-3 w-fit">
+      <course.icon className="w-6 h-6 text-[#1B4F8A]" />
     </div>
-    <h3 className="font-bold text-lg text-slate-900">{course.title}</h3>
-    <p className={`text-sm font-medium ${course.accentText}`}>{course.tag}</p>
-    <p className="text-slate-600 text-sm">{course.description}</p>
+    <h3 className="font-bold text-xl text-slate-900">{course.title}</h3>
+    <p className="text-sm font-medium text-[#1B4F8A]/60">{course.tag}</p>
+    <p className="text-slate-500 leading-relaxed">{course.description}</p>
     <a
       href="#"
-      className="mt-auto inline-flex items-center justify-center border-2 border-[#1B4F8A] text-[#1B4F8A] rounded-full px-4 py-2 text-sm font-semibold hover:bg-[#1B4F8A] hover:text-white transition-colors self-start"
+      className="mt-auto inline-flex items-center gap-2 text-[#1B4F8A] font-medium group-hover:gap-3 transition-all"
     >
-      Mehr erfahren
+      Mehr erfahren <ArrowRight className="w-4 h-4" />
     </a>
   </motion.div>
 );
@@ -152,28 +124,31 @@ const CourseOverview = ({
   const navigate = useNavigate();
 
   return (
-    <section id="kurse" className="py-16 md:py-24 bg-background scroll-mt-20">
+    <section id="kurse" className="py-24 bg-slate-50 scroll-mt-20">
       <div className="container px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-10"
+          className="text-center mb-14"
         >
-          <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-6">
+          <h2 className="text-3xl md:text-5xl font-bold text-[#1B4F8A] tracking-tight mb-4">
             Unser Kursangebot
           </h2>
+          <p className="text-lg text-slate-500 max-w-xl mx-auto">
+            Finde den passenden Kurs für dich oder dein Kind.
+          </p>
 
           {/* Tab navigation */}
-          <div className="inline-flex flex-wrap justify-center bg-slate-100 rounded-full p-1">
+          <div className="inline-flex flex-wrap justify-center bg-white rounded-full p-1 mt-8 shadow-sm">
             {tabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => onTabChange(tab.id)}
-                className={`px-4 md:px-6 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                className={`px-4 md:px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-200 ${
                   activeTab === tab.id
-                    ? "bg-white shadow-sm font-semibold text-[#1B4F8A]"
+                    ? "bg-[#1B4F8A] text-white shadow-sm"
                     : "text-slate-500 hover:text-[#1B4F8A] cursor-pointer"
                 }`}
               >
@@ -199,7 +174,7 @@ const CourseOverview = ({
         </AnimatePresence>
 
         {/* Inline CTA bar */}
-        <div className="mt-8 bg-[#F0F4F8] rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-4 max-w-3xl mx-auto">
+        <div className="mt-12 bg-white rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-4 max-w-3xl mx-auto shadow-sm">
           <p className="font-semibold text-slate-800">
             Bereit? Wähle deinen Standort und buche direkt.
           </p>
@@ -207,7 +182,7 @@ const CourseOverview = ({
             <select
               value={selectedLocation}
               onChange={(e) => setSelectedLocation(e.target.value)}
-              className="rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-primary"
+              className="rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-[#1B4F8A]/20"
             >
               {locations.map((loc) => (
                 <option key={loc.label} value={loc.label}>
@@ -215,16 +190,15 @@ const CourseOverview = ({
                 </option>
               ))}
             </select>
-            <Button
-              variant="cta"
-              className="rounded-full"
+            <button
               onClick={() => {
                 const loc = locations.find((l) => l.label === selectedLocation);
                 if (loc) navigate(loc.route);
               }}
+              className="bg-[#F97316] text-white rounded-xl px-5 py-2.5 text-sm font-medium hover:bg-[#EA580C] transition-colors"
             >
               Zum Standort →
-            </Button>
+            </button>
           </div>
         </div>
       </div>
