@@ -333,57 +333,6 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
 
       <HomeFooter />
 
-      {/* Sticky Bottom CTA */}
-      <AnimatePresence>
-        {selectedCourse && !kurseSectionVisible && (
-          <motion.div
-            initial={{ y: 80, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: 80, opacity: 0 }}
-            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed bottom-4 left-4 right-4 z-50 md:hidden"
-          >
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <button
-                  className="w-full inline-flex items-center justify-center gap-2 rounded-2xl px-6 py-4 font-bold text-base text-white bg-[#1B4F8A] hover:bg-[#164172] active:scale-[0.97] transition-all shadow-xl backdrop-blur-md border border-white/10"
-                  style={{ boxShadow: "0 12px 40px -8px rgba(27,79,138,0.45)" }}
-                >
-                  <MapPin className="w-4 h-4" />
-                  Standort für „{selectedCourse}" finden
-                  <ChevronDown className="w-4 h-4 ml-auto" />
-                </button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent
-                side="top"
-                align="center"
-                sideOffset={12}
-                className="w-[calc(100vw-2rem)] md:w-72 rounded-xl border-border/50 bg-card p-1 shadow-xl"
-              >
-                <DropdownMenuLabel className="text-xs text-muted-foreground uppercase tracking-wider px-3 py-2">
-                  Standort wählen
-                </DropdownMenuLabel>
-                {standortLinks.map((s) => (
-                  <DropdownMenuItem
-                    key={s.path}
-                    asChild
-                    className="cursor-pointer rounded-lg px-3 py-2.5 focus:bg-primary/5 focus:text-primary"
-                  >
-                    <Link
-                      to={`${s.path}?course=${courseParam}`}
-                      onClick={() => window.scrollTo({ top: 0 })}
-                      className="flex items-center gap-2.5 w-full"
-                    >
-                      <MapPin className="w-4 h-4 text-primary" />
-                      <span className="font-medium">{s.label}</span>
-                    </Link>
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </>
   );
 
