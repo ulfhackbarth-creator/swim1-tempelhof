@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import type { CourseTab } from "@/pages/Index";
 
 const locationSubtitle: Record<CourseTab, string> = {
-  schwimmen: "Finde die passende Schwimmschule in deiner Nähe",
+  kinderschwimmen: "Finde die passende Schwimmschule in deiner Nähe",
   wassergewoehnung: "Finde den passenden Standort für Babys und Kleinkinder",
+  erwachsene: "Finde den passenden Standort für dein Training",
   fitness: "Finde den passenden Standort für dein Training",
   reha: "Finde deinen Standort für Aqua Reha",
 };

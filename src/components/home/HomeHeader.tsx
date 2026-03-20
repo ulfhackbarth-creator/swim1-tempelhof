@@ -1,12 +1,13 @@
 import { motion } from "framer-motion";
-import { Waves, Baby, Activity, HeartPulse } from "lucide-react";
+import { Waves, Baby, Activity, HeartPulse, SwimmingPool } from "lucide-react";
 import type { CourseTab } from "@/pages/Index";
 
 const chips: { id: CourseTab; label: string; Icon: typeof Waves }[] = [
-  { id: "schwimmen", label: "Schwimmen", Icon: Waves },
+  { id: "kinderschwimmen", label: "Kinderschwimmen", Icon: Waves },
   { id: "wassergewoehnung", label: "Wassergewöhnung", Icon: Baby },
-  { id: "fitness", label: "Aqua-Fitness", Icon: Activity },
-  { id: "reha", label: "Rehasport", Icon: HeartPulse },
+  { id: "erwachsene", label: "Erwachsenenschwimmen", Icon: SwimmingPool },
+  { id: "fitness", label: "Aquafitness", Icon: Activity },
+  { id: "reha", label: "Aqua Reha", Icon: HeartPulse },
 ];
 
 const HomeHeader = ({

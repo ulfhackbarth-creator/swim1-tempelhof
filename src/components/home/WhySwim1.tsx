@@ -1,11 +1,11 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { ShieldCheck, Award, Heart, Thermometer, Smile, Activity, Droplets, Users, HeartPulse, FileText, UserCheck } from "lucide-react";
+import { ShieldCheck, Award, Heart, Thermometer, Smile, Activity, Droplets, Users, HeartPulse, FileText, UserCheck, Shield } from "lucide-react";
 import type { CourseTab } from "@/pages/Index";
 
 type UspItem = { Icon: typeof Award; label: string; text: string };
 
 const uspsByTab: Record<CourseTab, { title: string; items: UspItem[] }> = {
-  schwimmen: {
+  kinderschwimmen: {
     title: "Warum Eltern uns vertrauen",
     items: [
       { Icon: ShieldCheck, label: "100% zertifizierte Trainer", text: "Unsere Trainer sind pädagogisch geschult und wissen genau, wie sie Kindern die Angst vor dem Wasser nehmen." },
@@ -19,6 +19,14 @@ const uspsByTab: Record<CourseTab, { title: string; items: UspItem[] }> = {
       { Icon: Thermometer, label: "Wohlfühl-Temperatur", text: "Mit durchgehend 32°C Wassertemperatur garantieren wir, dass dein Baby nicht friert und sich vollkommen entspannen kann." },
       { Icon: Smile, label: "Bindung stärken", text: "Haut an Haut im warmen Wasser: Unsere Kurse fördern das Urvertrauen und die motorische Entwicklung deines Kindes." },
       { Icon: ShieldCheck, label: "Hygiene & Sicherheit", text: "Höchste Wasserqualität und speziell geschulte Kursleiter für Säuglinge und Kleinkinder." },
+    ],
+  },
+  erwachsene: {
+    title: "Warum Erwachsene sich bei uns wohlfühlen",
+    items: [
+      { Icon: Shield, label: "Geschützter Rahmen", text: "Kein öffentlicher Badebetrieb. Du lernst ungestört und ohne fremde Zuschauer in unseren privaten Becken." },
+      { Icon: Users, label: "Kleine Gruppen", text: "Mit maximal 8 Teilnehmern kann sich unser Trainer intensiv um deine individuellen Bedürfnisse kümmern." },
+      { Icon: Heart, label: "Einfühlsame Trainer", text: "Unsere Trainer sind speziell für Erwachsene ausgebildet und helfen dir, Ängste Schritt für Schritt abzubauen." },
     ],
   },
   fitness: {
