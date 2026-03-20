@@ -1,21 +1,30 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Waves, Menu, X } from "lucide-react";
+import { motion } from "framer-motion";
+import { Waves, Baby, Activity, HeartPulse } from "lucide-react";
+import type { CourseTab } from "@/pages/Index";
 
-const navLinks = [
-  { label: "Kurse", href: "#kurse" },
-  { label: "Standorte", href: "#standorte" },
-  { label: "Über uns", href: "#warum" },
-  { label: "FAQ", href: "#faq" },
+const categoryColors: Record<CourseTab, string> = {
+  schwimmen: "#1B4F8A",
+  wassergewoehnung: "#0891B2",
+  fitness: "#059669",
+  reha: "#7C3AED",
+};
+
+const chips: { id: CourseTab; label: string; Icon: typeof Waves }[] = [
+  { id: "schwimmen", label: "Schwimmen lernen", Icon: Waves },
+  { id: "wassergewoehnung", label: "Wassergewöhnung", Icon: Baby },
+  { id: "fitness", label: "Aqua-Fitness", Icon: Activity },
+  { id: "reha", label: "Rehasport", Icon: HeartPulse },
 ];
 
-const HomeHeader = () => {
-  const [mobileOpen, setMobileOpen] = useState(false);
-
-  const scrollTo = (href: string) => {
-    setMobileOpen(false);
-    const el = document.querySelector(href);
-    el?.scrollIntoView({ behavior: "smooth" });
+const HomeHeader = ({
+  activeTab,
+  onTabChange,
+}: {
+  activeTab: CourseTab;
+  onTabChange: (tab: CourseTab) => void;
+}) => {
+  const scrollTo = (id: string) => {
+    document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -23,81 +32,54 @@ const HomeHeader = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-slate-100 h-16 flex items-center"
+      className="fixed top-0 left-0 right-0 z-50"
+      style={{ backgroundColor: "#1B4F8A" }}
     >
-      <div className="max-w-7xl mx-auto w-full px-6 flex items-center justify-between">
-        {/* Logo */}
+      {/* Row 1 — Logo + CTA */}
+      <div className="px-6 md:px-10 py-3.5 flex items-center justify-between">
         <a href="/" className="flex items-center gap-2">
-          <Waves className="w-5 h-5 text-[#1B4F8A]" />
-          <span className="font-bold text-xl text-[#1B4F8A]">SWIM1</span>
+          <Waves className="w-5 h-5 text-white" />
+          <span className="font-bold text-lg text-white">SWIM1</span>
         </a>
-
-        {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-8">
-          {navLinks.map((l) => (
-            <button
-              key={l.href}
-              onClick={() => scrollTo(l.href)}
-              className="text-sm font-medium text-slate-600 hover:text-[#1B4F8A] transition-colors"
-            >
-              {l.label}
-            </button>
-          ))}
-        </nav>
-
-        {/* Desktop buttons */}
-        <div className="hidden md:flex items-center gap-3">
-          <button className="border border-slate-200 rounded-full px-4 py-2 text-sm font-medium text-slate-600 hover:text-[#1B4F8A] hover:border-[#1B4F8A] transition-colors">
-            Anmelden
-          </button>
-          <button
-            onClick={() => scrollTo("#standorte")}
-            className="bg-[#F97316] text-white rounded-full px-5 py-2 text-sm font-semibold hover:bg-orange-600 transition-colors"
-          >
-            Standort wählen
-          </button>
-        </div>
-
-        {/* Mobile toggle */}
-        <button className="md:hidden p-2 text-slate-900" onClick={() => setMobileOpen(!mobileOpen)}>
-          {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        <button
+          onClick={() => scrollTo("#standorte")}
+          className="rounded-full px-5 py-2 text-sm font-semibold text-white transition-colors"
+          style={{ backgroundColor: "#F97316" }}
+          onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#ea580c")}
+          onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#F97316")}
+        >
+          Standort wählen →
         </button>
       </div>
 
-      {/* Mobile menu */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="absolute top-16 left-0 right-0 bg-white border-b border-slate-100 overflow-hidden md:hidden"
-          >
-            <div className="px-6 py-4 flex flex-col gap-1">
-              {navLinks.map((l) => (
-                <button
-                  key={l.href}
-                  onClick={() => scrollTo(l.href)}
-                  className="text-sm font-medium text-slate-600 hover:text-[#1B4F8A] text-left py-2"
-                >
-                  {l.label}
-                </button>
-              ))}
-              <div className="flex flex-col gap-2 mt-3 pt-3 border-t border-slate-100">
-                <button className="border border-slate-200 rounded-full px-4 py-2 text-sm font-medium text-slate-600">
-                  Anmelden
-                </button>
-                <button
-                  onClick={() => scrollTo("#standorte")}
-                  className="bg-[#F97316] text-white rounded-full px-5 py-2 text-sm font-semibold"
-                >
-                  Standort wählen
-                </button>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Row 2 — Category chips */}
+      <div
+        className="px-6 md:px-10 pb-3 flex flex-row gap-2 overflow-x-auto scrollbar-hide"
+        style={{ borderTop: "1px solid rgba(255,255,255,0.12)" }}
+      >
+        {chips.map((chip) => {
+          const isActive = activeTab === chip.id;
+          return (
+            <button
+              key={chip.id}
+              onClick={() => onTabChange(chip.id)}
+              className={`flex items-center gap-2 rounded-full px-4 py-2 cursor-pointer transition-all duration-200 text-sm font-semibold whitespace-nowrap mt-3 ${
+                isActive
+                  ? "bg-white"
+                  : "bg-transparent text-white/70 hover:text-white hover:bg-white/10"
+              }`}
+            >
+              <chip.Icon
+                className="w-4 h-4"
+                style={{ color: isActive ? categoryColors[chip.id] : undefined }}
+              />
+              <span style={isActive ? { color: "#1B4F8A" } : undefined}>
+                {chip.label}
+              </span>
+            </button>
+          );
+        })}
+      </div>
     </motion.header>
   );
 };
