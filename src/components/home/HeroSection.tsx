@@ -1,5 +1,20 @@
 import { motion, AnimatePresence } from "framer-motion";
+import { Waves, Baby, Activity, HeartPulse } from "lucide-react";
 import type { CourseTab } from "@/pages/Index";
+
+const categoryColors: Record<CourseTab, string> = {
+  schwimmen: "#1B4F8A",
+  wassergewoehnung: "#0891B2",
+  fitness: "#059669",
+  reha: "#7C3AED",
+};
+
+const categoryColorsDark: Record<CourseTab, string> = {
+  schwimmen: "#153d6b",
+  wassergewoehnung: "#067a99",
+  fitness: "#047857",
+  reha: "#6322c5",
+};
 
 const heroContent: Record<CourseTab, { video: string; headline: string; subtext: string }> = {
   schwimmen: {
@@ -33,13 +48,13 @@ const coursesByTab: Record<CourseTab, Course[]> = {
     { tag: "Erwachsene", name: "Erwachsenenschwimmen", text: "Für Erwachsene, die schwimmen lernen oder ihre Technik verbessern möchten. Nie zu spät." },
   ],
   wassergewoehnung: [
-    { tag: "Eltern-Kind · Ab 2 Monate", name: "Wassergewöhnung", text: "Spielerische Eingewöhnung ins Wasser für die Kleinsten — gemeinsam mit Mama oder Papa in 32°C warmem Wasser." },
+    { tag: "Ab 2 Monate", name: "Wassergewöhnung", text: "Spielerische Eingewöhnung ins Wasser für die Kleinsten — gemeinsam mit Mama oder Papa." },
   ],
   fitness: [
-    { tag: "Alle Level", name: "Aquafitness", text: "Gelenkschonendes Ganzkörper-Training im Wasser. Effektiv, motivierend und für alle Fitness-Level geeignet." },
+    { tag: "Alle Level", name: "Aquafitness", text: "Gelenkschonendes Ganzkörper-Training im Wasser. Effektiv, motivierend, für jeden geeignet." },
   ],
   reha: [
-    { tag: "Auf Rezept", name: "Aqua Reha", text: "Medizinisches Training im Wasser nach Verletzungen oder bei Gelenkbeschwerden — auf ärztliches Rezept." },
+    { tag: "Auf Rezept", name: "Aqua Reha", text: "Medizinisches Training im Wasser nach Verletzungen oder bei Gelenkbeschwerden." },
     { tag: "Prävention", name: "Aqua Prävention", text: "Krankenkassen-anerkannte Präventionskurse für Rücken, Gelenke und Herz-Kreislauf." },
   ],
 };
@@ -74,11 +89,11 @@ const trustStats: Record<CourseTab, { value: string; label: string }[]> = {
   ],
 };
 
-const chips: { id: CourseTab; label: string }[] = [
-  { id: "schwimmen", label: "Schwimmen lernen" },
-  { id: "wassergewoehnung", label: "Wassergewöhnung" },
-  { id: "fitness", label: "Aqua-Fitness" },
-  { id: "reha", label: "Rehasport" },
+const chips: { id: CourseTab; label: string; Icon: typeof Waves }[] = [
+  { id: "schwimmen", label: "Schwimmen", Icon: Waves },
+  { id: "wassergewoehnung", label: "Wassergewöhnung", Icon: Baby },
+  { id: "fitness", label: "Aqua-Fitness", Icon: Activity },
+  { id: "reha", label: "Rehasport", Icon: HeartPulse },
 ];
 
 const allTabs: CourseTab[] = ["schwimmen", "wassergewoehnung", "fitness", "reha"];
@@ -91,100 +106,113 @@ const HeroSection = ({
   onTabChange: (tab: CourseTab) => void;
 }) => {
   const content = heroContent[activeTab];
+  const color = categoryColors[activeTab];
+  const colorDark = categoryColorsDark[activeTab];
 
   const scrollTo = (id: string) => {
     document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <div className="relative overflow-hidden">
-      {/* Videos */}
-      {allTabs.map((tab) => (
-        <video
-          key={tab}
-          autoPlay
-          muted
-          loop
-          playsInline
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
-            activeTab === tab ? "opacity-100" : "opacity-0"
-          }`}
-          src={heroContent[tab].video}
-        />
-      ))}
+    <>
+      {/* TEIL 1 — HERO */}
+      <div className="relative overflow-hidden min-h-screen">
+        {allTabs.map((tab) => (
+          <video
+            key={tab}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload={tab === "schwimmen" ? "auto" : "none"}
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
+              activeTab === tab ? "opacity-100" : "opacity-0"
+            }`}
+            src={heroContent[tab].video}
+          />
+        ))}
 
-      {/* Single continuous gradient overlay */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(to bottom, rgba(0,0,0,0.65) 0%, rgba(15,45,82,0.85) 60%, rgba(15,45,82,0.98) 100%)",
-        }}
-      />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/45 to-black/70" />
 
-      {/* BEREICH A — Video Hero */}
-      <section className="relative min-h-screen flex flex-col justify-end pb-12 px-6 md:px-16">
-        <div className="max-w-5xl">
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-            className="text-xs font-semibold tracking-widest text-white/60 uppercase mb-4"
-          >
-            Seit 2019 · 4 Standorte · Über 2.000 Kinder
-          </motion.p>
-
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeTab}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.3 }}
+        <div className="relative min-h-screen flex flex-col justify-end pb-10 px-6 md:px-16">
+          <div className="max-w-5xl">
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.2 }}
+              className="text-xs font-semibold tracking-widest uppercase mb-5"
+              style={{ color: "rgba(255,255,255,0.6)" }}
             >
-              <h1 className="text-6xl md:text-7xl font-bold text-white tracking-tight leading-none mb-3">
-                {content.headline}
-              </h1>
-              <p className="text-lg text-white/70 mb-8 max-w-xl">
-                {content.subtext}
-              </p>
-            </motion.div>
-          </AnimatePresence>
+              Seit 2019 · 4 Standorte · Über 2.000 Kinder
+            </motion.p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-          >
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeTab}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.3 }}
+              >
+                <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tight leading-none mb-3">
+                  {content.headline}
+                </h1>
+                <p className="text-base mb-8" style={{ color: "rgba(255,255,255,0.7)" }}>
+                  {content.subtext}
+                </p>
+              </motion.div>
+            </AnimatePresence>
+
+            {/* Category icon tiles */}
+            <div className="flex gap-3 overflow-x-auto pb-2 mb-8 scrollbar-hide">
+              {chips.map((chip) => {
+                const isActive = activeTab === chip.id;
+                return (
+                  <button
+                    key={chip.id}
+                    onClick={() => onTabChange(chip.id)}
+                    className="flex flex-col items-center gap-1 cursor-pointer transition-all duration-200 min-w-[80px]"
+                  >
+                    <div
+                      className={`rounded-2xl p-3 transition-all duration-200 ${
+                        isActive
+                          ? "border-2 scale-105"
+                          : "bg-white/10 backdrop-blur-sm border border-white/15 hover:bg-white/20"
+                      }`}
+                      style={isActive ? { backgroundColor: categoryColors[chip.id], borderColor: "rgba(255,255,255,0.3)" } : undefined}
+                    >
+                      <chip.Icon className={`w-6 h-6 ${isActive ? "text-white" : "text-white/70"}`} />
+                    </div>
+                    <span
+                      className={`text-xs text-center mt-1 ${
+                        isActive ? "text-white font-semibold" : "text-white/60 font-medium"
+                      }`}
+                    >
+                      {chip.label}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+
             <button
               onClick={() => scrollTo("#standorte")}
-              className="bg-[#F97316] text-white rounded-full px-8 py-4 text-base font-semibold hover:bg-orange-600 transition-colors shadow-lg shadow-orange-500/30"
+              className="w-full md:w-auto rounded-full px-8 py-4 text-base font-semibold text-white transition-colors shadow-lg"
+              style={{ backgroundColor: "#F97316", boxShadow: "0 10px 25px -5px rgba(249,115,22,0.3)" }}
+              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#ea580c")}
+              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#F97316")}
             >
               Standort wählen →
             </button>
-          </motion.div>
+          </div>
         </div>
+      </div>
 
-        {/* Course chips — bottom right */}
-        <div className="absolute bottom-12 right-6 md:right-16 flex gap-2">
-          {chips.map((chip) => (
-            <button
-              key={chip.id}
-              onClick={() => onTabChange(chip.id)}
-              className={`text-xs rounded-full px-4 py-2 transition-all cursor-pointer ${
-                activeTab === chip.id
-                  ? "bg-white text-[#1B4F8A] font-semibold shadow-md"
-                  : "bg-white/10 text-white/80 font-medium backdrop-blur-sm border border-white/20 hover:bg-white/20"
-              }`}
-            >
-              {chip.label}
-            </button>
-          ))}
-        </div>
-      </section>
-
-      {/* BEREICH B — Kursangebot */}
-      <section className="relative px-6 md:px-16 py-16">
+      {/* TEIL 2 — KURSANGEBOT */}
+      <section
+        className="py-12 px-6 md:px-16 transition-colors duration-500"
+        style={{ backgroundColor: color }}
+      >
         <AnimatePresence mode="wait">
           <motion.div
             key={activeTab}
@@ -200,14 +228,20 @@ const HeroSection = ({
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: i * 0.06 }}
-                className="bg-white/[0.08] border border-white/10 rounded-2xl p-6 hover:bg-white/[0.12] hover:border-white/20 transition-all cursor-pointer flex flex-col"
+                className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md hover:scale-[1.01] transition-all flex flex-col"
               >
-                <span className="text-xs font-semibold uppercase tracking-wider text-[#F97316] mb-2">
+                <span
+                  className="text-xs font-semibold uppercase tracking-wider mb-2"
+                  style={{ color }}
+                >
                   {course.tag}
                 </span>
-                <h3 className="text-lg font-bold text-white mb-2">{course.name}</h3>
-                <p className="text-white/55 text-sm leading-relaxed mb-5 flex-1">{course.text}</p>
-                <button className="w-full border border-white/15 text-white/70 rounded-full py-2.5 text-sm font-medium hover:border-white/40 hover:text-white transition-all">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">{course.name}</h3>
+                <p className="text-slate-500 text-sm leading-relaxed mb-5 flex-1">{course.text}</p>
+                <button
+                  className="w-full rounded-full py-2.5 text-sm font-semibold text-white transition-all hover:brightness-90"
+                  style={{ backgroundColor: color }}
+                >
                   Mehr erfahren →
                 </button>
               </motion.div>
@@ -216,8 +250,11 @@ const HeroSection = ({
         </AnimatePresence>
       </section>
 
-      {/* BEREICH C — Trust Bar */}
-      <section className="relative border-t border-white/[0.08] py-10 px-6 md:px-16">
+      {/* TEIL 3 — TRUST-BAR */}
+      <section
+        className="py-8 px-6 transition-colors duration-500"
+        style={{ backgroundColor: colorDark, borderTop: "1px solid rgba(255,255,255,0.15)" }}
+      >
         <AnimatePresence mode="wait">
           <motion.div
             key={activeTab}
@@ -225,14 +262,14 @@ const HeroSection = ({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="max-w-3xl mx-auto grid grid-cols-3 divide-x divide-white/10 text-center"
+            className="max-w-3xl mx-auto grid grid-cols-3 divide-x divide-white/15 text-center"
           >
             {trustStats[activeTab].map((s) => (
               <div key={s.label} className="px-4">
                 <span className="block text-2xl font-bold text-white tracking-tight">
                   {s.value}
                 </span>
-                <span className="block text-xs font-medium text-white/45 mt-1 uppercase tracking-wider">
+                <span className="block text-xs font-medium mt-1 uppercase tracking-wider" style={{ color: "rgba(255,255,255,0.5)" }}>
                   {s.label}
                 </span>
               </div>
@@ -240,7 +277,7 @@ const HeroSection = ({
           </motion.div>
         </AnimatePresence>
       </section>
-    </div>
+    </>
   );
 };
 
