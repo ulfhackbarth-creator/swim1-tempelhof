@@ -48,6 +48,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
   const tests = testimonialsByTab[tab];
   const faqs = faqsByTab[tab];
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
   const location = useLocation();
 
   const isSwipe = (location.state as any)?.isSwipe === true;
