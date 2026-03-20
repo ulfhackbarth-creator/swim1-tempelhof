@@ -87,6 +87,10 @@ const BerlinTempelhof = () => {
   const [searchParams] = useSearchParams();
   const courseParam = searchParams.get("course") || searchParams.get("preselect") || "";
 
+  const displayCourseName = courseParam
+    ? decodeURIComponent(courseParam).replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())
+    : "";
+
   const matchedAccordion = useMemo(() => {
     if (!courseParam) return "";
     const normalized = decodeURIComponent(courseParam).toLowerCase();
@@ -177,7 +181,7 @@ const BerlinTempelhof = () => {
             onClick={scrollToKurse}
             className="inline-flex items-center gap-2 bg-accent text-accent-foreground font-bold text-lg px-8 py-4 rounded-full shadow-[var(--shadow-cta)] hover:brightness-110 transition-all active:scale-[0.97]"
           >
-            Verfügbarkeit anfragen
+            {displayCourseName ? `${displayCourseName} buchen` : "Kursangebot ansehen"}
             <ArrowRight className="w-5 h-5" />
           </motion.button>
         </div>
