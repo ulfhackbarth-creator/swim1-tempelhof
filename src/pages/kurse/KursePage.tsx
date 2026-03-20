@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import { useSwipeNavigation } from "@/hooks/useSwipeNavigation";
 import { ArrowRight, ChevronDown, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 import GlobalHeader from "@/components/home/GlobalHeader";
@@ -47,8 +48,10 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
 
   const scrollTo = (id: string) => document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
 
+  const swipe = useSwipeNavigation();
+
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen" onTouchStart={swipe.onTouchStart} onTouchEnd={swipe.onTouchEnd}>
       <GlobalHeader />
 
       {/* HERO */}
