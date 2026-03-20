@@ -115,113 +115,52 @@ const HeroSection = ({
 
   return (
     <>
-      {/* SPLIT VIEWPORT HERO */}
-      <section className="h-screen flex flex-col">
-        {/* TEIL A — VIDEO-HERO */}
-        <div className="relative overflow-hidden flex-none h-[55vh] md:h-[62vh]">
-          {allTabs.map((tab) => (
-            <video
-              key={tab}
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload={tab === "schwimmen" ? "auto" : "none"}
-              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
-                activeTab === tab ? "opacity-100" : "opacity-0"
-              }`}
-              src={heroContent[tab].video}
-            />
-          ))}
+      {/* HERO — full screen with pt for sticky header */}
+      <section className="relative min-h-screen overflow-hidden" style={{ paddingTop: "110px" }}>
+        {allTabs.map((tab) => (
+          <video
+            key={tab}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload={tab === "schwimmen" ? "auto" : "none"}
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
+              activeTab === tab ? "opacity-100" : "opacity-0"
+            }`}
+            src={heroContent[tab].video}
+          />
+        ))}
 
-          <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/40 to-black/65" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/40 to-black/65" />
 
-          <div className="absolute bottom-0 left-0 right-0 px-8 md:px-16 pb-8">
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
-              className="text-xs font-semibold tracking-widest uppercase mb-4"
-              style={{ color: "rgba(255,255,255,0.6)" }}
+        <div className="absolute bottom-0 left-0 right-0 px-8 md:px-16 pb-12">
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            className="text-xs font-semibold tracking-widest uppercase mb-4"
+            style={{ color: "rgba(255,255,255,0.6)" }}
+          >
+            Seit 2019 · 4 Standorte · Über 2.000 Kinder
+          </motion.p>
+
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeTab}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.3 }}
             >
-              Seit 2019 · 4 Standorte · Über 2.000 Kinder
-            </motion.p>
-
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeTab}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.3 }}
-              >
-                <h1 className="text-4xl md:text-6xl font-bold text-white tracking-tight leading-tight mb-3">
-                  {content.headline}
-                </h1>
-                <p className="text-base mb-6" style={{ color: "rgba(255,255,255,0.7)" }}>
-                  {content.subtext}
-                </p>
-              </motion.div>
-            </AnimatePresence>
-
-            <button
-              onClick={() => scrollTo("#standorte")}
-              className="rounded-full px-7 py-3.5 text-sm font-semibold text-white transition-colors"
-              style={{ backgroundColor: "#F97316", boxShadow: "0 10px 25px -5px rgba(249,115,22,0.25)" }}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#ea580c")}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#F97316")}
-            >
-              Standort wählen →
-            </button>
-          </div>
-        </div>
-
-        {/* TEIL B — KATEGORIE-AUSWAHL */}
-        <div className="flex-1 bg-white flex flex-col justify-center px-8 md:px-16 py-6 overflow-y-auto md:overflow-visible">
-          <p className="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-4">
-            Welchen Kurs suchst du?
-          </p>
-
-          <div className="flex flex-row gap-3 overflow-x-auto pb-2 scrollbar-hide">
-            {chips.map((chip) => {
-              const isActive = activeTab === chip.id;
-              const chipColor = categoryColors[chip.id];
-              return (
-                <button
-                  key={chip.id}
-                  onClick={() => onTabChange(chip.id)}
-                  className={`flex items-center gap-2.5 min-w-[140px] md:min-w-[150px] py-3 px-5 rounded-full cursor-pointer transition-all duration-200 border-2 ${
-                    isActive
-                      ? "text-white shadow-md"
-                      : "bg-slate-50 border-slate-200"
-                  }`}
-                  style={
-                    isActive
-                      ? { backgroundColor: chipColor, borderColor: chipColor }
-                      : undefined
-                  }
-                  onMouseEnter={(e) => {
-                    if (!isActive) {
-                      e.currentTarget.style.borderColor = `${chipColor}80`;
-                      e.currentTarget.style.backgroundColor = `${chipColor}0d`;
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    if (!isActive) {
-                      e.currentTarget.style.borderColor = "";
-                      e.currentTarget.style.backgroundColor = "";
-                    }
-                  }}
-                >
-                  <chip.Icon className="w-4 h-4 shrink-0" style={isActive ? { color: "white" } : { color: chipColor }} />
-                  <span className="text-sm font-semibold whitespace-nowrap" style={isActive ? { color: "white" } : { color: "#334155" }}>
-                    {chip.label}
-                  </span>
-                  {isActive && <Check className="w-3.5 h-3.5 text-white/80 ml-auto shrink-0" />}
-                </button>
-              );
-            })}
-          </div>
+              <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tight leading-none mb-3">
+                {content.headline}
+              </h1>
+              <p className="text-lg" style={{ color: "rgba(255,255,255,0.7)" }}>
+                {content.subtext}
+              </p>
+            </motion.div>
+          </AnimatePresence>
         </div>
       </section>
 
