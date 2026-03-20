@@ -2,12 +2,22 @@ import { useState, useEffect, useLayoutEffect, useMemo } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSwipeNavigation } from "@/hooks/useSwipeNavigation";
-import { ArrowRight, ChevronDown, Star, Check } from "lucide-react";
+import { ArrowRight, ChevronDown, Star, Check, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 import GlobalHeader from "@/components/home/GlobalHeader";
 import HomeFooter from "@/components/home/HomeFooter";
 import type { CourseTab } from "@/types/course";
 import { heroContent, coursesByTab, courseSectionTitle, gridClass, trustStats } from "@/data/courseData";
+import { uspsByTab } from "@/data/uspData";
+import { testimonialsByTab } from "@/data/testimonialData";
+import { faqsByTab } from "@/data/faqData";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { uspsByTab } from "@/data/uspData";
 import { testimonialsByTab } from "@/data/testimonialData";
 import { faqsByTab } from "@/data/faqData";
