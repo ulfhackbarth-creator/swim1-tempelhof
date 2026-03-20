@@ -50,7 +50,7 @@ const HomeFAQ = ({ activeTab }: { activeTab: CourseTab }) => {
 
   return (
     <section id="faq" className="py-16 md:py-32 bg-white scroll-mt-20">
-      <div className="max-w-3xl mx-auto px-6">
+      <div className="max-w-3xl mx-auto px-6 md:px-8">
         <AnimatePresence mode="wait">
           <motion.h2
             key={`faq-title-${activeTab}`}
