@@ -188,14 +188,38 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
                               </li>
                             ))}
                           </ul>
-                          <Link
-                            to={`${standortLinks[0].path}?course=${courseParam}`}
-                            onClick={(e) => { e.stopPropagation(); window.scrollTo({ top: 0 }); }}
-                            className="inline-flex items-center gap-2 rounded-full px-6 py-3.5 font-bold text-base text-white transition-all shadow-lg bg-[#F97316] hover:bg-[#EA580C] active:scale-[0.97]"
-                            style={{ boxShadow: "0 8px 24px -4px rgba(249,115,22,0.35)" }}
-                          >
-                            Standort für „{course.name}" wählen <MapPin className="w-4 h-4" />
-                          </Link>
+                          <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                              <button
+                                className="inline-flex items-center gap-2 rounded-full px-6 py-3.5 font-bold text-base text-white transition-all shadow-lg bg-[#F97316] hover:bg-[#EA580C] active:scale-[0.97]"
+                                style={{ boxShadow: "0 8px 24px -4px rgba(249,115,22,0.35)" }}
+                              >
+                                Standort wählen <MapPin className="w-4 h-4" />
+                              </button>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent
+                              align="start"
+                              sideOffset={8}
+                              className="w-64 rounded-xl border-border/50 bg-card p-1 shadow-xl"
+                            >
+                              {standortLinks.map((s) => (
+                                <DropdownMenuItem
+                                  key={s.path}
+                                  asChild
+                                  className="cursor-pointer rounded-lg px-3 py-2.5 focus:bg-primary/5 focus:text-primary"
+                                >
+                                  <Link
+                                    to={`${s.path}?course=${courseParam}`}
+                                    onClick={() => window.scrollTo({ top: 0 })}
+                                    className="flex items-center gap-2.5 w-full"
+                                  >
+                                    <MapPin className="w-4 h-4 text-primary" />
+                                    <span className="font-medium">{s.label}</span>
+                                  </Link>
+                                </DropdownMenuItem>
+                              ))}
+                            </DropdownMenuContent>
+                          </DropdownMenu>
                         </div>
                       </motion.div>
                     )}
