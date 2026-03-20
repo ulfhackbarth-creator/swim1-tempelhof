@@ -17,16 +17,25 @@ const GlobalHeader = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const chipRefs = useRef<Record<string, HTMLAnchorElement | null>>({});
 
-  // 1) Instantly restore saved scroll position before paint to prevent jump
+  const isHome = location.pathname === "/";
+
+  // 1) Restore scroll position or reset on home
   useLayoutEffect(() => {
+    if (!containerRef.current) return;
+    if (isHome) {
+      containerRef.current.scrollLeft = 0;
+      sessionStorage.removeItem(SCROLL_KEY);
+      return;
+    }
     const saved = sessionStorage.getItem(SCROLL_KEY);
-    if (saved && containerRef.current) {
+    if (saved) {
       containerRef.current.scrollLeft = Number(saved);
     }
-  }, [location.pathname]);
+  }, [location.pathname, isHome]);
 
-  // 2) Then smoothly center the active chip from the restored position
+  // 2) Smoothly center the active chip (skip on home)
   useEffect(() => {
+    if (isHome) return;
     const container = containerRef.current;
     const activeChip = chips.find((c) => c.path === location.pathname);
     if (!activeChip || !container) return;
@@ -34,13 +43,12 @@ const GlobalHeader = () => {
     const activeTab = chipRefs.current[activeChip.id];
     if (!activeTab) return;
 
-    // Small delay so layoutEffect restore has applied
     requestAnimationFrame(() => {
       const scrollLeft =
         activeTab.offsetLeft - container.offsetWidth / 2 + activeTab.offsetWidth / 2;
       container.scrollTo({ left: scrollLeft, behavior: "smooth" });
     });
-  }, [location.pathname]);
+  }, [location.pathname, isHome]);
 
   // Save scroll position before navigating
   const saveScroll = () => {
