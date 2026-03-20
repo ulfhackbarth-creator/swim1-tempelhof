@@ -69,7 +69,7 @@ const Index = () => {
     <GlobalHeader />
 
     {/* ─── HERO ─── */}
-    <section className="relative min-h-[70vh] md:min-h-[90vh] overflow-hidden">
+    <section className="relative min-h-[85vh] md:min-h-[90vh] overflow-hidden">
       {heroVideos.map((src, i) => (
         <video
           key={src}
@@ -84,7 +84,7 @@ const Index = () => {
       ))}
       <div className="absolute inset-0 bg-[#0F2D52]/45" />
 
-      <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 md:px-6 min-h-[70vh] md:min-h-[90vh] pt-20 md:pt-[80px]">
+      <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 md:px-6 min-h-[85vh] md:min-h-[90vh] pt-32 md:pt-[80px]">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
