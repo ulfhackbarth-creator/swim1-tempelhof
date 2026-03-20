@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Waves, Baby, Activity, HeartPulse, PersonStanding } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
@@ -12,13 +13,20 @@ const chips = [
 
 const GlobalHeader = () => {
   const location = useLocation();
+  const chipRefs = useRef<Record<string, HTMLAnchorElement | null>>({});
+
+  // Auto-center active chip on route change
+  useEffect(() => {
+    const activeChip = chips.find((c) => c.path === location.pathname);
+    if (activeChip) {
+      const el = chipRefs.current[activeChip.id];
+      el?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+    }
+  }, [location.pathname]);
 
   return (
-    <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="fixed top-0 left-0 right-0 z-50"
+    <header
+      className="sticky top-0 left-0 right-0 z-50"
       style={{ backgroundColor: "#0F2D52" }}
     >
       {/* Row 1 — Logo + CTA */}
@@ -43,9 +51,9 @@ const GlobalHeader = () => {
             <Link
               key={chip.id}
               to={chip.path}
-              onClick={(e) => {
+              ref={(el) => { chipRefs.current[chip.id] = el; }}
+              onClick={() => {
                 window.scrollTo({ top: 0, behavior: "smooth" });
-                e.currentTarget.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
               }}
               className={`flex items-center gap-2 rounded-full px-4 py-1.5 cursor-pointer transition-colors duration-200 text-sm whitespace-nowrap ${
                 isActive
@@ -62,7 +70,7 @@ const GlobalHeader = () => {
           );
         })}
       </div>
-    </motion.header>
+    </header>
   );
 };
 
