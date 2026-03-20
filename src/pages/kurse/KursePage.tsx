@@ -323,8 +323,9 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
   );
 
   return (
-    <main className="min-h-screen overflow-x-hidden" onTouchStart={swipe.onTouchStart} onTouchEnd={swipe.onTouchEnd}>
+    <div className="min-h-screen">
       <GlobalHeader />
+      <main className="overflow-x-hidden" onTouchStart={swipe.onTouchStart} onTouchEnd={swipe.onTouchEnd}>
       <AnimatePresence mode="wait" custom={direction}>
         {isSwipe ? (
           <motion.div
