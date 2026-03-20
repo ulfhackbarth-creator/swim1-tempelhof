@@ -49,7 +49,10 @@ const HomeHeader = ({
           return (
             <button
               key={chip.id}
-              onClick={() => onTabChange(chip.id)}
+              onClick={() => {
+                onTabChange(chip.id);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
               className={`flex items-center gap-2 rounded-full px-4 py-1.5 cursor-pointer transition-colors duration-200 text-sm whitespace-nowrap ${
                 isActive
                   ? "bg-white text-[#0F2D52] border border-white font-bold shadow-sm"
