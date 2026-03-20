@@ -528,16 +528,16 @@ const BerlinTempelhof = () => {
       </section>
 
       {/* ═══════════ 6. FAQ ═══════════ */}
-      <section className="py-16 md:py-32 bg-white">
+      <section className="py-16 md:py-32 bg-[#0F2D52]">
         <div className="max-w-3xl mx-auto px-6 md:px-8">
-          <h2 className="text-4xl font-bold tracking-tight text-slate-900 text-center mb-12 md:mb-20">Häufige Fragen</h2>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white text-center mb-12 md:mb-20">Häufige Fragen</h2>
           {faqs.map((faq, i) => (
-            <div key={i} className="border-b border-slate-100 py-6">
+            <div key={i} className="border-b border-white/10 py-6">
               <button onClick={() => setOpenFaq(openFaq === i ? null : i)} className="w-full flex items-center justify-between text-left">
-                <span className="text-base md:text-lg font-semibold text-slate-900 pr-4">{faq.q}</span>
-                <ChevronDown className={`w-5 h-5 text-slate-400 shrink-0 transition-transform duration-200 ${openFaq === i ? "rotate-180" : ""}`} />
+                <span className="text-base md:text-lg font-semibold text-white pr-4">{faq.q}</span>
+                <ChevronDown className={`w-5 h-5 text-white/40 shrink-0 transition-transform duration-200 ${openFaq === i ? "rotate-180" : ""}`} />
               </button>
-              {openFaq === i && <p className="text-slate-600 leading-relaxed pt-4">{faq.a}</p>}
+              {openFaq === i && <p className="text-white/70 leading-relaxed pt-4">{faq.a}</p>}
             </div>
           ))}
         </div>
