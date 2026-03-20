@@ -1,4 +1,5 @@
 import { useState, useEffect, useLayoutEffect, useRef, useCallback, useMemo } from "react";
+import HeroVideoBackground from "@/components/HeroVideoBackground";
 import { useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSwipeNavigation } from "@/hooks/useSwipeNavigation";
@@ -57,7 +58,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
   const isMobile = useIsMobile();
   const content = heroContent[tab];
   const videos = useMemo(() => Array.isArray(content.video) ? content.video : [content.video], [content.video]);
-  const [activeVideo, setActiveVideo] = useState(0);
+  
   const usps = uspsByTab[tab];
   const tests = testimonialsByTab[tab];
   const faqs = faqsByTab[tab];
@@ -71,13 +72,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
   const isSwipe = (location.state as any)?.isSwipe === true;
   const direction = (location.state as any)?.direction ?? 1;
 
-  useEffect(() => { setOpenIndex(null); setSelectedCourse(null); setActiveVideo(0); }, [tab]);
-
-  useEffect(() => {
-    if (videos.length <= 1) return;
-    const id = setInterval(() => setActiveVideo((p) => (p + 1) % videos.length), 4000);
-    return () => clearInterval(id);
-  }, [videos]);
+  useEffect(() => { setOpenIndex(null); setSelectedCourse(null); }, [tab]);
 
   useLayoutEffect(() => {
     const scrollY = (location.state as any)?.maintainScrollPosition;
@@ -107,9 +102,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
     <>
       {/* HERO */}
       <section className="relative min-h-[70vh] md:min-h-[85vh] overflow-hidden pt-32 md:pt-[120px]">
-        {videos.map((src, i) => (
-          <video key={src} autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover transition-opacity duration-[1500ms] ease-in-out" style={{ opacity: i === activeVideo ? 1 : 0 }} src={src} />
-        ))}
+        <HeroVideoBackground videos={videos} />
         <div className="absolute inset-0 bg-[#0F2D52]/45" />
         <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 md:px-6 min-h-[70vh] md:min-h-[85vh] pt-32 md:pt-[120px] pb-8 md:pb-0">
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="max-w-4xl mx-auto">
