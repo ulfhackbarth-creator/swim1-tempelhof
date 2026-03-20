@@ -1,8 +1,6 @@
 import { useState } from "react";
 import HomeHeader from "@/components/home/HomeHeader";
 import HomeHero from "@/components/home/HomeHero";
-import TrustBar from "@/components/home/TrustBar";
-import CourseOverview from "@/components/home/CourseOverview";
 import WhySwim1 from "@/components/home/WhySwim1";
 import HomeTestimonials from "@/components/home/HomeTestimonials";
 import HomeFAQ from "@/components/home/HomeFAQ";
@@ -18,8 +16,6 @@ const Index = () => {
     <main className="min-h-screen">
       <HomeHeader />
       <HomeHero activeTab={activeTab} onTabChange={setActiveTab} />
-      <TrustBar />
-      <CourseOverview activeTab={activeTab} onTabChange={setActiveTab} />
       <WhySwim1 />
       <HomeTestimonials />
       <HomeFAQ />
