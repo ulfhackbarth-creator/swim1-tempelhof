@@ -6,10 +6,11 @@ import GlobalHeader from "@/components/home/GlobalHeader";
 import HomeFooter from "@/components/home/HomeFooter";
 
 const heroVideos = [
-  "https://videos.pexels.com/video-files/9044164/9044164-hd_1920_1080_30fps.mp4",
+  "https://videos.pexels.com/video-files/5888968/5888968-uhd_2560_1440_30fps.mp4",
+  "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028281720/oNJkUzlVKWrdgGBV.mp4",
   "/videos/erwachsene-hero.mp4",
   "https://videos.pexels.com/video-files/8050098/8050098-hd_1920_1080_25fps.mp4",
-  "https://videos.pexels.com/video-files/4115399/4115399-hd_1920_1080_25fps.mp4",
+  "https://videos.pexels.com/video-files/6539674/6539674-hd_1920_1080_25fps.mp4",
 ];
 
 const trustStats = [
