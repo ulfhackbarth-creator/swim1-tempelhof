@@ -3,22 +3,18 @@ import HeroVideoBackground from "@/components/HeroVideoBackground";
 import { useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSwipeNavigation } from "@/hooks/useSwipeNavigation";
-import { ArrowRight, ChevronDown, Star, Check, MapPin } from "lucide-react";
+import { ArrowRight, ChevronDown, Star, Check } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Link } from "react-router-dom";
 import GlobalHeader from "@/components/home/GlobalHeader";
 import HomeFooter from "@/components/home/HomeFooter";
+import StandortDropdown from "@/components/StandortDropdown";
 import type { CourseTab } from "@/types/course";
 import { heroContent, coursesByTab, courseSectionTitle, gridClass, trustStats } from "@/data/courseData";
 import { uspsByTab } from "@/data/uspData";
 import { testimonialsByTab } from "@/data/testimonialData";
 import { faqsByTab } from "@/data/faqData";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+import { standorte } from "@/data/standorteData";
 
 const slideVariants = {
   enter: (direction: number) => ({
@@ -43,16 +39,7 @@ const locationSubtitle: Record<CourseTab, string> = {
   reha: "Finde deinen Standort für Aqua Reha",
 };
 
-const standortLinks = [
-  { label: "Berlin-Tempelhof", path: "/standorte/berlin-tempelhof" },
-];
 
-const locations = [
-  { name: "Berlin-Tempelhof", address: "Ringbahnstraße 12, 12099 Berlin", route: "/standorte/berlin-tempelhof" },
-  { name: "Schwerin", address: "Wittenburger Chaussee 25, 19059 Schwerin", route: "/schwerin" },
-  { name: "Wildau", address: "Adresse folgt in Kürze", route: "/wildau" },
-  { name: "Bremen", address: "Adresse folgt in Kürze", route: "/bremen" },
-];
 
 const KursePage = ({ tab }: { tab: CourseTab }) => {
   const isMobile = useIsMobile();
@@ -197,38 +184,11 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
                               </li>
                             ))}
                           </ul>
-                          <DropdownMenu>
-                            <DropdownMenuTrigger asChild>
-                              <button
-                                className="inline-flex items-center gap-2 rounded-full px-6 py-3.5 font-bold text-base text-white transition-all shadow-lg bg-[#F97316] hover:bg-[#EA580C] active:scale-[0.97]"
-                                style={{ boxShadow: "0 8px 24px -4px rgba(249,115,22,0.35)" }}
-                              >
-                                Standort wählen <MapPin className="w-4 h-4" />
-                              </button>
-                            </DropdownMenuTrigger>
-                            <DropdownMenuContent
-                              align="start"
-                              sideOffset={8}
-                              className="w-64 rounded-xl border-border/50 bg-card p-1 shadow-xl"
-                            >
-                              {standortLinks.map((s) => (
-                                <DropdownMenuItem
-                                  key={s.path}
-                                  asChild
-                                  className="cursor-pointer rounded-lg px-3 py-2.5 focus:bg-primary/5 focus:text-primary"
-                                >
-                                  <Link
-                                    to={`${s.path}?course=${courseParam}`}
-                                    onClick={() => window.scrollTo({ top: 0 })}
-                                    className="flex items-center gap-2.5 w-full"
-                                  >
-                                    <MapPin className="w-4 h-4 text-primary" />
-                                    <span className="font-medium">{s.label}</span>
-                                  </Link>
-                                </DropdownMenuItem>
-                              ))}
-                            </DropdownMenuContent>
-                          </DropdownMenu>
+                          <StandortDropdown
+                            variant="orange-large"
+                            align="start"
+                            queryParams={`?course=${courseParam}`}
+                          />
                         </div>
                       </motion.div>
                     )}
@@ -337,9 +297,11 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
             <p className="text-slate-500">{locationSubtitle[tab]}</p>
           </motion.div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {locations.map((loc, i) => (
+            {standorte.map((loc, i) => (
               <motion.div key={loc.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }} className="bg-white rounded-[2rem] p-6 md:p-8 shadow-lg shadow-slate-200/50 border border-slate-100 flex flex-col">
-                <span className="inline-block bg-blue-50 text-[#1B4F8A] text-xs font-bold px-3 py-1 rounded-full mb-6 w-fit">Jetzt buchbar</span>
+                <span className={`inline-block text-xs font-bold px-3 py-1 rounded-full mb-6 w-fit ${loc.status === "active" ? "bg-blue-50 text-[#1B4F8A]" : "bg-orange-50 text-orange-600"}`}>
+                  {loc.status === "active" ? "Jetzt buchbar" : "Bald verfügbar"}
+                </span>
                 <h3 className="text-2xl font-bold text-slate-900 mb-2">{loc.name}</h3>
                 <p className="text-slate-500 mb-8">{loc.address}</p>
                 <Link to={loc.route} onClick={() => window.scrollTo({ top: 0 })} className="w-full mt-auto bg-slate-900 text-white rounded-full py-3.5 text-sm text-center font-semibold hover:bg-slate-800 transition-colors">

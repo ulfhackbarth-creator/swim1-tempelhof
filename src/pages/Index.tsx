@@ -4,6 +4,7 @@ import { ArrowRight, Star, Waves, Droplets, PersonStanding, Activity, HeartPulse
 import GlobalHeader from "@/components/home/GlobalHeader";
 import HomeFooter from "@/components/home/HomeFooter";
 import HeroVideoBackground from "@/components/HeroVideoBackground";
+import { standorte } from "@/data/standorteData";
 
 const heroVideos = [
   "https://videos.pexels.com/video-files/5888968/5888968-uhd_2560_1440_30fps.mp4",
@@ -35,12 +36,6 @@ const philosophy = [
   { Icon: Users, title: "Individuelles Tempo", text: "Jeder lernt anders. Unsere kleinen Gruppen garantieren persönliche Betreuung." },
 ];
 
-const locations = [
-  { name: "Berlin-Tempelhof", address: "Ringbahnstraße 12, 12099 Berlin", route: "/standorte/berlin-tempelhof" },
-  { name: "Schwerin", address: "Wittenburger Chaussee 25, 19059 Schwerin", route: "/schwerin" },
-  { name: "Wildau", address: "Adresse folgt in Kürze", route: "/wildau" },
-  { name: "Bremen", address: "Adresse folgt in Kürze", route: "/bremen" },
-];
 
 const testimonials = [
   { text: "Meine Tochter hatte anfangs große Angst vor dem Wasser. Die Trainer sind unglaublich geduldig und am Ende hat sie stolz ihr Seepferdchen geschafft!", name: "Sandra M.", location: "Berlin-Tempelhof" },
@@ -255,7 +250,7 @@ const Index = () => {
         </motion.h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {locations.map((loc, i) => (
+          {standorte.map((loc, i) => (
             <motion.div
               key={loc.name}
               initial={{ opacity: 0, y: 20 }}
@@ -264,8 +259,8 @@ const Index = () => {
               transition={{ duration: 0.5, delay: i * 0.1 }}
               className="bg-white rounded-[2rem] p-6 md:p-8 shadow-lg shadow-slate-200/50 border border-slate-100 flex flex-col"
             >
-              <span className="inline-block bg-blue-50 text-[#1B4F8A] text-xs font-bold px-3 py-1 rounded-full mb-6 w-fit">
-                Jetzt buchbar
+              <span className={`inline-block text-xs font-bold px-3 py-1 rounded-full mb-6 w-fit ${loc.status === "active" ? "bg-blue-50 text-[#1B4F8A]" : "bg-orange-50 text-orange-600"}`}>
+                {loc.status === "active" ? "Jetzt buchbar" : "Bald verfügbar"}
               </span>
               <h3 className="text-2xl font-bold text-slate-900 mb-2">{loc.name}</h3>
               <p className="text-slate-500 mb-8">{loc.address}</p>
