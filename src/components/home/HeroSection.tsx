@@ -42,7 +42,8 @@ const coursesByTab: Record<CourseTab, Course[]> = {
     { tag: "Erwachsene", name: "Technik & Kraulen", text: "Für sichere Schwimmer, die ihren Schwimmstil verbessern oder Kraulen lernen möchten. Ideal auch für Triathleten." },
   ],
   wassergewoehnung: [
-    { tag: "Ab 2 Monate", name: "Wassergewöhnung", text: "Spielerische Eingewöhnung ins Wasser für die Kleinsten — gemeinsam mit Mama oder Papa." },
+    { tag: "Ab 1,5 Monate", name: "Babyschwimmen", text: "Für Babys von 1,5 Monaten bis ca. 1,5 Jahre. Haut an Haut im 32°C warmen Wasser fördern wir das Urvertrauen und die motorische Entwicklung deines Kindes." },
+    { tag: "Ab 1,5 Jahre", name: "Wassergewöhnung", text: "Für Kleinkinder von 1,5 bis 3,5 Jahren. Gemeinsam mit einem Elternteil entdecken wir spielerisch das Element Wasser und bereiten auf den ersten Schwimmkurs vor." },
   ],
   fitness: [
     { tag: "Alle Level", name: "Aquafitness", text: "Gelenkschonendes Ganzkörper-Training im Wasser. Effektiv, motivierend, für jeden geeignet." },
