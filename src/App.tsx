@@ -13,6 +13,7 @@ import Schwerin from "./pages/Schwerin";
 import Wildau from "./pages/Wildau";
 import Bremen from "./pages/Bremen";
 import NotFound from "./pages/NotFound";
+import BerlinTempelhof from "./pages/standorte/BerlinTempelhof";
 
 const queryClient = new QueryClient();
 
