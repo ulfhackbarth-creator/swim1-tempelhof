@@ -1,11 +1,8 @@
-import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
-import { ChevronDown } from "lucide-react";
-import type { CourseTab } from "@/pages/Index";
+import type { CourseTab } from "@/types/course";
 
 type FaqItem = { q: string; a: string };
 
-const faqsByTab: Record<CourseTab, { title: string; items: FaqItem[] }> = {
+export const faqsByTab: Record<CourseTab, { title: string; items: FaqItem[] }> = {
   kinderschwimmen: {
     title: "Häufige Fragen zum Schwimmenlernen",
     items: [
@@ -47,62 +44,3 @@ const faqsByTab: Record<CourseTab, { title: string; items: FaqItem[] }> = {
     ],
   },
 };
-
-const HomeFAQ = ({ activeTab }: { activeTab: CourseTab }) => {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const data = faqsByTab[activeTab];
-
-  useEffect(() => {
-    setOpenIndex(null);
-  }, [activeTab]);
-
-  return (
-    <section id="faq" className="py-16 md:py-32 bg-white scroll-mt-20">
-      <div className="max-w-3xl mx-auto px-6 md:px-8">
-        <AnimatePresence mode="wait">
-          <motion.h2
-            key={`faq-title-${activeTab}`}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.4 }}
-            className="text-4xl font-bold tracking-tight text-slate-900 text-center mb-12 md:mb-20"
-          >
-            {data.title}
-          </motion.h2>
-        </AnimatePresence>
-
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={`faq-items-${activeTab}`}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            {data.items.map((faq, i) => (
-              <div key={i} className="border-b border-slate-100 py-6">
-                <button
-                  onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                  className="w-full flex items-center justify-between text-left"
-                >
-                  <span className="text-base md:text-lg font-semibold text-slate-900 pr-4">{faq.q}</span>
-                  <ChevronDown
-                    className={`w-5 h-5 text-slate-400 shrink-0 transition-transform duration-200 ${
-                      openIndex === i ? "rotate-180" : ""
-                    }`}
-                  />
-                </button>
-                {openIndex === i && (
-                  <p className="text-slate-600 leading-relaxed pt-4">{faq.a}</p>
-                )}
-              </div>
-            ))}
-          </motion.div>
-        </AnimatePresence>
-      </div>
-    </section>
-  );
-};
-
-export default HomeFAQ;

@@ -1,25 +1,17 @@
 import { motion } from "framer-motion";
 import { Waves, Baby, Activity, HeartPulse, PersonStanding } from "lucide-react";
-import type { CourseTab } from "@/pages/Index";
+import { Link, useLocation } from "react-router-dom";
 
-const chips: { id: CourseTab; label: string; Icon: typeof Waves }[] = [
-  { id: "kinderschwimmen", label: "Kinderschwimmen", Icon: Waves },
-  { id: "wassergewoehnung", label: "Wassergewöhnung", Icon: Baby },
-  { id: "erwachsene", label: "Erwachsenenschwimmen", Icon: PersonStanding },
-  { id: "fitness", label: "Aquafitness", Icon: Activity },
-  { id: "reha", label: "Aqua Reha", Icon: HeartPulse },
+const chips = [
+  { id: "kinderschwimmen", label: "Kinderschwimmen", Icon: Waves, path: "/kurse/kinderschwimmen" },
+  { id: "wassergewoehnung", label: "Wassergewöhnung", Icon: Baby, path: "/kurse/wassergewoehnung" },
+  { id: "erwachsene", label: "Erwachsenenschwimmen", Icon: PersonStanding, path: "/kurse/erwachsene" },
+  { id: "fitness", label: "Aquafitness", Icon: Activity, path: "/kurse/aquafitness" },
+  { id: "reha", label: "Aqua Reha", Icon: HeartPulse, path: "/kurse/reha" },
 ];
 
-const HomeHeader = ({
-  activeTab,
-  onTabChange,
-}: {
-  activeTab: CourseTab;
-  onTabChange: (tab: CourseTab) => void;
-}) => {
-  const scrollTo = (id: string) => {
-    document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
-  };
+const GlobalHeader = () => {
+  const location = useLocation();
 
   return (
     <motion.header
@@ -31,29 +23,29 @@ const HomeHeader = ({
     >
       {/* Row 1 — Logo + CTA */}
       <div className="px-4 md:px-10 py-3.5 flex items-center justify-between">
-        <a href="/" className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-2" onClick={() => window.scrollTo({ top: 0 })}>
           <Waves className="w-5 h-5 text-white" />
           <span className="font-bold text-lg text-white">SWIM1</span>
-        </a>
-        <button
-          onClick={() => scrollTo("#standorte")}
+        </Link>
+        <Link
+          to="/#standorte"
           className="rounded-full px-5 py-2 text-sm font-semibold text-white bg-[#F97316] hover:bg-orange-600 transition-colors"
         >
           Standort wählen →
-        </button>
+        </Link>
       </div>
 
-      {/* Row 2 — Category chips */}
+      {/* Row 2 — Category chips as links */}
       <div className="px-4 md:px-10 pb-3 pt-3 flex flex-row gap-3 overflow-x-auto scrollbar-hide border-t border-white/10">
         {chips.map((chip) => {
-          const isActive = activeTab === chip.id;
+          const isActive = location.pathname === chip.path;
           return (
-            <button
+            <Link
               key={chip.id}
+              to={chip.path}
               onClick={(e) => {
-                onTabChange(chip.id);
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-                e.currentTarget.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                window.scrollTo({ top: 0, behavior: "smooth" });
+                e.currentTarget.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
               }}
               className={`flex items-center gap-2 rounded-full px-4 py-1.5 cursor-pointer transition-colors duration-200 text-sm whitespace-nowrap ${
                 isActive
@@ -66,7 +58,7 @@ const HomeHeader = ({
                 style={{ color: isActive ? "#0F2D52" : undefined }}
               />
               <span>{chip.label}</span>
-            </button>
+            </Link>
           );
         })}
       </div>
@@ -74,4 +66,4 @@ const HomeHeader = ({
   );
 };
 
-export default HomeHeader;
+export default GlobalHeader;

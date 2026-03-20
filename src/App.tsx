@@ -3,11 +3,16 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import Index from "./pages/Index.tsx";
-import Schwerin from "./pages/Schwerin.tsx";
-import Wildau from "./pages/Wildau.tsx";
-import Bremen from "./pages/Bremen.tsx";
-import NotFound from "./pages/NotFound.tsx";
+import Index from "./pages/Index";
+import Kinderschwimmen from "./pages/kurse/Kinderschwimmen";
+import Wassergewoehnung from "./pages/kurse/Wassergewoehnung";
+import Erwachsene from "./pages/kurse/Erwachsene";
+import Aquafitness from "./pages/kurse/Aquafitness";
+import AquaReha from "./pages/kurse/AquaReha";
+import Schwerin from "./pages/Schwerin";
+import Wildau from "./pages/Wildau";
+import Bremen from "./pages/Bremen";
+import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
@@ -19,6 +24,11 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/kurse/kinderschwimmen" element={<Kinderschwimmen />} />
+          <Route path="/kurse/wassergewoehnung" element={<Wassergewoehnung />} />
+          <Route path="/kurse/erwachsene" element={<Erwachsene />} />
+          <Route path="/kurse/aquafitness" element={<Aquafitness />} />
+          <Route path="/kurse/reha" element={<AquaReha />} />
           <Route path="/schwerin" element={<Schwerin />} />
           <Route path="/wildau" element={<Wildau />} />
           <Route path="/bremen" element={<Bremen />} />

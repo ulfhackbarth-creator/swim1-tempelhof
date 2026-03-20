@@ -1,10 +1,8 @@
-import { motion, AnimatePresence } from "framer-motion";
-import { Star } from "lucide-react";
-import type { CourseTab } from "@/pages/Index";
+import type { CourseTab } from "@/types/course";
 
 type Testimonial = { text: string; name: string; location: string };
 
-const testimonialsByTab: Record<CourseTab, { title: string; items: Testimonial[] }> = {
+export const testimonialsByTab: Record<CourseTab, { title: string; items: Testimonial[] }> = {
   kinderschwimmen: {
     title: "Das sagen andere Eltern",
     items: [
@@ -46,65 +44,3 @@ const testimonialsByTab: Record<CourseTab, { title: string; items: Testimonial[]
     ],
   },
 };
-
-const HomeTestimonials = ({ activeTab }: { activeTab: CourseTab }) => {
-  const data = testimonialsByTab[activeTab];
-
-  return (
-    <section className="py-16 md:py-32 bg-[#0F2D52]">
-      <div className="max-w-6xl mx-auto px-6">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={`test-title-${activeTab}`}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.4 }}
-            className="text-center mb-12 md:mb-20"
-          >
-            <h2 className="text-4xl font-bold tracking-tight text-white mb-4">
-              {data.title}
-            </h2>
-            <p className="text-white/70 font-medium">Über 4,9 Sterne auf Google</p>
-          </motion.div>
-        </AnimatePresence>
-
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={`test-items-${activeTab}`}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
-          >
-            {data.items.map((t, i) => (
-              <motion.div
-                key={t.name}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="bg-[#1B4F8A]/40 border border-white/10 rounded-[2rem] p-6 md:p-10 backdrop-blur-sm h-full flex flex-col"
-              >
-                <div className="flex gap-0.5 mb-6">
-                  {[...Array(5)].map((_, j) => (
-                    <Star key={j} className="w-4 h-4 fill-current text-[#F59E0B]" />
-                  ))}
-                </div>
-                <p className="text-lg text-white/90 font-medium leading-relaxed italic mb-8 flex-1">
-                  „{t.text}"
-                </p>
-                <div className="flex flex-col">
-                  <p className="text-white font-bold">{t.name}</p>
-                  <p className="text-white/50 text-sm">{t.location}</p>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </AnimatePresence>
-      </div>
-    </section>
-  );
-};
-
-export default HomeTestimonials;

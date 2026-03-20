@@ -7,7 +7,6 @@ const HomeFooter = () => (
   <footer className="bg-slate-900 py-20">
     <div className="max-w-7xl mx-auto px-6">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-        {/* Logo */}
         <div className="col-span-2 md:col-span-1">
           <div className="flex items-center gap-2 mb-3">
             <Waves className="w-5 h-5 text-white" />
@@ -17,29 +16,27 @@ const HomeFooter = () => (
           <p className="text-xs text-slate-500">© {new Date().getFullYear()} SWIM1</p>
         </div>
 
-        {/* Kurse */}
         <div>
           <h4 className="text-white font-bold uppercase tracking-wider text-sm mb-6">Kurse</h4>
           <nav className="flex flex-col gap-2 text-sm text-slate-400">
-            <a href="#kurse" className="hover:text-white transition-colors">Schwimmen lernen</a>
-            <a href="#kurse" className="hover:text-white transition-colors">Wassergewöhnung</a>
-            <a href="#kurse" className="hover:text-white transition-colors">Aqua-Fitness</a>
-            <a href="#kurse" className="hover:text-white transition-colors">Rehasport</a>
+            <Link to="/kurse/kinderschwimmen" onClick={scrollTop} className="hover:text-white transition-colors">Kinderschwimmen</Link>
+            <Link to="/kurse/wassergewoehnung" onClick={scrollTop} className="hover:text-white transition-colors">Wassergewöhnung</Link>
+            <Link to="/kurse/erwachsene" onClick={scrollTop} className="hover:text-white transition-colors">Erwachsenenschwimmen</Link>
+            <Link to="/kurse/aquafitness" onClick={scrollTop} className="hover:text-white transition-colors">Aquafitness</Link>
+            <Link to="/kurse/reha" onClick={scrollTop} className="hover:text-white transition-colors">Aqua Reha</Link>
           </nav>
         </div>
 
-        {/* Standorte */}
         <div>
           <h4 className="text-white font-bold uppercase tracking-wider text-sm mb-6">Standorte</h4>
           <nav className="flex flex-col gap-2 text-sm text-slate-400">
-            <Link to="/" onClick={scrollTop} className="hover:text-white transition-colors">Berlin-Tempelhof</Link>
+            <Link to="/schwerin" onClick={scrollTop} className="hover:text-white transition-colors">Berlin-Tempelhof</Link>
             <Link to="/schwerin" onClick={scrollTop} className="hover:text-white transition-colors">Schwerin</Link>
             <Link to="/wildau" onClick={scrollTop} className="hover:text-white transition-colors">Wildau</Link>
             <Link to="/bremen" onClick={scrollTop} className="hover:text-white transition-colors">Bremen</Link>
           </nav>
         </div>
 
-        {/* Rechtliches */}
         <div>
           <h4 className="text-white font-bold uppercase tracking-wider text-sm mb-6">Rechtliches</h4>
           <nav className="flex flex-col gap-2 text-sm text-slate-400">

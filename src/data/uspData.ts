@@ -1,10 +1,9 @@
-import { motion, AnimatePresence } from "framer-motion";
 import { ShieldCheck, Award, Heart, Thermometer, Smile, Activity, Droplets, Users, HeartPulse, FileText, UserCheck, Shield } from "lucide-react";
-import type { CourseTab } from "@/pages/Index";
+import type { CourseTab } from "@/types/course";
 
 type UspItem = { Icon: typeof Award; label: string; text: string };
 
-const uspsByTab: Record<CourseTab, { title: string; items: UspItem[] }> = {
+export const uspsByTab: Record<CourseTab, { title: string; items: UspItem[] }> = {
   kinderschwimmen: {
     title: "Warum Eltern uns vertrauen",
     items: [
@@ -46,59 +45,3 @@ const uspsByTab: Record<CourseTab, { title: string; items: UspItem[] }> = {
     ],
   },
 };
-
-const WhySwim1 = ({ activeTab }: { activeTab: CourseTab }) => {
-  const data = uspsByTab[activeTab];
-
-  return (
-    <section id="warum" className="py-16 md:py-32 bg-white scroll-mt-20">
-      <div className="max-w-6xl mx-auto px-6">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={`usp-title-${activeTab}`}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.4 }}
-            className="text-center max-w-2xl mx-auto mb-12 md:mb-20"
-          >
-            <h2 className="text-4xl font-bold tracking-tight text-slate-900 mb-4">
-              {data.title}
-            </h2>
-          </motion.div>
-        </AnimatePresence>
-
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={`usp-items-${activeTab}`}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12"
-          >
-            {data.items.map((usp, i) => (
-              <motion.div
-                key={usp.label}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="flex flex-row items-start gap-6 text-left"
-              >
-                <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-blue-50 text-[#1B4F8A] flex items-center justify-center">
-                  <usp.Icon className="w-8 h-8" strokeWidth={1.5} />
-                </div>
-                <div className="flex flex-col">
-                  <h3 className="text-xl font-bold text-slate-900 mb-2">{usp.label}</h3>
-                  <p className="text-slate-600 leading-relaxed">{usp.text}</p>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </AnimatePresence>
-      </div>
-    </section>
-  );
-};
-
-export default WhySwim1;
