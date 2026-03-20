@@ -50,6 +50,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const isSwipe = (location.state as any)?.isSwipe === true;
   const direction = (location.state as any)?.direction ?? 1;
