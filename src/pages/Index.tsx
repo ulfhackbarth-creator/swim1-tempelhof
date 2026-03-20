@@ -120,28 +120,6 @@ const Index = () => {
       </div>
     </section>
 
-    {/* ─── TRUST BAR ─── */}
-    <section className="bg-white py-10 md:py-14 border-b border-slate-100">
-      <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center px-6">
-        {trustStats.map((s, i) => (
-          <motion.div
-            key={s.label}
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: i * 0.08 }}
-          >
-            <span className="block text-2xl md:text-3xl font-bold text-[#1B4F8A] tracking-tight mb-1">
-              {s.value}
-            </span>
-            <span className="block text-xs font-semibold text-slate-500 uppercase tracking-wider">
-              {s.label}
-            </span>
-          </motion.div>
-        ))}
-      </div>
-    </section>
-
     {/* ─── KURS-ÜBERSICHT ─── */}
     <section id="kurse" className="py-16 md:py-28 bg-blue-50/50 scroll-mt-20">
       <div className="max-w-6xl mx-auto px-6">
@@ -177,6 +155,27 @@ const Index = () => {
                   Mehr erfahren <ArrowRight className="w-4 h-4" />
                 </span>
               </Link>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Trust Stats */}
+        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 mt-14 md:mt-20">
+          {trustStats.map((s, i) => (
+            <motion.div
+              key={s.label}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+              className="bg-white rounded-2xl p-6 text-center shadow-lg shadow-slate-200/30 border border-slate-100"
+            >
+              <span className="block text-2xl md:text-3xl font-bold text-[#1B4F8A] tracking-tight mb-1">
+                {s.value}
+              </span>
+              <span className="block text-xs font-semibold text-slate-500 uppercase tracking-wider">
+                {s.label}
+              </span>
             </motion.div>
           ))}
         </div>
