@@ -50,6 +50,9 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const location = useLocation();
 
+  const isSwipe = (location.state as any)?.isSwipe === true;
+  const direction = (location.state as any)?.direction ?? 1;
+
   useEffect(() => { setOpenIndex(null); }, [tab]);
 
   // Restore scroll position from swipe navigation
@@ -73,10 +76,8 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
 
   const swipe = useSwipeNavigation();
 
-  return (
-    <main className="min-h-screen" onTouchStart={swipe.onTouchStart} onTouchEnd={swipe.onTouchEnd}>
-      <GlobalHeader />
-
+  const pageContent = (
+    <>
       {/* HERO */}
       <section className="relative min-h-[70vh] md:min-h-[85vh] overflow-hidden pt-32 md:pt-[120px]">
         <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover" src={content.video} />
@@ -221,6 +222,31 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
       </section>
 
       <HomeFooter />
+    </>
+  );
+
+  return (
+    <main className="min-h-screen overflow-x-hidden" onTouchStart={swipe.onTouchStart} onTouchEnd={swipe.onTouchEnd}>
+      <GlobalHeader />
+      <AnimatePresence mode="wait" custom={direction}>
+        {isSwipe ? (
+          <motion.div
+            key={tab}
+            custom={direction}
+            variants={slideVariants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+          >
+            {pageContent}
+          </motion.div>
+        ) : (
+          <div key={tab}>
+            {pageContent}
+          </div>
+        )}
+      </AnimatePresence>
     </main>
   );
 };
