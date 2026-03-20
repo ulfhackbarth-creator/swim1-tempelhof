@@ -1,3 +1,4 @@
+import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, Star, Waves, Baby, PersonStanding, Activity, HeartPulse, ShieldCheck, Lock, Users } from "lucide-react";
