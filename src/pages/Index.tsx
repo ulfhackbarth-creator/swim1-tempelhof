@@ -69,7 +69,7 @@ const Index = () => {
     <GlobalHeader />
 
     {/* ─── HERO ─── */}
-    <section className="relative min-h-[85vh] md:min-h-[90vh] overflow-hidden">
+    <section className="relative min-h-[85vh] md:min-h-[90vh] overflow-hidden pt-32 md:pt-[120px]">
       {heroVideos.map((src, i) => (
         <video
           key={src}
@@ -83,40 +83,27 @@ const Index = () => {
         />
       ))}
       <div className="absolute inset-0 bg-[#0F2D52]/45" />
-
-      <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 md:px-6 min-h-[85vh] md:min-h-[90vh] pt-32 md:pt-[80px]">
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.1 }}
-          className="text-4xl md:text-6xl lg:text-8xl font-bold text-white tracking-tight leading-tight md:leading-[1.1] mb-5"
-        >
-          Sicher im Wasser.
-          <br />
-          Ein Leben lang.
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-base md:text-xl text-white/80 max-w-2xl mx-auto mb-8"
-        >
-          Vom Seepferdchen bis zur perfekten Kraultechnik. Swim1 ist deine Premium-Schwimmschule an 4 Standorten.
-        </motion.p>
-
-        <motion.div
+      <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 md:px-6 min-h-[85vh] md:min-h-[90vh] pt-32 md:pt-[120px] pb-8 md:pb-0">
+        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="max-w-4xl mx-auto">
+          <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold text-white tracking-tight leading-tight md:leading-[1.1] mb-4 md:mb-6">
+            Sicher im Wasser.
+            <br />
+            Ein Leben lang.
+          </h1>
+          <p className="text-base md:text-xl text-white/80 max-w-2xl mx-auto">
+            Vom Seepferdchen bis zur perfekten Kraultechnik. Swim1 ist deine Premium-Schwimmschule an 4 Standorten.
+          </p>
+        </motion.div>
+        <motion.button
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5 }}
+          transition={{ delay: 0.4 }}
+          onClick={() => scrollTo("#kurse")}
+          className="mt-8 md:mt-10 w-full md:w-auto justify-center inline-flex items-center gap-2 rounded-full px-8 py-4 font-bold text-lg text-white transition-colors shadow-lg bg-[#F97316] hover:bg-[#EA580C]"
+          style={{ boxShadow: "0 10px 30px -5px rgba(249,115,22,0.3)" }}
         >
-          <button
-            onClick={() => scrollTo("#kurse")}
-            className="inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 font-bold text-lg text-white bg-[#F97316] hover:bg-[#EA580C] transition-colors shadow-lg"
-            style={{ boxShadow: "0 10px 30px -5px rgba(249,115,22,0.3)" }}
-          >
-            Kurs finden <ArrowRight className="w-5 h-5" />
-          </button>
-        </motion.div>
+          Kurs finden <ArrowRight className="w-5 h-5" />
+        </motion.button>
       </div>
     </section>
 
