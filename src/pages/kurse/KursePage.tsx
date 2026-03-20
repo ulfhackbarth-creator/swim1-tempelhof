@@ -122,7 +122,13 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            onClick={() => document.getElementById('kurse-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+            onClick={() => {
+              const el = document.getElementById('kurse-section');
+              if (el) {
+                const y = el.getBoundingClientRect().top + window.scrollY;
+                window.scrollTo({ top: y, behavior: 'smooth' });
+              }
+            }}
             className="mt-8 md:mt-10 w-full md:w-auto justify-center inline-flex items-center gap-2 rounded-full px-8 py-4 font-bold text-lg text-white transition-colors shadow-lg bg-[#F97316] hover:bg-[#EA580C]"
             style={{ boxShadow: "0 10px 30px -5px rgba(249,115,22,0.3)" }}
           >
@@ -132,7 +138,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
       </section>
 
       {/* KURSANGEBOT + TRUST */}
-      <section id="kurse-section" ref={kurseSectionRef} className="bg-blue-50/50 py-16 md:py-24 px-4 md:px-6 scroll-mt-[120px]">
+      <section id="kurse-section" ref={kurseSectionRef} className="bg-blue-50/50 py-16 md:py-24 px-4 md:px-6 scroll-mt-[0px]">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 text-center mb-12 md:mb-16">
             {courseSectionTitle[tab]}

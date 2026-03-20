@@ -33,11 +33,15 @@ const GlobalHeader = () => {
   // Hide-on-scroll-down, show-on-scroll-up
   const [isVisible, setIsVisible] = useState(true);
   const lastScrollY = useRef(0);
+  const suppressHideUntil = useRef(0);
 
   const handleScroll = useCallback(() => {
     const currentScrollY = window.scrollY;
     if (currentScrollY < 50) {
       setIsVisible(true);
+    } else if (Date.now() < suppressHideUntil.current) {
+      // During programmatic scroll, force hidden
+      setIsVisible(false);
     } else if (currentScrollY > lastScrollY.current) {
       setIsVisible(false);
     } else {
