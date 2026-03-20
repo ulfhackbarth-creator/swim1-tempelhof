@@ -3,22 +3,17 @@ import HeroVideoBackground from "@/components/HeroVideoBackground";
 import { useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSwipeNavigation } from "@/hooks/useSwipeNavigation";
-import { ArrowRight, ChevronDown, Star, Check, MapPin } from "lucide-react";
+import { ArrowRight, Star, Check } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Link } from "react-router-dom";
 import GlobalHeader from "@/components/home/GlobalHeader";
 import HomeFooter from "@/components/home/HomeFooter";
+import StandortDropdown from "@/components/StandortDropdown";
 import type { CourseTab } from "@/types/course";
 import { heroContent, coursesByTab, courseSectionTitle, gridClass, trustStats } from "@/data/courseData";
 import { uspsByTab } from "@/data/uspData";
 import { testimonialsByTab } from "@/data/testimonialData";
 import { faqsByTab } from "@/data/faqData";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 
 const slideVariants = {
   enter: (direction: number) => ({
