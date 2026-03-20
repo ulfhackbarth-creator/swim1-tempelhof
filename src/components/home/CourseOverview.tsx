@@ -199,8 +199,8 @@ const CourseOverview = ({
         </AnimatePresence>
 
         {/* Inline CTA bar */}
-        <div className="mt-12 bg-[#F0F4F8] rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm md:text-base font-medium text-slate-700">
+        <div className="mt-8 bg-[#F0F4F8] rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-4 max-w-3xl mx-auto">
+          <p className="font-semibold text-slate-800">
             Bereit? Wähle deinen Standort und buche direkt.
           </p>
           <div className="flex items-center gap-3">

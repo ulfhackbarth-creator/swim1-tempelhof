@@ -13,14 +13,14 @@ import HomeFooter from "@/components/home/HomeFooter";
 export type CourseTab = "wassergewoehnung" | "schwimmen" | "fitness" | "reha";
 
 const Index = () => {
-  const [activeTab, setActiveTab] = useState<CourseTab>("wassergewoehnung");
+  const [activeTab, setActiveTab] = useState<CourseTab>("schwimmen");
 
   return (
     <main className="min-h-screen">
       <HomeHeader />
       <HomeHero activeTab={activeTab} onTabChange={setActiveTab} />
-      <TrustBar />
       <CourseOverview activeTab={activeTab} onTabChange={setActiveTab} />
+      <TrustBar />
       <LocationsSection />
       <WhySwim1 />
       <HomeTestimonials />
