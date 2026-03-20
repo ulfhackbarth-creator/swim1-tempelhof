@@ -56,7 +56,7 @@ const coursesByTab: Record<CourseTab, Course[]> = {
 
 const gridClass: Record<CourseTab, string> = {
   schwimmen: "grid-cols-1 md:grid-cols-2 lg:grid-cols-4",
-  wassergewoehnung: "grid-cols-1 max-w-lg mx-auto",
+  wassergewoehnung: "grid-cols-1 md:grid-cols-2 max-w-3xl mx-auto",
   fitness: "grid-cols-1 max-w-lg mx-auto",
   reha: "grid-cols-1 md:grid-cols-2 max-w-3xl mx-auto",
 };
