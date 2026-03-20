@@ -79,7 +79,7 @@ const GlobalHeader = () => {
         className="px-4 md:px-10 pb-3 pt-3 flex flex-row gap-3 overflow-x-auto scrollbar-hide border-t border-white/10"
       >
         {chips.map((chip) => {
-          const isActive = location.pathname === chip.path;
+          const isActive = !isHome && location.pathname === chip.path;
           return (
             <Link
               key={chip.id}
