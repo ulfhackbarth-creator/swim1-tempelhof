@@ -22,11 +22,11 @@ const trustStats = [
 ];
 
 const categories = [
-  { Icon: Droplets, title: "Wassergewöhnung", text: "Babyschwimmen & Eltern-Kind-Kurse. Ab 3 Monaten.", path: "/kurse/wassergewoehnung" },
-  { Icon: Waves, title: "Kinderschwimmen", text: "Schwimmen lernen mit Spaß und Sicherheit. Ab 3,5 Jahren.", path: "/kurse/kinderschwimmen" },
-  { Icon: PersonStanding, title: "Erwachsenenschwimmen", text: "Ängste abbauen oder Technik perfektionieren.", path: "/kurse/erwachsene" },
-  { Icon: Activity, title: "Aquafitness", text: "Gelenkschonendes Ganzkörpertraining.", path: "/kurse/aquafitness" },
-  { Icon: HeartPulse, title: "Aqua Reha", text: "Medizinisch begleitete Rehabilitation im Wasser.", path: "/kurse/reha" },
+  { Icon: Droplets, tag: "Ab 3 Monaten", title: "Wassergewöhnung", text: "Babyschwimmen & Eltern-Kind-Kurse für die Kleinsten.", path: "/kurse/wassergewoehnung" },
+  { Icon: Waves, tag: "Ab 3,5 Jahren", title: "Kinderschwimmen", text: "Vom Seepferdchen bis zum Goldabzeichen – mit Spaß und Sicherheit.", path: "/kurse/kinderschwimmen" },
+  { Icon: PersonStanding, tag: "Alle Level", title: "Erwachsenenschwimmen", text: "Ängste abbauen oder Technik perfektionieren – in kleiner Gruppe.", path: "/kurse/erwachsene" },
+  { Icon: Activity, tag: "Gelenkschonend", title: "Aquafitness", text: "Effektives Ganzkörpertraining im 32 °C warmen Wasser.", path: "/kurse/aquafitness" },
+  { Icon: HeartPulse, tag: "Auf Rezept", title: "Aqua Reha", text: "Medizinisch begleitete Rehabilitation – von Krankenkassen anerkannt.", path: "/kurse/reha" },
 ];
 
 const philosophy = [
