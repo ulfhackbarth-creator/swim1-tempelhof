@@ -1,5 +1,13 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
+import type { CourseTab } from "@/pages/Index";
+
+const locationSubtitle: Record<CourseTab, string> = {
+  schwimmen: "Finde die passende Schwimmschule in deiner Nähe",
+  wassergewoehnung: "Finde den passenden Standort für Babys und Kleinkinder",
+  fitness: "Finde den passenden Standort für dein Training",
+  reha: "Finde deinen Standort für Aqua Reha",
+};
 
 const locations = [
   {
@@ -24,7 +32,7 @@ const locations = [
   },
 ];
 
-const LocationsSection = () => (
+const LocationsSection = ({ activeTab }: { activeTab: CourseTab }) => (
   <section id="standorte" className="py-16 md:py-32 bg-slate-50 scroll-mt-20">
     <div className="max-w-6xl mx-auto px-6">
       <motion.div
@@ -37,9 +45,18 @@ const LocationsSection = () => (
         <h2 className="text-4xl font-bold tracking-tight text-slate-900 mb-4">
           Unsere Standorte
         </h2>
-        <p className="text-slate-500">
-          Finde deine Schwimmschule in deiner Nähe.
-        </p>
+        <AnimatePresence mode="wait">
+          <motion.p
+            key={activeTab}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="text-slate-500"
+          >
+            {locationSubtitle[activeTab]}
+          </motion.p>
+        </AnimatePresence>
       </motion.div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">

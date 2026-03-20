@@ -19,7 +19,7 @@ const Index = () => {
       <WhySwim1 activeTab={activeTab} />
       <HomeTestimonials activeTab={activeTab} />
       <HomeFAQ activeTab={activeTab} />
-      <LocationsSection />
+      <LocationsSection activeTab={activeTab} />
       <HomeFooter />
     </main>
   );
