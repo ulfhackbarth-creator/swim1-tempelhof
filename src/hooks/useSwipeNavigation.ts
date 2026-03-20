@@ -36,8 +36,7 @@ export function useSwipeNavigation() {
 
       const next = dx > 0 ? idx + 1 : idx - 1;
       if (next >= 0 && next < courseRoutes.length) {
-        navigate(courseRoutes[next]);
-        window.scrollTo({ top: 0 });
+        navigate(courseRoutes[next], { state: { maintainScrollPosition: window.scrollY } });
       }
     },
     [location.pathname, navigate]

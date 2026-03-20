@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSwipeNavigation } from "@/hooks/useSwipeNavigation";
@@ -36,6 +36,14 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
   const location = useLocation();
 
   useEffect(() => { setOpenIndex(null); }, [tab]);
+
+  // Restore scroll position from swipe navigation
+  useLayoutEffect(() => {
+    const scrollY = (location.state as any)?.maintainScrollPosition;
+    if (typeof scrollY === "number") {
+      window.scrollTo({ top: scrollY, behavior: "auto" });
+    }
+  }, [location.key]);
 
   useEffect(() => {
     if (location.hash === "#kurse") {
