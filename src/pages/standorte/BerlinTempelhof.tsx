@@ -1,6 +1,6 @@
 import { useRef, useMemo, useState, useCallback, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   MapPin, Thermometer, Car, Droplets, Train, Shirt, Clock, ArrowDown, ArrowRight,
   ChevronRight, Star, ShieldCheck, Users, Baby, Fish, Medal, Trophy, Sun,
