@@ -38,7 +38,8 @@ const coursesByTab: Record<CourseTab, Course[]> = {
   schwimmen: [
     { tag: "Kinder", name: "Seepferdchen", text: "Strukturierter Kurs für Kinder ab 3,5 Jahren. Schritt für Schritt zum ersten Schwimmabzeichen." },
     { tag: "Kinder", name: "Fortgeschrittene", text: "Aufbaukurse für Kinder mit Seepferdchen. Bronze, Silber und Gold — wir begleiten jeden Schritt." },
-    { tag: "Erwachsene", name: "Erwachsenenschwimmen", text: "Für Erwachsene, die schwimmen lernen oder ihre Technik verbessern möchten. Nie zu spät." },
+    { tag: "Erwachsene", name: "Schwimmen lernen", text: "Für Erwachsene, die noch nicht schwimmen können. In einem geschützten Rahmen ohne Leistungsdruck sicher schwimmen lernen." },
+    { tag: "Erwachsene", name: "Technik & Kraulen", text: "Für sichere Schwimmer, die ihren Schwimmstil verbessern oder Kraulen lernen möchten. Ideal auch für Triathleten." },
   ],
   wassergewoehnung: [
     { tag: "Ab 2 Monate", name: "Wassergewöhnung", text: "Spielerische Eingewöhnung ins Wasser für die Kleinsten — gemeinsam mit Mama oder Papa." },
@@ -53,7 +54,7 @@ const coursesByTab: Record<CourseTab, Course[]> = {
 };
 
 const gridClass: Record<CourseTab, string> = {
-  schwimmen: "grid-cols-1 md:grid-cols-3",
+  schwimmen: "grid-cols-1 md:grid-cols-2 lg:grid-cols-4",
   wassergewoehnung: "grid-cols-1 max-w-lg mx-auto",
   fitness: "grid-cols-1 max-w-lg mx-auto",
   reha: "grid-cols-1 md:grid-cols-2 max-w-3xl mx-auto",
