@@ -1,13 +1,7 @@
 import { useState, useEffect, useRef, useLayoutEffect, useCallback } from "react";
-import { Waves, Activity, HeartPulse, PersonStanding, Droplets, MapPin, ChevronDown } from "lucide-react";
+import { Waves, Activity, HeartPulse, PersonStanding, Droplets } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+import StandortDropdown from "@/components/StandortDropdown";
 
 const SCROLL_KEY = "chip-scroll-left";
 
@@ -17,10 +11,6 @@ const chips = [
   { id: "erwachsene", label: "Erwachsenenschwimmen", Icon: PersonStanding, path: "/kurse/erwachsene" },
   { id: "fitness", label: "Aquafitness", Icon: Activity, path: "/kurse/aquafitness" },
   { id: "reha", label: "Aqua Reha", Icon: HeartPulse, path: "/kurse/reha" },
-];
-
-const standorte = [
-  { label: "Berlin-Tempelhof", path: "/standorte/berlin-tempelhof" },
 ];
 
 const GlobalHeader = () => {
