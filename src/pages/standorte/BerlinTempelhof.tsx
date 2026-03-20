@@ -458,10 +458,10 @@ const BerlinTempelhof = () => {
       </section>
 
       {/* ═══════════ 5. WARTELISTEN-FORMULAR ═══════════ */}
-      <section ref={formRef} id="warteliste" className="py-16 md:py-32 bg-white px-4 scroll-mt-0">
-        <div className="max-w-md mx-auto">
+      <section ref={formRef} id="warteliste" className="py-16 md:py-32 bg-blue-50/50 px-4 scroll-mt-0">
+        <div className="max-w-lg mx-auto">
           {isSubmitted ? (
-            <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="text-center bg-blue-50 p-8 md:p-10 rounded-[2rem]">
+            <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="text-center bg-white p-8 md:p-12 rounded-[2rem] shadow-xl shadow-slate-200/40 border border-slate-100">
               <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-green-50 flex items-center justify-center">
                 <CheckCircle2 className="w-8 h-8 text-green-600" />
               </div>
@@ -470,29 +470,29 @@ const BerlinTempelhof = () => {
             </motion.div>
           ) : (
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
-              <div className="text-center mb-8">
-                <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mb-3">Sichere dir jetzt deinen Platz!</h2>
+              <div className="text-center mb-10">
+                <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 mb-4">Sichere dir jetzt deinen Platz!</h2>
                 <p className="text-slate-500">
                   Unverbindliche Eintragung – wir melden uns, sobald ein Platz frei wird.
                 </p>
               </div>
 
-              <form onSubmit={handleSubmit} className="bg-blue-50/60 p-6 md:p-8 rounded-[2rem] space-y-5">
+              <form onSubmit={handleSubmit} className="bg-white p-6 md:p-10 rounded-[2rem] shadow-xl shadow-slate-200/40 border border-slate-100 space-y-5">
                 <div className="space-y-2">
                   <Label htmlFor="wl-name" className="text-slate-900 font-semibold">Name</Label>
-                  <Input id="wl-name" placeholder="Dein Vorname" value={formData.name} onChange={(e) => { setFormData({ ...formData, name: e.target.value }); setErrors((p) => ({ ...p, name: "" })); }} className={`bg-white border-slate-200 ${errors.name ? "border-destructive" : ""}`} />
+                  <Input id="wl-name" placeholder="Dein Vorname" value={formData.name} onChange={(e) => { setFormData({ ...formData, name: e.target.value }); setErrors((p) => ({ ...p, name: "" })); }} className={`bg-slate-50 border-slate-200 ${errors.name ? "border-destructive" : ""}`} />
                   {errors.name && <p className="text-sm text-destructive">{errors.name}</p>}
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="wl-email" className="text-slate-900 font-semibold">E-Mail</Label>
-                  <Input id="wl-email" type="email" placeholder="deine.email@adresse.de" value={formData.email} onChange={(e) => { setFormData({ ...formData, email: e.target.value }); setErrors((p) => ({ ...p, email: "" })); }} className={`bg-white border-slate-200 ${errors.email ? "border-destructive" : ""}`} />
+                  <Input id="wl-email" type="email" placeholder="deine.email@adresse.de" value={formData.email} onChange={(e) => { setFormData({ ...formData, email: e.target.value }); setErrors((p) => ({ ...p, email: "" })); }} className={`bg-slate-50 border-slate-200 ${errors.email ? "border-destructive" : ""}`} />
                   {errors.email && <p className="text-sm text-destructive">{errors.email}</p>}
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="wl-plz" className="text-slate-900 font-semibold">PLZ / Stadtteil</Label>
-                  <Input id="wl-plz" placeholder="z.B. 12099" value={formData.plz} onChange={(e) => { setFormData({ ...formData, plz: e.target.value }); setErrors((p) => ({ ...p, plz: "" })); }} className={`bg-white border-slate-200 ${errors.plz ? "border-destructive" : ""}`} />
+                  <Input id="wl-plz" placeholder="z.B. 12099" value={formData.plz} onChange={(e) => { setFormData({ ...formData, plz: e.target.value }); setErrors((p) => ({ ...p, plz: "" })); }} className={`bg-slate-50 border-slate-200 ${errors.plz ? "border-destructive" : ""}`} />
                   {errors.plz && <p className="text-sm text-destructive">{errors.plz}</p>}
                 </div>
 
@@ -500,7 +500,7 @@ const BerlinTempelhof = () => {
                   <Label className="text-slate-900 font-semibold">Interesse an</Label>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                     {interestOptions.map((option) => (
-                      <label key={option.id} className="flex items-center gap-3 p-3 rounded-xl bg-white border border-slate-200 hover:border-[#1B4F8A]/30 cursor-pointer transition-colors">
+                      <label key={option.id} className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 border border-slate-200 hover:border-[#1B4F8A]/30 cursor-pointer transition-colors">
                         <Checkbox checked={formData.interests.includes(option.id)} onCheckedChange={(checked) => handleInterestChange(option.id, checked as boolean)} />
                         <span className="text-sm font-medium text-slate-700">{option.label}</span>
                       </label>
