@@ -1,4 +1,5 @@
-import { useRef } from "react";
+import { useRef, useEffect, useMemo } from "react";
+import { useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { MapPin, Thermometer, Car, Droplets, Train, Shirt, Wind, Coffee, ChevronRight, Phone, Clock, ArrowRight } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -23,30 +24,35 @@ const courses = [
     title: "Wassergewöhnung",
     description: "Für Babys (3–12 Monate) und Kleinkinder (1–3 Jahre). Samstags & Sonntags.",
     cta: "Kurszeiten & Buchung",
+    courseKeys: ["babyschwimmen", "kleinkind-wassergewohnung", "kleinkind-wassergewöhnung", "wassergewoehnung"],
   },
   {
     id: "kinderschwimmen",
     title: "Kinderschwimmen",
     description: "Seepferdchen und Bronze-Kurse. Kleine Gruppen (max. 6 Kinder). Dienstags & Donnerstags.",
     cta: "Kurszeiten & Buchung",
+    courseKeys: ["seepferdchen", "bronze", "silber", "gold", "kinderschwimmen"],
   },
   {
     id: "erwachsene",
     title: "Erwachsenenschwimmen",
     description: "Anfänger und Kraul-Technik. Diskretes Umfeld. Mittwochs.",
     cta: "Kurszeiten & Buchung",
+    courseKeys: ["anfanger-schwimmen", "anfänger-schwimmen", "technik-&-kraulen", "erwachsenenschwimmen", "erwachsene"],
   },
   {
     id: "aquafitness",
     title: "Aquafitness",
     description: "Power-Workout im Wasser. Gelenkschonend. Montags & Freitags.",
     cta: "Kurszeiten & Buchung",
+    courseKeys: ["aquafitness", "ganzkorper-workout", "ganzkörper-workout"],
   },
   {
     id: "reha",
     title: "Aqua Reha",
     description: "Von den Krankenkassen zertifiziert. Mit Rezept 100 % kostenfrei.",
     cta: "Rezept einreichen",
+    courseKeys: ["reha-sport", "praventionskurse", "präventionskurse", "aqua-reha", "reha"],
   },
 ];
 
@@ -78,6 +84,26 @@ const reveal = {
 
 const BerlinTempelhof = () => {
   const kurseRef = useRef<HTMLDivElement>(null);
+  const [searchParams] = useSearchParams();
+  const courseParam = searchParams.get("course") || searchParams.get("preselect") || "";
+
+  const matchedAccordion = useMemo(() => {
+    if (!courseParam) return "";
+    const normalized = decodeURIComponent(courseParam).toLowerCase();
+    const match = courses.find((c) =>
+      c.courseKeys.some((k) => normalized.includes(k)) || c.id === normalized
+    );
+    return match?.id || "";
+  }, [courseParam]);
+
+  useEffect(() => {
+    if (matchedAccordion) {
+      const timer = setTimeout(() => {
+        kurseRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 300);
+      return () => clearTimeout(timer);
+    }
+  }, [matchedAccordion]);
 
   const scrollToKurse = () =>
     kurseRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -275,25 +301,38 @@ const BerlinTempelhof = () => {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, delay: 0.12 }}
           >
-            <Accordion type="single" collapsible className="space-y-3">
-              {courses.map((course) => (
-                <AccordionItem
-                  key={course.id}
-                  value={course.id}
-                  className="bg-card rounded-2xl border border-border shadow-[var(--shadow-soft)] px-6 data-[state=open]:shadow-[var(--shadow-card)] transition-shadow"
-                >
-                  <AccordionTrigger className="text-lg font-bold text-foreground hover:no-underline py-5">
-                    {course.title}
-                  </AccordionTrigger>
-                  <AccordionContent className="pb-6">
-                    <p className="text-muted-foreground mb-5 leading-relaxed">{course.description}</p>
-                    <button className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-semibold text-sm px-5 py-2.5 rounded-full hover:brightness-110 transition-all active:scale-[0.97]">
-                      {course.cta}
-                      <ChevronRight className="w-4 h-4" />
-                    </button>
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
+            <Accordion type="single" collapsible defaultValue={matchedAccordion} className="space-y-3">
+              {courses.map((course) => {
+                const isHighlighted = matchedAccordion === course.id && !!courseParam;
+                return (
+                  <AccordionItem
+                    key={course.id}
+                    value={course.id}
+                    className={`bg-card rounded-2xl border shadow-[var(--shadow-soft)] px-6 data-[state=open]:shadow-[var(--shadow-card)] transition-all ${
+                      isHighlighted
+                        ? "border-primary ring-2 ring-primary/20"
+                        : "border-border"
+                    }`}
+                  >
+                    <AccordionTrigger className="text-lg font-bold text-foreground hover:no-underline py-5">
+                      {course.title}
+                    </AccordionTrigger>
+                    <AccordionContent className="pb-6">
+                      <p className="text-muted-foreground mb-5 leading-relaxed">{course.description}</p>
+                      <button
+                        className={`inline-flex items-center gap-2 font-semibold text-sm px-5 py-2.5 rounded-full transition-all active:scale-[0.97] ${
+                          isHighlighted
+                            ? "bg-accent text-accent-foreground shadow-lg hover:brightness-110"
+                            : "bg-primary text-primary-foreground hover:brightness-110"
+                        }`}
+                      >
+                        {isHighlighted ? "Kurs buchen" : course.cta}
+                        <ChevronRight className="w-4 h-4" />
+                      </button>
+                    </AccordionContent>
+                  </AccordionItem>
+                );
+              })}
             </Accordion>
           </motion.div>
         </div>
