@@ -34,6 +34,11 @@ const App = () => (
           <Route path="/kurse/aquafitness" element={<Aquafitness />} />
           <Route path="/kurse/reha" element={<AquaReha />} />
           <Route path="/standorte/berlin-tempelhof" element={<BerlinTempelhof />} />
+          <Route path="/standorte/berlin-tempelhof" element={<BerlinTempelhof />} />
+          <Route path="/standorte/schwerin" element={<Schwerin />} />
+          <Route path="/standorte/wildau" element={<Wildau />} />
+          <Route path="/standorte/bremen" element={<Bremen />} />
+          {/* Legacy routes redirect */}
           <Route path="/schwerin" element={<Schwerin />} />
           <Route path="/wildau" element={<Wildau />} />
           <Route path="/bremen" element={<Bremen />} />

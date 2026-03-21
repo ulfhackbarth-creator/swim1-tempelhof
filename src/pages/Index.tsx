@@ -57,6 +57,11 @@ const Index = () => {
 
   return (
   <main className="min-h-screen">
+    <Helmet>
+      <title>SWIM1 Schwimmschule | Schwimmkurse für Kinder & Erwachsene</title>
+      <meta name="description" content="Premium Schwimmschule an 4 Standorten. Vom Seepferdchen bis zur perfekten Kraultechnik. Kleine Gruppen, 32°C warmes Wasser." />
+      <link rel="canonical" href="https://swim1.de/" />
+    </Helmet>
     <GlobalHeader />
 
     {/* ─── HERO ─── */}
