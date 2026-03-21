@@ -6,7 +6,7 @@ interface HeroVideoBackgroundProps {
   poster?: string;
 }
 
-const HeroVideoBackground = ({ videos, intervalMs = 4000 }: HeroVideoBackgroundProps) => {
+const HeroVideoBackground = ({ videos, intervalMs = 4000, poster }: HeroVideoBackgroundProps) => {
   const [slot, setSlot] = useState<"A" | "B">("A");
   const videoRefA = useRef<HTMLVideoElement>(null);
   const videoRefB = useRef<HTMLVideoElement>(null);
