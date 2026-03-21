@@ -155,6 +155,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
   }, [courseParam]);
 
   const [activeAccordion, setActiveAccordion] = useState(initialAccordion);
+  const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -394,35 +395,72 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
                 <AccordionContent className="pb-6">
                   {course.subCourses.length > 0 ? (
                     <div className="space-y-3">
-                      {course.subCourses.map((sub) => (
-                        <div key={sub.key} className="flex items-center justify-between bg-blue-50/60 rounded-2xl p-4 md:p-5">
-                          <div className="min-w-0 flex-1">
-                            <p className="font-bold text-slate-900">{sub.name}</p>
-                            <p className="text-sm text-slate-500">{sub.desc}</p>
-                          </div>
-                          <button
-                            onClick={() => scrollToForm(sub.interest)}
-                            className="shrink-0 ml-4 inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 text-sm font-bold text-white bg-[#F97316] hover:bg-[#EA580C] transition-colors"
+                      {course.subCourses.map((sub) => {
+                        const isActive = selectedCourse === sub.key;
+                        return (
+                          <div
+                            key={sub.key}
+                            onClick={() => setSelectedCourse(isActive ? null : sub.key)}
+                            className={`flex items-center justify-between rounded-2xl p-4 md:p-5 cursor-pointer transition-all duration-200 ${
+                              isActive
+                                ? "bg-[#1B4F8A] border-2 border-[#1B4F8A] ring-2 ring-[#1B4F8A]/20"
+                                : "bg-blue-50/60 border-2 border-transparent hover:border-slate-200"
+                            }`}
                           >
-                            Warteliste <ChevronRight className="w-3.5 h-3.5" />
-                          </button>
-                        </div>
-                      ))}
+                            <div className="min-w-0 flex-1 flex items-center gap-3">
+                              {isActive && <CheckCircle2 className="w-5 h-5 text-white shrink-0" />}
+                              <div>
+                                <p className={`font-bold ${isActive ? "text-white" : "text-slate-900"}`}>{sub.name}</p>
+                                <p className={`text-sm ${isActive ? "text-white/70" : "text-slate-500"}`}>{sub.desc}</p>
+                              </div>
+                            </div>
+                            <button
+                              onClick={(e) => { e.stopPropagation(); scrollToForm(sub.interest); }}
+                              className={`shrink-0 ml-4 inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 text-sm font-bold transition-colors ${
+                                isActive
+                                  ? "text-[#1B4F8A] bg-white hover:bg-white/90"
+                                  : "text-white bg-[#F97316] hover:bg-[#EA580C]"
+                              }`}
+                            >
+                              Warteliste <ChevronRight className="w-3.5 h-3.5" />
+                            </button>
+                          </div>
+                        );
+                      })}
                     </div>
                   ) : (
                     <div className="space-y-3">
-                      <div className="flex items-center justify-between bg-blue-50/60 rounded-2xl p-4 md:p-5">
-                        <div className="min-w-0 flex-1">
-                          <p className="font-bold text-slate-900">{course.title}</p>
-                          <p className="text-sm text-slate-500">{course.description}</p>
-                        </div>
-                        <button
-                          onClick={() => scrollToForm((course as any).interest)}
-                          className="shrink-0 ml-4 inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 text-sm font-bold text-white bg-[#F97316] hover:bg-[#EA580C] transition-colors"
-                        >
-                          Warteliste <ChevronRight className="w-3.5 h-3.5" />
-                        </button>
-                      </div>
+                      {(() => {
+                        const isActive = selectedCourse === course.id;
+                        return (
+                          <div
+                            onClick={() => setSelectedCourse(isActive ? null : course.id)}
+                            className={`flex items-center justify-between rounded-2xl p-4 md:p-5 cursor-pointer transition-all duration-200 ${
+                              isActive
+                                ? "bg-[#1B4F8A] border-2 border-[#1B4F8A] ring-2 ring-[#1B4F8A]/20"
+                                : "bg-blue-50/60 border-2 border-transparent hover:border-slate-200"
+                            }`}
+                          >
+                            <div className="min-w-0 flex-1 flex items-center gap-3">
+                              {isActive && <CheckCircle2 className="w-5 h-5 text-white shrink-0" />}
+                              <div>
+                                <p className={`font-bold ${isActive ? "text-white" : "text-slate-900"}`}>{course.title}</p>
+                                <p className={`text-sm ${isActive ? "text-white/70" : "text-slate-500"}`}>{course.description}</p>
+                              </div>
+                            </div>
+                            <button
+                              onClick={(e) => { e.stopPropagation(); scrollToForm((course as any).interest); }}
+                              className={`shrink-0 ml-4 inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 text-sm font-bold transition-colors ${
+                                isActive
+                                  ? "text-[#1B4F8A] bg-white hover:bg-white/90"
+                                  : "text-white bg-[#F97316] hover:bg-[#EA580C]"
+                              }`}
+                            >
+                              Warteliste <ChevronRight className="w-3.5 h-3.5" />
+                            </button>
+                          </div>
+                        );
+                      })()}
                     </div>
                   )}
                 </AccordionContent>
