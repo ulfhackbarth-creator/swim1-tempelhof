@@ -4,6 +4,9 @@ import type { LocationConfig } from "@/components/standorte/LocationPageTemplate
 
 const config: LocationConfig = {
   slug: "schwerin",
+  heroVideos: [
+    "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028281720/qkpElJONQqXhnmsm.mp4",
+  ],
   heroHeadline: "Swim1 Schwimmschule in Schwerin",
   locationInfo: [
     { icon: MapPin, title: "Adresse", text: "Schlosspark-Center, Marienplatz 5–6, 19053 Schwerin" },
