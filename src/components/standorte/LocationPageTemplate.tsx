@@ -260,6 +260,12 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
 
   return (
     <div className="min-h-screen">
+      <Helmet>
+        <title>{config.metaTitle}</title>
+        <meta name="description" content={config.metaDescription} />
+        <link rel="canonical" href={canonicalUrl} />
+        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+      </Helmet>
       <GlobalHeader />
 
       {/* ═══════════ 1. HERO ═══════════ */}
