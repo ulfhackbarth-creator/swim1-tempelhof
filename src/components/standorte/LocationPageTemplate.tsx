@@ -449,9 +449,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
                             <button
                               onClick={(e) => { e.stopPropagation(); scrollToForm((course as any).interest); }}
                               className={`shrink-0 ml-4 inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 text-sm font-bold transition-colors ${
-                                isActive
-                                  ? "text-[#1B4F8A] bg-white hover:bg-white/90"
-                                  : "text-white bg-[#F97316] hover:bg-[#EA580C]"
+                                "text-white bg-[#F97316] hover:bg-[#EA580C]"
                               }`}
                             >
                               Warteliste <ChevronRight className="w-3.5 h-3.5" />
