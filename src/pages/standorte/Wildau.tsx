@@ -4,6 +4,9 @@ import type { LocationConfig } from "@/components/standorte/LocationPageTemplate
 
 const config: LocationConfig = {
   slug: "wildau",
+  heroVideos: [
+    "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028281720/qRtdWifWNvkKIvMh.mp4",
+  ],
   heroHeadline: "Swim1 Schwimmschule in Wildau",
   locationInfo: [
     { icon: MapPin, title: "Adresse", text: "A10 Center, Chausseestr. 1, 15745 Wildau" },
