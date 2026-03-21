@@ -278,6 +278,14 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
         <meta name="description" content={config.metaDescription} />
         <link rel="canonical" href={canonicalUrl} />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://swim1.de/" },
+            { "@type": "ListItem", "position": 2, "name": config.displayName, "item": canonicalUrl }
+          ]
+        })}</script>
       </Helmet>
       <GlobalHeader />
 
@@ -292,11 +300,11 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
 
         <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 md:px-6 min-h-[85vh] md:min-h-[90vh] pt-32 md:pt-[120px] pb-8 md:pb-0">
           {/* Breadcrumb */}
-          <nav className="absolute top-36 md:top-[130px] left-0 right-0 px-6">
+          <nav aria-label="breadcrumb" className="absolute top-36 md:top-[130px] left-0 right-0 px-6">
             <ol className="flex items-center gap-1.5 text-sm text-white/60 justify-center">
               <li><Link to="/" className="hover:text-white transition-colors">Startseite</Link></li>
-              <li>/</li>
-              <li><span className="text-white/90 font-medium">{config.displayName}</span></li>
+              <li aria-hidden="true">/</li>
+              <li aria-current="page"><span className="text-white/90 font-medium">{config.displayName}</span></li>
             </ol>
           </nav>
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="max-w-4xl mx-auto">
