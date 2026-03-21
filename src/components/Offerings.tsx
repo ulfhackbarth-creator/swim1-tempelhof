@@ -55,7 +55,7 @@ const Offerings = () => {
         }} transition={{
           duration: 0.5,
           delay: index * 0.1
-        }} className="bg-card p-5 md:p-6 rounded-xl shadow-card text-center hover:shadow-lg transition-shadow duration-300">
+        }} className="bg-card p-5 md:p-6 rounded-xl shadow-card border border-border text-center hover:shadow-lg transition-shadow duration-300">
               <div className="w-12 h-12 md:w-14 md:h-14 mx-auto mb-4 rounded-full bg-secondary flex items-center justify-center">
                 <offering.icon className="w-6 h-6 md:w-7 md:h-7 text-primary" />
               </div>

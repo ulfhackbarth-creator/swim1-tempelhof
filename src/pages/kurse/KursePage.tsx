@@ -141,10 +141,10 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.3, delay: i * 0.06 }}
                   onClick={() => handleSelectCourse(course.name, i)}
-                  className={`relative rounded-[2rem] p-6 md:p-10 shadow-xl shadow-slate-200/40 border-2 transition-all duration-200 cursor-pointer flex flex-col ${
+                  className={`relative rounded-[2rem] p-6 md:p-10 shadow-lg shadow-slate-300/50 border-2 transition-all duration-200 cursor-pointer flex flex-col ${
                     isSelected
-                      ? "bg-[#1B4F8A] border-[#1B4F8A]"
-                      : "bg-white border-slate-100 hover:-translate-y-1"
+                      ? "bg-[#1B4F8A] border-[#1B4F8A] shadow-xl shadow-slate-400/30"
+                      : "bg-white border-slate-200 hover:-translate-y-1 hover:shadow-xl"
                   }`}
                 >
                   {isSelected && (
