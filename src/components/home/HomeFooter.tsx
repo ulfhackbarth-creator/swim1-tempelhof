@@ -40,9 +40,9 @@ const HomeFooter = () => (
         <div>
           <h4 className="text-white font-bold uppercase tracking-wider text-sm mb-6">Rechtliches</h4>
           <nav className="flex flex-col gap-2 text-sm text-slate-400">
-            <a href="#" className="hover:text-white transition-colors">Impressum</a>
-            <a href="#" className="hover:text-white transition-colors">Datenschutz</a>
-            <a href="#" className="hover:text-white transition-colors">AGB</a>
+            <Link to="/impressum" onClick={scrollTop} className="hover:text-white transition-colors">Impressum</Link>
+            <Link to="/datenschutz" onClick={scrollTop} className="hover:text-white transition-colors">Datenschutz</Link>
+            <Link to="/agb" onClick={scrollTop} className="hover:text-white transition-colors">AGB</Link>
           </nav>
         </div>
       </div>
