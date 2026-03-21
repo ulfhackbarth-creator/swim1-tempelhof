@@ -111,7 +111,7 @@ const Index = () => {
               <Link
                 to={cat.path}
                 onClick={() => window.scrollTo({ top: 0 })}
-                className="group bg-white rounded-[2rem] p-8 md:p-10 shadow-xl shadow-slate-200/40 border border-slate-100 flex flex-col h-full hover:-translate-y-1 transition-transform"
+                className="group bg-white rounded-[2rem] p-8 md:p-10 shadow-lg shadow-slate-300/50 border-2 border-slate-200 flex flex-col h-full hover:-translate-y-1 hover:shadow-xl transition-all"
               >
                 <div className="w-14 h-14 rounded-2xl bg-blue-50 text-[#1B4F8A] flex items-center justify-center mb-5 group-hover:scale-105 transition-transform">
                   <cat.Icon className="w-7 h-7" strokeWidth={1.5} />
