@@ -370,13 +370,19 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
                       ))}
                     </div>
                   ) : (
-                    <div className="flex justify-end">
-                      <button
-                        onClick={() => scrollToForm((course as any).interest)}
-                        className="inline-flex items-center gap-2 rounded-full px-6 py-3 font-bold text-white bg-[#F97316] hover:bg-[#EA580C] transition-colors"
-                      >
-                        Warteliste <ChevronRight className="w-4 h-4" />
-                      </button>
+                    <div className="space-y-3">
+                      <div className="flex items-center justify-between bg-blue-50/60 rounded-2xl p-4 md:p-5">
+                        <div className="min-w-0 flex-1">
+                          <p className="font-bold text-slate-900">{course.title}</p>
+                          <p className="text-sm text-slate-500">{course.description}</p>
+                        </div>
+                        <button
+                          onClick={() => scrollToForm((course as any).interest)}
+                          className="shrink-0 ml-4 inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 text-sm font-bold text-white bg-[#F97316] hover:bg-[#EA580C] transition-colors"
+                        >
+                          Warteliste <ChevronRight className="w-3.5 h-3.5" />
+                        </button>
+                      </div>
                     </div>
                   )}
                 </AccordionContent>
