@@ -8,10 +8,10 @@ const HomeFooter = () => (
     <div className="max-w-7xl mx-auto px-6">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
         <div className="col-span-2 md:col-span-1">
-          <div className="flex items-center gap-2 mb-3">
+          <Link to="/" onClick={scrollTop} className="flex items-center gap-2 mb-3 hover:opacity-80 transition-opacity">
             <Waves className="w-5 h-5 text-white" />
             <span className="font-bold text-white">SWIM1</span>
-          </div>
+          </Link>
           <p className="text-sm text-slate-400 mb-2">Sicher schwimmen lernen.</p>
           <p className="text-xs text-slate-500">© {new Date().getFullYear()} SWIM1</p>
         </div>
