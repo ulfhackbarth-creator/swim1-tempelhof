@@ -55,16 +55,20 @@ const Offerings = () => {
         }} transition={{
           duration: 0.5,
           delay: index * 0.1
-        }} className="bg-card p-5 md:p-6 rounded-xl shadow-card border border-border text-center hover:shadow-lg transition-shadow duration-300">
-              <div className="w-12 h-12 md:w-14 md:h-14 mx-auto mb-4 rounded-full bg-secondary flex items-center justify-center">
-                <offering.icon className="w-6 h-6 md:w-7 md:h-7 text-primary" />
+          }} className="bg-card p-4 md:p-5 rounded-xl shadow-card border border-border hover:shadow-lg transition-shadow duration-300">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 md:w-12 md:h-12 shrink-0 rounded-full bg-secondary flex items-center justify-center">
+                  <offering.icon className="w-5 h-5 md:w-6 md:h-6 text-primary" />
+                </div>
+                <div className="min-w-0">
+                  <h3 className="font-semibold text-foreground text-sm md:text-base leading-tight">
+                    {offering.title}
+                  </h3>
+                  <p className="text-xs md:text-sm text-muted-foreground leading-tight mt-0.5">
+                    {offering.description}
+                  </p>
+                </div>
               </div>
-              <h3 className="font-semibold text-foreground text-sm md:text-base mb-1">
-                {offering.title}
-              </h3>
-              <p className="text-xs md:text-sm text-muted-foreground">
-                {offering.description}
-              </p>
             </motion.div>)}
         </div>
 
