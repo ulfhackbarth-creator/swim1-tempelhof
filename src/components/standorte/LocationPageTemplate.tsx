@@ -300,7 +300,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
             onClick={() => scrollToForm()}
-            className="mt-8 md:mt-10 w-full md:w-auto justify-center inline-flex items-center gap-2 rounded-full px-6 py-3 font-semibold text-base text-white transition-colors shadow-lg bg-[#F97316] hover:bg-[#EA580C]"
+            className="mt-8 md:mt-10 inline-flex items-center gap-2 rounded-full px-6 py-3 font-semibold text-base text-white transition-colors shadow-lg bg-[#F97316] hover:bg-[#EA580C]"
             style={{ boxShadow: "0 8px 24px -4px rgba(249,115,22,0.3)" }}
           >
             Jetzt auf die Warteliste setzen <ArrowDown className="w-4 h-4" />
