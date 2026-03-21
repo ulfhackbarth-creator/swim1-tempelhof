@@ -102,6 +102,7 @@ const HeroVideoBackground = ({ videos, intervalMs = 4000, poster }: HeroVideoBac
         loop
         playsInline
         preload="none"
+        poster={poster}
         className={baseClass}
         style={{ opacity: slot === "A" ? 1 : 0 }}
       />
