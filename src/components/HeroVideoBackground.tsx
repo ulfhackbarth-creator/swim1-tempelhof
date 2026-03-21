@@ -3,6 +3,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 interface HeroVideoBackgroundProps {
   videos: string[];
   intervalMs?: number;
+  poster?: string;
 }
 
 const HeroVideoBackground = ({ videos, intervalMs = 4000 }: HeroVideoBackgroundProps) => {
