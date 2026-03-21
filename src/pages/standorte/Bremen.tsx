@@ -4,6 +4,9 @@ import type { LocationConfig } from "@/components/standorte/LocationPageTemplate
 
 const config: LocationConfig = {
   slug: "bremen",
+  heroVideos: [
+    "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028281720/kVlaWVRxaPcrdFVH.mp4",
+  ],
   heroHeadline: "Swim1 Schwimmschule in Bremen",
   locationInfo: [
     { icon: MapPin, title: "Adresse", text: "Waterfront, AG-Weser-Str. 3, 28237 Bremen" },
