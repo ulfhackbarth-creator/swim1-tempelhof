@@ -39,7 +39,13 @@ const locationSubtitle: Record<CourseTab, string> = {
   reha: "Finde deinen Standort für Aqua Reha",
 };
 
-
+const categoryMeta: Record<CourseTab, { name: string; path: string }> = {
+  wassergewoehnung: { name: "Wassergewöhnung", path: "/kurse/wassergewoehnung" },
+  kinderschwimmen: { name: "Kinderschwimmen", path: "/kurse/kinderschwimmen" },
+  erwachsene: { name: "Erwachsenenschwimmen", path: "/kurse/erwachsene" },
+  fitness: { name: "Aquafitness", path: "/kurse/aquafitness" },
+  reha: { name: "Aqua Reha", path: "/kurse/reha" },
+};
 
 const KursePage = ({ tab }: { tab: CourseTab }) => {
   const isMobile = useIsMobile();
