@@ -336,6 +336,11 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
               </motion.div>
             ))}
           </div>
+
+          {/* Geo-Targeting Text */}
+          <p className="text-sm text-slate-400 leading-relaxed mt-10 md:mt-14 text-center max-w-2xl mx-auto">
+            {config.geoText}
+          </p>
         </div>
       </section>
 
