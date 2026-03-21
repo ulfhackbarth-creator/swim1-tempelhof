@@ -19,10 +19,9 @@ const Footer = () => {
             <span className="font-semibold">SWIM1 - Deine Schwimmschule</span>
           </div>
           <nav className="flex items-center gap-4 text-sm text-primary-foreground/80">
-            <a href="/" onClick={(e) => handleNavClick(e, "/")} className="hover:text-primary-foreground transition-colors">Berlin-Tempelhof</a>
-            <a href="/schwerin" onClick={(e) => handleNavClick(e, "/schwerin")} className="hover:text-primary-foreground transition-colors">Schwerin</a>
-            <a href="/wildau" onClick={(e) => handleNavClick(e, "/wildau")} className="hover:text-primary-foreground transition-colors">Wildau</a>
-            <a href="/bremen" onClick={(e) => handleNavClick(e, "/bremen")} className="hover:text-primary-foreground transition-colors">Bremen</a>
+            <a href="/impressum" onClick={(e) => handleNavClick(e, "/impressum")} className="hover:text-primary-foreground transition-colors">Impressum</a>
+            <a href="/datenschutz" onClick={(e) => handleNavClick(e, "/datenschutz")} className="hover:text-primary-foreground transition-colors">Datenschutz</a>
+            <a href="/agb" onClick={(e) => handleNavClick(e, "/agb")} className="hover:text-primary-foreground transition-colors">AGB</a>
           </nav>
           <p className="text-sm text-primary-foreground/70">
             © {new Date().getFullYear()} Alle Rechte vorbehalten
