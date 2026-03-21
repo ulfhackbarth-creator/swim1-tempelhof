@@ -102,6 +102,14 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
         <title>{categoryMeta[tab].name} in kleinen Gruppen | SWIM1 Schwimmschule</title>
         <meta name="description" content={`Entdecke unsere Kurse für ${categoryMeta[tab].name}. Zertifizierte Trainer, sicheres Lernen und schnelle Fortschritte im 32°C warmen Wasser.`} />
         <link rel="canonical" href={`https://swim1.de${categoryMeta[tab].path}`} />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://swim1.de/" },
+            { "@type": "ListItem", "position": 2, "name": categoryMeta[tab].name, "item": `https://swim1.de${categoryMeta[tab].path}` }
+          ]
+        })}</script>
       </Helmet>
       {/* HERO */}
       <section className="relative min-h-[85vh] md:min-h-[90vh] overflow-hidden pt-32 md:pt-[120px]">
