@@ -4,7 +4,7 @@ import { useLocation, useNavigate, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSwipeNavigation } from "@/hooks/useSwipeNavigation";
-import { ArrowRight, ChevronDown, Star, Check } from "lucide-react";
+import { ArrowDown, ChevronDown, Star, Check } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import GlobalHeader from "@/components/home/GlobalHeader";
 import HomeFooter from "@/components/home/HomeFooter";
