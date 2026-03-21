@@ -567,10 +567,12 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
                 <div className="space-y-3">
                   <Label className="text-slate-900 font-semibold">Interesse an</Label>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                    {interestOptions.map((option) => (
-                      <label key={option.id} className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 border border-slate-200 hover:border-[#1B4F8A]/30 cursor-pointer transition-colors">
-                        <Checkbox checked={formData.interests.includes(option.id)} onCheckedChange={(checked) => handleInterestChange(option.id, checked as boolean)} />
-                        <span className="text-sm font-medium text-slate-700">{option.label}</span>
+                    {interestOptions.map((option) => {
+                      const isActive = formData.interests.includes(option.id);
+                      return (
+                      <label key={option.id} className={`flex items-center gap-3 p-3 rounded-xl border cursor-pointer transition-all duration-200 ${isActive ? "bg-[#0F2D52] border-[#0F2D52] text-white" : "bg-slate-50 border-slate-200 hover:border-[#1B4F8A]/30 text-slate-700"}`}>
+                        <Checkbox checked={isActive} onCheckedChange={(checked) => handleInterestChange(option.id, checked as boolean)} className={isActive ? "border-white data-[state=checked]:bg-white data-[state=checked]:text-[#0F2D52]" : ""} />
+                        <span className={`text-sm font-medium ${isActive ? "text-white" : "text-slate-700"}`}>{option.label}</span>
                       </label>
                     ))}
                   </div>
