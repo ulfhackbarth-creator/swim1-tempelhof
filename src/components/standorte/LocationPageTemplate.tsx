@@ -237,11 +237,24 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
     }
   };
 
-  useEffect(() => {
-    document.title = config.metaTitle;
-    const desc = document.querySelector('meta[name="description"]');
-    if (desc) desc.setAttribute("content", config.metaDescription);
-  }, [config.metaTitle, config.metaDescription]);
+  const canonicalUrl = `https://swim1.de/standorte/${config.slug}`;
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": ["LocalBusiness", "SportsActivityLocation"],
+    "name": `SWIM1 Schwimmschule ${config.displayName}`,
+    "image": "https://swim1.de/logo.png",
+    "url": canonicalUrl,
+    "telephone": "+49 30 1234567",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": config.address.streetAddress,
+      "addressLocality": config.address.addressLocality,
+      "postalCode": config.address.postalCode,
+      "addressCountry": "DE",
+    },
+    "priceRange": "$$",
+  };
 
   const hasVideo = config.heroVideos && config.heroVideos.length > 0;
 
