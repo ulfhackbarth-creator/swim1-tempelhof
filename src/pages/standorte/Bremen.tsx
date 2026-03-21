@@ -4,10 +4,17 @@ import type { LocationConfig } from "@/components/standorte/LocationPageTemplate
 
 const config: LocationConfig = {
   slug: "bremen",
+  displayName: "Bremen",
   heroVideos: [
     "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028281720/kVlaWVRxaPcrdFVH.mp4",
   ],
   heroHeadline: "Swim1 Schwimmschule in Bremen",
+  address: {
+    streetAddress: "AG-Weser-Str. 3",
+    addressLocality: "Bremen",
+    postalCode: "28237",
+  },
+  geoText: "Unser Standort in der Waterfront ist ideal erreichbar für Familien aus Gröpelingen, Walle, Findorff und der Bremer Neustadt. Dank der Straßenbahn-Anbindung (Linie 3 & 5) und über 4.000 kostenlosen Parkplätzen sind wir deine zentrale Schwimmschule an der Weser.",
   locationInfo: [
     { icon: MapPin, title: "Adresse", text: "Waterfront, AG-Weser-Str. 3, 28237 Bremen" },
     { icon: Train, title: "ÖPNV", text: "Straßenbahn Linie 3 & 5, Haltestelle Waterfront" },
@@ -27,8 +34,8 @@ const config: LocationConfig = {
     { q: "Wo genau befindet sich der Standort?", a: "Unser Standort befindet sich in der Waterfront Bremen an der Weser, mit hervorragender Anbindung per Straßenbahn und über 4.000 kostenlosen Parkplätzen." },
   ],
   waitlistCount: "60+",
-  metaTitle: "Swim1 Schwimmschule Bremen – Waterfront | Warteliste",
-  metaDescription: "SWIM1 eröffnet in der Waterfront Bremen! Sichere dir jetzt einen Platz auf der Warteliste für Schwimmkurse.",
+  metaTitle: "Schwimmschule Bremen | Kurse & Warteliste | SWIM1",
+  metaDescription: "Deine Premium Schwimmschule in Bremen. Jetzt unverbindlich auf die Warteliste für Kinderschwimmen, Babyschwimmen und Erwachsenenkurse eintragen.",
 };
 
 const BremenPage = () => <LocationPageTemplate config={config} />;

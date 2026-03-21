@@ -4,10 +4,17 @@ import type { LocationConfig } from "@/components/standorte/LocationPageTemplate
 
 const config: LocationConfig = {
   slug: "schwerin",
+  displayName: "Schwerin",
   heroVideos: [
     "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028281720/qkpElJONQqXhnmsm.mp4",
   ],
   heroHeadline: "Swim1 Schwimmschule in Schwerin",
+  address: {
+    streetAddress: "Marienplatz 5–6",
+    addressLocality: "Schwerin",
+    postalCode: "19053",
+  },
+  geoText: "Unser Standort im Schlosspark-Center ist ideal erreichbar für Familien aus Schwerin, Lankow, Weststadt und Görries. Zentral am Marienplatz gelegen, mit guter ÖPNV-Anbindung und ausreichend Parkmöglichkeiten – deine Schwimmschule im Herzen von Schwerin.",
   locationInfo: [
     { icon: MapPin, title: "Adresse", text: "Schlosspark-Center, Marienplatz 5–6, 19053 Schwerin" },
     { icon: Train, title: "ÖPNV", text: "Haltestelle Marienplatz, direkt vor dem Center" },
@@ -27,8 +34,8 @@ const config: LocationConfig = {
     { q: "Wo genau befindet sich der Standort?", a: "Unser Standort befindet sich im Schlosspark-Center Schwerin am Marienplatz, zentral gelegen mit guter ÖPNV-Anbindung und ausreichend Parkmöglichkeiten." },
   ],
   waitlistCount: "80+",
-  metaTitle: "Swim1 Schwimmschule Schwerin – Schlosspark-Center | Warteliste",
-  metaDescription: "SWIM1 eröffnet im Schlosspark-Center Schwerin! Sichere dir jetzt einen Platz auf der Warteliste für Schwimmkurse.",
+  metaTitle: "Schwimmschule Schwerin | Kurse & Warteliste | SWIM1",
+  metaDescription: "Deine Premium Schwimmschule in Schwerin. Jetzt unverbindlich auf die Warteliste für Kinderschwimmen, Babyschwimmen und Erwachsenenkurse eintragen.",
 };
 
 const SchwerinPage = () => <LocationPageTemplate config={config} />;

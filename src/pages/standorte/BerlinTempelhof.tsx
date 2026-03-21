@@ -3,11 +3,18 @@ import LocationPageTemplate from "@/components/standorte/LocationPageTemplate";
 import type { LocationConfig } from "@/components/standorte/LocationPageTemplate";
 
 const config: LocationConfig = {
-  slug: "tempelhof",
+  slug: "berlin-tempelhof",
+  displayName: "Berlin-Tempelhof",
   heroHeadline: "Swim1 Schwimmschule in Berlin-Tempelhof",
   heroVideos: [
     "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028281720/gBnQiwwnZrqJaDTm.mp4",
   ],
+  address: {
+    streetAddress: "Ordensmeisterstr. 1–3",
+    addressLocality: "Berlin",
+    postalCode: "12099",
+  },
+  geoText: "Unser Standort im Tempelhofer Hafen ist ideal erreichbar für Familien aus Tempelhof, Neukölln, Kreuzberg und Mariendorf. Dank der direkten Anbindung an die U6 und kostenlosen Parkplätzen sind wir deine zentrale Schwimmschule im Berliner Süden.",
   locationInfo: [
     { icon: MapPin, title: "Adresse", text: "Tempelhofer Hafen, Ordensmeisterstr. 1–3, 12099 Berlin" },
     { icon: Train, title: "ÖPNV", text: "S+U Tempelhof, 3 Min. Fußweg" },
@@ -27,8 +34,8 @@ const config: LocationConfig = {
     { q: "Wann startet der Standort?", a: "Eröffnung zur Saison 2026 – sobald der genaue Starttermin feststeht, informieren wir alle Wartelisten-Teilnehmer als Erste." },
   ],
   waitlistCount: "120+",
-  metaTitle: "Swim1 Schwimmschule Berlin-Tempelhof – Warteliste",
-  metaDescription: "Trag dich jetzt unverbindlich auf die Warteliste für Schwimmkurse am Tempelhofer Hafen ein.",
+  metaTitle: "Schwimmschule Berlin-Tempelhof | Kurse & Warteliste | SWIM1",
+  metaDescription: "Deine Premium Schwimmschule in Berlin-Tempelhof. Jetzt unverbindlich auf die Warteliste für Kinderschwimmen, Babyschwimmen und Erwachsenenkurse eintragen.",
 };
 
 const BerlinTempelhof = () => <LocationPageTemplate config={config} />;

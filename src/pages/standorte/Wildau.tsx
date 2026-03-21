@@ -4,10 +4,17 @@ import type { LocationConfig } from "@/components/standorte/LocationPageTemplate
 
 const config: LocationConfig = {
   slug: "wildau",
+  displayName: "Wildau",
   heroVideos: [
     "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028281720/qRtdWifWNvkKIvMh.mp4",
   ],
   heroHeadline: "Swim1 Schwimmschule in Wildau",
+  address: {
+    streetAddress: "Chausseestr. 1",
+    addressLocality: "Wildau",
+    postalCode: "15745",
+  },
+  geoText: "Unser Standort im A10 Center ist ideal erreichbar für Familien aus Wildau, Königs Wusterhausen, Zeuthen und Schulzendorf. Direkt an der A10 gelegen, mit über 4.000 kostenlosen Parkplätzen – deine Schwimmschule südlich von Berlin.",
   locationInfo: [
     { icon: MapPin, title: "Adresse", text: "A10 Center, Chausseestr. 1, 15745 Wildau" },
     { icon: Train, title: "ÖPNV", text: "S-Bahn Wildau, 5 Min. Fußweg zum A10 Center" },
@@ -27,8 +34,8 @@ const config: LocationConfig = {
     { q: "Wo genau befindet sich der Standort?", a: "Unser Standort befindet sich im A10 Center Wildau an der Chausseestraße, mit hervorragender Anbindung über die A10 und ausreichend kostenlosen Parkplätzen." },
   ],
   waitlistCount: "50+",
-  metaTitle: "Swim1 Schwimmschule Wildau – A10 Center | Warteliste",
-  metaDescription: "SWIM1 eröffnet im A10 Center Wildau! Sichere dir jetzt einen Platz auf der Warteliste für Schwimmkurse.",
+  metaTitle: "Schwimmschule Wildau | Kurse & Warteliste | SWIM1",
+  metaDescription: "Deine Premium Schwimmschule in Wildau. Jetzt unverbindlich auf die Warteliste für Kinderschwimmen, Babyschwimmen und Erwachsenenkurse eintragen.",
 };
 
 const WildauPage = () => <LocationPageTemplate config={config} />;
