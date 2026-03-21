@@ -100,7 +100,7 @@ const GlobalHeader = () => {
           <span className="font-bold text-lg text-white">SWIM1</span>
         </Link>
 
-        <StandortDropdown variant="orange" align="end" />
+        <StandortDropdown variant="ghost-header" align="end" />
       </div>
 
       {/* Row 2 — Category chips */}

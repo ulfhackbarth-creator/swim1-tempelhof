@@ -27,15 +27,18 @@ const StandortDropdown = ({
   align = "end",
 }: StandortDropdownProps) => {
   const isLarge = variant === "orange-large";
+  const isGhostHeader = variant === "ghost-header";
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <button
-          className={`inline-flex items-center gap-2 rounded-full font-bold text-white transition-all bg-[#F97316] hover:bg-[#EA580C] active:scale-[0.97] ${
-            isLarge
-              ? "px-6 py-3.5 text-base shadow-lg"
-              : "px-5 py-2 text-sm"
+          className={`inline-flex items-center gap-2 rounded-full transition-all active:scale-[0.97] ${
+            isGhostHeader
+              ? "border border-white text-white bg-transparent hover:bg-white/15 px-4 py-2 text-sm font-medium"
+              : isLarge
+                ? "px-6 py-3.5 text-base shadow-lg font-bold text-white bg-[#F97316] hover:bg-[#EA580C]"
+                : "px-5 py-2 text-sm font-bold text-white bg-[#F97316] hover:bg-[#EA580C]"
           }`}
           style={isLarge ? { boxShadow: "0 8px 24px -4px rgba(249,115,22,0.35)" } : undefined}
         >
