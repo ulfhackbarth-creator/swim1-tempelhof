@@ -113,6 +113,13 @@ export interface LocationConfig {
   waitlistCount: string;
   metaTitle: string;
   metaDescription: string;
+  displayName: string;
+  geoText: string;
+  address: {
+    streetAddress: string;
+    addressLocality: string;
+    postalCode: string;
+  };
 }
 
 /* ─── COMPONENT ─── */
