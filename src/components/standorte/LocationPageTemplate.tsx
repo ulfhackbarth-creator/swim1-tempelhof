@@ -1,5 +1,6 @@
 import { useRef, useMemo, useState, useCallback, useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import {
   MapPin, Car, Train, Clock, ArrowDown,
@@ -112,6 +113,13 @@ export interface LocationConfig {
   waitlistCount: string;
   metaTitle: string;
   metaDescription: string;
+  displayName: string;
+  geoText: string;
+  address: {
+    streetAddress: string;
+    addressLocality: string;
+    postalCode: string;
+  };
 }
 
 /* ─── COMPONENT ─── */
@@ -229,16 +237,35 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
     }
   };
 
-  useEffect(() => {
-    document.title = config.metaTitle;
-    const desc = document.querySelector('meta[name="description"]');
-    if (desc) desc.setAttribute("content", config.metaDescription);
-  }, [config.metaTitle, config.metaDescription]);
+  const canonicalUrl = `https://swim1.de/standorte/${config.slug}`;
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": ["LocalBusiness", "SportsActivityLocation"],
+    "name": `SWIM1 Schwimmschule ${config.displayName}`,
+    "image": "https://swim1.de/logo.png",
+    "url": canonicalUrl,
+    "telephone": "+49 30 1234567",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": config.address.streetAddress,
+      "addressLocality": config.address.addressLocality,
+      "postalCode": config.address.postalCode,
+      "addressCountry": "DE",
+    },
+    "priceRange": "$$",
+  };
 
   const hasVideo = config.heroVideos && config.heroVideos.length > 0;
 
   return (
     <div className="min-h-screen">
+      <Helmet>
+        <title>{config.metaTitle}</title>
+        <meta name="description" content={config.metaDescription} />
+        <link rel="canonical" href={canonicalUrl} />
+        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+      </Helmet>
       <GlobalHeader />
 
       {/* ═══════════ 1. HERO ═══════════ */}
@@ -251,6 +278,14 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
         <div className="absolute inset-0 bg-[#0F2D52]/45" />
 
         <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 md:px-6 min-h-[85vh] md:min-h-[90vh] pt-32 md:pt-[120px] pb-8 md:pb-0">
+          {/* Breadcrumb */}
+          <nav className="absolute top-36 md:top-[130px] left-0 right-0 px-6">
+            <ol className="flex items-center gap-1.5 text-sm text-white/60 justify-center">
+              <li><Link to="/" className="hover:text-white transition-colors">Startseite</Link></li>
+              <li>/</li>
+              <li><span className="text-white/90 font-medium">{config.displayName}</span></li>
+            </ol>
+          </nav>
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold text-white tracking-tight leading-tight md:leading-[1.1] mb-4 md:mb-6">
               {config.heroHeadline}
@@ -301,6 +336,11 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
               </motion.div>
             ))}
           </div>
+
+          {/* Geo-Targeting Text */}
+          <p className="text-sm text-slate-400 leading-relaxed mt-10 md:mt-14 text-center max-w-2xl mx-auto">
+            {config.geoText}
+          </p>
         </div>
       </section>
 

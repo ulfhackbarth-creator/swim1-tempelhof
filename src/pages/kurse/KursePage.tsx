@@ -1,11 +1,11 @@
 import { useState, useEffect, useLayoutEffect, useRef, useCallback, useMemo } from "react";
 import HeroVideoBackground from "@/components/HeroVideoBackground";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSwipeNavigation } from "@/hooks/useSwipeNavigation";
 import { ArrowRight, ChevronDown, Star, Check } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { Link } from "react-router-dom";
 import GlobalHeader from "@/components/home/GlobalHeader";
 import HomeFooter from "@/components/home/HomeFooter";
 import StandortDropdown from "@/components/StandortDropdown";
@@ -39,7 +39,13 @@ const locationSubtitle: Record<CourseTab, string> = {
   reha: "Finde deinen Standort für Aqua Reha",
 };
 
-
+const categoryMeta: Record<CourseTab, { name: string; path: string }> = {
+  wassergewoehnung: { name: "Wassergewöhnung", path: "/kurse/wassergewoehnung" },
+  kinderschwimmen: { name: "Kinderschwimmen", path: "/kurse/kinderschwimmen" },
+  erwachsene: { name: "Erwachsenenschwimmen", path: "/kurse/erwachsene" },
+  fitness: { name: "Aquafitness", path: "/kurse/aquafitness" },
+  reha: { name: "Aqua Reha", path: "/kurse/reha" },
+};
 
 const KursePage = ({ tab }: { tab: CourseTab }) => {
   const isMobile = useIsMobile();
@@ -92,11 +98,24 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
 
   const pageContent = (
     <>
+      <Helmet>
+        <title>{categoryMeta[tab].name} in kleinen Gruppen | SWIM1 Schwimmschule</title>
+        <meta name="description" content={`Entdecke unsere Kurse für ${categoryMeta[tab].name}. Zertifizierte Trainer, sicheres Lernen und schnelle Fortschritte im 32°C warmen Wasser.`} />
+        <link rel="canonical" href={`https://swim1.de${categoryMeta[tab].path}`} />
+      </Helmet>
       {/* HERO */}
       <section className="relative min-h-[85vh] md:min-h-[90vh] overflow-hidden pt-32 md:pt-[120px]">
         <HeroVideoBackground videos={videos} />
         <div className={`absolute inset-0 ${tab === "kinderschwimmen" || tab === "erwachsene" ? "bg-[#0F2D52]/35" : "bg-[#0F2D52]/45"}`} />
         <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 md:px-6 min-h-[85vh] md:min-h-[90vh] pt-32 md:pt-[120px] pb-8 md:pb-0">
+          {/* Breadcrumb */}
+          <nav className="absolute top-36 md:top-[130px] left-0 right-0 px-6">
+            <ol className="flex items-center gap-1.5 text-sm text-white/60 justify-center">
+              <li><Link to="/" className="hover:text-white transition-colors">Startseite</Link></li>
+              <li>/</li>
+              <li><span className="text-white/90 font-medium">{categoryMeta[tab].name}</span></li>
+            </ol>
+          </nav>
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold text-white tracking-tight leading-tight md:leading-[1.1] mb-4 md:mb-6">
               {content.headline}

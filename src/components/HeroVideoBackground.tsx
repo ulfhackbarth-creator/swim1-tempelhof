@@ -3,9 +3,10 @@ import { useState, useEffect, useRef, useCallback } from "react";
 interface HeroVideoBackgroundProps {
   videos: string[];
   intervalMs?: number;
+  poster?: string;
 }
 
-const HeroVideoBackground = ({ videos, intervalMs = 4000 }: HeroVideoBackgroundProps) => {
+const HeroVideoBackground = ({ videos, intervalMs = 4000, poster }: HeroVideoBackgroundProps) => {
   const [slot, setSlot] = useState<"A" | "B">("A");
   const videoRefA = useRef<HTMLVideoElement>(null);
   const videoRefB = useRef<HTMLVideoElement>(null);
@@ -101,6 +102,7 @@ const HeroVideoBackground = ({ videos, intervalMs = 4000 }: HeroVideoBackgroundP
         loop
         playsInline
         preload="none"
+        poster={poster}
         className={baseClass}
         style={{ opacity: slot === "A" ? 1 : 0 }}
       />
