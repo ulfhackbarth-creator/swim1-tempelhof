@@ -9,8 +9,14 @@ interface LegalLayoutProps {
 }
 
 const LegalLayout = ({ title, children }: LegalLayoutProps) => {
+  const { pathname } = useLocation();
+
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col">
+      <Helmet>
+        <title>{title} | SWIM1</title>
+        <link rel="canonical" href={`https://swim1.de${pathname}`} />
+      </Helmet>
       <GlobalHeader />
 
       <main className="flex-1 px-4 py-12 md:py-20 mt-24">
