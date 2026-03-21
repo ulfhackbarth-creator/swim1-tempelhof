@@ -154,8 +154,20 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
     return "";
   }, [courseParam]);
 
+  const initialSelectedCourse = useMemo(() => {
+    if (!courseParam) return null;
+    const normalized = decodeURIComponent(courseParam).toLowerCase();
+    for (const c of courses) {
+      const sub = c.subCourses.find((s) => normalized.includes(s.key));
+      if (sub) return sub.key;
+      // For courses without subCourses (e.g. Aquafitness, Aqua Reha)
+      if (c.subCourses.length === 0 && c.courseKeys.some((k) => normalized.includes(k))) return c.id;
+    }
+    return null;
+  }, [courseParam]);
+
   const [activeAccordion, setActiveAccordion] = useState(initialAccordion);
-  const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
+  const [selectedCourse, setSelectedCourse] = useState<string | null>(initialSelectedCourse);
 
   const [formData, setFormData] = useState({
     name: "",
