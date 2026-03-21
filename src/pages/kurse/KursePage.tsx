@@ -112,7 +112,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
         })}</script>
       </Helmet>
       {/* HERO */}
-      <section className="relative min-h-[85vh] md:min-h-[90vh] overflow-hidden pt-32 md:pt-[120px]">
+      <section className="relative min-h-[85vh] md:min-h-[90vh] overflow-hidden">
         <HeroVideoBackground videos={videos} />
         <div className={`absolute inset-0 ${tab === "kinderschwimmen" || tab === "erwachsene" ? "bg-[#0F2D52]/35" : "bg-[#0F2D52]/45"}`} />
         <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 md:px-6 min-h-[85vh] md:min-h-[90vh] pt-32 md:pt-[120px] pb-8 md:pb-0">
