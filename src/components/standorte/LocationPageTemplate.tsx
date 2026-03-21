@@ -155,6 +155,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
   }, [courseParam]);
 
   const [activeAccordion, setActiveAccordion] = useState(initialAccordion);
+  const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
 
   const [formData, setFormData] = useState({
     name: "",
