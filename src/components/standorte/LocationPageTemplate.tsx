@@ -574,7 +574,8 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
                         <Checkbox checked={isActive} onCheckedChange={(checked) => handleInterestChange(option.id, checked as boolean)} className={isActive ? "border-white data-[state=checked]:bg-white data-[state=checked]:text-[#0F2D52]" : ""} />
                         <span className={`text-sm font-medium ${isActive ? "text-white" : "text-slate-700"}`}>{option.label}</span>
                       </label>
-                    ))}
+                      );
+                    })}
                   </div>
                   {errors.interests && <p className="text-sm text-destructive">{errors.interests}</p>}
                 </div>
