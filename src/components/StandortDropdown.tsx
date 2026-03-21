@@ -13,7 +13,7 @@ interface StandortDropdownProps {
   /** Query params appended to route, e.g. "?course=seepferdchen" */
   queryParams?: string;
   /** Visual variant */
-  variant?: "orange" | "orange-large";
+  variant?: "orange" | "orange-large" | "ghost-header";
   /** Label override */
   label?: string;
   /** Alignment of dropdown */
