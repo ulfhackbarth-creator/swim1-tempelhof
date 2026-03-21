@@ -25,17 +25,29 @@ const GlobalHeader = () => {
   const lastScrollY = useRef(0);
   const suppressHideUntil = useRef(0);
 
+  const scrollUpAccumulator = useRef(0);
+  const SCROLL_UP_THRESHOLD = 60; // px user must scroll up before header reappears
+
   const handleScroll = useCallback(() => {
     const currentScrollY = window.scrollY;
+    const delta = currentScrollY - lastScrollY.current;
+
     if (currentScrollY < 50) {
       setIsVisible(true);
+      scrollUpAccumulator.current = 0;
     } else if (Date.now() < suppressHideUntil.current) {
-      // During programmatic scroll, force hidden
       setIsVisible(false);
-    } else if (currentScrollY > lastScrollY.current) {
+      scrollUpAccumulator.current = 0;
+    } else if (delta > 0) {
+      // Scrolling down
       setIsVisible(false);
+      scrollUpAccumulator.current = 0;
     } else {
-      setIsVisible(true);
+      // Scrolling up — accumulate distance
+      scrollUpAccumulator.current += Math.abs(delta);
+      if (scrollUpAccumulator.current >= SCROLL_UP_THRESHOLD) {
+        setIsVisible(true);
+      }
     }
     lastScrollY.current = currentScrollY;
   }, []);
