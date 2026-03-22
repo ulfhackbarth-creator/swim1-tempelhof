@@ -110,9 +110,9 @@ export const cityConfigs: Record<string, CityConfig> = {
     cityName: "Wildau",
     locationLabel: "SWIM1 im A10 Center Wildau",
     heroTagline: "SWIM1 im A10 Center Wildau",
-    heroHeading: "Schwimmkurse für die ganze Familie – jetzt in Wildau!",
+    heroHeading: "Willkommen bei Swim1 in Wildau.",
     heroSubtext:
-      "SWIM1 eröffnet im A10 Center Wildau. Trag dich kostenlos auf die Warteliste ein und sichere dir 48 Stunden vor allen anderen Zugriff auf die Kursbuchung.",
+      "Deine Premium-Schwimmschule direkt vor Ort. Entdecke unsere Kurse für Kinder und Erwachsene in einer familiären, sicheren Atmosphäre.",
     locationBenefit: {
       title: "Im A10 Center",
       description: "Zentral in Wildau – mit Parkplätzen & bester Anbindung",
