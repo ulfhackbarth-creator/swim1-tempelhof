@@ -245,52 +245,54 @@ const Index = () => {
     </section>
 
     {/* ─── STANDORTE ─── */}
-    <section id="standorte" className="py-16 md:py-32 bg-slate-50 scroll-mt-20">
+    <section id="standorte" className="py-16 md:py-32 bg-[#0C2D48] scroll-mt-20">
       <div className="max-w-6xl mx-auto px-6">
-        <motion.h2
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 text-center mb-14 md:mb-20"
+          className="text-center mb-14 md:mb-20"
         >
-          Swim1 in deiner Nähe
-        </motion.h2>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-4">
+            Swim1 in deiner Nähe
+          </h2>
+          <p className="text-white/70 font-medium">4 Standorte – immer in deiner Nähe</p>
+        </motion.div>
 
-        <div className="bg-white rounded-[2.5rem] p-6 md:p-10 shadow-xl shadow-slate-200/40 border border-slate-100">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {standorte.map((loc, i) => {
-              return (
-                <motion.div
-                  key={loc.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="rounded-[2rem] p-6 border bg-slate-50 border-slate-100 flex flex-col"
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {standorte.map((loc, i) => {
+            const isActive = loc.status === "active";
+            return (
+              <motion.div
+                key={loc.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="bg-white rounded-[2rem] p-6 flex flex-col shadow-lg"
+              >
+                <span className={`inline-block text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-4 w-fit ${isActive ? "bg-[#C6FF00]/20 text-[#0C2D48]" : "bg-slate-100 text-slate-500"}`}>
+                  {isActive ? "✓ Jetzt buchbar" : "Bald verfügbar"}
+                </span>
+                <h3 className="text-xl font-bold text-slate-900 mb-1">{loc.name}</h3>
+                <p className="text-sm font-semibold text-[#0C2D48] mb-0.5">{loc.center}</p>
+                <p className="text-slate-500 text-sm mb-4">{loc.address}</p>
+                <div className="flex flex-wrap gap-1.5 mb-5">
+                  {loc.features.map((f) => (
+                    <span key={f} className="text-[11px] font-medium text-[#0C2D48] bg-slate-100 px-2.5 py-0.5 rounded-full">{f}</span>
+                  ))}
+                </div>
+                <Link
+                  to={loc.route}
+                  onClick={() => window.scrollTo({ top: 0 })}
+                  className={`w-full mt-auto rounded-full py-3 text-sm text-center font-semibold transition-colors ${isActive ? "bg-[#C6FF00] hover:bg-[#B0E000] text-[#0C2D48]" : "bg-slate-100 hover:bg-slate-200 text-slate-700"}`}
                 >
-                  <span className="inline-block text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-4 w-fit bg-green-50 text-green-700">
-                    ✓ Warteliste
-                  </span>
-                  <h3 className="text-xl font-bold text-slate-900 mb-1">{loc.name}</h3>
-                  <p className="text-sm font-medium text-[#0C2D48] mb-0.5">{loc.center}</p>
-                  <p className="text-slate-500 text-sm mb-4">{loc.address}</p>
-                  <div className="flex flex-wrap gap-1.5 mb-5">
-                    {loc.features.map((f) => (
-                      <span key={f} className="text-[11px] font-medium text-[#0C2D48] bg-secondary px-2.5 py-0.5 rounded-full">{f}</span>
-                    ))}
-                  </div>
-                  <Link
-                    to={loc.route}
-                    onClick={() => window.scrollTo({ top: 0 })}
-                    className="w-full mt-auto rounded-full py-3 text-sm text-center font-semibold transition-colors bg-[#C6FF00] hover:bg-[#B0E000] text-[#0C2D48]"
-                  >
-                    Standort entdecken
-                  </Link>
-                </motion.div>
-              );
-            })}
-          </div>
+                  {isActive ? "Standort entdecken" : "Zur Warteliste"}
+                </Link>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
