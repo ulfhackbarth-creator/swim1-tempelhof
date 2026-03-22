@@ -7,14 +7,8 @@ import HomeFooter from "@/components/home/HomeFooter";
 import HeroVideoBackground from "@/components/HeroVideoBackground";
 import { standorte } from "@/data/standorteData";
 
-const heroVideos = [
-  "https://videos.pexels.com/video-files/5888968/5888968-uhd_2560_1440_30fps.mp4",
-  "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028281720/oNJkUzlVKWrdgGBV.mp4",
-  "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028281720/sLFSYxdJMAiQdOXX.mp4",
-  "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028281720/jUDOvskOIkWiOmuC.mp4",
-  "https://videos.pexels.com/video-files/8050098/8050098-hd_1920_1080_25fps.mp4",
-  "https://videos.pexels.com/video-files/6539674/6539674-hd_1920_1080_25fps.mp4",
-];
+const heroVideos = ["/videos/startseite_desktop.mp4"];
+const heroMobileVideos = ["/videos/startseite_mobile.mp4"];
 
 const trustStats = [
   { value: "Max. 6 Kinder", label: "Kleine Gruppen" },
