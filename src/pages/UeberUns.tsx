@@ -91,7 +91,7 @@ const UeberUns = () => {
                 Schwimmen ist nicht nur eine Sportart – es ist eine Fähigkeit fürs Leben. Doch viel zu oft scheitert das Lernen an überfüllten öffentlichen Bädern, kaltem Wasser und Zeitdruck.
               </p>
               <p className="text-slate-600 text-lg leading-relaxed mt-4">
-                Deshalb haben wir Swim1 gegründet. Wir bauen eigene Schwimmschulen, die exakt auf eine Sache ausgerichtet sind: in einer geschützten, warmen Umgebung in kleinen Gruppen schwimmen zu lernen. Ohne Stress, dafür mit ganz viel Herz.
+                Deshalb haben wir SWIM1 gegründet. Wir bauen eigene Schwimmschulen, die exakt auf eine Sache ausgerichtet sind: in einer geschützten, warmen Umgebung in kleinen Gruppen schwimmen zu lernen. Ohne Stress, dafür mit ganz viel Herz.
               </p>
             </motion.div>
             <motion.div
