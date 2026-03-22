@@ -72,6 +72,7 @@ const UeberUns = () => {
           >
             Mehr erfahren <ArrowDown className="w-4 h-4" />
           </motion.button>
+          <HeroTrustLine />
         </div>
       </section>
 

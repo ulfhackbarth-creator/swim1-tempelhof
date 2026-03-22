@@ -41,9 +41,10 @@ const CityHero = ({ city }: CityHeroProps) => {
             </Button>
           </div>
 
-          <p className="mt-6 text-sm text-primary-foreground/70">
+          <p className="mt-4 text-sm text-primary-foreground/70">
             Unverbindlich & kostenlos
           </p>
+          <HeroTrustLine />
         </motion.div>
       </div>
 
