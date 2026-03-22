@@ -16,6 +16,7 @@ import Bremen from "./pages/standorte/Bremen";
 import Impressum from "./pages/legal/Impressum";
 import Datenschutz from "./pages/legal/Datenschutz";
 import AGB from "./pages/legal/AGB";
+import UeberUns from "./pages/UeberUns";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -44,6 +45,7 @@ const App = () => (
           <Route path="/bremen" element={<Bremen />} />
           <Route path="/impressum" element={<Impressum />} />
           <Route path="/datenschutz" element={<Datenschutz />} />
+          <Route path="/ueber-uns" element={<UeberUns />} />
           <Route path="/agb" element={<AGB />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

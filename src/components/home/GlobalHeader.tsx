@@ -21,7 +21,7 @@ const chips = [
 ];
 
 const menuLinks = [
-  { label: "Über uns", href: "/#philosophie", Icon: Users },
+  { label: "Über uns", href: "/ueber-uns", Icon: Users },
   { label: "FAQ", href: "/#faq", Icon: HelpCircle },
   { label: "Kontakt", href: "/#standorte", Icon: Mail },
 ];
