@@ -196,7 +196,7 @@ const Index = () => {
               transition={{ duration: 0.5, delay: i * 0.1 }}
               className="flex flex-row items-start gap-6 text-left"
             >
-              <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-secondary text-[#0C2D48] flex items-center justify-center">
+              <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-blue-50 text-[#1a6fb5] flex items-center justify-center">
                 <item.Icon className="w-8 h-8" strokeWidth={1.5} />
               </div>
               <div>
