@@ -169,6 +169,23 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
   }, [courseParam]);
 
   const [activeAccordion, setActiveAccordion] = useState(initialAccordion);
+
+  // Scroll to the selected accordion category when it changes (user interaction only)
+  const isInitialMount = useRef(true);
+  useEffect(() => {
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      return;
+    }
+    if (!activeAccordion) return;
+    const el = accordionRefs.current[activeAccordion];
+    if (el) {
+      setTimeout(() => {
+        const top = el.getBoundingClientRect().top + window.scrollY - 100;
+        window.scrollTo({ top, behavior: "smooth" });
+      }, 150);
+    }
+  }, [activeAccordion]);
   const [selectedCourse, setSelectedCourse] = useState<string | null>(initialSelectedCourse);
 
   const [formData, setFormData] = useState({
