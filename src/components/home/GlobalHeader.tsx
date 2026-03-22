@@ -149,6 +149,24 @@ const GlobalHeader = () => {
                 </SheetTitle>
               </SheetHeader>
 
+              {/* Kurse section */}
+              <div className="p-6 border-b border-slate-100">
+                <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-4">Kurse</p>
+                <div className="space-y-1">
+                  {chips.map((chip) => (
+                    <Link
+                      key={chip.id}
+                      to={chip.path}
+                      onClick={() => { setMenuOpen(false); window.scrollTo({ top: 0 }); }}
+                      className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-700 hover:bg-slate-50 hover:text-[#0C2D48] transition-colors text-sm font-medium"
+                    >
+                      <chip.Icon className="w-4 h-4 text-slate-400" />
+                      {chip.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
               {/* Standorte section */}
               <div className="p-6 border-b border-slate-100">
                 <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-4">Standorte</p>
