@@ -1,7 +1,8 @@
+import { useState, useCallback, useRef } from "react";
 import { Helmet } from "react-helmet-async";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, ArrowDown, Star, Waves, Droplets, PersonStanding, Activity, HeartPulse, ShieldCheck, Lock, Users, Heart } from "lucide-react";
+import { ArrowRight, ArrowDown, Star, Waves, Droplets, PersonStanding, Activity, HeartPulse, ShieldCheck, Lock, Users, Heart, Check, MapPin } from "lucide-react";
 
 import TestimonialCard from "@/components/TestimonialCard";
 import GlobalHeader from "@/components/home/GlobalHeader";
