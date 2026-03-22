@@ -23,9 +23,9 @@ export const uspsByTab: Record<CourseTab, { title: string; items: UspItem[] }> =
   erwachsene: {
     title: "Warum Erwachsene sich bei uns wohlfühlen",
     items: [
-      { Icon: Shield, label: "Geschützter Rahmen", text: "Kein öffentlicher Badebetrieb. Du lernst ungestört und ohne fremde Zuschauer in unseren privaten Becken." },
-      { Icon: Users, label: "Kleine Gruppen", text: "Mit maximal 8 Teilnehmern kann sich unser Trainer intensiv um deine individuellen Bedürfnisse kümmern." },
-      { Icon: Heart, label: "Einfühlsame Trainer", text: "Unsere Trainer sind speziell für Erwachsene ausgebildet und helfen dir, Ängste Schritt für Schritt abzubauen." },
+      { Icon: Shield, label: "Geschützter Rahmen", text: "Eigene Becken, kein öffentlicher Badebetrieb, keine fremden Zuschauer. Du lernst in einem Umfeld, in dem du dich sicher fühlen kannst." },
+      { Icon: Users, label: "Kleine Gruppen", text: "Maximal 8 Teilnehmer pro Kurs. So bleibt genug Raum für individuelle Begleitung – und niemand geht unter." },
+      { Icon: Heart, label: "Einfühlsame Trainer", text: "Unsere Trainer wissen, dass Erwachsene andere Bedürfnisse haben als Kinder. Kein Druck, keine Ungeduld – dafür echte Unterstützung." },
     ],
   },
   fitness: {

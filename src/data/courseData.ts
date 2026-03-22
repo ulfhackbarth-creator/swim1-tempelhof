@@ -15,8 +15,8 @@ export const heroContent: Record<CourseTab, { video: string | string[]; headline
   },
   erwachsene: {
     video: ["https://files.manuscdn.com/user_upload_by_module/session_file/310419663028281720/sLFSYxdJMAiQdOXX.mp4", "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028281720/jUDOvskOIkWiOmuC.mp4"],
-    headline: "Es ist nie zu spät, sich im Wasser sicher zu fühlen.",
-    subtext: "Egal, ob du deine Angst überwinden, von Grund auf neu lernen oder deine Technik perfektionieren möchtest – wir begleiten dich in einem geschützten, diskreten Rahmen.",
+    headline: "Es ist nie zu spät, schwimmen zu lernen.",
+    subtext: "Viele Erwachsene haben diesen Schritt noch vor sich – und bei uns findest du dafür genau den richtigen Rahmen. In einer sicheren, urteilsfreien Umgebung und kleinen Gruppen begleiten dich unsere erfahrenen Trainer geduldig. Entdecke die Freude daran, ein neues Element für dich zu meistern – in deinem eigenen Tempo.",
   },
   fitness: {
     video: "https://videos.pexels.com/video-files/8050098/8050098-hd_1920_1080_25fps.mp4",
@@ -97,13 +97,13 @@ export const coursesByTab: Record<CourseTab, Course[]> = {
   erwachsene: [
     {
       icon: LifeBuoy, tag: "Für Anfänger", name: "Anfängerschwimmen",
-      text: "Es ist nie zu spät, sich im Wasser sicher zu fühlen. Wir begleiten dich behutsam – ohne Druck, ohne Zuschauer.",
+      text: "Du hast nie richtig schwimmen gelernt – oder es liegt lange zurück. Wir begleiten dich von Grund auf, ohne Druck und ohne Zuschauer.",
       details: "Der perfekte Einstieg für Erwachsene, die noch nicht schwimmen können oder Angst vor dem Wasser haben. In kleinen Gruppen und ohne Zuschauer lernst du die Grundlagen sicher und entspannt.",
       highlights: ["Kleine Gruppen (max. 8)", "Ohne Zuschauer", "Behutsamer Aufbau"],
     },
     {
       icon: Timer, tag: "Für Fortgeschrittene", name: "Technik",
-      text: "Du kannst bereits schwimmen, möchtest aber deine Technik verbessern oder Kraulen lernen? Hier feilen wir an deiner Wasserlage und Ausdauer.",
+      text: "Du schwimmst bereits, willst aber effizienter und sicherer werden. Wir arbeiten gezielt an Technik, Wasserlage und Ausdauer.",
       details: "Verbessere deine Schwimmtechnik gezielt: Kraulschwimmen, Wasserlage, Atmung und Ausdauer. Unser Trainer gibt dir individuelles Feedback für spürbare Fortschritte.",
       highlights: ["Kraul- & Brusttechnik", "Individuelles Feedback", "Für alle Fitnesslevel"],
     },
