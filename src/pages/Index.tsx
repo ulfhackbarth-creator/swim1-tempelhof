@@ -245,7 +245,7 @@ const Index = () => {
     </section>
 
     {/* ─── STANDORTE ─── */}
-    <section id="standorte" className="py-16 md:py-32 bg-[#0C2D48] scroll-mt-20">
+    <section id="standorte" className="py-16 md:py-32 bg-white scroll-mt-20">
       <div className="max-w-6xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -254,10 +254,10 @@ const Index = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-14 md:mb-20"
         >
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-4">
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 mb-4">
             Swim1 in deiner Nähe
           </h2>
-          <p className="text-white/70 font-medium">4 Standorte – immer in deiner Nähe</p>
+          <p className="text-slate-500 font-medium">4 Standorte – immer in deiner Nähe</p>
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
