@@ -25,7 +25,7 @@ const FinalCTA = () => {
           <Button
             size="lg"
             className="rounded-full font-bold px-10"
-            style={{ backgroundColor: '#C6FF00', color: '#0F2D52' }}
+            style={{ backgroundColor: '#C6FF00', color: '#0C2D48' }}
             onClick={scrollToLocations}
           >
             Jetzt Kurs buchen

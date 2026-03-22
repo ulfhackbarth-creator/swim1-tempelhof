@@ -322,7 +322,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
             onClick={() => scrollToForm()}
-            className="mt-8 md:mt-10 inline-flex items-center gap-2 rounded-full px-6 py-3 font-semibold text-base text-[#0F2D52] transition-colors shadow-lg bg-[#C6FF00] hover:bg-[#B0E000]"
+            className="mt-8 md:mt-10 inline-flex items-center gap-2 rounded-full px-6 py-3 font-semibold text-base text-[#0C2D48] transition-colors shadow-lg bg-[#C6FF00] hover:bg-[#B0E000]"
             style={{ boxShadow: "0 8px 24px -4px rgba(198,255,0,0.3)" }}
           >
             Jetzt auf die Warteliste setzen <ArrowDown className="w-4 h-4" />
@@ -438,7 +438,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
                             <button
                               onClick={(e) => { e.stopPropagation(); scrollToForm(sub.interest); }}
                               className={`shrink-0 ml-4 inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 text-sm font-bold transition-colors ${
-                                "text-[#0F2D52] bg-[#C6FF00] hover:bg-[#B0E000]"
+                                "text-[#0C2D48] bg-[#C6FF00] hover:bg-[#B0E000]"
                               }`}
                             >
                               Warteliste <ChevronRight className="w-3.5 h-3.5" />
@@ -470,7 +470,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
                             <button
                               onClick={(e) => { e.stopPropagation(); scrollToForm((course as any).interest); }}
                               className={`shrink-0 ml-4 inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 text-sm font-bold transition-colors ${
-                                "text-[#0F2D52] bg-[#C6FF00] hover:bg-[#B0E000]"
+                                "text-[#0C2D48] bg-[#C6FF00] hover:bg-[#B0E000]"
                               }`}
                             >
                               Warteliste <ChevronRight className="w-3.5 h-3.5" />
@@ -572,7 +572,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
                       const isActive = formData.interests.includes(option.id);
                       return (
                       <label key={option.id} className={`flex items-center gap-3 p-3 rounded-xl border cursor-pointer transition-all duration-200 ${isActive ? "bg-[#0F2D52] border-[#0F2D52] text-white" : "bg-slate-50 border-slate-200 hover:border-[#1B4F8A]/30 text-slate-700"}`}>
-                        <Checkbox checked={isActive} onCheckedChange={(checked) => handleInterestChange(option.id, checked as boolean)} className={isActive ? "border-white data-[state=checked]:bg-white data-[state=checked]:text-[#0F2D52]" : ""} />
+                        <Checkbox checked={isActive} onCheckedChange={(checked) => handleInterestChange(option.id, checked as boolean)} className={isActive ? "border-white data-[state=checked]:bg-white data-[state=checked]:text-[#0C2D48]" : ""} />
                         <span className={`text-sm font-medium ${isActive ? "text-white" : "text-slate-700"}`}>{option.label}</span>
                       </label>
                       );
@@ -584,7 +584,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className="w-full rounded-full py-4 font-bold text-lg text-[#0F2D52] bg-[#C6FF00] hover:bg-[#B0E000] transition-colors disabled:opacity-50 shadow-lg"
+                  className="w-full rounded-full py-4 font-bold text-lg text-[#0C2D48] bg-[#C6FF00] hover:bg-[#B0E000] transition-colors disabled:opacity-50 shadow-lg"
                   style={{ boxShadow: "0 10px 30px -5px rgba(198,255,0,0.3)" }}
                 >
                   {isLoading ? "Wird eingetragen..." : "Jetzt Platz sichern"}

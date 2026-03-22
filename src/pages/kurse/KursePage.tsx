@@ -144,7 +144,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
                 window.scrollTo({ top: y, behavior: 'smooth' });
               }
             }}
-            className="mt-8 md:mt-10 inline-flex items-center gap-2 rounded-full px-6 py-3 font-semibold text-base text-[#0F2D52] transition-colors shadow-lg bg-[#C6FF00] hover:bg-[#B0E000]"
+            className="mt-8 md:mt-10 inline-flex items-center gap-2 rounded-full px-6 py-3 font-semibold text-base text-[#0C2D48] transition-colors shadow-lg bg-[#C6FF00] hover:bg-[#B0E000]"
             style={{ boxShadow: "0 8px 24px -4px rgba(198,255,0,0.3)" }}
           >
             Kurs wählen <ArrowDown className="w-4 h-4" />
@@ -348,7 +348,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
                     ))}
                   </div>
                   <Link to={loc.route} onClick={() => window.scrollTo({ top: 0 })}
-                    className={`w-full mt-auto rounded-full py-3 text-sm text-center font-semibold transition-colors ${isActive ? "bg-[#C6FF00] hover:bg-[#B0E000] text-[#0F2D52]" : "bg-slate-200 text-slate-500 hover:bg-slate-300"}`}
+                    className={`w-full mt-auto rounded-full py-3 text-sm text-center font-semibold transition-colors ${isActive ? "bg-[#C6FF00] hover:bg-[#B0E000] text-[#0C2D48]" : "bg-slate-200 text-slate-500 hover:bg-slate-300"}`}
                   >
                     {isActive ? "Standort entdecken" : "Zur Warteliste"}
                   </Link>
