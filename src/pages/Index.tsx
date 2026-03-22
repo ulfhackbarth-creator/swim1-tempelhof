@@ -216,7 +216,7 @@ const Index = () => {
           <p className="text-white/70 font-medium">Über 4,9 Sterne auf Google</p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {testimonials.map((t, i) => (
             <motion.div
               key={t.name}
