@@ -123,7 +123,7 @@ const GlobalHeader = () => {
       style={{ backgroundColor: HEADER_BG }}
     >
       {/* Row 1 — Logo + Actions */}
-      <div className="px-4 md:px-10 py-3 flex items-center justify-between">
+      <div className="max-w-6xl mx-auto px-4 md:px-6 py-3 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2.5" onClick={() => window.scrollTo({ top: 0 })}>
           <Waves className="w-5 h-5 text-white" />
           <span className="font-bold text-lg text-white tracking-tight">SWIM1</span>
@@ -194,7 +194,7 @@ const GlobalHeader = () => {
       {/* Row 2 — Category navigation */}
       <div
         ref={containerRef}
-        className="px-4 md:px-10 pb-3 pt-1 flex flex-row gap-2 overflow-x-auto scrollbar-hide border-t border-white/10"
+        className="max-w-6xl mx-auto px-4 md:px-6 pb-3 pt-1 flex flex-row gap-2 overflow-x-auto scrollbar-hide border-t border-white/10"
       >
         {chips.map((chip) => {
           const isActive = !isHome && location.pathname === chip.path;
