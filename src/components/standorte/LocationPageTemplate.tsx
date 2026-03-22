@@ -185,7 +185,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
       // Suppress header show-on-scroll-up during programmatic scroll
       window.dispatchEvent(new CustomEvent("suppress-header"));
       setTimeout(() => {
-        const top = el.getBoundingClientRect().top + window.scrollY - 100;
+        const top = el.getBoundingClientRect().top + window.scrollY - 20;
         window.scrollTo({ top, behavior: "smooth" });
       }, 150);
     }
