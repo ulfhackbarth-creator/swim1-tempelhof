@@ -129,14 +129,9 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
             <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold text-white tracking-tight leading-tight md:leading-[1.1] mb-4 md:mb-6">
               {content.headline}
             </h1>
-            <ul className="flex flex-col items-center gap-2.5 text-base md:text-lg text-white/85 max-w-2xl mx-auto">
-              {content.bullets.map((bullet, i) => (
-                <li key={i} className="flex items-center gap-2.5">
-                  <span className="w-2 h-2 rounded-full bg-[#F97316] shrink-0" />
-                  {bullet}
-                </li>
-              ))}
-            </ul>
+            <p className="text-base md:text-lg text-white/85 max-w-2xl mx-auto">
+              {content.subtext}
+            </p>
           </motion.div>
           <motion.button
             initial={{ opacity: 0, y: 10 }}

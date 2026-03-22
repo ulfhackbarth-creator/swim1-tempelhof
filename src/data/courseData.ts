@@ -2,36 +2,31 @@ import type { CourseTab } from "@/types/course";
 import type { LucideIcon } from "lucide-react";
 import { Fish, Medal, Trophy, Sun, Baby, Users, LifeBuoy, Timer, Dumbbell, HeartPulse } from "lucide-react";
 
-export const heroContent: Record<CourseTab, { video: string | string[]; headline: string; subtext: string; bullets: string[] }> = {
+export const heroContent: Record<CourseTab, { video: string | string[]; headline: string; subtext: string }> = {
   kinderschwimmen: {
     video: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028281720/oNJkUzlVKWrdgGBV.mp4",
     headline: "Schwimmen lernen. Eine Fähigkeit fürs Leben.",
-    subtext: "Schwimmen ist eine Fähigkeit fürs Leben – und wir bringen sie deinem Kind von Grund auf bei. In unseren eigenen Becken, mit kleinen Gruppen und Trainern, die sich Zeit nehmen, lernt dein Kind nicht nur richtig schwimmen, sondern entdeckt auch die langfristige Freude daran.",
-    bullets: ["Vom Seepferdchen bis zum Goldabzeichen", "Kleine Gruppen mit max. 6 Kindern", "Zertifizierte, pädagogisch ausgebildete Trainer"],
+    subtext: "Ab 3,5 Jahren · Max. 6 Kinder · Vom Seepferdchen bis Gold",
   },
   wassergewoehnung: {
     video: "https://videos.pexels.com/video-files/5888968/5888968-uhd_2560_1440_30fps.mp4",
     headline: "Wasser gemeinsam erleben. Von Anfang an.",
-    subtext: "Der erste Kontakt mit dem Wasser ist ein besonderer Moment. In unseren Wassergewöhnungskursen geht es darum, das Element Wasser gemeinsam zu erleben und die Bindung zwischen dir und deinem Kind zu stärken. In warmem Wasser und ruhiger Atmosphäre schaffen wir spielerisch die Grundlage für erste motorische Fähigkeiten – ganz ohne Druck, dafür mit viel Vertrauen.",
-    bullets: ["Für Babys ab 3 Monaten & Kleinkinder", "Spielerisch im 32 °C warmen Wasser", "Gemeinsam mit Mama oder Papa"],
+    subtext: "Ab 3 Monaten · Mit Elternteil · Warmes Wasser, ruhige Atmosphäre",
   },
   erwachsene: {
     video: ["https://files.manuscdn.com/user_upload_by_module/session_file/310419663028281720/sLFSYxdJMAiQdOXX.mp4", "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028281720/jUDOvskOIkWiOmuC.mp4"],
     headline: "Es ist nie zu spät, schwimmen zu lernen.",
-    subtext: "Viele Erwachsene haben diesen Schritt noch vor sich – und bei uns findest du dafür genau den richtigen Rahmen. In einer sicheren, urteilsfreien Umgebung und kleinen Gruppen begleiten dich unsere erfahrenen Trainer geduldig. Entdecke die Freude daran, ein neues Element für dich zu meistern – in deinem eigenen Tempo.",
-    bullets: ["Anfängerschwimmen & Techniktraining", "Eigene Becken, ohne Zuschauer", "Kleine Gruppen mit max. 8 Teilnehmern"],
+    subtext: "Anfänger & Fortgeschrittene · Ohne Zuschauer · In deinem Tempo",
   },
   fitness: {
     video: "https://videos.pexels.com/video-files/8050098/8050098-hd_1920_1080_25fps.mp4",
     headline: "Bewegung, die sich leicht anfühlt.",
-    subtext: "Aquafitness bei Swim1 ist kein klassisches Workout. Es ist Bewegung im Wasser – gelenkschonend, in Gemeinschaft und mit echtem Spaß.",
-    bullets: ["Gelenkschonendes Ganzkörper-Training", "Für jedes Fitnesslevel geeignet", "Kleine Gruppen mit max. 8 Teilnehmern"],
+    subtext: "Gelenkschonend · Alle Level · 32 °C warmes Wasser",
   },
   reha: {
     video: "https://videos.pexels.com/video-files/6539674/6539674-hd_1920_1080_25fps.mp4",
     headline: "Zurück zu alter Stärke.",
-    subtext: "Wenn der Körper Unterstützung braucht, ist das Wasser das beste Element, um zurück zu alter Stärke zu finden. Mit kleinen Gruppen, warmem Wasser und erfahrenen Trainern.",
-    bullets: ["Auf ärztliches Rezept verordnungsfähig", "Von gesetzlichen Krankenkassen anerkannt", "Medizinisch begleitetes Training im Wasser"],
+    subtext: "Auf ärztliches Rezept · Krankenkassen-anerkannt · Medizinisch begleitet",
   },
 };
 
