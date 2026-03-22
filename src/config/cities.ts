@@ -28,7 +28,7 @@ export const cityConfigs: Record<string, CityConfig> = {
     cityName: "Berlin-Tempelhof",
     locationLabel: "SWIM1 in Berlin-Tempelhof",
     heroTagline: "SWIM1 in Berlin-Tempelhof",
-    heroHeading: "Willkommen bei Swim1 in Berlin-Tempelhof.",
+    heroHeading: "Willkommen bei SWIM1 in Berlin-Tempelhof.",
     heroSubtext:
       "Deine Premium-Schwimmschule direkt vor Ort. Entdecke unsere Kurse für Kinder und Erwachsene in einer familiären, sicheren Atmosphäre.",
     locationBenefit: {
