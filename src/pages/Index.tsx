@@ -258,7 +258,7 @@ const Index = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="group bg-white rounded-[2rem] p-6 shadow-lg shadow-slate-300/50 border-2 border-slate-200 flex flex-col hover:-translate-y-1 hover:shadow-xl active:scale-[0.98] transition-all cursor-pointer"
+                className="group bg-white rounded-[2rem] p-6 shadow-lg shadow-slate-300/50 border-2 border-slate-200 flex flex-col hover:-translate-y-1 hover:shadow-xl active:bg-[#0C2D48] active:border-[#0C2D48] active:[&_h3]:text-white active:[&_p]:text-white/70 active:[&_span]:text-white/80 transition-all cursor-pointer"
               >
                 <span className="inline-block text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-4 w-fit bg-green-100 text-green-800">
                   ✓ Warteliste
