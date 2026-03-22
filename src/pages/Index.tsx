@@ -7,8 +7,20 @@ import HomeFooter from "@/components/home/HomeFooter";
 import HeroVideoBackground from "@/components/HeroVideoBackground";
 import { standorte } from "@/data/standorteData";
 
-const heroVideos = ["/videos/startseite_desktop.mp4"];
-const heroMobileVideos = ["/videos/startseite_mobile.mp4"];
+const heroVideos = [
+  "/videos/kinderschwimmen_desktop.mp4",
+  "/videos/baby_kleinkinder_desktop.mp4",
+  "/videos/erwachsene_desktop.mp4",
+  "/videos/aquafitness_desktop.mp4",
+  "/videos/aquareha_desktop.mp4",
+];
+const heroMobileVideos = [
+  "/videos/kinderschwimmen_desktop.mp4",
+  "/videos/baby_kleinkinder_desktop.mp4",
+  "/videos/erwachsene_mobile.mp4",
+  "/videos/aquafitness_desktop.mp4",
+  "/videos/aquareha_desktop.mp4",
+];
 
 const trustStats = [
   { value: "Max. 6 Kinder", label: "Kleine Gruppen" },
