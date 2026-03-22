@@ -7,7 +7,7 @@ const config: LocationConfig = {
   displayName: "Bremen",
   heroVideos: ["/videos/standort_bremen_desktop.mp4"],
   heroPoster: "/videos/standort_bremen_desktop_poster.jpg",
-  heroHeadline: "SWIM1 Schwimmschule in Bremen",
+  heroHeadline: "SWIM1 – Deine Schwimmschule in Bremen",
   address: {
     streetAddress: "AG-Weser-Str. 3",
     addressLocality: "Bremen",
