@@ -60,8 +60,10 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
   const faqs = faqsByTab[tab];
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
+  const [selectedLocation, setSelectedLocation] = useState<string | null>(null);
   const kurseSectionRef = useRef<HTMLElement>(null);
   const cardRefs = useRef<Map<number, HTMLDivElement>>(new Map());
+  const locationCardRefs = useRef<Map<number, HTMLDivElement>>(new Map());
   const location = useLocation();
   const navigate = useNavigate();
 
