@@ -23,11 +23,11 @@ const trustStats = [
 ];
 
 const categories = [
-  { Icon: Droplets, tag: "Ab 3 Monaten", title: "Wassergewöhnung", text: "Babyschwimmen & Eltern-Kind-Kurse für die Kleinsten.", path: "/kurse/wassergewoehnung" },
-  { Icon: Waves, tag: "Ab 3,5 Jahren", title: "Kinderschwimmen", text: "Vom Seepferdchen bis zum Goldabzeichen – mit Spaß und Sicherheit.", path: "/kurse/kinderschwimmen" },
-  { Icon: PersonStanding, tag: "Alle Level", title: "Erwachsenenschwimmen", text: "Ängste abbauen oder Technik perfektionieren – in kleiner Gruppe.", path: "/kurse/erwachsene" },
-  { Icon: Activity, tag: "Gelenkschonend", title: "Aquafitness", text: "Effektives Ganzkörpertraining im 32 °C warmen Wasser.", path: "/kurse/aquafitness" },
-  { Icon: HeartPulse, tag: "Auf Rezept", title: "Aqua Reha", text: "Medizinisch begleitete Rehabilitation – von Krankenkassen anerkannt.", path: "/kurse/reha" },
+  { Icon: Droplets, tag: "Ab 3 Monaten", title: "Wassergewöhnung", text: "Gemeinsame Zeit im warmen Wasser. Dein Baby entdeckt spielerisch das Element Wasser.", path: "/kurse/wassergewoehnung" },
+  { Icon: Waves, tag: "Ab 3,5 Jahren", title: "Kinderschwimmen", text: "Vom ersten mutigen Sprung bis zum stolzen Seepferdchen – mit Geduld und Freude.", path: "/kurse/kinderschwimmen" },
+  { Icon: PersonStanding, tag: "Alle Level", title: "Erwachsenenschwimmen", text: "Ängste überwinden oder Technik perfektionieren – in geschütztem, diskretem Rahmen.", path: "/kurse/erwachsene" },
+  { Icon: Activity, tag: "Gelenkschonend", title: "Aquafitness", text: "Effektives Ganzkörpertraining im 32 °C warmen Wasser – voller Freude und Energie.", path: "/kurse/aquafitness" },
+  { Icon: HeartPulse, tag: "Auf Rezept", title: "Aqua Reha", text: "Medizinisch begleitete Rehabilitation im Wasser – für mehr Mobilität und Lebensqualität.", path: "/kurse/reha" },
 ];
 
 const philosophy = [
