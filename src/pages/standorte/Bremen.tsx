@@ -5,8 +5,8 @@ import type { LocationConfig } from "@/components/standorte/LocationPageTemplate
 const config: LocationConfig = {
   slug: "bremen",
   displayName: "Bremen",
-  heroVideos: ["/videos/standort_desktop.mp4"],
-  heroPoster: "/videos/standort_desktop_poster.jpg",
+  heroVideos: ["/videos/standort_bremen_desktop.mp4"],
+  heroPoster: "/videos/standort_bremen_desktop_poster.jpg",
   heroHeadline: "SWIM1 Schwimmschule in Bremen",
   address: {
     streetAddress: "AG-Weser-Str. 3",
