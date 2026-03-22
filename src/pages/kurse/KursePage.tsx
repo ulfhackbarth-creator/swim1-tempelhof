@@ -295,12 +295,12 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {tests.items.map((t, i) => (
-              <motion.div key={t.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }} className="bg-[#0C2D48]/40 border border-white/10 rounded-[2rem] p-6 md:p-10 backdrop-blur-sm h-full flex flex-col">
+              <motion.div key={t.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }} className="bg-white rounded-[2rem] p-6 md:p-10 shadow-lg shadow-slate-300/50 border-2 border-slate-200 h-full flex flex-col">
                 <div className="flex gap-0.5 mb-6">
                   {[...Array(5)].map((_, j) => <Star key={j} className="w-4 h-4 fill-current text-[#F59E0B]" />)}
                 </div>
-                <p className="text-lg text-white/90 font-medium leading-relaxed italic mb-8 flex-1">„{t.text}"</p>
-                <div><p className="text-white font-bold">{t.name}</p><p className="text-white/50 text-sm">{t.location}</p></div>
+                <p className="text-lg text-slate-700 font-medium leading-relaxed italic mb-8 flex-1">„{t.text}"</p>
+                <div><p className="text-slate-900 font-bold">{t.name}</p><p className="text-slate-500 text-sm">{t.location}</p></div>
               </motion.div>
             ))}
           </div>
@@ -335,7 +335,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
               const isActive = loc.status === "active";
               return (
                 <motion.div key={loc.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className={`rounded-[2rem] p-6 shadow-lg border flex flex-col ${isActive ? "bg-white shadow-slate-200/50 border-slate-100" : "bg-slate-50 shadow-slate-100/30 border-slate-100/60 opacity-80"}`}
+                  className={`rounded-[2rem] p-6 shadow-lg shadow-slate-300/50 border-2 flex flex-col ${isActive ? "bg-white border-slate-200" : "bg-white border-slate-200 opacity-80"}`}
                 >
                   <span className={`inline-block text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-4 w-fit ${isActive ? "bg-green-50 text-green-700" : "bg-orange-50 text-orange-600"}`}>
                     {isActive ? "✓ Jetzt buchbar" : "Bald verfügbar"}
