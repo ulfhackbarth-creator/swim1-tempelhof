@@ -15,8 +15,8 @@ export const heroContent: Record<CourseTab, { video: string | string[]; headline
   },
   erwachsene: {
     video: ["https://files.manuscdn.com/user_upload_by_module/session_file/310419663028281720/sLFSYxdJMAiQdOXX.mp4", "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028281720/jUDOvskOIkWiOmuC.mp4"],
-    headline: "Es ist nie zu spät, sich im Wasser sicher zu fühlen.",
-    subtext: "Egal, ob du deine Angst überwinden, von Grund auf neu lernen oder deine Technik perfektionieren möchtest – wir begleiten dich in einem geschützten, diskreten Rahmen.",
+    headline: "Es ist nie zu spät, schwimmen zu lernen.",
+    subtext: "Viele Erwachsene haben diesen Schritt noch vor sich – und bei uns findest du dafür genau den richtigen Rahmen. In einer sicheren, urteilsfreien Umgebung und kleinen Gruppen begleiten dich unsere erfahrenen Trainer geduldig. Entdecke die Freude daran, ein neues Element für dich zu meistern – in deinem eigenen Tempo.",
   },
   fitness: {
     video: "https://videos.pexels.com/video-files/8050098/8050098-hd_1920_1080_25fps.mp4",
