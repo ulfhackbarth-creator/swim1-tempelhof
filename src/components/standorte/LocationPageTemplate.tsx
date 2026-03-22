@@ -348,7 +348,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
                 transition={{ duration: 0.4, delay: i * 0.08 }}
                 className="flex items-start gap-5"
               >
-                <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-blue-50 text-[#0C2D48] flex items-center justify-center">
+                <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-secondary text-[#0C2D48] flex items-center justify-center">
                   <item.icon className="w-7 h-7" strokeWidth={1.5} />
                 </div>
                 <div>
@@ -386,7 +386,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
       </section>
 
       {/* ═══════════ 3. KURSANGEBOT AKKORDEON ═══════════ */}
-      <section className="py-16 md:py-32 bg-blue-50/50 px-4 md:px-6">
+      <section className="py-16 md:py-32 bg-secondary/50 px-4 md:px-6">
         <div className="max-w-3xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="text-center mb-12 md:mb-16">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mb-4">Unser Kursangebot</h2>
@@ -404,7 +404,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
               >
                 <AccordionTrigger className="hover:no-underline py-6">
                   <span className="flex items-center gap-4 text-left">
-                    <div className="w-12 h-12 rounded-2xl bg-blue-50 text-[#0C2D48] flex items-center justify-center shrink-0">
+                    <div className="w-12 h-12 rounded-2xl bg-secondary text-[#0C2D48] flex items-center justify-center shrink-0">
                       <course.icon className="w-6 h-6" strokeWidth={1.5} />
                     </div>
                     <span>
@@ -425,7 +425,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
                             className={`flex items-center justify-between rounded-2xl p-4 md:p-5 cursor-pointer transition-all duration-200 ${
                               isActive
                                 ? "bg-[#0C2D48] border-2 border-[#0C2D48] ring-2 ring-[#0C2D48]/20"
-                                : "bg-blue-50/60 border-2 border-transparent hover:border-slate-200"
+                                : "bg-secondary/60 border-2 border-transparent hover:border-slate-200"
                             }`}
                           >
                             <div className="min-w-0 flex-1 flex items-center gap-3">
@@ -457,7 +457,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
                             className={`flex items-center justify-between rounded-2xl p-4 md:p-5 cursor-pointer transition-all duration-200 ${
                               isActive
                                 ? "bg-[#0C2D48] border-2 border-[#0C2D48] ring-2 ring-[#0C2D48]/20"
-                                : "bg-blue-50/60 border-2 border-transparent hover:border-slate-200"
+                                : "bg-secondary/60 border-2 border-transparent hover:border-slate-200"
                             }`}
                           >
                             <div className="min-w-0 flex-1 flex items-center gap-3">
@@ -515,7 +515,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
       </section>
 
       {/* ═══════════ 5. WARTELISTEN-FORMULAR ═══════════ */}
-      <section ref={formRef} id="warteliste" className="py-16 md:py-32 bg-blue-50/50 px-4 scroll-mt-0">
+      <section ref={formRef} id="warteliste" className="py-16 md:py-32 bg-secondary/50 px-4 scroll-mt-0">
         <div className="max-w-lg mx-auto">
           {isSubmitted ? (
             <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="text-center bg-white p-8 md:p-12 rounded-[2rem] shadow-xl shadow-slate-200/40 border border-slate-100">
@@ -538,7 +538,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
                     <div className="w-8 h-8 rounded-full bg-blue-100 border-2 border-white flex items-center justify-center">
                       <Users className="w-4 h-4 text-[#0C2D48]" />
                     </div>
-                    <div className="w-8 h-8 rounded-full bg-blue-50 border-2 border-white flex items-center justify-center text-xs font-bold text-[#0C2D48]">S</div>
+                    <div className="w-8 h-8 rounded-full bg-secondary border-2 border-white flex items-center justify-center text-xs font-bold text-[#0C2D48]">S</div>
                     <div className="w-8 h-8 rounded-full bg-blue-100/70 border-2 border-white flex items-center justify-center text-xs font-bold text-[#0C2D48]">T</div>
                     <div className="w-8 h-8 rounded-full bg-blue-200/60 border-2 border-white flex items-center justify-center text-xs font-bold text-[#0C2D48]">J</div>
                   </div>

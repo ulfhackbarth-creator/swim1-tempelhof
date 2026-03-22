@@ -153,7 +153,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
       </section>
 
       {/* KURSANGEBOT + TRUST */}
-      <section id="kurse-section" ref={kurseSectionRef} className="bg-blue-50/50 py-16 md:py-24 px-4 md:px-6 scroll-mt-[0px]">
+      <section id="kurse-section" ref={kurseSectionRef} className="bg-secondary/50 py-16 md:py-24 px-4 md:px-6 scroll-mt-[0px]">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 text-center mb-12 md:mb-16">
             {courseSectionTitle[tab]}
@@ -184,7 +184,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
                   )}
                   <div className="flex items-start gap-4 mb-4">
                     <div className={`w-12 h-12 shrink-0 rounded-2xl flex items-center justify-center transition-colors duration-200 ${
-                      isSelected ? "bg-white/15" : "bg-blue-50 text-[#0C2D48]"
+                      isSelected ? "bg-white/15" : "bg-secondary text-[#0C2D48]"
                     }`}>
                       <course.icon className={`w-6 h-6 transition-colors duration-200 ${isSelected ? "text-white" : ""}`} strokeWidth={1.5} />
                     </div>
@@ -273,7 +273,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
             {usps.items.map((usp, i) => (
               <motion.div key={usp.label} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }} className="flex flex-row items-start gap-6 text-left">
-                <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-blue-50 text-[#0C2D48] flex items-center justify-center">
+                <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-secondary text-[#0C2D48] flex items-center justify-center">
                   <usp.Icon className="w-8 h-8" strokeWidth={1.5} />
                 </div>
                 <div>
@@ -344,7 +344,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
                   <p className="text-slate-500 text-sm mb-4">{loc.address}</p>
                   <div className="flex flex-wrap gap-1.5 mb-5">
                     {loc.features.map((f) => (
-                      <span key={f} className="text-[11px] font-medium text-[#0C2D48] bg-blue-50 px-2.5 py-0.5 rounded-full">{f}</span>
+                      <span key={f} className="text-[11px] font-medium text-[#0C2D48] bg-secondary px-2.5 py-0.5 rounded-full">{f}</span>
                     ))}
                   </div>
                   <Link to={loc.route} onClick={() => window.scrollTo({ top: 0 })}

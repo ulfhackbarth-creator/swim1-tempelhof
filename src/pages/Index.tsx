@@ -91,7 +91,7 @@ const Index = () => {
     </section>
 
     {/* ─── KURS-ÜBERSICHT ─── */}
-    <section id="kurse" className="py-16 md:py-28 bg-blue-50/50">
+    <section id="kurse" className="py-16 md:py-28 bg-secondary/50">
       <div className="max-w-6xl mx-auto px-6">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -118,7 +118,7 @@ const Index = () => {
                 className="group bg-white rounded-[2rem] p-6 md:p-10 shadow-lg shadow-slate-300/50 border-2 border-slate-200 flex flex-col h-full hover:-translate-y-1 hover:shadow-xl transition-all"
               >
                 <div className="flex items-start gap-4 mb-4">
-                  <div className="w-12 h-12 shrink-0 rounded-2xl bg-blue-50 text-[#0C2D48] flex items-center justify-center group-hover:scale-105 transition-transform">
+                  <div className="w-12 h-12 shrink-0 rounded-2xl bg-secondary text-[#0C2D48] flex items-center justify-center group-hover:scale-105 transition-transform">
                     <cat.Icon className="w-6 h-6" strokeWidth={1.5} />
                   </div>
                   <div className="min-w-0">
@@ -187,7 +187,7 @@ const Index = () => {
               transition={{ duration: 0.5, delay: i * 0.1 }}
               className="flex flex-row items-start gap-6 text-left"
             >
-              <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-blue-50 text-[#0C2D48] flex items-center justify-center">
+              <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-secondary text-[#0C2D48] flex items-center justify-center">
                 <item.Icon className="w-8 h-8" strokeWidth={1.5} />
               </div>
               <div>
@@ -277,7 +277,7 @@ const Index = () => {
                   <p className="text-slate-500 text-sm mb-4">{loc.address}</p>
                   <div className="flex flex-wrap gap-1.5 mb-5">
                     {loc.features.map((f) => (
-                      <span key={f} className="text-[11px] font-medium text-[#0C2D48] bg-blue-50 px-2.5 py-0.5 rounded-full">{f}</span>
+                      <span key={f} className="text-[11px] font-medium text-[#0C2D48] bg-secondary px-2.5 py-0.5 rounded-full">{f}</span>
                     ))}
                   </div>
                   <Link
