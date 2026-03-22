@@ -74,7 +74,7 @@ const Index = () => {
             Stolz fürs Leben.
           </h1>
           <p className="text-base md:text-xl text-white/80 max-w-2xl mx-auto">
-            Von der ersten Wassergewöhnung bis zum sicheren Schwimmer. Wir begleiten dein Kind mit Wärme, Geduld und zertifizierten Trainern – in kleinen Gruppen und 32°C warmem Wasser.
+            Vom ersten Schwimmzug bis zum sicheren Schwimmer. Swim1 begleitet dich und deine Familie – mit Wärme, Geduld und zertifizierten Trainern in kleinen Gruppen.
           </p>
         </motion.div>
         <motion.button
