@@ -495,7 +495,23 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
                         const isActive = selectedCourse === course.id;
                         return (
                           <div
-                            onClick={() => setSelectedCourse(isActive ? null : course.id)}
+                            ref={(el) => { courseCardRefs.current[course.id] = el; }}
+                            onClick={() => {
+                              const wasActive = selectedCourse === course.id;
+                              setSelectedCourse(wasActive ? null : course.id);
+                              if (!wasActive) {
+                                requestAnimationFrame(() => {
+                                  setTimeout(() => {
+                                    const card = courseCardRefs.current[course.id];
+                                    if (card) {
+                                      window.dispatchEvent(new CustomEvent("suppress-header", { detail: { duration: 800 } }));
+                                      const y = card.getBoundingClientRect().top + window.scrollY - 20;
+                                      window.scrollTo({ top: y, behavior: "smooth" });
+                                    }
+                                  }, 150);
+                                });
+                              }
+                            }}
                             className={`flex items-center justify-between rounded-2xl p-4 md:p-5 cursor-pointer transition-all duration-200 ${
                               isActive
                                 ? "bg-[#0C2D48] border-2 border-[#0C2D48] ring-2 ring-[#0C2D48]/20"
