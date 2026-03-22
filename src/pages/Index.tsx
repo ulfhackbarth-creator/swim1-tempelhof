@@ -62,7 +62,26 @@ const scrollTo = (id: string) => {
 };
 
 const Index = () => {
+  const [selectedLocation, setSelectedLocation] = useState<string | null>(null);
+  const locationCardRefs = useRef<Map<number, HTMLDivElement>>(new Map());
 
+  const handleSelectLocation = useCallback((name: string, index: number) => {
+    const isClosing = selectedLocation === name;
+    setSelectedLocation(isClosing ? null : name);
+
+    if (!isClosing) {
+      requestAnimationFrame(() => {
+        setTimeout(() => {
+          const card = locationCardRefs.current.get(index);
+          if (card) {
+            window.dispatchEvent(new CustomEvent("suppress-header", { detail: { duration: 800 } }));
+            const y = card.getBoundingClientRect().top + window.scrollY - 100;
+            window.scrollTo({ top: y, behavior: "smooth" });
+          }
+        }, 150);
+      });
+    }
+  }, [selectedLocation]);
   return (
   <main className="min-h-screen">
     <Helmet>
