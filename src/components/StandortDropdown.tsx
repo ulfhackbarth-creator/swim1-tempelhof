@@ -39,7 +39,7 @@ const StandortDropdown = ({
             isGhostHeader
               ? `border border-white/50 px-4 py-2 text-sm font-medium transition-colors duration-200 rounded-lg ${
                   isOpen
-                    ? "bg-white text-[#003580]"
+                    ? "bg-white text-[#0C2D48]"
                     : "bg-transparent text-white/80 hover:bg-white/10 hover:text-white"
                 }`
               : isLarge

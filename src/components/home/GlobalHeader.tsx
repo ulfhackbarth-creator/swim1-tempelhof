@@ -10,7 +10,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 
-const HEADER_BG = "#003580";
+const HEADER_BG = "#0C2D48";
 
 const chips = [
   { id: "wassergewoehnung", label: "Babyschwimmen", mobileLabel: "Baby & Kleinkinder", Icon: Droplets, path: "/kurse/wassergewoehnung" },
