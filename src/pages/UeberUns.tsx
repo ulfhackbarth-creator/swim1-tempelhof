@@ -37,7 +37,7 @@ const UeberUns = () => {
     <div className="min-h-screen">
       <Helmet>
         <title>Über uns | SWIM1 Schwimmschule</title>
-        <meta name="description" content="Erfahre mehr über Swim1 – unsere Mission, Philosophie und was uns als Schwimmschule einzigartig macht. Eigene Becken, kleine Gruppen, warmes Wasser." />
+        <meta name="description" content="Erfahre mehr über SWIM1 – unsere Mission, Philosophie und was uns als Schwimmschule einzigartig macht. Eigene Becken, kleine Gruppen, warmes Wasser." />
         <link rel="canonical" href="https://swim1.de/ueber-uns" />
       </Helmet>
       <GlobalHeader />
