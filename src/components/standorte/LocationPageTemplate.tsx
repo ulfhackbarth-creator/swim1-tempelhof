@@ -127,6 +127,7 @@ export interface LocationConfig {
 
 const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
   const formRef = useRef<HTMLDivElement>(null);
+  const accordionRefs = useRef<Record<string, HTMLDivElement | null>>({});
   const [searchParams] = useSearchParams();
   const courseParam = searchParams.get("course") || "";
   const { toast } = useToast();
@@ -168,6 +169,23 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
   }, [courseParam]);
 
   const [activeAccordion, setActiveAccordion] = useState(initialAccordion);
+
+  // Scroll to the selected accordion category when it changes (user interaction only)
+  const isInitialMount = useRef(true);
+  useEffect(() => {
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      return;
+    }
+    if (!activeAccordion) return;
+    const el = accordionRefs.current[activeAccordion];
+    if (el) {
+      setTimeout(() => {
+        const top = el.getBoundingClientRect().top + window.scrollY - 100;
+        window.scrollTo({ top, behavior: "smooth" });
+      }, 150);
+    }
+  }, [activeAccordion]);
   const [selectedCourse, setSelectedCourse] = useState<string | null>(initialSelectedCourse);
 
   const [formData, setFormData] = useState({
@@ -399,6 +417,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
               <AccordionItem
                 key={course.id}
                 value={course.id}
+                ref={(el: HTMLDivElement | null) => { accordionRefs.current[course.id] = el; }}
                 className={`bg-white rounded-[2rem] border-2 shadow-xl shadow-slate-200/40 px-6 md:px-8 transition-all ${
                   activeAccordion === course.id ? "border-[#0C2D48]" : "border-slate-100"
                 }`}
