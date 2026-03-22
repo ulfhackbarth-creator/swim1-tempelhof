@@ -37,11 +37,11 @@ export const uspsByTab: Record<CourseTab, { title: string; items: UspItem[] }> =
     ],
   },
   reha: {
-    title: "Professionelle Begleitung für deine Gesundheit",
+    title: "Was du bei uns bekommst",
     items: [
-      { Icon: HeartPulse, label: "Medizinisch begleitet", text: "Unsere Therapeuten sind speziell für Rehabilitationssport im Wasser ausgebildet." },
-      { Icon: FileText, label: "Kostenübernahme", text: "Unsere Kurse sind von den Krankenkassen anerkannt. Mit einer ärztlichen Verordnung ist die Teilnahme für dich oft kostenfrei." },
-      { Icon: UserCheck, label: "Sanfter Aufbau", text: "Wir passen die Übungen individuell an deine Beschwerden an und bauen deine Mobilität behutsam wieder auf." },
+      { Icon: HeartPulse, label: "Medizinisch begleitet", text: "Unsere Trainer sind speziell für Rehabilitationssport im Wasser ausgebildet – und passen die Übungen individuell an deine Situation an." },
+      { Icon: FileText, label: "Kostenübernahme", text: "Mit ärztlicher Verordnung übernehmen die gesetzlichen Krankenkassen die Kosten. Wir helfen dir, den Weg dahin so einfach wie möglich zu machen." },
+      { Icon: UserCheck, label: "Dein Tempo", text: "Kein Druck, kein Vergleich. Wir bauen deine Mobilität und Kraft in deinem Tempo wieder auf – Schritt für Schritt." },
     ],
   },
 };

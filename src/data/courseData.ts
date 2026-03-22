@@ -119,7 +119,7 @@ export const coursesByTab: Record<CourseTab, Course[]> = {
   reha: [
     {
       icon: HeartPulse, tag: "Auf Rezept", name: "Aquareha",
-      text: "Medizinisches Training im Wasser nach Verletzungen oder bei Gelenkbeschwerden. Von allen gesetzlichen Krankenkassen anerkannt.",
+      text: "Gezielte Bewegung im Wasser – nach Verletzungen, bei Gelenkbeschwerden oder auf ärztliche Empfehlung. Von den gesetzlichen Krankenkassen anerkannt.",
       details: "Aquareha ist ein medizinisch begleitetes Rehabilitationstraining im Wasser. Es hilft bei Gelenkbeschwerden, nach Operationen oder Verletzungen – verordnungsfähig auf Rezept.",
       highlights: ["Auf ärztliches Rezept", "Krankenkassen-anerkannt", "Medizinisch begleitet"],
     },
