@@ -245,12 +245,12 @@ const Index = () => {
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-4">
             Das sagen andere Eltern & Schwimmer
           </h2>
-          <p className="text-white/70 font-medium">Über 4,9 Sterne auf Google</p>
+          <p className="text-white/70 font-medium">Über 4,9 Sterne von glücklichen Eltern & Schwimmern</p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {testimonials.map((t, i) => (
-            <TestimonialCard key={t.name} text={t.text} name={t.name} location={t.location} index={i} variant="light" />
+            <TestimonialCard key={t.name} text={t.text} name={t.name} location={t.location} index={i} variant="dark" />
           ))}
         </div>
       </div>
