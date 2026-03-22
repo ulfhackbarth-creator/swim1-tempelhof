@@ -166,7 +166,7 @@ const Index = () => {
           className="text-center max-w-2xl mx-auto mb-14 md:mb-20"
         >
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 mb-4">
-            Der Swim1-Weg
+            Der SWIM1-Weg
           </h2>
           <p className="text-slate-500 text-lg">Warum Swim1 anders ist</p>
         </motion.div>
