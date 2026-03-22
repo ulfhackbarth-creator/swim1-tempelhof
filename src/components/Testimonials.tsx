@@ -3,22 +3,22 @@ import { Star, Quote } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Sandra M.",
-    location: "Tempelhof",
-    text: "Meine Tochter hatte anfangs große Angst vor dem Wasser. Die Trainer sind unglaublich geduldig und am Ende hat sie ihr Seepferdchen geschafft!",
-    course: "Seepferdchenkurs",
+    name: "Sarah T.",
+    location: "Mutter von Mia (4)",
+    text: "Mia hatte panische Angst, wenn auch nur ein Tropfen Wasser in ihr Gesicht kam. Nach nur sechs Wochen bei Swim1 springt sie lachend vom Beckenrand. Die Trainer haben ein echtes Wunder vollbracht.",
+    course: "Kinderschwimmen",
   },
   {
-    name: "Thomas K.",
-    location: "Neukölln",
-    text: "Endlich eine Schwimmschule mit warmem Wasser! Mein Sohn (2 Jahre) liebt die Wassergewöhnung. Kleine Gruppen, tolle Atmosphäre.",
+    name: "Julian M.",
+    location: "Vater von Leo (1)",
+    text: "Das 32 Grad warme Wasser ist ein Traum. Unser Sohn liebt die ruhige Atmosphäre und wir als Eltern fühlen uns in jeder Sekunde sicher aufgehoben. Ein Highlight unserer Woche.",
     course: "Wassergewöhnung",
   },
   {
-    name: "Julia R.",
-    location: "Kreuzberg",
-    text: "Beide Kinder haben hier schwimmen gelernt – vom Seepferdchen bis Gold. Professionell, herzlich und immer zuverlässig. Absolute Empfehlung!",
-    course: "Fortgeschrittenenkurse",
+    name: "Michael K.",
+    location: "Anfängerkurs",
+    text: "Ich habe mich mit 45 Jahren endlich getraut, richtig schwimmen zu lernen. Die Geduld und Diskretion des Trainers haben mir vom ersten Tag an die Scham genommen.",
+    course: "Erwachsenenschwimmen",
   },
 ];
 
