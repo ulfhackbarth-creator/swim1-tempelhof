@@ -1,9 +1,8 @@
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
-import { MapPin } from "lucide-react";
 import GlobalHeader from "@/components/home/GlobalHeader";
 import HomeFooter from "@/components/home/HomeFooter";
+import StandortDropdown from "@/components/StandortDropdown";
 import {
   Accordion,
   AccordionContent,
