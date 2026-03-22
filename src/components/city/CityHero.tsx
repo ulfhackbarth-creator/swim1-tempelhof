@@ -30,9 +30,11 @@ const CityHero = ({ city }: CityHeroProps) => {
             {city.heroHeading}
           </motion.h1>
 
-          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.6 }} className="text-lg md:text-xl text-primary-foreground mb-8 max-w-lg mx-auto">
-            {city.heroSubtext}
-          </motion.p>
+          <motion.ul initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.6 }} className="flex flex-col items-center gap-2.5 text-base md:text-lg text-primary-foreground/85 max-w-lg mx-auto mb-8">
+            <li className="flex items-center gap-2.5"><span className="w-2 h-2 rounded-full bg-[#F97316] shrink-0" />Kleine Gruppen mit zertifizierten Trainern</li>
+            <li className="flex items-center gap-2.5"><span className="w-2 h-2 rounded-full bg-[#F97316] shrink-0" />32 °C warmes Wasser in eigenen Becken</li>
+            <li className="flex items-center gap-2.5"><span className="w-2 h-2 rounded-full bg-[#F97316] shrink-0" />Kurse für Babys, Kinder & Erwachsene</li>
+          </motion.ul>
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5, duration: 0.6 }}>
             <Button variant="cta" size="xl" onClick={scrollToForm}>
