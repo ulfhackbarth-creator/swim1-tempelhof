@@ -7,9 +7,9 @@ export const uspsByTab: Record<CourseTab, { title: string; items: UspItem[] }> =
   kinderschwimmen: {
     title: "Warum Eltern uns vertrauen",
     items: [
-      { Icon: ShieldCheck, label: "100% zertifizierte Trainer", text: "Unsere Trainer sind pädagogisch geschult und wissen genau, wie sie Kindern die Angst vor dem Wasser nehmen." },
-      { Icon: Award, label: "Kleine Gruppen (Max. 6)", text: "Keine Massenabfertigung. Jedes Kind bekommt die Aufmerksamkeit, die es braucht, um in seinem eigenen Tempo zu lernen." },
-      { Icon: Heart, label: "Nachweisbare Erfolge", text: "Vom ersten angstfreien Tauchen bis zum Goldabzeichen – wir feiern jeden kleinen und großen Fortschritt gemeinsam." },
+      { Icon: ShieldCheck, label: "Zertifizierte Trainer", text: "Unsere Trainer sind pädagogisch ausgebildet und wissen, wie man Kindern Schwimmen wirklich beibringt – mit Geduld, Methode und Wärme." },
+      { Icon: Award, label: "Kleine Gruppen (Max. 6)", text: "Maximal 6 Kinder pro Gruppe. So kann jedes Kind in seinem eigenen Tempo lernen – und der Trainer hat immer ein Auge auf jedes einzelne." },
+      { Icon: Heart, label: "Ein klarer Weg", text: "Vom Seepferdchen bis zum Goldabzeichen gibt es einen klaren, strukturierten Weg. Jeder Schritt zählt – und jeder Fortschritt wird gefeiert." },
     ],
   },
   wassergewoehnung: {

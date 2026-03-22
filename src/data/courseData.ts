@@ -5,8 +5,8 @@ import { Fish, Medal, Trophy, Sun, Baby, Users, LifeBuoy, Timer, Dumbbell, Heart
 export const heroContent: Record<CourseTab, { video: string | string[]; headline: string; subtext: string }> = {
   kinderschwimmen: {
     video: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028281720/oNJkUzlVKWrdgGBV.mp4",
-    headline: "Dein Kind lernt schwimmen. Sicher, geduldig und mit Spaß.",
-    subtext: "Vom ersten mutigen Sprung bis zum stolzen Seepferdchen-Abzeichen. Unsere Trainer wissen genau, wie sie Kindern die Angst nehmen und Selbstvertrauen aufbauen.",
+    headline: "Schwimmen lernen. Eine Fähigkeit fürs Leben.",
+    subtext: "Schwimmen ist eine Fähigkeit fürs Leben – und wir bringen sie deinem Kind von Grund auf bei. In unseren eigenen Becken, mit kleinen Gruppen und Trainern, die sich Zeit nehmen, lernt dein Kind nicht nur richtig schwimmen, sondern entdeckt auch die langfristige Freude daran.",
   },
   wassergewoehnung: {
     video: "https://videos.pexels.com/video-files/5888968/5888968-uhd_2560_1440_30fps.mp4",
@@ -51,31 +51,31 @@ export const coursesByTab: Record<CourseTab, Course[]> = {
   kinderschwimmen: [
     {
       icon: Fish, tag: "Abzeichen", name: "Seepferdchen",
-      text: "Der wichtigste Meilenstein: Dein Kind lernt die Grundlagen des Brustschwimmens, das Tauchen und den mutigen Sprung vom Beckenrand.",
+      text: "Der erste echte Schritt: Dein Kind lernt die Grundlagen des Schwimmens – Brustschwimmen, Tauchen, Sprung vom Beckenrand. Sicher und selbstbewusst.",
       details: "Im Seepferdchen-Kurs lernen Kinder ab 3,5 Jahren die Grundlagen des Schwimmens. Ziel ist es, 25 Meter ohne Hilfe zu schwimmen und einen Gegenstand aus schultertiefem Wasser zu holen.",
       highlights: ["Ab 3,5 Jahren", "Max. 6 Kinder pro Gruppe", "Inkl. Schwimmabzeichen"],
     },
     {
       icon: Medal, tag: "Abzeichen", name: "Bronze",
-      text: "Aufbaukurs nach dem Seepferdchen. Dein Kind festigt seine Technik und erlangt das Bronzeabzeichen.",
+      text: "Technik festigen, Ausdauer aufbauen, Sicherheit im Wasser weiter stärken – auf dem Weg zum Bronzeabzeichen.",
       details: "Im Bronze-Kurs wird die Schwimmtechnik gefestigt. Dein Kind lernt 200 m in max. 15 Minuten zu schwimmen, vom Beckenrand zu springen und 2 m tief zu tauchen.",
       highlights: ["Nach Seepferdchen", "200 m Schwimmen", "Sprung & Tauchen"],
     },
     {
       icon: Medal, tag: "Abzeichen", name: "Silber",
-      text: "Fortgeschrittener Kurs für sichere Schwimmer. Ausdauer und Technik auf dem Weg zum Silberabzeichen.",
+      text: "Für Kinder, die bereits sicher schwimmen und ihre Fähigkeiten weiter ausbauen wollen. Richtung Silberabzeichen.",
       details: "Im Silber-Kurs trainieren Kinder Ausdauer und erweiterte Techniken. 400 m Schwimmen in max. 25 Minuten, 10 m Streckentauchen und ein Sprung aus 3 m Höhe gehören dazu.",
       highlights: ["400 m Schwimmen", "10 m Streckentauchen", "Sprung aus 3 m Höhe"],
     },
     {
       icon: Trophy, tag: "Abzeichen", name: "Gold",
-      text: "Das höchste Jugendschwimmabzeichen. Für starke Schwimmer, die sich im Wasser zu Hause fühlen.",
+      text: "Das Goldabzeichen ist mehr als ein Abzeichen – es ist der Beweis, dass dein Kind wirklich sicher und ausdauernd schwimmen kann.",
       details: "Das Goldabzeichen ist die Königsdisziplin: 600 m in max. 24 Minuten, 25 m Streckentauchen und Transportschwimmen. Für Kinder, die echte Sicherheit im Wasser bewiesen haben.",
       highlights: ["600 m Schwimmen", "25 m Streckentauchen", "Transportschwimmen"],
     },
     {
       icon: Sun, tag: "Ferien", name: "Ferienintensivkurse",
-      text: "Tägliche Kurseinheiten in den Schulferien für schnelle Fortschritte in kompakter Zeit.",
+      text: "Intensiv, kompakt, effektiv: In den Schulferien täglich schwimmen – und in kurzer Zeit echte Fortschritte machen.",
       details: "Jeden Tag eine Stunde Schwimmunterricht – ideal für schnelle Fortschritte in den Ferien. Ob Seepferdchen oder Aufbaukurs, hier wird intensiv und mit viel Spaß trainiert.",
       highlights: ["Tägliche Einheiten", "Alle Levels", "In den Schulferien"],
     },
