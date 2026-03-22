@@ -33,7 +33,7 @@ const slideVariants = {
 
 const locationSubtitle: Record<CourseTab, string> = {
   kinderschwimmen: "Finde die passende Schwimmschule in deiner Nähe",
-  wassergewoehnung: "Finde den passenden Standort für Wassergewöhnung",
+  wassergewoehnung: "Finde den passenden Standort für Baby- und Kleinkinderkurse",
   erwachsene: "Finde den passenden Standort für dein Training",
   fitness: "Finde den passenden Standort für dein Training",
   reha: "Finde deinen Standort für Aqua Reha",
