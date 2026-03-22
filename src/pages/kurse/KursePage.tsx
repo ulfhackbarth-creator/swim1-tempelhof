@@ -155,6 +155,38 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
           <HeroTrustLine />
         </div>
       </section>
+
+      {/* SWIMMER JOURNEY (only Kinderschwimmen) */}
+      {tab === "kinderschwimmen" && (
+        <section className="py-12 md:py-16 bg-white">
+          <div className="max-w-4xl mx-auto px-6">
+            <h3 className="text-xl md:text-2xl font-bold text-slate-900 text-center mb-8">Der Weg zum sicheren Schwimmer</h3>
+            <div className="flex flex-col md:flex-row items-center md:items-start gap-4 md:gap-0">
+              {[
+                { step: "1", label: "Wassergewöhnung", desc: "Vertrauen aufbauen" },
+                { step: "2", label: "Seepferdchen", desc: "Grundlagen lernen" },
+                { step: "3", label: "Bronze · Silber · Gold", desc: "Technik & Ausdauer" },
+                { step: "4", label: "Sicherer Schwimmer", desc: "Fürs Leben gelernt" },
+              ].map((item, i, arr) => (
+                <div key={item.step} className="flex flex-col md:flex-row items-center flex-1">
+                  <div className="flex flex-col items-center text-center">
+                    <div className="w-10 h-10 rounded-full bg-[#0C2D48] text-white flex items-center justify-center text-sm font-bold mb-2">{item.step}</div>
+                    <p className="text-sm font-bold text-slate-900">{item.label}</p>
+                    <p className="text-xs text-slate-500">{item.desc}</p>
+                  </div>
+                  {i < arr.length - 1 && (
+                    <div className="hidden md:block flex-1 h-0.5 bg-slate-200 mx-3 mt-5" />
+                  )}
+                  {i < arr.length - 1 && (
+                    <div className="md:hidden w-0.5 h-6 bg-slate-200 my-1" />
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* KURSANGEBOT + TRUST */}
       <section id="kurse-section" ref={kurseSectionRef} className="bg-secondary/50 py-16 md:py-24 px-4 md:px-6 scroll-mt-[0px]">
         <div className="max-w-6xl mx-auto">
