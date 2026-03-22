@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
-import HeroTrustLine from "@/components/HeroTrustLine";
+
 import heroImage from "@/assets/hero-pool.jpg";
 import type { CityConfig } from "@/config/cities";
 
