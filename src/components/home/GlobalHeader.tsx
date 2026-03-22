@@ -170,23 +170,8 @@ const GlobalHeader = () => {
               </SheetHeader>
 
               <div className="flex-1 overflow-y-auto">
-                {/* Kurse section — collapsible */}
-                <CollapsibleSection title="Kurse" defaultOpen>
-                  {chips.map((chip) => (
-                    <Link
-                      key={chip.id}
-                      to={chip.path}
-                      onClick={() => { setMenuOpen(false); window.scrollTo({ top: 0 }); }}
-                      className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-700 hover:bg-slate-50 hover:text-[#0C2D48] transition-colors text-sm font-medium"
-                    >
-                      <chip.Icon className="w-4 h-4 text-slate-400" />
-                      {chip.label}
-                    </Link>
-                  ))}
-                </CollapsibleSection>
-
-                {/* Standorte section — collapsible */}
-                <CollapsibleSection title="Standorte" defaultOpen>
+                {/* Standorte section — collapsible, collapsed by default */}
+                <CollapsibleSection title="Standorte">
                   <Link to="/standorte/berlin-tempelhof" onClick={() => { setMenuOpen(false); window.scrollTo({ top: 0 }); }} className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-700 hover:bg-slate-50 hover:text-[#0C2D48] transition-colors text-sm font-medium">
                     <MapPin className="w-4 h-4 text-slate-400" /> Berlin-Tempelhof
                   </Link>
@@ -201,23 +186,35 @@ const GlobalHeader = () => {
                   </Link>
                 </CollapsibleSection>
 
-                {/* Menu links */}
-                <div className="p-6">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-4">Mehr</p>
-                  <div className="space-y-1">
-                    {menuLinks.map((link) => (
-                      <Link
-                        key={link.label}
-                        to={link.href}
-                        onClick={() => { setMenuOpen(false); }}
-                        className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-700 hover:bg-slate-50 hover:text-[#0C2D48] transition-colors text-sm font-medium"
-                      >
-                        <link.Icon className="w-4 h-4 text-slate-400" />
-                        {link.label}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
+                {/* Kurse section — collapsible, collapsed by default */}
+                <CollapsibleSection title="Kurse">
+                  {chips.map((chip) => (
+                    <Link
+                      key={chip.id}
+                      to={chip.path}
+                      onClick={() => { setMenuOpen(false); window.scrollTo({ top: 0 }); }}
+                      className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-700 hover:bg-slate-50 hover:text-[#0C2D48] transition-colors text-sm font-medium"
+                    >
+                      <chip.Icon className="w-4 h-4 text-slate-400" />
+                      {chip.label}
+                    </Link>
+                  ))}
+                </CollapsibleSection>
+
+                {/* Mehr section — collapsible, open by default */}
+                <CollapsibleSection title="Mehr" defaultOpen>
+                  {menuLinks.map((link) => (
+                    <Link
+                      key={link.label}
+                      to={link.href}
+                      onClick={() => { setMenuOpen(false); }}
+                      className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-700 hover:bg-slate-50 hover:text-[#0C2D48] transition-colors text-sm font-medium"
+                    >
+                      <link.Icon className="w-4 h-4 text-slate-400" />
+                      {link.label}
+                    </Link>
+                  ))}
+                </CollapsibleSection>
               </div>
             </SheetContent>
           </Sheet>
