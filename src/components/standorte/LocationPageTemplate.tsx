@@ -323,7 +323,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
             transition={{ delay: 0.4 }}
             onClick={() => scrollToForm()}
             className="mt-8 md:mt-10 inline-flex items-center gap-2 rounded-full px-6 py-3 font-semibold text-base text-[#0F2D52] transition-colors shadow-lg bg-[#C6FF00] hover:bg-[#B0E000]"
-            style={{ boxShadow: "0 8px 24px -4px rgba(249,115,22,0.3)" }}
+            style={{ boxShadow: "0 8px 24px -4px rgba(198,255,0,0.3)" }}
           >
             Jetzt auf die Warteliste setzen <ArrowDown className="w-4 h-4" />
           </motion.button>
@@ -585,7 +585,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
                   type="submit"
                   disabled={isLoading}
                   className="w-full rounded-full py-4 font-bold text-lg text-[#0F2D52] bg-[#C6FF00] hover:bg-[#B0E000] transition-colors disabled:opacity-50 shadow-lg"
-                  style={{ boxShadow: "0 10px 30px -5px rgba(249,115,22,0.3)" }}
+                  style={{ boxShadow: "0 10px 30px -5px rgba(198,255,0,0.3)" }}
                 >
                   {isLoading ? "Wird eingetragen..." : "Jetzt Platz sichern"}
                 </button>
