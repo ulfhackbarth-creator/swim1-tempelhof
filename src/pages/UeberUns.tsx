@@ -1,7 +1,8 @@
+import { useState, useCallback, useRef } from "react";
 import { Helmet } from "react-helmet-async";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ShieldCheck, Users, Heart, Baby, Waves, PersonStanding, HeartPulse, ArrowRight, ArrowDown } from "lucide-react";
+import { ShieldCheck, Users, Heart, Baby, Waves, PersonStanding, HeartPulse, Activity, ArrowRight, ArrowDown, Check } from "lucide-react";
 
 import StandortDropdown from "@/components/StandortDropdown";
 import GlobalHeader from "@/components/home/GlobalHeader";
@@ -27,13 +28,34 @@ const philosophy = [
 ];
 
 const journey = [
-  { Icon: Baby, title: "Baby & Kleinkinder", text: "Die ersten Erfahrungen im Element Wasser.", path: "/kurse/wassergewoehnung" },
-  { Icon: Waves, title: "Kinder", text: "Vom Seepferdchen bis zum sicheren Schwimmer.", path: "/kurse/kinderschwimmen" },
-  { Icon: PersonStanding, title: "Erwachsene", text: "Ängste überwinden und Technik perfektionieren.", path: "/kurse/erwachsene" },
-  { Icon: HeartPulse, title: "Gesundheit", text: "Aquafitness und Aqua Reha für lebenslange Mobilität.", path: "/kurse/aquafitness" },
+  { Icon: Baby, title: "Baby & Kleinkinder", text: "Die ersten Erfahrungen im Element Wasser.", details: "Babyschwimmen und Eltern-Kind-Kurse ab 3 Monaten. Gemeinsam die Freude am Wasser entdecken – in geschützter Atmosphäre und warmem Wasser.", path: "/kurse/wassergewoehnung" },
+  { Icon: Waves, title: "Kinder", text: "Vom Seepferdchen bis zum sicheren Schwimmer.", details: "Schwimmen lernen von Grund auf – vom Seepferdchen über Bronze bis Gold. Spielerisch, sicher und mit zertifizierten Trainern.", path: "/kurse/kinderschwimmen" },
+  { Icon: PersonStanding, title: "Erwachsene", text: "Ängste überwinden und Technik perfektionieren.", details: "Ob Anfänger oder Fortgeschrittene – in diskreter Atmosphäre ohne Zuschauer lernst du schwimmen oder verfeinerst deine Technik.", path: "/kurse/erwachsene" },
+  { Icon: Activity, title: "Aquafitness", text: "Gelenkschonendes Ganzkörpertraining im Wasser.", details: "Effektives Workout im 32 °C warmen Wasser. Stärkt Muskulatur und Ausdauer – schonend für Gelenke und mit Spaß in der Gruppe.", path: "/kurse/aquafitness" },
+  { Icon: HeartPulse, title: "Aqua Reha", text: "Rehabilitation und Mobilität im Wasser fördern.", details: "Von Krankenkassen anerkannte Reha-Kurse. Das Wasser gibt dir den Raum, Kraft und Beweglichkeit zurückzugewinnen.", path: "/kurse/reha" },
 ];
 
 const UeberUns = () => {
+  const [selectedCard, setSelectedCard] = useState<string | null>(null);
+  const cardRefs = useRef<Map<number, HTMLDivElement>>(new Map());
+
+  const handleSelectCard = useCallback((title: string, index: number) => {
+    const isClosing = selectedCard === title;
+    setSelectedCard(isClosing ? null : title);
+    if (!isClosing) {
+      requestAnimationFrame(() => {
+        setTimeout(() => {
+          const card = cardRefs.current.get(index);
+          if (card) {
+            window.dispatchEvent(new CustomEvent("suppress-header", { detail: { duration: 800 } }));
+            const y = card.getBoundingClientRect().top + window.scrollY - 20;
+            window.scrollTo({ top: y, behavior: "smooth" });
+          }
+        }, 150);
+      });
+    }
+  }, [selectedCard]);
+
   return (
     <div className="min-h-screen">
       <Helmet>
@@ -169,31 +191,69 @@ const UeberUns = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {journey.map((card, i) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+            {journey.map((card, i) => {
+              const isSelected = selectedCard === card.title;
+              return (
               <motion.div
                 key={card.title}
+                ref={(el) => { if (el) cardRefs.current.set(i, el); }}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
+                onClick={() => handleSelectCard(card.title, i)}
+                className={`relative rounded-[2rem] p-6 md:p-8 shadow-lg shadow-slate-300/50 border-2 flex flex-col h-full transition-all duration-200 cursor-pointer ${
+                  isSelected
+                    ? "bg-[#0C2D48] border-[#0C2D48] shadow-xl shadow-slate-400/30"
+                    : "bg-white border-slate-200 hover:-translate-y-1 hover:shadow-xl"
+                }`}
               >
-                <Link
-                  to={card.path}
-                  onClick={() => window.scrollTo({ top: 0 })}
-                  className="group bg-white rounded-[2rem] p-6 md:p-8 shadow-lg shadow-slate-300/50 border-2 border-slate-200 flex flex-col h-full hover:-translate-y-1 hover:shadow-xl transition-all"
-                >
-                  <div className="w-12 h-12 rounded-2xl bg-secondary text-[#0C2D48] flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
-                    <card.Icon className="w-6 h-6" strokeWidth={1.5} />
+                {isSelected && (
+                  <div className="absolute top-4 right-4 w-7 h-7 rounded-full bg-white flex items-center justify-center">
+                    <Check className="w-4 h-4 text-[#0C2D48]" strokeWidth={3} />
                   </div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-2">{card.title}</h3>
-                  <p className="text-slate-600 leading-relaxed mb-4 flex-1">{card.text}</p>
-                  <span className="inline-flex items-center text-[#0C2D48] font-semibold gap-1 group-hover:gap-2 transition-all">
+                )}
+                <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-4 transition-colors duration-200 ${
+                  isSelected ? "bg-white/15" : "bg-secondary text-[#0C2D48]"
+                }`}>
+                  <card.Icon className={`w-6 h-6 transition-colors duration-200 ${isSelected ? "text-white" : ""}`} strokeWidth={1.5} />
+                </div>
+                <h3 className={`text-xl font-bold mb-2 transition-colors duration-200 ${isSelected ? "text-white" : "text-slate-900"}`}>{card.title}</h3>
+                <p className={`leading-relaxed mb-4 flex-1 transition-colors duration-200 ${isSelected ? "text-white/80" : "text-slate-600"}`}>{card.text}</p>
+
+                <AnimatePresence initial={false}>
+                  {isSelected && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                      className="overflow-hidden"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <div className="pt-4 border-t border-white/20 mt-2">
+                        <p className="text-white/85 leading-relaxed mb-5">{card.details}</p>
+                        <Link
+                          to={card.path}
+                          onClick={() => window.scrollTo({ top: 0 })}
+                          className="w-full block rounded-full py-3 text-sm text-center font-semibold transition-all bg-[#C6FF00] hover:bg-[#B0E000] hover:scale-105 active:scale-[0.97] text-[#0C2D48]"
+                        >
+                          Kurs wählen
+                        </Link>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+
+                {!isSelected && (
+                  <span className="inline-flex items-center text-[#0C2D48] font-semibold gap-1 transition-all">
                     Mehr erfahren <ArrowRight className="w-4 h-4" />
                   </span>
-                </Link>
+                )}
               </motion.div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
