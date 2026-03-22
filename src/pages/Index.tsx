@@ -117,13 +117,17 @@ const Index = () => {
               <Link
                 to={cat.path}
                 onClick={() => window.scrollTo({ top: 0 })}
-                className="group bg-white rounded-[2rem] p-8 md:p-10 shadow-lg shadow-slate-300/50 border-2 border-slate-200 flex flex-col h-full hover:-translate-y-1 hover:shadow-xl transition-all"
+                className="group bg-white rounded-[2rem] p-6 md:p-10 shadow-lg shadow-slate-300/50 border-2 border-slate-200 flex flex-col h-full hover:-translate-y-1 hover:shadow-xl transition-all"
               >
-                <div className="w-14 h-14 rounded-2xl bg-blue-50 text-[#1B4F8A] flex items-center justify-center mb-5 group-hover:scale-105 transition-transform">
-                  <cat.Icon className="w-7 h-7" strokeWidth={1.5} />
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="w-12 h-12 shrink-0 rounded-2xl bg-blue-50 text-[#1B4F8A] flex items-center justify-center group-hover:scale-105 transition-transform">
+                    <cat.Icon className="w-6 h-6" strokeWidth={1.5} />
+                  </div>
+                  <div className="min-w-0">
+                    <span className="text-xs font-bold uppercase tracking-widest text-[#1B4F8A]">{cat.tag}</span>
+                    <h3 className="text-xl xl:text-2xl font-bold text-slate-900 break-words hyphens-auto">{cat.title}</h3>
+                  </div>
                 </div>
-                <span className="text-xs font-bold uppercase tracking-widest text-[#1B4F8A] mb-3">{cat.tag}</span>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">{cat.title}</h3>
                 <p className="text-slate-600 leading-relaxed mb-6 flex-1">{cat.text}</p>
                 <span className="inline-flex items-center text-[#1B4F8A] font-semibold gap-1 group-hover:gap-2 transition-all">
                   Mehr erfahren <ArrowRight className="w-4 h-4" />
