@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ShieldCheck, Users, Heart, Baby, Waves, PersonStanding, HeartPulse, ArrowRight, ArrowDown } from "lucide-react";
-import HeroTrustLine from "@/components/HeroTrustLine";
+
 import StandortDropdown from "@/components/StandortDropdown";
 import GlobalHeader from "@/components/home/GlobalHeader";
 import HomeFooter from "@/components/home/HomeFooter";
