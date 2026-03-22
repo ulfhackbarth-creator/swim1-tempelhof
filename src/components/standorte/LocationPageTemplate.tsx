@@ -183,12 +183,11 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
     if (!activeAccordion) return;
     const el = accordionRefs.current[activeAccordion];
     if (el) {
-      // Suppress header show-on-scroll-up during programmatic scroll
-      window.dispatchEvent(new CustomEvent("suppress-header"));
+      window.dispatchEvent(new CustomEvent("suppress-header", { detail: { duration: 800 } }));
       setTimeout(() => {
-        const top = el.getBoundingClientRect().top + window.scrollY - 20;
+        const top = el.getBoundingClientRect().top + window.scrollY - 12;
         window.scrollTo({ top, behavior: "smooth" });
-      }, 150);
+      }, 300);
     }
   }, [activeAccordion]);
   const [selectedCourse, setSelectedCourse] = useState<string | null>(initialSelectedCourse);
@@ -452,16 +451,14 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
                               const wasActive = selectedCourse === sub.key;
                               setSelectedCourse(wasActive ? null : sub.key);
                               if (!wasActive) {
-                                requestAnimationFrame(() => {
-                                  setTimeout(() => {
-                                    const card = courseCardRefs.current[sub.key];
-                                    if (card) {
-                                      window.dispatchEvent(new CustomEvent("suppress-header", { detail: { duration: 800 } }));
-                                      const y = card.getBoundingClientRect().top + window.scrollY - 20;
-                                      window.scrollTo({ top: y, behavior: "smooth" });
-                                    }
-                                  }, 150);
-                                });
+                                setTimeout(() => {
+                                  const card = courseCardRefs.current[sub.key];
+                                  if (card) {
+                                    window.dispatchEvent(new CustomEvent("suppress-header", { detail: { duration: 800 } }));
+                                    const y = card.getBoundingClientRect().top + window.scrollY - 12;
+                                    window.scrollTo({ top: y, behavior: "smooth" });
+                                  }
+                                }, 350);
                               }
                             }}
                             className={`flex items-center justify-between rounded-2xl p-4 md:p-5 cursor-pointer transition-all duration-200 ${
@@ -500,16 +497,14 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
                               const wasActive = selectedCourse === course.id;
                               setSelectedCourse(wasActive ? null : course.id);
                               if (!wasActive) {
-                                requestAnimationFrame(() => {
-                                  setTimeout(() => {
-                                    const card = courseCardRefs.current[course.id];
-                                    if (card) {
-                                      window.dispatchEvent(new CustomEvent("suppress-header", { detail: { duration: 800 } }));
-                                      const y = card.getBoundingClientRect().top + window.scrollY - 20;
-                                      window.scrollTo({ top: y, behavior: "smooth" });
-                                    }
-                                  }, 150);
-                                });
+                                setTimeout(() => {
+                                  const card = courseCardRefs.current[course.id];
+                                  if (card) {
+                                    window.dispatchEvent(new CustomEvent("suppress-header", { detail: { duration: 800 } }));
+                                    const y = card.getBoundingClientRect().top + window.scrollY - 12;
+                                    window.scrollTo({ top: y, behavior: "smooth" });
+                                  }
+                                }, 350);
                               }
                             }}
                             className={`flex items-center justify-between rounded-2xl p-4 md:p-5 cursor-pointer transition-all duration-200 ${
