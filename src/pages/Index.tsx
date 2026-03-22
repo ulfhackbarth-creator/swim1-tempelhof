@@ -1,7 +1,8 @@
+import { useState, useCallback, useRef } from "react";
 import { Helmet } from "react-helmet-async";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, ArrowDown, Star, Waves, Droplets, PersonStanding, Activity, HeartPulse, ShieldCheck, Lock, Users, Heart } from "lucide-react";
+import { ArrowRight, ArrowDown, Star, Waves, Droplets, PersonStanding, Activity, HeartPulse, ShieldCheck, Lock, Users, Heart, Check, MapPin } from "lucide-react";
 
 import TestimonialCard from "@/components/TestimonialCard";
 import GlobalHeader from "@/components/home/GlobalHeader";
@@ -61,7 +62,26 @@ const scrollTo = (id: string) => {
 };
 
 const Index = () => {
+  const [selectedLocation, setSelectedLocation] = useState<string | null>(null);
+  const locationCardRefs = useRef<Map<number, HTMLDivElement>>(new Map());
 
+  const handleSelectLocation = useCallback((name: string, index: number) => {
+    const isClosing = selectedLocation === name;
+    setSelectedLocation(isClosing ? null : name);
+
+    if (!isClosing) {
+      requestAnimationFrame(() => {
+        setTimeout(() => {
+          const card = locationCardRefs.current.get(index);
+          if (card) {
+            window.dispatchEvent(new CustomEvent("suppress-header", { detail: { duration: 800 } }));
+            const y = card.getBoundingClientRect().top + window.scrollY - 100;
+            window.scrollTo({ top: y, behavior: "smooth" });
+          }
+        }, 150);
+      });
+    }
+  }, [selectedLocation]);
   return (
   <main className="min-h-screen">
     <Helmet>
@@ -251,36 +271,85 @@ const Index = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {standorte.map((loc, i) => (
+          {standorte.map((loc, i) => {
+              const isSelected = selectedLocation === loc.name;
+              return (
               <motion.div
                 key={loc.name}
+                ref={(el) => { if (el) locationCardRefs.current.set(i, el); }}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="group bg-white rounded-[2rem] p-6 shadow-lg shadow-slate-300/50 border-2 border-slate-200 flex flex-col hover:-translate-y-1 hover:shadow-xl active:bg-[#0C2D48] active:border-[#0C2D48] active:[&_h3]:text-white active:[&_p]:text-white/70 active:[&_span]:text-white/80 transition-all cursor-pointer"
+                onClick={() => handleSelectLocation(loc.name, i)}
+                className={`relative rounded-[2rem] p-6 shadow-lg shadow-slate-300/50 border-2 flex flex-col transition-all duration-200 cursor-pointer ${
+                  isSelected
+                    ? "bg-[#0C2D48] border-[#0C2D48] shadow-xl shadow-slate-400/30"
+                    : "bg-white border-slate-200 hover:-translate-y-1 hover:shadow-xl"
+                }`}
               >
-                <span className="inline-block text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-4 w-fit bg-green-100 text-green-800">
+                {isSelected && (
+                  <div className="absolute top-4 right-4 w-7 h-7 rounded-full bg-white flex items-center justify-center">
+                    <Check className="w-4 h-4 text-[#0C2D48]" strokeWidth={3} />
+                  </div>
+                )}
+                <span className={`inline-block text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-4 w-fit transition-colors duration-200 ${
+                  isSelected ? "bg-white/15 text-white/80" : "bg-green-100 text-green-800"
+                }`}>
                   ✓ Warteliste
                 </span>
-                <h3 className="text-xl font-bold text-slate-900 mb-1">{loc.name}</h3>
-                <p className="text-sm font-semibold text-[#0C2D48] mb-0.5">{loc.center}</p>
-                <p className="text-slate-500 text-sm mb-4">{loc.address}</p>
+                <h3 className={`text-xl font-bold mb-1 transition-colors duration-200 ${isSelected ? "text-white" : "text-slate-900"}`}>{loc.name}</h3>
+                <p className={`text-sm font-semibold mb-0.5 transition-colors duration-200 ${isSelected ? "text-white/80" : "text-[#0C2D48]"}`}>{loc.center}</p>
+                <p className={`text-sm mb-4 transition-colors duration-200 ${isSelected ? "text-white/60" : "text-slate-500"}`}>{loc.address}</p>
                 <div className="flex flex-wrap gap-1.5 mb-3">
                   {loc.features.map((f) => (
-                    <span key={f} className="text-[11px] font-medium text-[#0C2D48] bg-slate-100 px-2.5 py-0.5 rounded-full">{f}</span>
+                    <span key={f} className={`text-[11px] font-medium px-2.5 py-0.5 rounded-full transition-colors duration-200 ${
+                      isSelected ? "bg-white/15 text-white/80" : "text-[#0C2D48] bg-slate-100"
+                    }`}>{f}</span>
                   ))}
                 </div>
-                <p className="text-xs text-slate-400 mb-5">Dein Team vor Ort freut sich auf dich.</p>
-                <Link
-                  to={loc.route}
-                  onClick={() => window.scrollTo({ top: 0 })}
-                  className="w-full mt-auto rounded-full py-3 text-sm text-center font-semibold transition-colors bg-[#C6FF00] hover:bg-[#B0E000] text-[#0C2D48]"
-                >
-                  Standort entdecken
-                </Link>
+                <p className={`text-xs mb-5 transition-colors duration-200 ${isSelected ? "text-white/50" : "text-slate-400"}`}>Dein Team vor Ort freut sich auf dich.</p>
+
+                {/* Inline accordion detail */}
+                <AnimatePresence initial={false}>
+                  {isSelected && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                      className="overflow-hidden"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <div className="pt-5 border-t border-white/20 mt-2">
+                        <div className="flex items-center gap-2 text-white/70 text-sm mb-4">
+                          <MapPin className="w-4 h-4" />
+                          <span>{loc.address}</span>
+                        </div>
+                        <Link
+                          to={loc.route}
+                          onClick={() => window.scrollTo({ top: 0 })}
+                          className="w-full block mt-auto rounded-full py-3 text-sm text-center font-semibold transition-all bg-[#C6FF00] hover:bg-[#B0E000] hover:scale-105 active:scale-[0.97] text-[#0C2D48]"
+                        >
+                          Standort entdecken
+                        </Link>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+
+                {!isSelected && (
+                  <Link
+                    to={loc.route}
+                    onClick={(e) => { e.stopPropagation(); window.scrollTo({ top: 0 }); }}
+                    className="w-full mt-auto rounded-full py-3 text-sm text-center font-semibold transition-colors bg-[#C6FF00] hover:bg-[#B0E000] text-[#0C2D48]"
+                  >
+                    Standort entdecken
+                  </Link>
+                )}
               </motion.div>
-          ))}
+              );
+          })}
         </div>
       </div>
     </section>
