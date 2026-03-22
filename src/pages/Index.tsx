@@ -75,7 +75,7 @@ const Index = () => {
           const card = locationCardRefs.current.get(index);
           if (card) {
             window.dispatchEvent(new CustomEvent("suppress-header", { detail: { duration: 800 } }));
-            const y = card.getBoundingClientRect().top + window.scrollY - 100;
+            const y = card.getBoundingClientRect().top + window.scrollY - 20;
             window.scrollTo({ top: y, behavior: "smooth" });
           }
         }, 150);
