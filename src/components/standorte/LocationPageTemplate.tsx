@@ -25,8 +25,8 @@ const courses = [
   {
     id: "wassergewoehnung",
     icon: Baby,
-    title: "Wassergewöhnung",
-    description: "Babyschwimmen & Eltern-Kind-Kurse. Spielerische Wassergewöhnung für die Kleinsten.",
+    title: "Baby und Kleinkinder",
+    description: "Babyschwimmen & Eltern-Kind-Kurse. Wasser gemeinsam erleben, Bindung stärken.",
     subCourses: [
       { name: "Babyschwimmen", key: "babyschwimmen", interest: "baby", desc: "Ab 3 Monaten – spielerisch das Wasser entdecken." },
       { name: "Eltern-Kind-Kurse", key: "eltern-kind-kurse", interest: "baby", desc: "Ab 1 Jahr – gemeinsam mit Mama oder Papa." },
@@ -37,7 +37,7 @@ const courses = [
     id: "kinderschwimmen",
     icon: Fish,
     title: "Kinderschwimmen",
-    description: "Vom Seepferdchen bis Gold. Kleine Gruppen mit max. 6 Kindern.",
+    description: "Schwimmen von Grund auf lernen. Kleine Gruppen, klarer Weg, echte Sicherheit im Wasser.",
     subCourses: [
       { name: "Seepferdchen", key: "seepferdchen", interest: "seepferdchen", desc: "Ab 3,5 Jahren – der erste Schritt zum sicheren Schwimmer." },
       { name: "Bronze", key: "bronze", interest: "fortgeschrittene", desc: "Aufbaukurs nach dem Seepferdchen." },
@@ -51,7 +51,7 @@ const courses = [
     id: "erwachsene",
     icon: LifeBuoy,
     title: "Erwachsenenschwimmen",
-    description: "Anfängerschwimmen & Technik-Training. Im geschützten Rahmen.",
+    description: "Anfängerschwimmen & Technik. Sicherer Rahmen, erfahrene Trainer, dein Tempo.",
     subCourses: [
       { name: "Anfängerschwimmen", key: "anfaengerschwimmen", interest: "erwachsene", desc: "Schwimmen lernen – behutsam und ohne Zuschauer." },
       { name: "Technik", key: "technik", interest: "erwachsene", desc: "Kraulen lernen und Technik verbessern." },
@@ -62,7 +62,7 @@ const courses = [
     id: "aquafitness",
     icon: Dumbbell,
     title: "Aquafitness",
-    description: "Power-Workout im Wasser. Gelenkschonend für alle Level.",
+    description: "Bewegung im Wasser – gelenkschonend, in Gemeinschaft, mit Spaß.",
     subCourses: [],
     courseKeys: ["aquafitness"],
     interest: "aquafitness",
@@ -71,7 +71,7 @@ const courses = [
     id: "aquareha",
     icon: HeartPulse,
     title: "Aqua Reha",
-    description: "Krankenkassen-zertifiziert. Mit Rezept 100 % kostenfrei.",
+    description: "Zurück zu alter Stärke. Auf Rezept, von Krankenkassen anerkannt.",
     subCourses: [],
     courseKeys: ["aquareha", "aqua-reha", "reha"],
     interest: "aquareha",
@@ -97,7 +97,7 @@ const interestOptions = [
 const trustStats = [
   { value: "32 °C", label: "Wassertemperatur" },
   { value: "5:1", label: "Betreuungsverhältnis" },
-  { value: "100 %", label: "Vertrauen" },
+  { value: "100 %", label: "Eigene Becken" },
   { value: "4,9 ★", label: "Google Bewertung" },
 ];
 
@@ -313,7 +313,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
               {config.heroHeadline}
             </h1>
             <p className="text-base md:text-xl text-white/80 max-w-2xl mx-auto">
-              Kleine Gruppen · Ausgebildeter Trainerstab · 32 °C warmes Wasser
+              Kleine Gruppen · Zertifizierte Trainer · 32 °C warmes Wasser
             </p>
           </motion.div>
 
@@ -335,7 +335,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
         <div className="max-w-4xl mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="text-center mb-12 md:mb-20">
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 mb-4">Standort & Ausstattung</h2>
-            <p className="text-slate-500">Alles, was du für ein optimales Schwimmerlebnis brauchst – an einem Ort.</p>
+            <p className="text-slate-500">Alles, was du brauchst – an einem Ort.</p>
           </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-10">

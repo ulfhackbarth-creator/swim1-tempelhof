@@ -14,7 +14,7 @@ const config: LocationConfig = {
     addressLocality: "Berlin",
     postalCode: "12099",
   },
-  geoText: "Unser Standort im Tempelhofer Hafen ist ideal erreichbar für Familien aus Tempelhof, Neukölln, Kreuzberg und Mariendorf. Dank der direkten Anbindung an die U6 und kostenlosen Parkplätzen sind wir deine zentrale Schwimmschule im Berliner Süden.",
+  geoText: "Unser Standort im Tempelhofer Hafen – gut erreichbar für Familien aus Tempelhof, Neukölln, Kreuzberg und Mariendorf. Direkte U6-Anbindung, kostenlose Parkplätze, warmes Wasser. Alles, was du brauchst, um anzufangen.",
   locationInfo: [
     { icon: MapPin, title: "Adresse", text: "Tempelhofer Hafen, Ordensmeisterstr. 1–3, 12099 Berlin" },
     { icon: Train, title: "ÖPNV", text: "S+U Tempelhof, 3 Min. Fußweg" },
