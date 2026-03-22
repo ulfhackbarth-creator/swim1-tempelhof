@@ -265,11 +265,12 @@ const Index = () => {
                 <h3 className="text-xl font-bold text-slate-900 mb-1">{loc.name}</h3>
                 <p className="text-sm font-semibold text-[#0C2D48] mb-0.5">{loc.center}</p>
                 <p className="text-slate-500 text-sm mb-4">{loc.address}</p>
-                <div className="flex flex-wrap gap-1.5 mb-5">
+                <div className="flex flex-wrap gap-1.5 mb-3">
                   {loc.features.map((f) => (
                     <span key={f} className="text-[11px] font-medium text-[#0C2D48] bg-slate-100 px-2.5 py-0.5 rounded-full">{f}</span>
                   ))}
                 </div>
+                <p className="text-xs text-slate-400 mb-5">Dein Team vor Ort freut sich auf dich.</p>
                 <Link
                   to={loc.route}
                   onClick={() => window.scrollTo({ top: 0 })}
