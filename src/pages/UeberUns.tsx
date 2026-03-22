@@ -36,6 +36,26 @@ const journey = [
 ];
 
 const UeberUns = () => {
+  const [selectedCard, setSelectedCard] = useState<string | null>(null);
+  const cardRefs = useRef<Map<number, HTMLDivElement>>(new Map());
+
+  const handleSelectCard = useCallback((title: string, index: number) => {
+    const isClosing = selectedCard === title;
+    setSelectedCard(isClosing ? null : title);
+    if (!isClosing) {
+      requestAnimationFrame(() => {
+        setTimeout(() => {
+          const card = cardRefs.current.get(index);
+          if (card) {
+            window.dispatchEvent(new CustomEvent("suppress-header", { detail: { duration: 800 } }));
+            const y = card.getBoundingClientRect().top + window.scrollY - 20;
+            window.scrollTo({ top: y, behavior: "smooth" });
+          }
+        }, 150);
+      });
+    }
+  }, [selectedCard]);
+
   return (
     <div className="min-h-screen">
       <Helmet>
