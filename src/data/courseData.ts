@@ -16,9 +16,9 @@ export const heroContent: Record<CourseTab, { video: string | string[]; mobileVi
     subtext: "Ab 3 Monaten · Mit Elternteil · Warmes Wasser, ruhige Atmosphäre",
   },
   erwachsene: {
-    video: "/videos/erwachsene_desktop.mp4",
-    mobileVideo: "/videos/erwachsene_mobile.mp4",
-    poster: "/videos/erwachsene_desktop_poster.jpg",
+    video: ["/videos/erwachsene_mobile.mp4", "/videos/erwachsene_desktop.mp4"],
+    mobileVideo: ["/videos/erwachsene_mobile.mp4", "/videos/erwachsene_mobile.mp4"],
+    poster: "/videos/erwachsene_mobile_poster.jpg",
     mobilePoster: "/videos/erwachsene_mobile_poster.jpg",
     headline: "Es ist nie zu spät, schwimmen zu lernen.",
     subtext: "Anfänger & Fortgeschrittene · Ohne Zuschauer · In deinem Tempo",
