@@ -1,7 +1,9 @@
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, ArrowDown, Star, Waves, Droplets, PersonStanding, Activity, HeartPulse, ShieldCheck, Lock, Users } from "lucide-react";
+import { ArrowRight, ArrowDown, Star, Waves, Droplets, PersonStanding, Activity, HeartPulse, ShieldCheck, Lock, Users, Heart } from "lucide-react";
+import HeroTrustLine from "@/components/HeroTrustLine";
+import TestimonialCard from "@/components/TestimonialCard";
 import GlobalHeader from "@/components/home/GlobalHeader";
 import HomeFooter from "@/components/home/HomeFooter";
 import HeroVideoBackground from "@/components/HeroVideoBackground";
@@ -40,6 +42,7 @@ const philosophy = [
   { Icon: ShieldCheck, title: "Sicherheit zuerst", text: "Unsere Trainer sind zertifiziert, pädagogisch geschult und wissen, wie man Sicherheit im Wasser wirklich vermittelt." },
   { Icon: Lock, title: "Geschützter Rahmen", text: "Kein öffentlicher Badebetrieb. Eigene Becken, ruhige Atmosphäre – damit du dich voll auf das Lernen konzentrieren kannst." },
   { Icon: Users, title: "Individuelles Tempo", text: "Jeder Mensch lernt anders. Kleine Gruppen bedeuten echte Aufmerksamkeit – für jedes Kind, jeden Erwachsenen." },
+  { Icon: Heart, title: "Von Krankenkassen anerkannt", text: "Unsere Reha-Kurse sind von den Krankenkassen anerkannt. Das gibt dir zusätzliche Sicherheit und Vertrauen." },
 ];
 
 
@@ -91,8 +94,9 @@ const Index = () => {
           className="mt-8 md:mt-10 inline-flex items-center gap-2 rounded-full px-6 py-3 font-semibold text-base text-[#0C2D48] transition-all shadow-lg bg-[#C6FF00] hover:bg-[#B0E000] hover:scale-105 active:scale-[0.97]"
           style={{ boxShadow: "0 8px 24px -4px rgba(198,255,0,0.3)" }}
         >
-          Passenden Kurs finden <ArrowDown className="w-4 h-4" />
+           Passenden Kurs finden <ArrowDown className="w-4 h-4" />
         </motion.button>
+        <HeroTrustLine />
       </div>
     </section>
 
@@ -183,7 +187,7 @@ const Index = () => {
           <p className="text-slate-500 text-lg">Warum SWIM1 anders ist</p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-8">
           {philosophy.map((item, i) => (
             <motion.div
               key={item.title}
@@ -193,7 +197,7 @@ const Index = () => {
               transition={{ duration: 0.5, delay: i * 0.1 }}
               className="flex flex-row items-start gap-6 text-left"
             >
-              <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-secondary text-[#0C2D48] flex items-center justify-center">
+              <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-blue-50 text-[#1a6fb5] flex items-center justify-center">
                 <item.Icon className="w-8 h-8" strokeWidth={1.5} />
               </div>
               <div>
@@ -217,34 +221,14 @@ const Index = () => {
           className="text-center mb-12 md:mb-20"
         >
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-4">
-            Was Kursteilnehmer über uns sagen
+            Das sagen andere Eltern & Schwimmer
           </h2>
           <p className="text-white/70 font-medium">Über 4,9 Sterne auf Google</p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {testimonials.map((t, i) => (
-            <motion.div
-              key={t.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="bg-white rounded-[2rem] p-6 md:p-8 shadow-lg shadow-slate-300/50 border-2 border-slate-200 flex flex-col"
-            >
-              <div className="flex gap-0.5 mb-5">
-                {[...Array(5)].map((_, j) => (
-                  <Star key={j} className="w-4 h-4 fill-current text-[#F59E0B]" />
-                ))}
-              </div>
-              <p className="text-slate-700 font-medium leading-relaxed italic mb-6 flex-1">
-                „{t.text}"
-              </p>
-              <div>
-                <p className="text-slate-900 font-bold">{t.name}</p>
-                <p className="text-slate-500 text-sm">{t.location}</p>
-              </div>
-            </motion.div>
+            <TestimonialCard key={t.name} text={t.text} name={t.name} location={t.location} index={i} variant="light" />
           ))}
         </div>
       </div>
@@ -282,11 +266,12 @@ const Index = () => {
                 <h3 className="text-xl font-bold text-slate-900 mb-1">{loc.name}</h3>
                 <p className="text-sm font-semibold text-[#0C2D48] mb-0.5">{loc.center}</p>
                 <p className="text-slate-500 text-sm mb-4">{loc.address}</p>
-                <div className="flex flex-wrap gap-1.5 mb-5">
+                <div className="flex flex-wrap gap-1.5 mb-3">
                   {loc.features.map((f) => (
                     <span key={f} className="text-[11px] font-medium text-[#0C2D48] bg-slate-100 px-2.5 py-0.5 rounded-full">{f}</span>
                   ))}
                 </div>
+                <p className="text-xs text-slate-400 mb-5">Dein Team vor Ort freut sich auf dich.</p>
                 <Link
                   to={loc.route}
                   onClick={() => window.scrollTo({ top: 0 })}

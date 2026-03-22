@@ -5,6 +5,8 @@ import { Helmet } from "react-helmet-async";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSwipeNavigation } from "@/hooks/useSwipeNavigation";
 import { ArrowDown, ChevronDown, Star, Check } from "lucide-react";
+import HeroTrustLine from "@/components/HeroTrustLine";
+import TestimonialCard from "@/components/TestimonialCard";
 import { useIsMobile } from "@/hooks/use-mobile";
 import GlobalHeader from "@/components/home/GlobalHeader";
 import HomeFooter from "@/components/home/HomeFooter";
@@ -150,8 +152,40 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
           >
             Kurs wählen <ArrowDown className="w-4 h-4" />
           </motion.button>
+          <HeroTrustLine />
         </div>
       </section>
+
+      {/* SWIMMER JOURNEY (only Kinderschwimmen) */}
+      {tab === "kinderschwimmen" && (
+        <section className="py-12 md:py-16 bg-white">
+          <div className="max-w-4xl mx-auto px-6">
+            <h3 className="text-xl md:text-2xl font-bold text-slate-900 text-center mb-8">Der Weg zum sicheren Schwimmer</h3>
+            <div className="flex flex-col md:flex-row items-center md:items-start gap-4 md:gap-0">
+              {[
+                { step: "1", label: "Wassergewöhnung", desc: "Vertrauen aufbauen" },
+                { step: "2", label: "Seepferdchen", desc: "Grundlagen lernen" },
+                { step: "3", label: "Bronze · Silber · Gold", desc: "Technik & Ausdauer" },
+                { step: "4", label: "Sicherer Schwimmer", desc: "Fürs Leben gelernt" },
+              ].map((item, i, arr) => (
+                <div key={item.step} className="flex flex-col md:flex-row items-center flex-1">
+                  <div className="flex flex-col items-center text-center">
+                    <div className="w-10 h-10 rounded-full bg-[#0C2D48] text-white flex items-center justify-center text-sm font-bold mb-2">{item.step}</div>
+                    <p className="text-sm font-bold text-slate-900">{item.label}</p>
+                    <p className="text-xs text-slate-500">{item.desc}</p>
+                  </div>
+                  {i < arr.length - 1 && (
+                    <div className="hidden md:block flex-1 h-0.5 bg-slate-200 mx-3 mt-5" />
+                  )}
+                  {i < arr.length - 1 && (
+                    <div className="md:hidden w-0.5 h-6 bg-slate-200 my-1" />
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* KURSANGEBOT + TRUST */}
       <section id="kurse-section" ref={kurseSectionRef} className="bg-secondary/50 py-16 md:py-24 px-4 md:px-6 scroll-mt-[0px]">
@@ -274,7 +308,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
             {usps.items.map((usp, i) => (
               <motion.div key={usp.label} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }} className="flex flex-row items-start gap-6 text-left">
-                <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-secondary text-[#0C2D48] flex items-center justify-center">
+                <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-blue-50 text-[#1a6fb5] flex items-center justify-center">
                   <usp.Icon className="w-8 h-8" strokeWidth={1.5} />
                 </div>
                 <div>
@@ -291,18 +325,12 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
       <section className="py-16 md:py-32 bg-[#0C2D48]">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="text-center mb-12 md:mb-20">
-            <h2 className="text-4xl font-bold tracking-tight text-white mb-4">{tests.title}</h2>
+            <h2 className="text-4xl font-bold tracking-tight text-white mb-4">Das sagen andere Eltern & Schwimmer</h2>
             <p className="text-white/70 font-medium">Über 4,9 Sterne auf Google</p>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {tests.items.map((t, i) => (
-              <motion.div key={t.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }} className="bg-white rounded-[2rem] p-6 md:p-10 shadow-lg shadow-slate-300/50 border-2 border-slate-200 h-full flex flex-col">
-                <div className="flex gap-0.5 mb-6">
-                  {[...Array(5)].map((_, j) => <Star key={j} className="w-4 h-4 fill-current text-[#F59E0B]" />)}
-                </div>
-                <p className="text-lg text-slate-700 font-medium leading-relaxed italic mb-8 flex-1">„{t.text}"</p>
-                <div><p className="text-slate-900 font-bold">{t.name}</p><p className="text-slate-500 text-sm">{t.location}</p></div>
-              </motion.div>
+              <TestimonialCard key={t.name} text={t.text} name={t.name} location={t.location} index={i} />
             ))}
           </div>
         </div>

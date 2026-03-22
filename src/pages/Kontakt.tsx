@@ -86,7 +86,7 @@ const Kontakt = () => {
 
       {/* Hero */}
       <section className="bg-[#0C2D48] pt-28 pb-16 px-6 text-center">
-        <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">Kontakt aufnehmen</h1>
+        <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">Wir sind für dich da</h1>
         <p className="text-white/70 text-lg max-w-2xl mx-auto">
           Du hast Fragen zu unseren Kursen oder Standorten? Wir helfen dir gerne weiter.
         </p>
@@ -145,7 +145,7 @@ const Kontakt = () => {
               <CardContent className="p-6 md:p-8">
                 <div className="flex items-center gap-2 mb-6">
                   <MessageSquare className="w-5 h-5 text-[#0C2D48]" />
-                  <h2 className="text-xl font-bold text-[#0C2D48]">Schreib uns eine Nachricht</h2>
+                  <h2 className="text-xl font-bold text-[#0C2D48]">Lass uns sprechen</h2>
                 </div>
 
                 <Form {...form}>

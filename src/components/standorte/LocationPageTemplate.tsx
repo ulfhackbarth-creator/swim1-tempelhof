@@ -8,6 +8,8 @@ import {
   LifeBuoy, Dumbbell, HeartPulse, CheckCircle2, ChevronDown,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import HeroTrustLine from "@/components/HeroTrustLine";
+import TestimonialCard from "@/components/TestimonialCard";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -346,8 +348,9 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
             className="mt-8 md:mt-10 inline-flex items-center gap-2 rounded-full px-6 py-3 font-semibold text-base text-[#0C2D48] transition-all shadow-lg bg-[#C6FF00] hover:bg-[#B0E000] hover:scale-105 active:scale-[0.97]"
             style={{ boxShadow: "0 8px 24px -4px rgba(198,255,0,0.3)" }}
           >
-            Jetzt auf die Warteliste setzen <ArrowDown className="w-4 h-4" />
+          Jetzt Platz auf der Warteliste sichern <ArrowDown className="w-4 h-4" />
           </motion.button>
+          <HeroTrustLine />
         </div>
       </section>
 
@@ -369,7 +372,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
                 transition={{ duration: 0.4, delay: i * 0.08 }}
                 className="flex items-start gap-5"
               >
-                <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-secondary text-[#0C2D48] flex items-center justify-center">
+                <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-blue-50 text-[#1a6fb5] flex items-center justify-center">
                   <item.icon className="w-7 h-7" strokeWidth={1.5} />
                 </div>
                 <div>
@@ -411,7 +414,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
         <div className="max-w-3xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="text-center mb-12 md:mb-16">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mb-4">Unser Kursangebot</h2>
-            <p className="text-slate-500">Wähle eine Kategorie und sichere dir deinen Platz auf der Warteliste.</p>
+            <p className="text-slate-500">Wähle eine Kategorie und sichere dir deinen Platz. Keine versteckten Kosten – transparente Preise.</p>
           </motion.div>
 
           <Accordion type="single" collapsible value={activeAccordion} onValueChange={setActiveAccordion} className="space-y-3">
@@ -513,24 +516,13 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
       <section className="py-16 md:py-32 bg-[#0C2D48]">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="text-center mb-12 md:mb-20">
-            <h2 className="text-4xl font-bold tracking-tight text-white mb-4">Das sagen unsere Teilnehmer</h2>
-            <p className="text-white/70 font-medium">Über 4,9 Sterne auf Google</p>
+            <h2 className="text-4xl font-bold tracking-tight text-white mb-4">Das sagen andere Eltern & Schwimmer</h2>
+            <p className="text-white/70 font-medium">Über 4,9 Sterne von glücklichen Eltern & Schwimmern</p>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {config.testimonials.map((t, i) => (
-              <motion.div key={t.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }} className="bg-[#0C2D48]/40 border border-white/10 rounded-[2rem] p-6 md:p-10 backdrop-blur-sm h-full flex flex-col">
-                <div className="flex gap-0.5 mb-6">
-                  {Array.from({ length: t.stars }).map((_, j) => (
-                    <Star key={j} className="w-4 h-4 fill-current text-[#F59E0B]" />
-                  ))}
-                </div>
-                <p className="text-lg text-white/90 font-medium leading-relaxed italic mb-8 flex-1">„{t.text}"</p>
-                <div>
-                  <p className="text-white font-bold">{t.name}</p>
-                  <p className="text-white/50 text-sm">{t.location} · {t.course}</p>
-                </div>
-              </motion.div>
+              <TestimonialCard key={t.name} text={t.text} name={t.name} location={t.location} course={t.course} stars={t.stars} index={i} variant="dark" />
             ))}
           </div>
         </div>
