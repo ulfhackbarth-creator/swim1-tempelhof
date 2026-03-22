@@ -220,7 +220,7 @@ const Index = () => {
           className="text-center mb-12 md:mb-20"
         >
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-4">
-            Was Kursteilnehmer über uns sagen
+            Das sagen andere Eltern & Schwimmer
           </h2>
           <p className="text-white/70 font-medium">Über 4,9 Sterne auf Google</p>
         </motion.div>
