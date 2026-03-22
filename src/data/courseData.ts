@@ -2,29 +2,36 @@ import type { CourseTab } from "@/types/course";
 import type { LucideIcon } from "lucide-react";
 import { Fish, Medal, Trophy, Sun, Baby, Users, LifeBuoy, Timer, Dumbbell, HeartPulse } from "lucide-react";
 
-export const heroContent: Record<CourseTab, { video: string | string[]; headline: string; subtext: string }> = {
+export const heroContent: Record<CourseTab, { video: string | string[]; mobileVideo?: string | string[]; poster?: string; mobilePoster?: string; headline: string; subtext: string }> = {
   kinderschwimmen: {
-    video: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028281720/oNJkUzlVKWrdgGBV.mp4",
+    video: "/videos/kinderschwimmen_desktop.mp4",
+    poster: "/videos/kinderschwimmen_desktop_poster.jpg",
     headline: "Schwimmen lernen. Eine Fähigkeit fürs Leben.",
     subtext: "Ab 3,5 Jahren · Max. 6 Kinder · Vom Seepferdchen bis Gold",
   },
   wassergewoehnung: {
-    video: "https://videos.pexels.com/video-files/5888968/5888968-uhd_2560_1440_30fps.mp4",
+    video: "/videos/baby_kleinkinder_desktop.mp4",
+    poster: "/videos/baby_kleinkinder_desktop_poster.jpg",
     headline: "Wasser gemeinsam erleben. Von Anfang an.",
     subtext: "Ab 3 Monaten · Mit Elternteil · Warmes Wasser, ruhige Atmosphäre",
   },
   erwachsene: {
-    video: ["https://files.manuscdn.com/user_upload_by_module/session_file/310419663028281720/sLFSYxdJMAiQdOXX.mp4", "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028281720/jUDOvskOIkWiOmuC.mp4"],
+    video: "/videos/erwachsene_desktop.mp4",
+    mobileVideo: "/videos/erwachsene_mobile.mp4",
+    poster: "/videos/erwachsene_desktop_poster.jpg",
+    mobilePoster: "/videos/erwachsene_mobile_poster.jpg",
     headline: "Es ist nie zu spät, schwimmen zu lernen.",
     subtext: "Anfänger & Fortgeschrittene · Ohne Zuschauer · In deinem Tempo",
   },
   fitness: {
-    video: "https://videos.pexels.com/video-files/8050098/8050098-hd_1920_1080_25fps.mp4",
+    video: "/videos/aquafitness_desktop.mp4",
+    poster: "/videos/aquafitness_desktop_poster.jpg",
     headline: "Bewegung, die sich leicht anfühlt.",
     subtext: "Gelenkschonend · Alle Level · 32 °C warmes Wasser",
   },
   reha: {
-    video: "https://videos.pexels.com/video-files/6539674/6539674-hd_1920_1080_25fps.mp4",
+    video: "/videos/aquareha_desktop.mp4",
+    poster: "/videos/aquareha_desktop_poster.jpg",
     headline: "Zurück zu alter Stärke.",
     subtext: "Auf ärztliches Rezept · Krankenkassen-anerkannt · Medizinisch begleitet",
   },
