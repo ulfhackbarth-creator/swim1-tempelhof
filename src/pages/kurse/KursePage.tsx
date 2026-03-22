@@ -295,12 +295,12 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {tests.items.map((t, i) => (
-              <motion.div key={t.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }} className="bg-[#0C2D48]/40 border border-white/10 rounded-[2rem] p-6 md:p-10 backdrop-blur-sm h-full flex flex-col">
+              <motion.div key={t.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }} className="bg-white rounded-[2rem] p-6 md:p-10 shadow-lg shadow-slate-300/50 border-2 border-slate-200 h-full flex flex-col">
                 <div className="flex gap-0.5 mb-6">
                   {[...Array(5)].map((_, j) => <Star key={j} className="w-4 h-4 fill-current text-[#F59E0B]" />)}
                 </div>
-                <p className="text-lg text-white/90 font-medium leading-relaxed italic mb-8 flex-1">„{t.text}"</p>
-                <div><p className="text-white font-bold">{t.name}</p><p className="text-white/50 text-sm">{t.location}</p></div>
+                <p className="text-lg text-slate-700 font-medium leading-relaxed italic mb-8 flex-1">„{t.text}"</p>
+                <div><p className="text-slate-900 font-bold">{t.name}</p><p className="text-slate-500 text-sm">{t.location}</p></div>
               </motion.div>
             ))}
           </div>
