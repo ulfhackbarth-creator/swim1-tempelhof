@@ -142,45 +142,45 @@ const GlobalHeader = () => {
                 <Menu className="w-5 h-5" />
               </button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-80 p-0" style={{ backgroundColor: HEADER_BG, borderColor: "rgba(255,255,255,0.1)" }}>
-              <SheetHeader className="p-6 pb-4 border-b border-white/10">
-                <SheetTitle className="text-white flex items-center gap-2">
+            <SheetContent side="right" className="w-80 p-0 bg-white border-slate-200">
+              <SheetHeader className="p-6 pb-4 border-b border-slate-100">
+                <SheetTitle className="text-[#0C2D48] flex items-center gap-2">
                   <Waves className="w-5 h-5" />
                   SWIM1
                 </SheetTitle>
               </SheetHeader>
 
               {/* Standorte section */}
-              <div className="p-6 border-b border-white/10">
-                <p className="text-xs font-semibold uppercase tracking-wider text-white/40 mb-4">Standorte</p>
+              <div className="p-6 border-b border-slate-100">
+                <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-4">Standorte</p>
                 <div className="space-y-1">
-                  <Link to="/standorte/berlin-tempelhof" onClick={() => { setMenuOpen(false); window.scrollTo({ top: 0 }); }} className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/80 hover:bg-white/10 hover:text-white transition-colors text-sm font-medium">
-                    <MapPin className="w-4 h-4 text-white/50" /> Berlin-Tempelhof
+                  <Link to="/standorte/berlin-tempelhof" onClick={() => { setMenuOpen(false); window.scrollTo({ top: 0 }); }} className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-700 hover:bg-slate-50 hover:text-[#0C2D48] transition-colors text-sm font-medium">
+                    <MapPin className="w-4 h-4 text-slate-400" /> Berlin-Tempelhof
                   </Link>
-                  <Link to="/standorte/schwerin" onClick={() => { setMenuOpen(false); window.scrollTo({ top: 0 }); }} className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/80 hover:bg-white/10 hover:text-white transition-colors text-sm font-medium">
-                    <MapPin className="w-4 h-4 text-white/50" /> Schwerin
+                  <Link to="/standorte/schwerin" onClick={() => { setMenuOpen(false); window.scrollTo({ top: 0 }); }} className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-700 hover:bg-slate-50 hover:text-[#0C2D48] transition-colors text-sm font-medium">
+                    <MapPin className="w-4 h-4 text-slate-400" /> Schwerin
                   </Link>
-                  <Link to="/standorte/wildau" onClick={() => { setMenuOpen(false); window.scrollTo({ top: 0 }); }} className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/80 hover:bg-white/10 hover:text-white transition-colors text-sm font-medium">
-                    <MapPin className="w-4 h-4 text-white/50" /> Wildau
+                  <Link to="/standorte/wildau" onClick={() => { setMenuOpen(false); window.scrollTo({ top: 0 }); }} className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-700 hover:bg-slate-50 hover:text-[#0C2D48] transition-colors text-sm font-medium">
+                    <MapPin className="w-4 h-4 text-slate-400" /> Wildau
                   </Link>
-                  <Link to="/standorte/bremen" onClick={() => { setMenuOpen(false); window.scrollTo({ top: 0 }); }} className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/80 hover:bg-white/10 hover:text-white transition-colors text-sm font-medium">
-                    <MapPin className="w-4 h-4 text-white/50" /> Bremen
+                  <Link to="/standorte/bremen" onClick={() => { setMenuOpen(false); window.scrollTo({ top: 0 }); }} className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-700 hover:bg-slate-50 hover:text-[#0C2D48] transition-colors text-sm font-medium">
+                    <MapPin className="w-4 h-4 text-slate-400" /> Bremen
                   </Link>
                 </div>
               </div>
 
               {/* Menu links */}
               <div className="p-6">
-                <p className="text-xs font-semibold uppercase tracking-wider text-white/40 mb-4">Mehr</p>
+                <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-4">Mehr</p>
                 <div className="space-y-1">
                   {menuLinks.map((link) => (
                     <Link
                       key={link.label}
                       to={link.href}
                       onClick={() => { setMenuOpen(false); }}
-                      className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/80 hover:bg-white/10 hover:text-white transition-colors text-sm font-medium"
+                      className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-700 hover:bg-slate-50 hover:text-[#0C2D48] transition-colors text-sm font-medium"
                     >
-                      <link.Icon className="w-4 h-4 text-white/50" />
+                      <link.Icon className="w-4 h-4 text-slate-400" />
                       {link.label}
                     </Link>
                   ))}
