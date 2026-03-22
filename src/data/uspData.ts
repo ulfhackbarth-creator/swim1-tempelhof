@@ -29,11 +29,11 @@ export const uspsByTab: Record<CourseTab, { title: string; items: UspItem[] }> =
     ],
   },
   fitness: {
-    title: "Warum Aqua-Fitness so effektiv ist",
+    title: "Was Aquafitness bei Swim1 besonders macht",
     items: [
-      { Icon: Activity, label: "Gelenkschonend", text: "Der Wasserauftrieb reduziert dein Körpergewicht auf 10%. Perfekt für ein intensives Training ohne Gelenkbelastung." },
-      { Icon: Droplets, label: "Ganzkörper-Workout", text: "Der Wasserwiderstand trainiert Kraft, Ausdauer und Beweglichkeit gleichzeitig – deutlich effektiver als an Land." },
-      { Icon: Users, label: "Gruppendynamik", text: "Mitreißende Musik und motivierende Trainer sorgen dafür, dass der Spaß beim Auspowern nie zu kurz kommt." },
+      { Icon: Activity, label: "Gelenkschonend", text: "Das Wasser trägt dich – buchstäblich. Der Auftrieb schont deine Gelenke, während du trotzdem deinen ganzen Körper trainierst." },
+      { Icon: Droplets, label: "Wirkungsvolles Training", text: "Der Wasserwiderstand trainiert Kraft, Ausdauer und Beweglichkeit gleichzeitig. Effektiv – ohne dass es sich wie Arbeit anfühlt." },
+      { Icon: Users, label: "Gemeinsam mehr Spaß", text: "In der Gruppe macht Bewegung mehr Spaß. Unsere Trainer bringen Energie mit – und du gehst jedes Mal mit einem guten Gefühl nach Hause." },
     ],
   },
   reha: {

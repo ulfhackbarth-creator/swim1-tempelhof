@@ -20,8 +20,8 @@ export const heroContent: Record<CourseTab, { video: string | string[]; headline
   },
   fitness: {
     video: "https://videos.pexels.com/video-files/8050098/8050098-hd_1920_1080_25fps.mp4",
-    headline: "Fitness im Wasser. Für jeden.",
-    subtext: "Gelenkschonend · Alle Level · Voller Freude und Energie in der Gruppe",
+    headline: "Bewegung, die sich leicht anfühlt.",
+    subtext: "Aquafitness bei Swim1 ist kein klassisches Workout. Es ist Bewegung im Wasser – gelenkschonend, in Gemeinschaft und mit echtem Spaß.",
   },
   reha: {
     video: "https://videos.pexels.com/video-files/6539674/6539674-hd_1920_1080_25fps.mp4",
@@ -111,7 +111,7 @@ export const coursesByTab: Record<CourseTab, Course[]> = {
   fitness: [
     {
       icon: Dumbbell, tag: "Alle Level", name: "Aquafitness",
-      text: "Gelenkschonendes Ganzkörper-Training im Wasser. Effektiv, motivierend, für jeden geeignet.",
+      text: "Bewegung im Wasser, die dir guttut. Gelenkschonend, in kleiner Gruppe, mit Trainern, die dabei sind.",
       details: "Aquafitness bietet ein effektives Ganzkörper-Workout, das Gelenke schont und gleichzeitig Kraft, Ausdauer und Beweglichkeit trainiert. Ideal für alle, die Spaß an Bewegung im Wasser haben.",
       highlights: ["Gelenkschonend", "Max. 8 Teilnehmer", "Für jedes Fitnesslevel"],
     },
