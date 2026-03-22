@@ -5,23 +5,23 @@ import { Fish, Medal, Trophy, Sun, Baby, Users, LifeBuoy, Timer, Dumbbell, Heart
 export const heroContent: Record<CourseTab, { video: string | string[]; headline: string; subtext: string }> = {
   kinderschwimmen: {
     video: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028281720/oNJkUzlVKWrdgGBV.mp4",
-    headline: "Vom Seepferdchen bis zum Goldabzeichen.",
-    subtext: "Kleine Gruppen · Zertifizierte Trainer · Bewährte Methodik",
+    headline: "Dein Kind lernt schwimmen. Sicher, geduldig und mit Spaß.",
+    subtext: "Vom ersten mutigen Sprung bis zum stolzen Seepferdchen-Abzeichen. Unsere Trainer wissen genau, wie sie Kindern die Angst nehmen und Selbstvertrauen aufbauen.",
   },
   wassergewoehnung: {
     video: "https://videos.pexels.com/video-files/5888968/5888968-uhd_2560_1440_30fps.mp4",
-    headline: "Erste Schritte im Wasser. Für die Kleinsten.",
-    subtext: "Ab 3 Monaten · Mit Mama oder Papa · Spielerische Wassergewöhnung",
+    headline: "Die ersten Schritte im Wasser – voller Vertrauen.",
+    subtext: "Ohne Angst, dafür mit viel Freude: In unseren Eltern-Kind-Kursen lernt dein Baby oder Kleinkind das Element Wasser spielerisch kennen. Ein Erlebnis, das euch verbindet.",
   },
   erwachsene: {
     video: ["https://files.manuscdn.com/user_upload_by_module/session_file/310419663028281720/sLFSYxdJMAiQdOXX.mp4", "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028281720/jUDOvskOIkWiOmuC.mp4"],
-    headline: "Schwimmen lernen ist keine Frage des Alters.",
-    subtext: "Ob kompletter Anfänger oder Technik-Feinschliff – lerne in kleiner Gruppe und geschütztem Rahmen schwimmen.",
+    headline: "Es ist nie zu spät, sich im Wasser sicher zu fühlen.",
+    subtext: "Egal, ob du deine Angst überwinden, von Grund auf neu lernen oder deine Technik perfektionieren möchtest – wir begleiten dich in einem geschützten, diskreten Rahmen.",
   },
   fitness: {
     video: "https://videos.pexels.com/video-files/8050098/8050098-hd_1920_1080_25fps.mp4",
     headline: "Fitness im Wasser. Für jeden.",
-    subtext: "Gelenkschonend · Alle Level · Viel Spaß in der Gruppe",
+    subtext: "Gelenkschonend · Alle Level · Voller Freude und Energie in der Gruppe",
   },
   reha: {
     video: "https://videos.pexels.com/video-files/6539674/6539674-hd_1920_1080_25fps.mp4",
@@ -51,7 +51,7 @@ export const coursesByTab: Record<CourseTab, Course[]> = {
   kinderschwimmen: [
     {
       icon: Fish, tag: "Abzeichen", name: "Seepferdchen",
-      text: "Strukturierter Kurs für Kinder ab 3,5 Jahren. Schritt für Schritt zum ersten Schwimmabzeichen.",
+      text: "Der wichtigste Meilenstein: Dein Kind lernt die Grundlagen des Brustschwimmens, das Tauchen und den mutigen Sprung vom Beckenrand.",
       details: "Im Seepferdchen-Kurs lernen Kinder ab 3,5 Jahren die Grundlagen des Schwimmens. Ziel ist es, 25 Meter ohne Hilfe zu schwimmen und einen Gegenstand aus schultertiefem Wasser zu holen.",
       highlights: ["Ab 3,5 Jahren", "Max. 6 Kinder pro Gruppe", "Inkl. Schwimmabzeichen"],
     },
@@ -83,7 +83,7 @@ export const coursesByTab: Record<CourseTab, Course[]> = {
   wassergewoehnung: [
     {
       icon: Baby, tag: "Ab 3 Monate", name: "Babyschwimmen",
-      text: "Spielerische Wassergewöhnung für Babys ab 3 Monaten mit einem Elternteil. Fördert Motorik und Bindung.",
+      text: "Gemeinsame Zeit im warmen Wasser. Dein Baby lernt erste Bewegungen, baut Vertrauen auf und stärkt spielerisch seine Motorik.",
       details: "Babyschwimmen fördert die motorische Entwicklung und stärkt die Bindung zwischen Eltern und Kind. In 32 °C warmem Wasser entdecken Babys spielerisch das Element Wasser.",
       highlights: ["Ab 3 Monaten", "Mit Mama oder Papa", "32 °C Wassertemperatur"],
     },
@@ -97,7 +97,7 @@ export const coursesByTab: Record<CourseTab, Course[]> = {
   erwachsene: [
     {
       icon: LifeBuoy, tag: "Für Anfänger", name: "Anfängerschwimmen",
-      text: "Überwinde deine Ängste im geschützten Rahmen. Wir gewöhnen dich behutsam ans Wasser und bringen dir die Grundlagen des Brustschwimmens bei.",
+      text: "Es ist nie zu spät, sich im Wasser sicher zu fühlen. Wir begleiten dich behutsam – ohne Druck, ohne Zuschauer.",
       details: "Der perfekte Einstieg für Erwachsene, die noch nicht schwimmen können oder Angst vor dem Wasser haben. In kleinen Gruppen und ohne Zuschauer lernst du die Grundlagen sicher und entspannt.",
       highlights: ["Kleine Gruppen (max. 8)", "Ohne Zuschauer", "Behutsamer Aufbau"],
     },

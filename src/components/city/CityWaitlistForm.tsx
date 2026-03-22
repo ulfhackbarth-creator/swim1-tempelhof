@@ -136,7 +136,7 @@ const CityWaitlistForm = ({ city }: CityWaitlistFormProps) => {
           <div className="text-center mb-8">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">Sichere dir deinen Platz</h2>
             <p className="text-muted-foreground">
-              Bereits über {city.waitlistCount} Eltern stehen auf der Liste. Trag dich jetzt unverbindlich ein, bevor die Warteliste schließt.
+              Sichere dir jetzt deinen Platz. Trage dich unverbindlich ein – wir melden uns sofort bei dir, sobald der passende Kurs für dich oder dein Kind startet.
             </p>
 
             <div className="flex items-center justify-center gap-2 mt-4 mb-2">

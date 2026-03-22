@@ -17,18 +17,17 @@ const heroVideos = [
 ];
 
 const trustStats = [
-  { value: "Über 2.000", label: "Zufriedene Schwimmer" },
-  { value: "4", label: "Moderne Standorte" },
-  { value: "32°C", label: "Warmes Wasser" },
-  { value: "Kleine", label: "Kursgruppen" },
+  { value: "Max. 6 Kinder", label: "Kleine Gruppen" },
+  { value: "Zertifiziert", label: "Einfühlsame Trainer" },
+  { value: "32°C", label: "Warmes Wohlfühlwasser" },
 ];
 
 const categories = [
-  { Icon: Droplets, tag: "Ab 3 Monaten", title: "Wassergewöhnung", text: "Babyschwimmen & Eltern-Kind-Kurse für die Kleinsten.", path: "/kurse/wassergewoehnung" },
-  { Icon: Waves, tag: "Ab 3,5 Jahren", title: "Kinderschwimmen", text: "Vom Seepferdchen bis zum Goldabzeichen – mit Spaß und Sicherheit.", path: "/kurse/kinderschwimmen" },
-  { Icon: PersonStanding, tag: "Alle Level", title: "Erwachsenenschwimmen", text: "Ängste abbauen oder Technik perfektionieren – in kleiner Gruppe.", path: "/kurse/erwachsene" },
-  { Icon: Activity, tag: "Gelenkschonend", title: "Aquafitness", text: "Effektives Ganzkörpertraining im 32 °C warmen Wasser.", path: "/kurse/aquafitness" },
-  { Icon: HeartPulse, tag: "Auf Rezept", title: "Aqua Reha", text: "Medizinisch begleitete Rehabilitation – von Krankenkassen anerkannt.", path: "/kurse/reha" },
+  { Icon: Droplets, tag: "Ab 3 Monaten", title: "Wassergewöhnung", text: "Gemeinsame Zeit im warmen Wasser. Dein Baby entdeckt spielerisch das Element Wasser.", path: "/kurse/wassergewoehnung" },
+  { Icon: Waves, tag: "Ab 3,5 Jahren", title: "Kinderschwimmen", text: "Vom ersten mutigen Sprung bis zum stolzen Seepferdchen – mit Geduld und Freude.", path: "/kurse/kinderschwimmen" },
+  { Icon: PersonStanding, tag: "Alle Level", title: "Erwachsenenschwimmen", text: "Ängste überwinden oder Technik perfektionieren – in geschütztem, diskretem Rahmen.", path: "/kurse/erwachsene" },
+  { Icon: Activity, tag: "Gelenkschonend", title: "Aquafitness", text: "Effektives Ganzkörpertraining im 32 °C warmen Wasser – voller Freude und Energie.", path: "/kurse/aquafitness" },
+  { Icon: HeartPulse, tag: "Auf Rezept", title: "Aqua Reha", text: "Medizinisch begleitete Rehabilitation im Wasser – für mehr Mobilität und Lebensqualität.", path: "/kurse/reha" },
 ];
 
 const philosophy = [
@@ -39,10 +38,9 @@ const philosophy = [
 
 
 const testimonials = [
-  { text: "Meine Tochter hatte anfangs große Angst vor dem Wasser. Die Trainer sind unglaublich geduldig und am Ende hat sie stolz ihr Seepferdchen geschafft!", name: "Sandra M.", location: "Berlin-Tempelhof" },
-  { text: "Ich habe mich mit 45 Jahren endlich getraut. Der Trainer war unglaublich geduldig. Ich fühle mich jetzt sicher im Wasser.", name: "Markus T.", location: "Berlin-Tempelhof" },
-  { text: "Wegen meiner Knieprobleme kann ich nicht mehr joggen. Aqua-Fitness ist die perfekte Alternative, um fit zu bleiben.", name: "Peter W.", location: "Schwerin" },
-  { text: "Nach meiner Hüft-OP war das Training im Wasser die Rettung. Ich konnte Bewegungen machen, die an Land undenkbar waren.", name: "Klaus D.", location: "Berlin-Tempelhof" },
+  { text: "Mia hatte panische Angst, wenn auch nur ein Tropfen Wasser in ihr Gesicht kam. Nach nur sechs Wochen bei Swim1 springt sie lachend vom Beckenrand. Die Trainer haben ein echtes Wunder vollbracht.", name: "Sarah T.", location: "Mutter von Mia (4)" },
+  { text: "Das 32 Grad warme Wasser ist ein Traum. Unser Sohn liebt die ruhige Atmosphäre und wir als Eltern fühlen uns in jeder Sekunde sicher aufgehoben. Ein Highlight unserer Woche.", name: "Julian M.", location: "Vater von Leo (1)" },
+  { text: "Ich habe mich mit 45 Jahren endlich getraut, richtig schwimmen zu lernen. Die Geduld und Diskretion des Trainers haben mir vom ersten Tag an die Scham genommen.", name: "Michael K.", location: "Anfängerkurs" },
 ];
 
 const scrollTo = (id: string) => {
@@ -73,10 +71,10 @@ const Index = () => {
           <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold text-white tracking-tight leading-tight md:leading-[1.1] mb-4 md:mb-6">
             Sicher im Wasser.
             <br />
-            Ein Leben lang.
+            Stolz fürs Leben.
           </h1>
           <p className="text-base md:text-xl text-white/80 max-w-2xl mx-auto">
-            Vom Seepferdchen bis zur perfekten Kraultechnik. Swim1 ist deine Premium-Schwimmschule an 4 Standorten.
+            Von der ersten Wassergewöhnung bis zum sicheren Schwimmer. Wir begleiten dein Kind mit Wärme, Geduld und zertifizierten Trainern – in kleinen Gruppen und 32°C warmem Wasser.
           </p>
         </motion.div>
         <motion.button
@@ -87,7 +85,7 @@ const Index = () => {
           className="mt-8 md:mt-10 inline-flex items-center gap-2 rounded-full px-6 py-3 font-semibold text-base text-white transition-colors shadow-lg bg-[#F97316] hover:bg-[#EA580C]"
           style={{ boxShadow: "0 8px 24px -4px rgba(249,115,22,0.3)" }}
         >
-          Zum Standort in deiner Nähe <ArrowDown className="w-4 h-4" />
+          Passenden Kurs finden <ArrowDown className="w-4 h-4" />
         </motion.button>
       </div>
     </section>
@@ -142,7 +140,7 @@ const Index = () => {
 
     {/* ─── TRUST STATS ─── */}
     <section className="bg-[#0F2D52] py-12 md:py-16">
-      <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 px-6">
+      <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 px-6">
         {trustStats.map((s, i) => (
           <motion.div
             key={s.label}
@@ -218,7 +216,7 @@ const Index = () => {
           <p className="text-white/70 font-medium">Über 4,9 Sterne auf Google</p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {testimonials.map((t, i) => (
             <motion.div
               key={t.name}
