@@ -28,11 +28,11 @@ const philosophy = [
 ];
 
 const journey = [
-  { Icon: Baby, title: "Baby & Kleinkinder", text: "Die ersten Erfahrungen im Element Wasser.", details: "Babyschwimmen und Eltern-Kind-Kurse ab 3 Monaten. Gemeinsam die Freude am Wasser entdecken – in geschützter Atmosphäre und warmem Wasser.", path: "/kurse/wassergewoehnung" },
-  { Icon: Waves, title: "Kinder", text: "Vom Seepferdchen bis zum sicheren Schwimmer.", details: "Schwimmen lernen von Grund auf – vom Seepferdchen über Bronze bis Gold. Spielerisch, sicher und mit zertifizierten Trainern.", path: "/kurse/kinderschwimmen" },
-  { Icon: PersonStanding, title: "Erwachsene", text: "Ängste überwinden und Technik perfektionieren.", details: "Ob Anfänger oder Fortgeschrittene – in diskreter Atmosphäre ohne Zuschauer lernst du schwimmen oder verfeinerst deine Technik.", path: "/kurse/erwachsene" },
-  { Icon: Activity, title: "Aquafitness", text: "Gelenkschonendes Ganzkörpertraining im Wasser.", details: "Effektives Workout im 32 °C warmen Wasser. Stärkt Muskulatur und Ausdauer – schonend für Gelenke und mit Spaß in der Gruppe.", path: "/kurse/aquafitness" },
-  { Icon: HeartPulse, title: "Aqua Reha", text: "Rehabilitation und Mobilität im Wasser fördern.", details: "Von Krankenkassen anerkannte Reha-Kurse. Das Wasser gibt dir den Raum, Kraft und Beweglichkeit zurückzugewinnen.", path: "/kurse/reha" },
+  { Icon: Baby, tag: "Ab 3 Monaten", title: "Baby & Kleinkinder", text: "Die ersten Erfahrungen im Element Wasser.", details: "Babyschwimmen und Eltern-Kind-Kurse ab 3 Monaten. Gemeinsam die Freude am Wasser entdecken – in geschützter Atmosphäre und warmem Wasser.", path: "/kurse/wassergewoehnung" },
+  { Icon: Waves, tag: "Ab 3,5 Jahren", title: "Kinder", text: "Vom Seepferdchen bis zum sicheren Schwimmer.", details: "Schwimmen lernen von Grund auf – vom Seepferdchen über Bronze bis Gold. Spielerisch, sicher und mit zertifizierten Trainern.", path: "/kurse/kinderschwimmen" },
+  { Icon: PersonStanding, tag: "Alle Level", title: "Erwachsene", text: "Ängste überwinden und Technik perfektionieren.", details: "Ob Anfänger oder Fortgeschrittene – in diskreter Atmosphäre ohne Zuschauer lernst du schwimmen oder verfeinerst deine Technik.", path: "/kurse/erwachsene" },
+  { Icon: Activity, tag: "Gelenkschonend", title: "Aquafitness", text: "Gelenkschonendes Ganzkörpertraining im Wasser.", details: "Effektives Workout im 32 °C warmen Wasser. Stärkt Muskulatur und Ausdauer – schonend für Gelenke und mit Spaß in der Gruppe.", path: "/kurse/aquafitness" },
+  { Icon: HeartPulse, tag: "Auf Rezept", title: "Aqua Reha", text: "Rehabilitation und Mobilität im Wasser fördern.", details: "Von Krankenkassen anerkannte Reha-Kurse. Das Wasser gibt dir den Raum, Kraft und Beweglichkeit zurückzugewinnen.", path: "/kurse/reha" },
 ];
 
 const UeberUns = () => {
@@ -214,12 +214,17 @@ const UeberUns = () => {
                     <Check className="w-4 h-4 text-[#0C2D48]" strokeWidth={3} />
                   </div>
                 )}
-                <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-4 transition-colors duration-200 ${
-                  isSelected ? "bg-white/15" : "bg-secondary text-[#0C2D48]"
-                }`}>
-                  <card.Icon className={`w-6 h-6 transition-colors duration-200 ${isSelected ? "text-white" : ""}`} strokeWidth={1.5} />
+                <div className="flex items-start gap-4 mb-4">
+                  <div className={`w-12 h-12 shrink-0 rounded-2xl flex items-center justify-center transition-colors duration-200 ${
+                    isSelected ? "bg-white/15" : "bg-secondary text-[#0C2D48]"
+                  }`}>
+                    <card.Icon className={`w-6 h-6 transition-colors duration-200 ${isSelected ? "text-white" : ""}`} strokeWidth={1.5} />
+                  </div>
+                  <div className="min-w-0">
+                    <span className={`text-xs font-bold uppercase tracking-widest transition-colors duration-200 ${isSelected ? "text-white/70" : "text-[#0C2D48]"}`}>{card.tag}</span>
+                    <h3 className={`text-xl font-bold transition-colors duration-200 ${isSelected ? "text-white" : "text-slate-900"}`}>{card.title}</h3>
+                  </div>
                 </div>
-                <h3 className={`text-xl font-bold mb-2 transition-colors duration-200 ${isSelected ? "text-white" : "text-slate-900"}`}>{card.title}</h3>
                 <p className={`leading-relaxed mb-4 flex-1 transition-colors duration-200 ${isSelected ? "text-white/80" : "text-slate-600"}`}>{card.text}</p>
 
                 <AnimatePresence initial={false}>
