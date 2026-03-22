@@ -111,7 +111,7 @@ export const coursesByTab: Record<CourseTab, Course[]> = {
   fitness: [
     {
       icon: Dumbbell, tag: "Alle Level", name: "Aquafitness",
-      text: "Gelenkschonendes Ganzkörper-Training im Wasser. Effektiv, motivierend, für jeden geeignet.",
+      text: "Bewegung im Wasser, die dir guttut. Gelenkschonend, in kleiner Gruppe, mit Trainern, die dabei sind.",
       details: "Aquafitness bietet ein effektives Ganzkörper-Workout, das Gelenke schont und gleichzeitig Kraft, Ausdauer und Beweglichkeit trainiert. Ideal für alle, die Spaß an Bewegung im Wasser haben.",
       highlights: ["Gelenkschonend", "Max. 8 Teilnehmer", "Für jedes Fitnesslevel"],
     },
