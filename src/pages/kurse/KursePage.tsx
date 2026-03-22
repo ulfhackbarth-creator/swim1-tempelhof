@@ -112,7 +112,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
         })}</script>
       </Helmet>
       {/* Breadcrumb strip */}
-      <nav aria-label="breadcrumb" className="bg-gray-50 px-4 py-2">
+      <nav aria-label="breadcrumb" className="sr-only">
         <ol className="flex items-center gap-1.5 text-xs text-gray-400 max-w-6xl mx-auto">
           <li><Link to="/" className="hover:text-gray-600 transition-colors">Startseite</Link></li>
           <li aria-hidden="true">›</li>
