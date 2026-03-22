@@ -180,6 +180,8 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
     if (!activeAccordion) return;
     const el = accordionRefs.current[activeAccordion];
     if (el) {
+      // Suppress header show-on-scroll-up during programmatic scroll
+      window.dispatchEvent(new CustomEvent("suppress-header"));
       setTimeout(() => {
         const top = el.getBoundingClientRect().top + window.scrollY - 100;
         window.scrollTo({ top, behavior: "smooth" });
