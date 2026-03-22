@@ -130,6 +130,7 @@ export interface LocationConfig {
 const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
   const formRef = useRef<HTMLDivElement>(null);
   const accordionRefs = useRef<Record<string, HTMLDivElement | null>>({});
+  const courseCardRefs = useRef<Record<string, HTMLDivElement | null>>({});
   const [searchParams] = useSearchParams();
   const courseParam = searchParams.get("course") || "";
   const { toast } = useToast();
