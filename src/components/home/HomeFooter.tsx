@@ -1,7 +1,7 @@
 import { Waves } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const scrollTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+const scrollTop = () => window.scrollTo({ top: 0 });
 
 const HomeFooter = () => (
   <footer className="bg-slate-900 py-20">
