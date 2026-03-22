@@ -516,8 +516,8 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
       <section className="py-16 md:py-32 bg-[#0C2D48]">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="text-center mb-12 md:mb-20">
-            <h2 className="text-4xl font-bold tracking-tight text-white mb-4">Das sagen unsere Teilnehmer</h2>
-            <p className="text-white/70 font-medium">Über 4,9 Sterne auf Google</p>
+            <h2 className="text-4xl font-bold tracking-tight text-white mb-4">Das sagen andere Eltern & Schwimmer</h2>
+            <p className="text-white/70 font-medium">Über 4,9 Sterne von glücklichen Eltern & Schwimmern</p>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-8">
