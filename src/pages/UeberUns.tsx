@@ -209,7 +209,7 @@ const UeberUns = () => {
             >
               <img
                 src="/videos/standort_desktop_poster.jpg"
-                alt="Das Swim1 Team am Beckenrand"
+                alt="Das SWIM1 Team am Beckenrand"
                 className="w-full h-72 md:h-96 object-cover"
               />
             </motion.div>
