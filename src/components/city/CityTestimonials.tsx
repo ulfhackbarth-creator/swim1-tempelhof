@@ -24,10 +24,10 @@ const CityTestimonials = ({ city }: CityTestimonialsProps) => {
                   <Star key={i} className="w-4 h-4 fill-accent text-accent" />
                 ))}
               </div>
-              <p className="text-foreground mb-4 leading-relaxed">„{testimonial.text}"</p>
-              <div className="border-t border-border pt-4">
-                <p className="font-semibold text-foreground">{testimonial.name}</p>
-                <p className="text-sm text-muted-foreground">{testimonial.location} · {testimonial.course}</p>
+              <p className="text-slate-700 mb-4 leading-relaxed">„{testimonial.text}"</p>
+              <div className="border-t border-slate-200 pt-4">
+                <p className="font-semibold text-slate-900">{testimonial.name}</p>
+                <p className="text-sm text-slate-500">{testimonial.location} · {testimonial.course}</p>
               </div>
             </motion.div>
           ))}

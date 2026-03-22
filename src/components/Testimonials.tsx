@@ -62,15 +62,15 @@ const Testimonials = () => {
                 ))}
               </div>
 
-              <p className="text-foreground mb-4 leading-relaxed">
+              <p className="text-slate-700 mb-4 leading-relaxed">
                 „{testimonial.text}"
               </p>
 
-              <div className="border-t border-border pt-4">
-                <p className="font-semibold text-foreground">
+              <div className="border-t border-slate-200 pt-4">
+                <p className="font-semibold text-slate-900">
                   {testimonial.name}
                 </p>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-slate-500">
                   {testimonial.location} · {testimonial.course}
                 </p>
               </div>

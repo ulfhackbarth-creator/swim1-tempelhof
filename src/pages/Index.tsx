@@ -231,12 +231,12 @@ const Index = () => {
                   <Star key={j} className="w-4 h-4 fill-current text-[#F59E0B]" />
                 ))}
               </div>
-              <p className="text-white/90 font-medium leading-relaxed italic mb-6 flex-1">
+              <p className="text-slate-700 font-medium leading-relaxed italic mb-6 flex-1">
                 „{t.text}"
               </p>
               <div>
-                <p className="text-white font-bold">{t.name}</p>
-                <p className="text-white/50 text-sm">{t.location}</p>
+                <p className="text-slate-900 font-bold">{t.name}</p>
+                <p className="text-slate-500 text-sm">{t.location}</p>
               </div>
             </motion.div>
           ))}
