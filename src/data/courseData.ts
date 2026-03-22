@@ -32,7 +32,7 @@ export const heroContent: Record<CourseTab, { video: string | string[]; headline
 
 export const courseSectionTitle: Record<CourseTab, string> = {
   kinderschwimmen: "Der Weg zum sicheren Schwimmer",
-  wassergewoehnung: "Wassergewöhnung für die Kleinsten",
+  wassergewoehnung: "Baby und Kleinkinder – unsere Kurse",
   erwachsene: "Schwimmkurse für Erwachsene",
   fitness: "Dein Workout im Wasser",
   reha: "Gesundheit und Mobilität fördern",

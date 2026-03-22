@@ -40,7 +40,7 @@ const locationSubtitle: Record<CourseTab, string> = {
 };
 
 const categoryMeta: Record<CourseTab, { name: string; path: string }> = {
-  wassergewoehnung: { name: "Wassergewöhnung", path: "/kurse/wassergewoehnung" },
+  wassergewoehnung: { name: "Baby und Kleinkinder", path: "/kurse/wassergewoehnung" },
   kinderschwimmen: { name: "Kinderschwimmen", path: "/kurse/kinderschwimmen" },
   erwachsene: { name: "Erwachsenenschwimmen", path: "/kurse/erwachsene" },
   fitness: { name: "Aquafitness", path: "/kurse/aquafitness" },
