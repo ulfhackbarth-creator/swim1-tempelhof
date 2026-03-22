@@ -86,7 +86,7 @@ const Kontakt = () => {
 
       {/* Hero */}
       <section className="bg-[#0C2D48] pt-28 pb-16 px-6 text-center">
-        <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">Kontakt aufnehmen</h1>
+        <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">Wir sind für dich da</h1>
         <p className="text-white/70 text-lg max-w-2xl mx-auto">
           Du hast Fragen zu unseren Kursen oder Standorten? Wir helfen dir gerne weiter.
         </p>
