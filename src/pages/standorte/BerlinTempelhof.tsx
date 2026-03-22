@@ -5,7 +5,7 @@ import type { LocationConfig } from "@/components/standorte/LocationPageTemplate
 const config: LocationConfig = {
   slug: "berlin-tempelhof",
   displayName: "Berlin-Tempelhof",
-  heroHeadline: "Swim1 Schwimmschule in Berlin-Tempelhof",
+  heroHeadline: "SWIM1 Schwimmschule in Berlin-Tempelhof",
   heroVideos: ["/videos/standort_desktop.mp4"],
   heroPoster: "/videos/standort_desktop_poster.jpg",
   address: {

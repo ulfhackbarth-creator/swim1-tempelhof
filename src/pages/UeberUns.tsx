@@ -37,7 +37,7 @@ const UeberUns = () => {
     <div className="min-h-screen">
       <Helmet>
         <title>Über uns | SWIM1 Schwimmschule</title>
-        <meta name="description" content="Erfahre mehr über Swim1 – unsere Mission, Philosophie und was uns als Schwimmschule einzigartig macht. Eigene Becken, kleine Gruppen, warmes Wasser." />
+        <meta name="description" content="Erfahre mehr über SWIM1 – unsere Mission, Philosophie und was uns als Schwimmschule einzigartig macht. Eigene Becken, kleine Gruppen, warmes Wasser." />
         <link rel="canonical" href="https://swim1.de/ueber-uns" />
       </Helmet>
       <GlobalHeader />
@@ -91,7 +91,7 @@ const UeberUns = () => {
                 Schwimmen ist nicht nur eine Sportart – es ist eine Fähigkeit fürs Leben. Doch viel zu oft scheitert das Lernen an überfüllten öffentlichen Bädern, kaltem Wasser und Zeitdruck.
               </p>
               <p className="text-slate-600 text-lg leading-relaxed mt-4">
-                Deshalb haben wir Swim1 gegründet. Wir bauen eigene Schwimmschulen, die exakt auf eine Sache ausgerichtet sind: in einer geschützten, warmen Umgebung in kleinen Gruppen schwimmen zu lernen. Ohne Stress, dafür mit ganz viel Herz.
+                Deshalb haben wir SWIM1 gegründet. Wir bauen eigene Schwimmschulen, die exakt auf eine Sache ausgerichtet sind: in einer geschützten, warmen Umgebung in kleinen Gruppen schwimmen zu lernen. Ohne Stress, dafür mit ganz viel Herz.
               </p>
             </motion.div>
             <motion.div
@@ -103,7 +103,7 @@ const UeberUns = () => {
             >
               <img
                 src="/videos/baby_kleinkinder_desktop_poster.jpg"
-                alt="Trainer mit Kind im Wasser bei Swim1"
+                alt="Trainer mit Kind im Wasser bei SWIM1"
                 className="w-full h-72 md:h-96 object-cover"
               />
             </motion.div>
@@ -163,7 +163,7 @@ const UeberUns = () => {
               Wir begleiten euch ein Leben lang.
             </h2>
             <p className="text-slate-500 text-lg">
-              Von den ersten Momenten im Wasser bis zur perfekten Technik. Swim1 ist für die ganze Familie da.
+              Von den ersten Momenten im Wasser bis zur perfekten Technik. SWIM1 ist für die ganze Familie da.
             </p>
           </motion.div>
 
@@ -209,7 +209,7 @@ const UeberUns = () => {
             >
               <img
                 src="/videos/standort_desktop_poster.jpg"
-                alt="Das Swim1 Team am Beckenrand"
+                alt="Das SWIM1 Team am Beckenrand"
                 className="w-full h-72 md:h-96 object-cover"
               />
             </motion.div>
@@ -223,7 +223,7 @@ const UeberUns = () => {
                 Werde Teil unseres Teams.
               </h2>
               <p className="text-white/80 text-lg leading-relaxed mb-8">
-                Hinter Swim1 stehen Menschen, die das Wasser lieben und diese Leidenschaft weitergeben wollen. Wir suchen ständig nach zertifizierten Trainern und engagierten Menschen, die unsere Vision teilen.
+                Hinter SWIM1 stehen Menschen, die das Wasser lieben und diese Leidenschaft weitergeben wollen. Wir suchen ständig nach zertifizierten Trainern und engagierten Menschen, die unsere Vision teilen.
               </p>
               <a
                 href="mailto:karriere@swim1.de"

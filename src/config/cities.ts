@@ -28,7 +28,7 @@ export const cityConfigs: Record<string, CityConfig> = {
     cityName: "Berlin-Tempelhof",
     locationLabel: "SWIM1 in Berlin-Tempelhof",
     heroTagline: "SWIM1 in Berlin-Tempelhof",
-    heroHeading: "Willkommen bei Swim1 in Berlin-Tempelhof.",
+    heroHeading: "Willkommen bei SWIM1 in Berlin-Tempelhof.",
     heroSubtext:
       "Deine Premium-Schwimmschule direkt vor Ort. Entdecke unsere Kurse für Kinder und Erwachsene in einer familiären, sicheren Atmosphäre.",
     locationBenefit: {
@@ -69,7 +69,7 @@ export const cityConfigs: Record<string, CityConfig> = {
     cityName: "Schwerin",
     locationLabel: "SWIM1 im Schlosspark-Center Schwerin",
     heroTagline: "SWIM1 im Schlosspark-Center Schwerin",
-    heroHeading: "Willkommen bei Swim1 in Schwerin.",
+    heroHeading: "Willkommen bei SWIM1 in Schwerin.",
     heroSubtext:
       "Deine Premium-Schwimmschule direkt vor Ort. Entdecke unsere Kurse für Kinder und Erwachsene in einer familiären, sicheren Atmosphäre.",
     locationBenefit: {
@@ -110,7 +110,7 @@ export const cityConfigs: Record<string, CityConfig> = {
     cityName: "Wildau",
     locationLabel: "SWIM1 im A10 Center Wildau",
     heroTagline: "SWIM1 im A10 Center Wildau",
-    heroHeading: "Willkommen bei Swim1 in Wildau.",
+    heroHeading: "Willkommen bei SWIM1 in Wildau.",
     heroSubtext:
       "Deine Premium-Schwimmschule direkt vor Ort. Entdecke unsere Kurse für Kinder und Erwachsene in einer familiären, sicheren Atmosphäre.",
     locationBenefit: {
@@ -151,7 +151,7 @@ export const cityConfigs: Record<string, CityConfig> = {
     cityName: "Bremen",
     locationLabel: "SWIM1 in der Waterfront Bremen",
     heroTagline: "SWIM1 in der Waterfront Bremen",
-    heroHeading: "Willkommen bei Swim1 in Bremen.",
+    heroHeading: "Willkommen bei SWIM1 in Bremen.",
     heroSubtext:
       "Deine Premium-Schwimmschule direkt vor Ort. Entdecke unsere Kurse für Kinder und Erwachsene in einer familiären, sicheren Atmosphäre.",
     locationBenefit: {
