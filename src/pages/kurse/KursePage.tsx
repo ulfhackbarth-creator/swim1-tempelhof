@@ -331,14 +331,12 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
             <p className="text-slate-500">{locationSubtitle[tab]}</p>
           </motion.div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {standorte.map((loc, i) => {
-              const isActive = loc.status === "active";
-              return (
+            {standorte.map((loc, i) => (
                 <motion.div key={loc.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className={`rounded-[2rem] p-6 shadow-lg shadow-slate-300/50 border-2 flex flex-col ${isActive ? "bg-white border-slate-200" : "bg-white border-slate-200 opacity-80"}`}
+                  className="rounded-[2rem] p-6 shadow-lg shadow-slate-300/50 border-2 border-slate-200 bg-white flex flex-col"
                 >
-                  <span className={`inline-block text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-4 w-fit ${isActive ? "bg-green-50 text-green-700" : "bg-orange-50 text-orange-600"}`}>
-                    {isActive ? "✓ Jetzt buchbar" : "Bald verfügbar"}
+                  <span className="inline-block text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-4 w-fit bg-green-100 text-green-800">
+                    ✓ Warteliste
                   </span>
                   <h3 className="text-xl font-bold text-slate-900 mb-1">{loc.name}</h3>
                   <p className="text-slate-500 text-sm mb-4">{loc.address}</p>
@@ -348,13 +346,12 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
                     ))}
                   </div>
                   <Link to={loc.route} onClick={() => window.scrollTo({ top: 0 })}
-                    className={`w-full mt-auto rounded-full py-3 text-sm text-center font-semibold transition-colors ${isActive ? "bg-[#C6FF00] hover:bg-[#B0E000] text-[#0C2D48]" : "bg-slate-200 text-slate-500 hover:bg-slate-300"}`}
+                    className="w-full mt-auto rounded-full py-3 text-sm text-center font-semibold transition-colors bg-[#C6FF00] hover:bg-[#B0E000] text-[#0C2D48]"
                   >
-                    {isActive ? "Standort entdecken" : "Zur Warteliste"}
+                    Standort entdecken
                   </Link>
                 </motion.div>
-              );
-            })}
+            ))}
           </div>
         </div>
       </section>

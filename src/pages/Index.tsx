@@ -261,9 +261,7 @@ const Index = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {standorte.map((loc, i) => {
-            const isActive = loc.status === "active";
-            return (
+          {standorte.map((loc, i) => (
               <motion.div
                 key={loc.name}
                 initial={{ opacity: 0, y: 20 }}
@@ -272,8 +270,8 @@ const Index = () => {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="bg-white rounded-[2rem] p-6 shadow-lg shadow-slate-300/50 border-2 border-slate-200 flex flex-col"
               >
-                <span className={`inline-block text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-4 w-fit ${isActive ? "bg-[#C6FF00]/20 text-[#0C2D48]" : "bg-slate-100 text-slate-500"}`}>
-                  {isActive ? "✓ Jetzt buchbar" : "Bald verfügbar"}
+                <span className="inline-block text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-4 w-fit bg-green-100 text-green-800">
+                  ✓ Warteliste
                 </span>
                 <h3 className="text-xl font-bold text-slate-900 mb-1">{loc.name}</h3>
                 <p className="text-sm font-semibold text-[#0C2D48] mb-0.5">{loc.center}</p>
@@ -286,13 +284,12 @@ const Index = () => {
                 <Link
                   to={loc.route}
                   onClick={() => window.scrollTo({ top: 0 })}
-                  className={`w-full mt-auto rounded-full py-3 text-sm text-center font-semibold transition-colors ${isActive ? "bg-[#C6FF00] hover:bg-[#B0E000] text-[#0C2D48]" : "bg-slate-100 hover:bg-slate-200 text-slate-700"}`}
+                  className="w-full mt-auto rounded-full py-3 text-sm text-center font-semibold transition-colors bg-[#C6FF00] hover:bg-[#B0E000] text-[#0C2D48]"
                 >
-                  {isActive ? "Standort entdecken" : "Zur Warteliste"}
+                  Standort entdecken
                 </Link>
               </motion.div>
-            );
-          })}
+          ))}
         </div>
       </div>
     </section>
