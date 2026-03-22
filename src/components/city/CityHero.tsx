@@ -44,7 +44,7 @@ const CityHero = ({ city }: CityHeroProps) => {
           <p className="mt-4 text-sm text-primary-foreground/70">
             Unverbindlich & kostenlos
           </p>
-          <HeroTrustLine />
+          
         </motion.div>
       </div>
 

@@ -96,7 +96,7 @@ const Index = () => {
         >
            Passenden Kurs finden <ArrowDown className="w-4 h-4" />
         </motion.button>
-        <HeroTrustLine />
+        
       </div>
     </section>
 

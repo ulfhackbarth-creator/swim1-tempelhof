@@ -152,7 +152,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
           >
             Kurs wählen <ArrowDown className="w-4 h-4" />
           </motion.button>
-          <HeroTrustLine />
+          
         </div>
       </section>
 
