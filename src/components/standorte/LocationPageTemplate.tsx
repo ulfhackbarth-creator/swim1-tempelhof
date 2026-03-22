@@ -183,12 +183,11 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
     if (!activeAccordion) return;
     const el = accordionRefs.current[activeAccordion];
     if (el) {
-      // Suppress header show-on-scroll-up during programmatic scroll
-      window.dispatchEvent(new CustomEvent("suppress-header"));
+      window.dispatchEvent(new CustomEvent("suppress-header", { detail: { duration: 800 } }));
       setTimeout(() => {
-        const top = el.getBoundingClientRect().top + window.scrollY - 20;
+        const top = el.getBoundingClientRect().top + window.scrollY - 12;
         window.scrollTo({ top, behavior: "smooth" });
-      }, 150);
+      }, 300);
     }
   }, [activeAccordion]);
   const [selectedCourse, setSelectedCourse] = useState<string | null>(initialSelectedCourse);
