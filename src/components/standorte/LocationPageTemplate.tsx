@@ -352,6 +352,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
           </motion.button>
           <HeroTrustLine />
         </div>
+      </section>
 
       {/* ═══════════ 2. STANDORT & AUSSTATTUNG ═══════════ */}
       <section className="py-16 md:py-32 bg-white">
