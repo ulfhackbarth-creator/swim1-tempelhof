@@ -1,4 +1,12 @@
 @tailwind base;
+
+/* Global hyphenation for long German words */
+html {
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
 @tailwind components;
 @tailwind utilities;
 
