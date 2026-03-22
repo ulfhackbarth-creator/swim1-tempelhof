@@ -18,6 +18,7 @@ import Datenschutz from "./pages/legal/Datenschutz";
 import AGB from "./pages/legal/AGB";
 import UeberUns from "./pages/UeberUns";
 import FAQ from "./pages/FAQ";
+import Kontakt from "./pages/Kontakt";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -48,6 +49,7 @@ const App = () => (
           <Route path="/ueber-uns" element={<UeberUns />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/agb" element={<AGB />} />
+          <Route path="/kontakt" element={<Kontakt />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
