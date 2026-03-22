@@ -98,6 +98,7 @@ const Index = () => {
         </motion.button>
         <HeroTrustLine />
       </div>
+    </section>
 
     {/* ─── KURS-ÜBERSICHT ─── */}
     <section id="kurse" className="py-16 md:py-28 bg-secondary/50">
