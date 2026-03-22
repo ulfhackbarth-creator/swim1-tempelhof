@@ -252,7 +252,7 @@ const Kontakt = () => {
                     <Button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full bg-[#C6FF00] text-[#0C2D48] font-bold hover:brightness-90 hover:scale-[1.02] transition-all"
+                      className="w-full bg-[#C6FF00] text-[#0C2D48] font-bold hover:bg-[#B0E000] hover:scale-105 active:scale-[0.97] transition-all"
                     >
                       {isSubmitting ? (
                         <span className="flex items-center gap-2">
