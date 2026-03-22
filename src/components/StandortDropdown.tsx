@@ -43,8 +43,8 @@ const StandortDropdown = ({
                     : "bg-transparent text-white/80 hover:bg-white/10 hover:text-white"
                 }`
               : isLarge
-                ? "px-6 py-3.5 text-base shadow-lg font-bold text-[#0F2D52] bg-[#C6FF00] hover:bg-[#B0E000]"
-                : "px-5 py-2 text-sm font-bold text-[#0F2D52] bg-[#C6FF00] hover:bg-[#B0E000]"
+                ? "px-6 py-3.5 text-base shadow-lg font-bold text-[#0C2D48] bg-[#C6FF00] hover:bg-[#B0E000]"
+                : "px-5 py-2 text-sm font-bold text-[#0C2D48] bg-[#C6FF00] hover:bg-[#B0E000]"
           }`}
           style={isLarge ? { boxShadow: "0 8px 24px -4px rgba(198,255,0,0.35)" } : undefined}
         >
