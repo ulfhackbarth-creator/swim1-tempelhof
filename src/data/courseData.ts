@@ -51,7 +51,7 @@ export const coursesByTab: Record<CourseTab, Course[]> = {
   kinderschwimmen: [
     {
       icon: Fish, tag: "Abzeichen", name: "Seepferdchen",
-      text: "Strukturierter Kurs für Kinder ab 3,5 Jahren. Schritt für Schritt zum ersten Schwimmabzeichen.",
+      text: "Der wichtigste Meilenstein: Dein Kind lernt die Grundlagen des Brustschwimmens, das Tauchen und den mutigen Sprung vom Beckenrand.",
       details: "Im Seepferdchen-Kurs lernen Kinder ab 3,5 Jahren die Grundlagen des Schwimmens. Ziel ist es, 25 Meter ohne Hilfe zu schwimmen und einen Gegenstand aus schultertiefem Wasser zu holen.",
       highlights: ["Ab 3,5 Jahren", "Max. 6 Kinder pro Gruppe", "Inkl. Schwimmabzeichen"],
     },
