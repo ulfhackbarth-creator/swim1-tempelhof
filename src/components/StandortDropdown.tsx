@@ -24,7 +24,7 @@ interface StandortDropdownProps {
 const StandortDropdown = ({
   queryParams = "",
   variant = "orange",
-  label = "Standort wählen",
+  label = "Standorte",
   align = "end",
 }: StandortDropdownProps) => {
   const isLarge = variant === "orange-large";
