@@ -70,7 +70,24 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
   const isSwipe = (location.state as any)?.isSwipe === true;
   const direction = (location.state as any)?.direction ?? 1;
 
-  useEffect(() => { setOpenIndex(null); setSelectedCourse(null); }, [tab]);
+  useEffect(() => { setOpenIndex(null); setSelectedCourse(null); setSelectedLocation(null); }, [tab]);
+
+  const handleSelectLocation = useCallback((name: string, index: number) => {
+    const isClosing = selectedLocation === name;
+    setSelectedLocation(isClosing ? null : name);
+    if (!isClosing) {
+      requestAnimationFrame(() => {
+        setTimeout(() => {
+          const card = locationCardRefs.current.get(index);
+          if (card) {
+            window.dispatchEvent(new CustomEvent("suppress-header", { detail: { duration: 800 } }));
+            const y = card.getBoundingClientRect().top + window.scrollY - 20;
+            window.scrollTo({ top: y, behavior: "smooth" });
+          }
+        }, 150);
+      });
+    }
+  }, [selectedLocation]);
 
   useLayoutEffect(() => {
     const scrollY = (location.state as any)?.maintainScrollPosition;
