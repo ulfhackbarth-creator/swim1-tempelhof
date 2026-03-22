@@ -152,9 +152,9 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
           >
             Kurs wählen <ArrowDown className="w-4 h-4" />
           </motion.button>
+          <HeroTrustLine />
         </div>
       </section>
-
       {/* KURSANGEBOT + TRUST */}
       <section id="kurse-section" ref={kurseSectionRef} className="bg-secondary/50 py-16 md:py-24 px-4 md:px-6 scroll-mt-[0px]">
         <div className="max-w-6xl mx-auto">
