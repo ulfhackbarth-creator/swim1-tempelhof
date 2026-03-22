@@ -36,7 +36,7 @@ export const testimonialsByTab: Record<CourseTab, { title: string; items: Testim
     ],
   },
   reha: {
-    title: "Erfahrungen unserer Patienten",
+    title: "Erfahrungen unserer Kursteilnehmer",
     items: [
       { text: "Nach meiner Hüft-OP war das Training im Wasser die Rettung. Ich konnte Bewegungen machen, die an Land undenkbar waren. Die Therapeuten haben mich Schritt für Schritt begleitet.", name: "Klaus D.", location: "Aqua Reha" },
       { text: "Meine Rückenschmerzen sind durch den Kurs deutlich besser geworden. Die individuelle Betreuung gibt mir das Vertrauen, dass ich in guten Händen bin.", name: "Renate H.", location: "Aqua Reha" },
