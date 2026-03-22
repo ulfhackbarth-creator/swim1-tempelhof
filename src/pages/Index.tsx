@@ -70,7 +70,7 @@ const Index = () => {
 
     {/* ─── HERO ─── */}
     <section className="relative min-h-[85vh] md:min-h-[90vh] overflow-hidden">
-      <HeroVideoBackground videos={heroVideos} mobileVideos={heroMobileVideos} poster="/videos/startseite_desktop_poster.jpg" mobilePoster="/videos/startseite_mobile_poster.jpg" />
+      <HeroVideoBackground videos={heroVideos} mobileVideos={heroMobileVideos} poster="/videos/kinderschwimmen_desktop_poster.jpg" mobilePoster="/videos/kinderschwimmen_desktop_poster.jpg" />
       <div className="absolute inset-0 bg-[#0C2D48]/45" />
       <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 md:px-6 min-h-[85vh] md:min-h-[90vh] pt-32 md:pt-[120px] pb-8 md:pb-0">
         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="max-w-4xl mx-auto">
