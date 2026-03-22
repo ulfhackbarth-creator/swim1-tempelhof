@@ -17,7 +17,7 @@ const CityTestimonials = ({ city }: CityTestimonialsProps) => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {city.testimonials.map((testimonial, index) => (
-            <motion.div key={testimonial.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: index * 0.1 }} className="bg-card p-6 rounded-2xl shadow-card relative">
+            <motion.div key={testimonial.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: index * 0.1 }} className="bg-white p-6 md:p-10 rounded-[2rem] shadow-lg shadow-slate-300/50 border-2 border-slate-200 relative">
               <Quote className="absolute top-4 right-4 w-8 h-8 text-primary/10" />
               <div className="flex gap-0.5 mb-4">
                 {[...Array(5)].map((_, i) => (

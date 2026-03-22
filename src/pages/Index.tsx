@@ -270,7 +270,7 @@ const Index = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="bg-white rounded-[2rem] p-6 flex flex-col shadow-lg"
+                className="bg-white rounded-[2rem] p-6 shadow-lg shadow-slate-300/50 border-2 border-slate-200 flex flex-col"
               >
                 <span className={`inline-block text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-4 w-fit ${isActive ? "bg-[#C6FF00]/20 text-[#0C2D48]" : "bg-slate-100 text-slate-500"}`}>
                   {isActive ? "✓ Jetzt buchbar" : "Bald verfügbar"}

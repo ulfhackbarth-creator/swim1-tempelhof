@@ -335,7 +335,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
               const isActive = loc.status === "active";
               return (
                 <motion.div key={loc.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className={`rounded-[2rem] p-6 shadow-lg border flex flex-col ${isActive ? "bg-white shadow-slate-200/50 border-slate-100" : "bg-slate-50 shadow-slate-100/30 border-slate-100/60 opacity-80"}`}
+                  className={`rounded-[2rem] p-6 shadow-lg shadow-slate-300/50 border-2 flex flex-col ${isActive ? "bg-white border-slate-200" : "bg-white border-slate-200 opacity-80"}`}
                 >
                   <span className={`inline-block text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-4 w-fit ${isActive ? "bg-green-50 text-green-700" : "bg-orange-50 text-orange-600"}`}>
                     {isActive ? "✓ Jetzt buchbar" : "Bald verfügbar"}
