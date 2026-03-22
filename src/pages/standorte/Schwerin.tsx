@@ -7,7 +7,7 @@ const config: LocationConfig = {
   displayName: "Schwerin",
   heroVideos: ["/videos/standort_desktop.mp4"],
   heroPoster: "/videos/standort_desktop_poster.jpg",
-  heroHeadline: "Swim1 Schwimmschule in Schwerin",
+  heroHeadline: "SWIM1 Schwimmschule in Schwerin",
   address: {
     streetAddress: "Marienplatz 5–6",
     addressLocality: "Schwerin",

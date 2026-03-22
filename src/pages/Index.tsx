@@ -249,7 +249,7 @@ const Index = () => {
           className="text-center mb-14 md:mb-20"
         >
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 mb-4">
-            Swim1 in deiner Nähe
+            SWIM1 in deiner Nähe
           </h2>
           <p className="text-slate-500 font-medium">4 Standorte – immer in deiner Nähe</p>
         </motion.div>

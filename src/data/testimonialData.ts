@@ -6,7 +6,7 @@ export const testimonialsByTab: Record<CourseTab, { title: string; items: Testim
   kinderschwimmen: {
     title: "Das sagen andere Eltern",
     items: [
-      { text: "Mia hatte panische Angst, wenn auch nur ein Tropfen Wasser in ihr Gesicht kam. Nach nur sechs Wochen bei Swim1 springt sie lachend vom Beckenrand. Die Trainer haben ein echtes Wunder vollbracht.", name: "Sarah T.", location: "Mutter von Mia (4)" },
+      { text: "Mia hatte panische Angst, wenn auch nur ein Tropfen Wasser in ihr Gesicht kam. Nach nur sechs Wochen bei SWIM1 springt sie lachend vom Beckenrand. Die Trainer haben ein echtes Wunder vollbracht.", name: "Sarah T.", location: "Mutter von Mia (4)" },
       { text: "Beide Kinder haben hier schwimmen gelernt – vom Seepferdchen bis Gold. Die Geduld und Herzlichkeit der Trainer hat uns als Familie tief beeindruckt.", name: "Julia R.", location: "Mutter von Lina (6) und Tom (8)" },
       { text: "Unser Sohn hatte null Vertrauen ins Wasser. Heute schwimmt er seine Bahnen allein. Dieses Selbstvertrauen ist unbezahlbar.", name: "Michael T.", location: "Vater von Jonas (5)" },
     ],

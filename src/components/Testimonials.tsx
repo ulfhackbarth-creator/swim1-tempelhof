@@ -5,7 +5,7 @@ const testimonials = [
   {
     name: "Sarah T.",
     location: "Mutter von Mia (4)",
-    text: "Mia hatte panische Angst, wenn auch nur ein Tropfen Wasser in ihr Gesicht kam. Nach nur sechs Wochen bei Swim1 springt sie lachend vom Beckenrand. Die Trainer haben ein echtes Wunder vollbracht.",
+    text: "Mia hatte panische Angst, wenn auch nur ein Tropfen Wasser in ihr Gesicht kam. Nach nur sechs Wochen bei SWIM1 springt sie lachend vom Beckenrand. Die Trainer haben ein echtes Wunder vollbracht.",
     course: "Kinderschwimmen",
   },
   {

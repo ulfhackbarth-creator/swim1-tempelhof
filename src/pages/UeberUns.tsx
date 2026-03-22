@@ -223,7 +223,7 @@ const UeberUns = () => {
                 Werde Teil unseres Teams.
               </h2>
               <p className="text-white/80 text-lg leading-relaxed mb-8">
-                Hinter Swim1 stehen Menschen, die das Wasser lieben und diese Leidenschaft weitergeben wollen. Wir suchen ständig nach zertifizierten Trainern und engagierten Menschen, die unsere Vision teilen.
+                Hinter SWIM1 stehen Menschen, die das Wasser lieben und diese Leidenschaft weitergeben wollen. Wir suchen ständig nach zertifizierten Trainern und engagierten Menschen, die unsere Vision teilen.
               </p>
               <a
                 href="mailto:karriere@swim1.de"
