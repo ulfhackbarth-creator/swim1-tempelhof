@@ -414,7 +414,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
         <div className="max-w-3xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="text-center mb-12 md:mb-16">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mb-4">Unser Kursangebot</h2>
-            <p className="text-slate-500">Wähle eine Kategorie und sichere dir deinen Platz auf der Warteliste.</p>
+            <p className="text-slate-500">Wähle eine Kategorie und sichere dir deinen Platz. Keine versteckten Kosten – transparente Preise.</p>
           </motion.div>
 
           <Accordion type="single" collapsible value={activeAccordion} onValueChange={setActiveAccordion} className="space-y-3">
