@@ -107,6 +107,7 @@ export interface LocationConfig {
   slug: string;
   heroHeadline: string;
   heroVideos?: string[];
+  heroPoster?: string;
   locationInfo: { icon: LucideIcon; title: string; text: string }[];
   testimonials: { name: string; location: string; text: string; course: string; stars: number }[];
   faqs: { q: string; a: string }[];
