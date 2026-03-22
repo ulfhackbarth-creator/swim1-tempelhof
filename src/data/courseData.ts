@@ -5,8 +5,8 @@ import { Fish, Medal, Trophy, Sun, Baby, Users, LifeBuoy, Timer, Dumbbell, Heart
 export const heroContent: Record<CourseTab, { video: string | string[]; headline: string; subtext: string }> = {
   kinderschwimmen: {
     video: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028281720/oNJkUzlVKWrdgGBV.mp4",
-    headline: "Dein Kind lernt schwimmen. Sicher, geduldig und mit Spaß.",
-    subtext: "Vom ersten mutigen Sprung bis zum stolzen Seepferdchen-Abzeichen. Unsere Trainer wissen genau, wie sie Kindern die Angst nehmen und Selbstvertrauen aufbauen.",
+    headline: "Schwimmen lernen. Eine Fähigkeit fürs Leben.",
+    subtext: "Schwimmen ist eine Fähigkeit fürs Leben – und wir bringen sie deinem Kind von Grund auf bei. In unseren eigenen Becken, mit kleinen Gruppen und Trainern, die sich Zeit nehmen, lernt dein Kind nicht nur richtig schwimmen, sondern entdeckt auch die langfristige Freude daran.",
   },
   wassergewoehnung: {
     video: "https://videos.pexels.com/video-files/5888968/5888968-uhd_2560_1440_30fps.mp4",
