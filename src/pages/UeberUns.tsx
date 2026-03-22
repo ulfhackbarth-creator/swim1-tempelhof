@@ -28,10 +28,11 @@ const philosophy = [
 ];
 
 const journey = [
-  { Icon: Baby, title: "Baby & Kleinkinder", text: "Die ersten Erfahrungen im Element Wasser.", path: "/kurse/wassergewoehnung" },
-  { Icon: Waves, title: "Kinder", text: "Vom Seepferdchen bis zum sicheren Schwimmer.", path: "/kurse/kinderschwimmen" },
-  { Icon: PersonStanding, title: "Erwachsene", text: "Ängste überwinden und Technik perfektionieren.", path: "/kurse/erwachsene" },
-  { Icon: HeartPulse, title: "Gesundheit", text: "Aquafitness und Aqua Reha für lebenslange Mobilität.", path: "/kurse/aquafitness" },
+  { Icon: Baby, title: "Baby & Kleinkinder", text: "Die ersten Erfahrungen im Element Wasser.", details: "Babyschwimmen und Eltern-Kind-Kurse ab 3 Monaten. Gemeinsam die Freude am Wasser entdecken – in geschützter Atmosphäre und warmem Wasser.", path: "/kurse/wassergewoehnung" },
+  { Icon: Waves, title: "Kinder", text: "Vom Seepferdchen bis zum sicheren Schwimmer.", details: "Schwimmen lernen von Grund auf – vom Seepferdchen über Bronze bis Gold. Spielerisch, sicher und mit zertifizierten Trainern.", path: "/kurse/kinderschwimmen" },
+  { Icon: PersonStanding, title: "Erwachsene", text: "Ängste überwinden und Technik perfektionieren.", details: "Ob Anfänger oder Fortgeschrittene – in diskreter Atmosphäre ohne Zuschauer lernst du schwimmen oder verfeinerst deine Technik.", path: "/kurse/erwachsene" },
+  { Icon: Activity, title: "Aquafitness", text: "Gelenkschonendes Ganzkörpertraining im Wasser.", details: "Effektives Workout im 32 °C warmen Wasser. Stärkt Muskulatur und Ausdauer – schonend für Gelenke und mit Spaß in der Gruppe.", path: "/kurse/aquafitness" },
+  { Icon: HeartPulse, title: "Aqua Reha", text: "Rehabilitation und Mobilität im Wasser fördern.", details: "Von Krankenkassen anerkannte Reha-Kurse. Das Wasser gibt dir den Raum, Kraft und Beweglichkeit zurückzugewinnen.", path: "/kurse/reha" },
 ];
 
 const UeberUns = () => {
