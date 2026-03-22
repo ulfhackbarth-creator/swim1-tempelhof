@@ -522,18 +522,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
 
           <div className="grid md:grid-cols-3 gap-8">
             {config.testimonials.map((t, i) => (
-              <motion.div key={t.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }} className="bg-[#0C2D48]/40 border border-white/10 rounded-[2rem] p-6 md:p-10 backdrop-blur-sm h-full flex flex-col">
-                <div className="flex gap-0.5 mb-6">
-                  {Array.from({ length: t.stars }).map((_, j) => (
-                    <Star key={j} className="w-4 h-4 fill-current text-[#F59E0B]" />
-                  ))}
-                </div>
-                <p className="text-lg text-white/90 font-medium leading-relaxed italic mb-8 flex-1">„{t.text}"</p>
-                <div>
-                  <p className="text-white font-bold">{t.name}</p>
-                  <p className="text-white/50 text-sm">{t.location} · {t.course}</p>
-                </div>
-              </motion.div>
+              <TestimonialCard key={t.name} text={t.text} name={t.name} location={t.location} course={t.course} stars={t.stars} index={i} variant="dark" />
             ))}
           </div>
         </div>
