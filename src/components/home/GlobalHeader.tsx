@@ -24,7 +24,6 @@ const menuLinks = [
   { label: "Über uns", href: "/#philosophie", Icon: Users },
   { label: "FAQ", href: "/#faq", Icon: HelpCircle },
   { label: "Kontakt", href: "/#standorte", Icon: Mail },
-  { label: "Karriere", href: "/#karriere", Icon: Briefcase },
 ];
 
 const SCROLL_KEY = "chip-scroll-left";
