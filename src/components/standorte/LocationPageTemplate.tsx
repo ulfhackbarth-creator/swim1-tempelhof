@@ -447,6 +447,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
                         return (
                           <div
                             key={sub.key}
+                            ref={(el) => { courseCardRefs.current[sub.key] = el; }}
                             onClick={() => {
                               const wasActive = selectedCourse === sub.key;
                               setSelectedCourse(wasActive ? null : sub.key);
