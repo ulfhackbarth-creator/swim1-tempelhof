@@ -48,6 +48,7 @@ const StandortDropdown = ({
           }`}
           style={isLarge ? { boxShadow: "0 8px 24px -4px rgba(198,255,0,0.35)" } : undefined}
         >
+          {isGhostHeader && <MapPin className="w-4 h-4" />}
           {label}
           {isLarge ? (
             <MapPin className="w-4 h-4" />
