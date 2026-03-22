@@ -140,7 +140,7 @@ const Index = () => {
 
     {/* ─── TRUST STATS ─── */}
     <section className="bg-[#0F2D52] py-12 md:py-16">
-      <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 px-6">
+      <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 px-6">
         {trustStats.map((s, i) => (
           <motion.div
             key={s.label}
