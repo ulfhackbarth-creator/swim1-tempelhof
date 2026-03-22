@@ -28,9 +28,9 @@ export const cityConfigs: Record<string, CityConfig> = {
     cityName: "Berlin-Tempelhof",
     locationLabel: "SWIM1 in Berlin-Tempelhof",
     heroTagline: "SWIM1 in Berlin-Tempelhof",
-    heroHeading: "Sichere dir einen der begehrten Plätze am Tempelhofer Hafen!",
+    heroHeading: "Willkommen bei Swim1 in Berlin-Tempelhof.",
     heroSubtext:
-      "Die Nachfrage ist hoch. Trag dich in die kostenlose Warteliste ein und erhalte 48 Stunden vor allen anderen Zugriff auf die Kursbuchung.",
+      "Deine Premium-Schwimmschule direkt vor Ort. Entdecke unsere Kurse für Kinder und Erwachsene in einer familiären, sicheren Atmosphäre.",
     locationBenefit: {
       title: "Zentral erreichbar",
       description: "Direkt am S+U Tempelhof",
