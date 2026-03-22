@@ -5,8 +5,8 @@ import type { LocationConfig } from "@/components/standorte/LocationPageTemplate
 const config: LocationConfig = {
   slug: "wildau",
   displayName: "Wildau",
-  heroVideos: ["/videos/standort_desktop.mp4"],
-  heroPoster: "/videos/standort_desktop_poster.jpg",
+  heroVideos: ["/videos/standort_wildau_desktop.mp4"],
+  heroPoster: "/videos/standort_wildau_desktop_poster.jpg",
   heroHeadline: "SWIM1 Schwimmschule in Wildau",
   address: {
     streetAddress: "Chausseestr. 1",

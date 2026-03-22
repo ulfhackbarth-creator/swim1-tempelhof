@@ -5,8 +5,8 @@ import type { LocationConfig } from "@/components/standorte/LocationPageTemplate
 const config: LocationConfig = {
   slug: "schwerin",
   displayName: "Schwerin",
-  heroVideos: ["/videos/standort_desktop.mp4"],
-  heroPoster: "/videos/standort_desktop_poster.jpg",
+  heroVideos: ["/videos/standort_schwerin_desktop.mp4"],
+  heroPoster: "/videos/standort_schwerin_desktop_poster.jpg",
   heroHeadline: "SWIM1 Schwimmschule in Schwerin",
   address: {
     streetAddress: "Marienplatz 5–6",
