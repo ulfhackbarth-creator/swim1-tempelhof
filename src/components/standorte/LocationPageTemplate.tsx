@@ -417,7 +417,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
               <AccordionItem
                 key={course.id}
                 value={course.id}
-                className={`bg-white rounded-[2rem] border-2 shadow-xl shadow-slate-200/40 px-6 md:px-8 transition-all ${
+                ref={(el: HTMLDivElement | null) => { accordionRefs.current[course.id] = el; }}
                   activeAccordion === course.id ? "border-[#0C2D48]" : "border-slate-100"
                 }`}
               >
