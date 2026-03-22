@@ -372,7 +372,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
                 transition={{ duration: 0.4, delay: i * 0.08 }}
                 className="flex items-start gap-5"
               >
-                <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-secondary text-[#0C2D48] flex items-center justify-center">
+                <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-blue-50 text-[#1a6fb5] flex items-center justify-center">
                   <item.icon className="w-7 h-7" strokeWidth={1.5} />
                 </div>
                 <div>
