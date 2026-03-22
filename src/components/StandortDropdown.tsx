@@ -37,10 +37,10 @@ const StandortDropdown = ({
         <button
           className={`inline-flex items-center gap-2 rounded-full transition-all active:scale-[0.97] ${
             isGhostHeader
-              ? `border border-white px-4 py-2 text-sm font-medium transition-colors duration-200 ${
+              ? `border border-white/50 px-4 py-2 text-sm font-medium transition-colors duration-200 rounded-lg ${
                   isOpen
-                    ? "bg-white text-[#0F2D52]"
-                    : "bg-transparent text-white hover:bg-white/15"
+                    ? "bg-white text-[#003580]"
+                    : "bg-transparent text-white/80 hover:bg-white/10 hover:text-white"
                 }`
               : isLarge
                 ? "px-6 py-3.5 text-base shadow-lg font-bold text-white bg-[#F97316] hover:bg-[#EA580C]"
