@@ -20,8 +20,8 @@ export const heroContent: Record<CourseTab, { video: string | string[]; headline
   },
   fitness: {
     video: "https://videos.pexels.com/video-files/8050098/8050098-hd_1920_1080_25fps.mp4",
-    headline: "Fitness im Wasser. Für jeden.",
-    subtext: "Gelenkschonend · Alle Level · Voller Freude und Energie in der Gruppe",
+    headline: "Bewegung, die sich leicht anfühlt.",
+    subtext: "Aquafitness bei Swim1 ist kein klassisches Workout. Es ist Bewegung im Wasser – gelenkschonend, in Gemeinschaft und mit echtem Spaß.",
   },
   reha: {
     video: "https://videos.pexels.com/video-files/6539674/6539674-hd_1920_1080_25fps.mp4",
