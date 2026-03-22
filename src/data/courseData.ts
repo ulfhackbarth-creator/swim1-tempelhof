@@ -25,8 +25,8 @@ export const heroContent: Record<CourseTab, { video: string | string[]; headline
   },
   reha: {
     video: "https://videos.pexels.com/video-files/6539674/6539674-hd_1920_1080_25fps.mp4",
-    headline: "Gesundheit beginnt im Wasser.",
-    subtext: "Auf ärztliches Rezept · Krankenkassen-anerkannt · Medizinisch begleitet",
+    headline: "Zurück zu alter Stärke.",
+    subtext: "Wenn der Körper Unterstützung braucht, ist das Wasser das beste Element, um zurück zu alter Stärke zu finden. Mit kleinen Gruppen, warmem Wasser und erfahrenen Trainern.",
   },
 };
 
