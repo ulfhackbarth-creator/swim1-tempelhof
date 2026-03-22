@@ -4,7 +4,7 @@ import { useLocation, useNavigate, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSwipeNavigation } from "@/hooks/useSwipeNavigation";
-import { ArrowDown, ChevronDown, Star, Check } from "lucide-react";
+import { ArrowDown, ChevronDown, Star, Check, MapPin } from "lucide-react";
 
 import TestimonialCard from "@/components/TestimonialCard";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -60,15 +60,34 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
   const faqs = faqsByTab[tab];
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
+  const [selectedLocation, setSelectedLocation] = useState<string | null>(null);
   const kurseSectionRef = useRef<HTMLElement>(null);
   const cardRefs = useRef<Map<number, HTMLDivElement>>(new Map());
+  const locationCardRefs = useRef<Map<number, HTMLDivElement>>(new Map());
   const location = useLocation();
   const navigate = useNavigate();
 
   const isSwipe = (location.state as any)?.isSwipe === true;
   const direction = (location.state as any)?.direction ?? 1;
 
-  useEffect(() => { setOpenIndex(null); setSelectedCourse(null); }, [tab]);
+  useEffect(() => { setOpenIndex(null); setSelectedCourse(null); setSelectedLocation(null); }, [tab]);
+
+  const handleSelectLocation = useCallback((name: string, index: number) => {
+    const isClosing = selectedLocation === name;
+    setSelectedLocation(isClosing ? null : name);
+    if (!isClosing) {
+      requestAnimationFrame(() => {
+        setTimeout(() => {
+          const card = locationCardRefs.current.get(index);
+          if (card) {
+            window.dispatchEvent(new CustomEvent("suppress-header", { detail: { duration: 800 } }));
+            const y = card.getBoundingClientRect().top + window.scrollY - 20;
+            window.scrollTo({ top: y, behavior: "smooth" });
+          }
+        }, 150);
+      });
+    }
+  }, [selectedLocation]);
 
   useLayoutEffect(() => {
     const scrollY = (location.state as any)?.maintainScrollPosition;
@@ -332,27 +351,82 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
             <p className="text-slate-500">{locationSubtitle[tab]}</p>
           </motion.div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {standorte.map((loc, i) => (
-                <motion.div key={loc.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="rounded-[2rem] p-6 shadow-lg shadow-slate-300/50 border-2 border-slate-200 bg-white flex flex-col"
+            {standorte.map((loc, i) => {
+              const isSelected = selectedLocation === loc.name;
+              return (
+                <motion.div
+                  key={loc.name}
+                  ref={(el) => { if (el) locationCardRefs.current.set(i, el); }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  onClick={() => handleSelectLocation(loc.name, i)}
+                  className={`relative rounded-[2rem] p-6 shadow-lg shadow-slate-300/50 border-2 flex flex-col transition-all duration-200 cursor-pointer ${
+                    isSelected
+                      ? "bg-[#0C2D48] border-[#0C2D48] shadow-xl shadow-slate-400/30"
+                      : "bg-white border-slate-200 hover:-translate-y-1 hover:shadow-xl"
+                  }`}
                 >
-                  <span className="inline-block text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-4 w-fit bg-green-100 text-green-800">
+                  {isSelected && (
+                    <div className="absolute top-4 right-4 w-7 h-7 rounded-full bg-white flex items-center justify-center">
+                      <Check className="w-4 h-4 text-[#0C2D48]" strokeWidth={3} />
+                    </div>
+                  )}
+                  <span className={`inline-block text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-4 w-fit transition-colors duration-200 ${
+                    isSelected ? "bg-white/15 text-white/80" : "bg-green-100 text-green-800"
+                  }`}>
                     ✓ Warteliste
                   </span>
-                  <h3 className="text-xl font-bold text-slate-900 mb-1">{loc.name}</h3>
-                  <p className="text-slate-500 text-sm mb-4">{loc.address}</p>
+                  <h3 className={`text-xl font-bold mb-1 transition-colors duration-200 ${isSelected ? "text-white" : "text-slate-900"}`}>{loc.name}</h3>
+                  <p className={`text-sm mb-4 transition-colors duration-200 ${isSelected ? "text-white/60" : "text-slate-500"}`}>{loc.address}</p>
                   <div className="flex flex-wrap gap-1.5 mb-5">
                     {loc.features.map((f) => (
-                      <span key={f} className="text-[11px] font-medium text-[#0C2D48] bg-secondary px-2.5 py-0.5 rounded-full">{f}</span>
+                      <span key={f} className={`text-[11px] font-medium px-2.5 py-0.5 rounded-full transition-colors duration-200 ${
+                        isSelected ? "bg-white/15 text-white/80" : "text-[#0C2D48] bg-secondary"
+                      }`}>{f}</span>
                     ))}
                   </div>
-                  <Link to={loc.route} onClick={() => window.scrollTo({ top: 0 })}
-                    className="w-full mt-auto rounded-full py-3 text-sm text-center font-semibold transition-colors bg-[#C6FF00] hover:bg-[#B0E000] text-[#0C2D48]"
-                  >
-                    Standort entdecken
-                  </Link>
+
+                  <AnimatePresence initial={false}>
+                    {isSelected && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                        className="overflow-hidden"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <div className="pt-5 border-t border-white/20 mt-2">
+                          <div className="flex items-center gap-2 text-white/70 text-sm mb-4">
+                            <MapPin className="w-4 h-4" />
+                            <span>{loc.address}</span>
+                          </div>
+                          <Link
+                            to={loc.route}
+                            onClick={() => window.scrollTo({ top: 0 })}
+                            className="w-full block mt-auto rounded-full py-3 text-sm text-center font-semibold transition-all bg-[#C6FF00] hover:bg-[#B0E000] hover:scale-105 active:scale-[0.97] text-[#0C2D48]"
+                          >
+                            Standort entdecken
+                          </Link>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+
+                  {!isSelected && (
+                    <Link
+                      to={loc.route}
+                      onClick={(e) => { e.stopPropagation(); window.scrollTo({ top: 0 }); }}
+                      className="w-full mt-auto rounded-full py-3 text-sm text-center font-semibold transition-colors bg-[#C6FF00] hover:bg-[#B0E000] text-[#0C2D48]"
+                    >
+                      Standort entdecken
+                    </Link>
+                  )}
                 </motion.div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
