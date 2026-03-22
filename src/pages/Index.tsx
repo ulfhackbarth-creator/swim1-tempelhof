@@ -258,7 +258,7 @@ const Index = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="bg-white rounded-[2rem] p-6 shadow-lg shadow-slate-300/50 border-2 border-slate-200 flex flex-col"
+                className="group bg-white rounded-[2rem] p-6 shadow-lg shadow-slate-300/50 border-2 border-slate-200 flex flex-col hover:-translate-y-1 hover:shadow-xl active:scale-[0.98] transition-all cursor-pointer"
               >
                 <span className="inline-block text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-4 w-fit bg-green-100 text-green-800">
                   ✓ Warteliste
