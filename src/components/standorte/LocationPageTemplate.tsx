@@ -335,7 +335,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
         <div className="max-w-4xl mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="text-center mb-12 md:mb-20">
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 mb-4">Standort & Ausstattung</h2>
-            <p className="text-slate-500">Alles, was du für ein optimales Schwimmerlebnis brauchst – an einem Ort.</p>
+            <p className="text-slate-500">Alles, was du brauchst – an einem Ort.</p>
           </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-10">
