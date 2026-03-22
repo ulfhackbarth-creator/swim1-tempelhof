@@ -25,8 +25,8 @@ const courses = [
   {
     id: "wassergewoehnung",
     icon: Baby,
-    title: "Wassergewöhnung",
-    description: "Babyschwimmen & Eltern-Kind-Kurse. Spielerische Wassergewöhnung für die Kleinsten.",
+    title: "Baby und Kleinkinder",
+    description: "Babyschwimmen & Eltern-Kind-Kurse. Wasser gemeinsam erleben, Bindung stärken.",
     subCourses: [
       { name: "Babyschwimmen", key: "babyschwimmen", interest: "baby", desc: "Ab 3 Monaten – spielerisch das Wasser entdecken." },
       { name: "Eltern-Kind-Kurse", key: "eltern-kind-kurse", interest: "baby", desc: "Ab 1 Jahr – gemeinsam mit Mama oder Papa." },
@@ -37,7 +37,7 @@ const courses = [
     id: "kinderschwimmen",
     icon: Fish,
     title: "Kinderschwimmen",
-    description: "Vom Seepferdchen bis Gold. Kleine Gruppen mit max. 6 Kindern.",
+    description: "Schwimmen von Grund auf lernen. Kleine Gruppen, klarer Weg, echte Sicherheit im Wasser.",
     subCourses: [
       { name: "Seepferdchen", key: "seepferdchen", interest: "seepferdchen", desc: "Ab 3,5 Jahren – der erste Schritt zum sicheren Schwimmer." },
       { name: "Bronze", key: "bronze", interest: "fortgeschrittene", desc: "Aufbaukurs nach dem Seepferdchen." },
@@ -51,7 +51,7 @@ const courses = [
     id: "erwachsene",
     icon: LifeBuoy,
     title: "Erwachsenenschwimmen",
-    description: "Anfängerschwimmen & Technik-Training. Im geschützten Rahmen.",
+    description: "Anfängerschwimmen & Technik. Sicherer Rahmen, erfahrene Trainer, dein Tempo.",
     subCourses: [
       { name: "Anfängerschwimmen", key: "anfaengerschwimmen", interest: "erwachsene", desc: "Schwimmen lernen – behutsam und ohne Zuschauer." },
       { name: "Technik", key: "technik", interest: "erwachsene", desc: "Kraulen lernen und Technik verbessern." },
@@ -62,7 +62,7 @@ const courses = [
     id: "aquafitness",
     icon: Dumbbell,
     title: "Aquafitness",
-    description: "Power-Workout im Wasser. Gelenkschonend für alle Level.",
+    description: "Bewegung im Wasser – gelenkschonend, in Gemeinschaft, mit Spaß.",
     subCourses: [],
     courseKeys: ["aquafitness"],
     interest: "aquafitness",
@@ -71,7 +71,7 @@ const courses = [
     id: "aquareha",
     icon: HeartPulse,
     title: "Aqua Reha",
-    description: "Krankenkassen-zertifiziert. Mit Rezept 100 % kostenfrei.",
+    description: "Zurück zu alter Stärke. Auf Rezept, von Krankenkassen anerkannt.",
     subCourses: [],
     courseKeys: ["aquareha", "aqua-reha", "reha"],
     interest: "aquareha",
