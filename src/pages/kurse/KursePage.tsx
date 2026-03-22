@@ -123,7 +123,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
       {/* HERO */}
       <section className="relative min-h-[85vh] md:min-h-[90vh] overflow-hidden">
         <HeroVideoBackground videos={videos} />
-        <div className={`absolute inset-0 ${tab === "kinderschwimmen" || tab === "erwachsene" ? "bg-[#0F2D52]/35" : "bg-[#0F2D52]/45"}`} />
+        <div className={`absolute inset-0 ${tab === "kinderschwimmen" || tab === "erwachsene" ? "bg-[#0C2D48]/35" : "bg-[#0C2D48]/45"}`} />
         <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 md:px-6 min-h-[85vh] md:min-h-[90vh] pt-32 md:pt-[120px] pb-8 md:pb-0">
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold text-white tracking-tight leading-tight md:leading-[1.1] mb-4 md:mb-6">
@@ -153,7 +153,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
       </section>
 
       {/* KURSANGEBOT + TRUST */}
-      <section id="kurse-section" ref={kurseSectionRef} className="bg-blue-50/50 py-16 md:py-24 px-4 md:px-6 scroll-mt-[0px]">
+      <section id="kurse-section" ref={kurseSectionRef} className="bg-secondary/50 py-16 md:py-24 px-4 md:px-6 scroll-mt-[0px]">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 text-center mb-12 md:mb-16">
             {courseSectionTitle[tab]}
@@ -173,23 +173,23 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
                   onClick={() => handleSelectCourse(course.name, i)}
                   className={`relative rounded-[2rem] p-6 md:p-10 shadow-lg shadow-slate-300/50 border-2 transition-all duration-200 cursor-pointer flex flex-col ${
                     isSelected
-                      ? "bg-[#1B4F8A] border-[#1B4F8A] shadow-xl shadow-slate-400/30"
+                      ? "bg-[#0C2D48] border-[#0C2D48] shadow-xl shadow-slate-400/30"
                       : "bg-white border-slate-200 hover:-translate-y-1 hover:shadow-xl"
                   }`}
                 >
                   {isSelected && (
                     <div className="absolute top-4 right-4 w-7 h-7 rounded-full bg-white flex items-center justify-center">
-                      <Check className="w-4 h-4 text-[#1B4F8A]" strokeWidth={3} />
+                      <Check className="w-4 h-4 text-[#0C2D48]" strokeWidth={3} />
                     </div>
                   )}
                   <div className="flex items-start gap-4 mb-4">
                     <div className={`w-12 h-12 shrink-0 rounded-2xl flex items-center justify-center transition-colors duration-200 ${
-                      isSelected ? "bg-white/15" : "bg-blue-50 text-[#1B4F8A]"
+                      isSelected ? "bg-white/15" : "bg-secondary text-[#0C2D48]"
                     }`}>
                       <course.icon className={`w-6 h-6 transition-colors duration-200 ${isSelected ? "text-white" : ""}`} strokeWidth={1.5} />
                     </div>
                     <div className="min-w-0">
-                      <span className={`text-xs font-bold uppercase tracking-widest transition-colors duration-200 ${isSelected ? "text-white/70" : "text-[#1B4F8A]"}`}>{course.tag}</span>
+                      <span className={`text-xs font-bold uppercase tracking-widest transition-colors duration-200 ${isSelected ? "text-white/70" : "text-[#0C2D48]"}`}>{course.tag}</span>
                       <h3 className={`text-xl xl:text-2xl font-bold break-words hyphens-auto transition-colors duration-200 ${isSelected ? "text-white" : "text-slate-900"}`}>{course.name}</h3>
                     </div>
                   </div>
@@ -229,7 +229,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
                   </AnimatePresence>
 
                   {!isSelected && (
-                    <span className="mt-6 inline-flex items-center font-semibold text-[#1B4F8A] hover:gap-3 transition-all gap-1">
+                    <span className="mt-6 inline-flex items-center font-semibold text-[#0C2D48] hover:gap-3 transition-all gap-1">
                       Mehr erfahren <span>→</span>
                     </span>
                   )}
@@ -242,7 +242,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
       </section>
 
       {/* Trust Stats */}
-      <section className="bg-[#0F2D52] py-12 md:py-16">
+      <section className="bg-[#0C2D48] py-12 md:py-16">
         <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 px-6">
           {trustStats[tab].map((s, i) => (
             <motion.div
@@ -273,7 +273,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
             {usps.items.map((usp, i) => (
               <motion.div key={usp.label} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }} className="flex flex-row items-start gap-6 text-left">
-                <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-blue-50 text-[#1B4F8A] flex items-center justify-center">
+                <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-secondary text-[#0C2D48] flex items-center justify-center">
                   <usp.Icon className="w-8 h-8" strokeWidth={1.5} />
                 </div>
                 <div>
@@ -287,7 +287,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
       </section>
 
       {/* TESTIMONIALS */}
-      <section className="py-16 md:py-32 bg-[#0F2D52]">
+      <section className="py-16 md:py-32 bg-[#0C2D48]">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="text-center mb-12 md:mb-20">
             <h2 className="text-4xl font-bold tracking-tight text-white mb-4">{tests.title}</h2>
@@ -295,7 +295,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {tests.items.map((t, i) => (
-              <motion.div key={t.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }} className="bg-[#1B4F8A]/40 border border-white/10 rounded-[2rem] p-6 md:p-10 backdrop-blur-sm h-full flex flex-col">
+              <motion.div key={t.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }} className="bg-[#0C2D48]/40 border border-white/10 rounded-[2rem] p-6 md:p-10 backdrop-blur-sm h-full flex flex-col">
                 <div className="flex gap-0.5 mb-6">
                   {[...Array(5)].map((_, j) => <Star key={j} className="w-4 h-4 fill-current text-[#F59E0B]" />)}
                 </div>
@@ -344,7 +344,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
                   <p className="text-slate-500 text-sm mb-4">{loc.address}</p>
                   <div className="flex flex-wrap gap-1.5 mb-5">
                     {loc.features.map((f) => (
-                      <span key={f} className="text-[11px] font-medium text-[#1B4F8A] bg-blue-50 px-2.5 py-0.5 rounded-full">{f}</span>
+                      <span key={f} className="text-[11px] font-medium text-[#0C2D48] bg-secondary px-2.5 py-0.5 rounded-full">{f}</span>
                     ))}
                   </div>
                   <Link to={loc.route} onClick={() => window.scrollTo({ top: 0 })}

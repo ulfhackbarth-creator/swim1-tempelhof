@@ -305,7 +305,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
         ) : (
           <img src={heroImage} alt={config.heroHeadline} className="absolute inset-0 w-full h-full object-cover" />
         )}
-        <div className="absolute inset-0 bg-[#0F2D52]/45" />
+        <div className="absolute inset-0 bg-[#0C2D48]/45" />
 
         <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 md:px-6 min-h-[85vh] md:min-h-[90vh] pt-32 md:pt-[120px] pb-8 md:pb-0">
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="max-w-4xl mx-auto">
@@ -348,7 +348,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
                 transition={{ duration: 0.4, delay: i * 0.08 }}
                 className="flex items-start gap-5"
               >
-                <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-blue-50 text-[#1B4F8A] flex items-center justify-center">
+                <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-secondary text-[#0C2D48] flex items-center justify-center">
                   <item.icon className="w-7 h-7" strokeWidth={1.5} />
                 </div>
                 <div>
@@ -367,7 +367,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
       </section>
 
       {/* ═══════════ TRUST STATS BAR ═══════════ */}
-      <section className="bg-[#0F2D52] py-12 md:py-16">
+      <section className="bg-[#0C2D48] py-12 md:py-16">
         <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 px-6">
           {trustStats.map((s, i) => (
             <motion.div
@@ -386,7 +386,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
       </section>
 
       {/* ═══════════ 3. KURSANGEBOT AKKORDEON ═══════════ */}
-      <section className="py-16 md:py-32 bg-blue-50/50 px-4 md:px-6">
+      <section className="py-16 md:py-32 bg-secondary/50 px-4 md:px-6">
         <div className="max-w-3xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="text-center mb-12 md:mb-16">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mb-4">Unser Kursangebot</h2>
@@ -399,12 +399,12 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
                 key={course.id}
                 value={course.id}
                 className={`bg-white rounded-[2rem] border-2 shadow-xl shadow-slate-200/40 px-6 md:px-8 transition-all ${
-                  activeAccordion === course.id ? "border-[#1B4F8A]" : "border-slate-100"
+                  activeAccordion === course.id ? "border-[#0C2D48]" : "border-slate-100"
                 }`}
               >
                 <AccordionTrigger className="hover:no-underline py-6">
                   <span className="flex items-center gap-4 text-left">
-                    <div className="w-12 h-12 rounded-2xl bg-blue-50 text-[#1B4F8A] flex items-center justify-center shrink-0">
+                    <div className="w-12 h-12 rounded-2xl bg-secondary text-[#0C2D48] flex items-center justify-center shrink-0">
                       <course.icon className="w-6 h-6" strokeWidth={1.5} />
                     </div>
                     <span>
@@ -424,8 +424,8 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
                             onClick={() => setSelectedCourse(isActive ? null : sub.key)}
                             className={`flex items-center justify-between rounded-2xl p-4 md:p-5 cursor-pointer transition-all duration-200 ${
                               isActive
-                                ? "bg-[#1B4F8A] border-2 border-[#1B4F8A] ring-2 ring-[#1B4F8A]/20"
-                                : "bg-blue-50/60 border-2 border-transparent hover:border-slate-200"
+                                ? "bg-[#0C2D48] border-2 border-[#0C2D48] ring-2 ring-[#0C2D48]/20"
+                                : "bg-secondary/60 border-2 border-transparent hover:border-slate-200"
                             }`}
                           >
                             <div className="min-w-0 flex-1 flex items-center gap-3">
@@ -456,8 +456,8 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
                             onClick={() => setSelectedCourse(isActive ? null : course.id)}
                             className={`flex items-center justify-between rounded-2xl p-4 md:p-5 cursor-pointer transition-all duration-200 ${
                               isActive
-                                ? "bg-[#1B4F8A] border-2 border-[#1B4F8A] ring-2 ring-[#1B4F8A]/20"
-                                : "bg-blue-50/60 border-2 border-transparent hover:border-slate-200"
+                                ? "bg-[#0C2D48] border-2 border-[#0C2D48] ring-2 ring-[#0C2D48]/20"
+                                : "bg-secondary/60 border-2 border-transparent hover:border-slate-200"
                             }`}
                           >
                             <div className="min-w-0 flex-1 flex items-center gap-3">
@@ -488,7 +488,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
       </section>
 
       {/* ═══════════ 4. TESTIMONIALS ═══════════ */}
-      <section className="py-16 md:py-32 bg-[#0F2D52]">
+      <section className="py-16 md:py-32 bg-[#0C2D48]">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="text-center mb-12 md:mb-20">
             <h2 className="text-4xl font-bold tracking-tight text-white mb-4">Das sagen unsere Teilnehmer</h2>
@@ -497,7 +497,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
 
           <div className="grid md:grid-cols-3 gap-8">
             {config.testimonials.map((t, i) => (
-              <motion.div key={t.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }} className="bg-[#1B4F8A]/40 border border-white/10 rounded-[2rem] p-6 md:p-10 backdrop-blur-sm h-full flex flex-col">
+              <motion.div key={t.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }} className="bg-[#0C2D48]/40 border border-white/10 rounded-[2rem] p-6 md:p-10 backdrop-blur-sm h-full flex flex-col">
                 <div className="flex gap-0.5 mb-6">
                   {Array.from({ length: t.stars }).map((_, j) => (
                     <Star key={j} className="w-4 h-4 fill-current text-[#F59E0B]" />
@@ -515,7 +515,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
       </section>
 
       {/* ═══════════ 5. WARTELISTEN-FORMULAR ═══════════ */}
-      <section ref={formRef} id="warteliste" className="py-16 md:py-32 bg-blue-50/50 px-4 scroll-mt-0">
+      <section ref={formRef} id="warteliste" className="py-16 md:py-32 bg-secondary/50 px-4 scroll-mt-0">
         <div className="max-w-lg mx-auto">
           {isSubmitted ? (
             <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="text-center bg-white p-8 md:p-12 rounded-[2rem] shadow-xl shadow-slate-200/40 border border-slate-100">
@@ -535,14 +535,14 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
 
                 <div className="flex items-center justify-center gap-3 mt-5">
                   <div className="flex -space-x-2">
-                    <div className="w-8 h-8 rounded-full bg-blue-100 border-2 border-white flex items-center justify-center">
-                      <Users className="w-4 h-4 text-[#1B4F8A]" />
+                    <div className="w-8 h-8 rounded-full bg-secondary border-2 border-white flex items-center justify-center">
+                      <Users className="w-4 h-4 text-[#0C2D48]" />
                     </div>
-                    <div className="w-8 h-8 rounded-full bg-blue-50 border-2 border-white flex items-center justify-center text-xs font-bold text-[#1B4F8A]">S</div>
-                    <div className="w-8 h-8 rounded-full bg-blue-100/70 border-2 border-white flex items-center justify-center text-xs font-bold text-[#1B4F8A]">T</div>
-                    <div className="w-8 h-8 rounded-full bg-blue-200/60 border-2 border-white flex items-center justify-center text-xs font-bold text-[#1B4F8A]">J</div>
+                    <div className="w-8 h-8 rounded-full bg-secondary border-2 border-white flex items-center justify-center text-xs font-bold text-[#0C2D48]">S</div>
+                    <div className="w-8 h-8 rounded-full bg-secondary/70 border-2 border-white flex items-center justify-center text-xs font-bold text-[#0C2D48]">T</div>
+                    <div className="w-8 h-8 rounded-full bg-blue-200/60 border-2 border-white flex items-center justify-center text-xs font-bold text-[#0C2D48]">J</div>
                   </div>
-                  <span className="text-sm font-semibold text-[#1B4F8A]">{config.waitlistCount} Kursteilnehmer warten bereits</span>
+                  <span className="text-sm font-semibold text-[#0C2D48]">{config.waitlistCount} Kursteilnehmer warten bereits</span>
                 </div>
               </div>
 
@@ -571,7 +571,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
                     {interestOptions.map((option) => {
                       const isActive = formData.interests.includes(option.id);
                       return (
-                      <label key={option.id} className={`flex items-center gap-3 p-3 rounded-xl border cursor-pointer transition-all duration-200 ${isActive ? "bg-[#0F2D52] border-[#0F2D52] text-white" : "bg-slate-50 border-slate-200 hover:border-[#1B4F8A]/30 text-slate-700"}`}>
+                      <label key={option.id} className={`flex items-center gap-3 p-3 rounded-xl border cursor-pointer transition-all duration-200 ${isActive ? "bg-[#0C2D48] border-[#0C2D48] text-white" : "bg-slate-50 border-slate-200 hover:border-[#0C2D48]/30 text-slate-700"}`}>
                         <Checkbox checked={isActive} onCheckedChange={(checked) => handleInterestChange(option.id, checked as boolean)} className={isActive ? "border-white data-[state=checked]:bg-white data-[state=checked]:text-[#0C2D48]" : ""} />
                         <span className={`text-sm font-medium ${isActive ? "text-white" : "text-slate-700"}`}>{option.label}</span>
                       </label>
@@ -600,7 +600,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
       </section>
 
       {/* ═══════════ 6. FAQ ═══════════ */}
-      <section className="py-16 md:py-32 bg-[#0F2D52]">
+      <section className="py-16 md:py-32 bg-[#0C2D48]">
         <div className="max-w-3xl mx-auto px-6 md:px-8">
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white text-center mb-12 md:mb-20">Häufige Fragen</h2>
           {config.faqs.map((faq, i) => (
