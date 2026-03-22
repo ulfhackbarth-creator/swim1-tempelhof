@@ -71,10 +71,10 @@ const Index = () => {
           <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold text-white tracking-tight leading-tight md:leading-[1.1] mb-4 md:mb-6">
             Sicher im Wasser.
             <br />
-            Ein Leben lang.
+            Stolz fürs Leben.
           </h1>
           <p className="text-base md:text-xl text-white/80 max-w-2xl mx-auto">
-            Vom Seepferdchen bis zur perfekten Kraultechnik. Swim1 ist deine Premium-Schwimmschule an 4 Standorten.
+            Von der ersten Wassergewöhnung bis zum sicheren Schwimmer. Wir begleiten dein Kind mit Wärme, Geduld und zertifizierten Trainern – in kleinen Gruppen und 32°C warmem Wasser.
           </p>
         </motion.div>
         <motion.button
