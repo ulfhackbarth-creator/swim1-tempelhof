@@ -69,7 +69,7 @@ export const cityConfigs: Record<string, CityConfig> = {
     cityName: "Schwerin",
     locationLabel: "SWIM1 im Schlosspark-Center Schwerin",
     heroTagline: "SWIM1 im Schlosspark-Center Schwerin",
-    heroHeading: "Willkommen bei Swim1 in Schwerin.",
+    heroHeading: "Willkommen bei SWIM1 in Schwerin.",
     heroSubtext:
       "Deine Premium-Schwimmschule direkt vor Ort. Entdecke unsere Kurse für Kinder und Erwachsene in einer familiären, sicheren Atmosphäre.",
     locationBenefit: {
