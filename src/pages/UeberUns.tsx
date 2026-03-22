@@ -191,31 +191,69 @@ const UeberUns = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {journey.map((card, i) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+            {journey.map((card, i) => {
+              const isSelected = selectedCard === card.title;
+              return (
               <motion.div
                 key={card.title}
+                ref={(el) => { if (el) cardRefs.current.set(i, el); }}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
+                onClick={() => handleSelectCard(card.title, i)}
+                className={`relative rounded-[2rem] p-6 md:p-8 shadow-lg shadow-slate-300/50 border-2 flex flex-col h-full transition-all duration-200 cursor-pointer ${
+                  isSelected
+                    ? "bg-[#0C2D48] border-[#0C2D48] shadow-xl shadow-slate-400/30"
+                    : "bg-white border-slate-200 hover:-translate-y-1 hover:shadow-xl"
+                }`}
               >
-                <Link
-                  to={card.path}
-                  onClick={() => window.scrollTo({ top: 0 })}
-                  className="group bg-white rounded-[2rem] p-6 md:p-8 shadow-lg shadow-slate-300/50 border-2 border-slate-200 flex flex-col h-full hover:-translate-y-1 hover:shadow-xl transition-all"
-                >
-                  <div className="w-12 h-12 rounded-2xl bg-secondary text-[#0C2D48] flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
-                    <card.Icon className="w-6 h-6" strokeWidth={1.5} />
+                {isSelected && (
+                  <div className="absolute top-4 right-4 w-7 h-7 rounded-full bg-white flex items-center justify-center">
+                    <Check className="w-4 h-4 text-[#0C2D48]" strokeWidth={3} />
                   </div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-2">{card.title}</h3>
-                  <p className="text-slate-600 leading-relaxed mb-4 flex-1">{card.text}</p>
-                  <span className="inline-flex items-center text-[#0C2D48] font-semibold gap-1 group-hover:gap-2 transition-all">
+                )}
+                <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-4 transition-colors duration-200 ${
+                  isSelected ? "bg-white/15" : "bg-secondary text-[#0C2D48]"
+                }`}>
+                  <card.Icon className={`w-6 h-6 transition-colors duration-200 ${isSelected ? "text-white" : ""}`} strokeWidth={1.5} />
+                </div>
+                <h3 className={`text-xl font-bold mb-2 transition-colors duration-200 ${isSelected ? "text-white" : "text-slate-900"}`}>{card.title}</h3>
+                <p className={`leading-relaxed mb-4 flex-1 transition-colors duration-200 ${isSelected ? "text-white/80" : "text-slate-600"}`}>{card.text}</p>
+
+                <AnimatePresence initial={false}>
+                  {isSelected && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                      className="overflow-hidden"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <div className="pt-4 border-t border-white/20 mt-2">
+                        <p className="text-white/85 leading-relaxed mb-5">{card.details}</p>
+                        <Link
+                          to={card.path}
+                          onClick={() => window.scrollTo({ top: 0 })}
+                          className="w-full block rounded-full py-3 text-sm text-center font-semibold transition-all bg-[#C6FF00] hover:bg-[#B0E000] hover:scale-105 active:scale-[0.97] text-[#0C2D48]"
+                        >
+                          Kurs wählen
+                        </Link>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+
+                {!isSelected && (
+                  <span className="inline-flex items-center text-[#0C2D48] font-semibold gap-1 transition-all">
                     Mehr erfahren <ArrowRight className="w-4 h-4" />
                   </span>
-                </Link>
+                )}
               </motion.div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
