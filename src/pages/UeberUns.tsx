@@ -103,7 +103,7 @@ const UeberUns = () => {
             >
               <img
                 src="/videos/baby_kleinkinder_desktop_poster.jpg"
-                alt="Trainer mit Kind im Wasser bei Swim1"
+                alt="Trainer mit Kind im Wasser bei SWIM1"
                 className="w-full h-72 md:h-96 object-cover"
               />
             </motion.div>
