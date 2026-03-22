@@ -6,41 +6,41 @@ export const testimonialsByTab: Record<CourseTab, { title: string; items: Testim
   kinderschwimmen: {
     title: "Das sagen andere Eltern",
     items: [
-      { text: "Meine Tochter hatte anfangs große Angst vor dem Wasser. Die Trainer sind unglaublich geduldig und am Ende hat sie stolz ihr Seepferdchen geschafft!", name: "Sandra M.", location: "Berlin-Tempelhof" },
-      { text: "Beide Kinder haben hier schwimmen gelernt. Professionell, herzlich und immer zuverlässig. Absolute Empfehlung!", name: "Julia R.", location: "Wildau" },
-      { text: "Die kleinen Gruppen machen den Unterschied. Mein Sohn geht jede Woche mit einem Lächeln zum Kurs.", name: "Michael T.", location: "Bremen" },
+      { text: "Mia hatte panische Angst, wenn auch nur ein Tropfen Wasser in ihr Gesicht kam. Nach nur sechs Wochen bei Swim1 springt sie lachend vom Beckenrand. Die Trainer haben ein echtes Wunder vollbracht.", name: "Sarah T.", location: "Mutter von Mia (4)" },
+      { text: "Beide Kinder haben hier schwimmen gelernt – vom Seepferdchen bis Gold. Die Geduld und Herzlichkeit der Trainer hat uns als Familie tief beeindruckt.", name: "Julia R.", location: "Mutter von Lina (6) und Tom (8)" },
+      { text: "Unser Sohn hatte null Vertrauen ins Wasser. Heute schwimmt er seine Bahnen allein. Dieses Selbstvertrauen ist unbezahlbar.", name: "Michael T.", location: "Vater von Jonas (5)" },
     ],
   },
   wassergewoehnung: {
     title: "Das sagen andere Eltern",
     items: [
-      { text: "Unser Baby liebt das Wasser! Die Kursleiterin geht so liebevoll mit den Kleinen um. Eine wunderbare Erfahrung für uns beide.", name: "Lisa K.", location: "Berlin-Tempelhof" },
-      { text: "Der Eltern-Kind-Kurs ist das Highlight unserer Woche. Mein Sohn hat keine Scheu vor dem Wasser und planscht mit Begeisterung.", name: "Anna S.", location: "Schwerin" },
-      { text: "Toll, wie spielerisch die Wassergewöhnung abläuft. Man merkt, dass die Trainer Erfahrung mit Babys haben.", name: "Carolin F.", location: "Wildau" },
+      { text: "Das 32 Grad warme Wasser ist ein Traum. Unser Sohn liebt die ruhige Atmosphäre und wir als Eltern fühlen uns in jeder Sekunde sicher aufgehoben. Ein Highlight unserer Woche.", name: "Julian M.", location: "Vater von Leo (1)" },
+      { text: "Die Kursleiterin geht so liebevoll mit den Kleinen um. Unsere Tochter strahlt jedes Mal, wenn sie ins Wasser darf. Eine wunderbare Erfahrung für uns beide.", name: "Anna S.", location: "Mutter von Emma (8 Monate)" },
+      { text: "Toll, wie spielerisch die Wassergewöhnung abläuft. Man merkt, dass die Trainer echte Erfahrung mit Babys haben und jedes Kind individuell begleiten.", name: "Carolin F.", location: "Mutter von Leni (14 Monate)" },
     ],
   },
   erwachsene: {
     title: "Das sagen unsere erwachsenen Teilnehmer",
     items: [
-      { text: "Ich habe mich mit 45 Jahren endlich getraut. Der Trainer war unglaublich geduldig. Ich fühle mich jetzt sicher im Wasser.", name: "Markus T.", location: "Berlin-Tempelhof" },
-      { text: "Der Technikkurs war genau das, was ich gesucht habe. Mein Kraulstil hat sich in nur 10 Wochen extrem verbessert!", name: "Sarah W.", location: "Schwerin" },
-      { text: "Tolle Atmosphäre, weil das Bad nicht öffentlich ist. Man ist wirklich unter sich und muss sich für nichts schämen.", name: "Thomas H.", location: "Wildau" },
+      { text: "Ich habe mich mit 45 Jahren endlich getraut, richtig schwimmen zu lernen. Die Geduld und Diskretion des Trainers haben mir vom ersten Tag an die Scham genommen.", name: "Michael K.", location: "Anfängerkurs" },
+      { text: "Der Technikkurs war genau das, was ich gesucht habe. Mein Kraulstil hat sich enorm verbessert – und das in einem Umfeld, in dem man sich wirklich wohlfühlt.", name: "Sarah W.", location: "Technikkurs" },
+      { text: "Die geschützte Atmosphäre ohne Zuschauer war für mich entscheidend. Hier konnte ich endlich ohne Scham lernen. Das hat mein Leben verändert.", name: "Thomas H.", location: "Anfängerkurs" },
     ],
   },
   fitness: {
     title: "Das sagen unsere Teilnehmer",
     items: [
-      { text: "Ich hätte nie gedacht, dass Sport im Wasser so anstrengend sein kann! Ein tolles Workout, nach dem man sich großartig fühlt.", name: "Martina S.", location: "Berlin-Tempelhof" },
-      { text: "Wegen meiner Knieprobleme kann ich nicht mehr joggen. Aqua-Fitness ist die perfekte Alternative, um fit zu bleiben.", name: "Peter W.", location: "Schwerin" },
-      { text: "Die Trainerin bringt so viel Energie mit. Man merkt gar nicht, wie die Zeit vergeht.", name: "Elena K.", location: "Bremen" },
+      { text: "Ich hätte nie gedacht, dass Training im Wasser so intensiv sein kann! Nach jeder Stunde fühle ich mich großartig – und meine Gelenke danken es mir.", name: "Martina S.", location: "Aquafitness" },
+      { text: "Wegen meiner Knieprobleme kann ich nicht mehr joggen. Aquafitness gibt mir die Bewegung zurück, die ich so vermisst habe – voller Freude.", name: "Peter W.", location: "Aquafitness" },
+      { text: "Die Trainerin bringt so viel Energie mit. Man merkt gar nicht, wie die Zeit vergeht. Sport mit Spaß – genau das hat mir gefehlt.", name: "Elena K.", location: "Aquafitness" },
     ],
   },
   reha: {
     title: "Erfahrungen unserer Patienten",
     items: [
-      { text: "Nach meiner Hüft-OP war das Training im Wasser die Rettung. Ich konnte Bewegungen machen, die an Land undenkbar waren.", name: "Klaus D.", location: "Berlin-Tempelhof" },
-      { text: "Die Therapeuten gehen auf jeden einzeln ein. Meine Rückenschmerzen sind durch den Kurs deutlich besser geworden.", name: "Renate H.", location: "Schwerin" },
-      { text: "Tolle Betreuung von der ersten Verordnung bis zur letzten Stunde. Fühle mich hier sehr gut aufgehoben.", name: "Dieter M.", location: "Wildau" },
+      { text: "Nach meiner Hüft-OP war das Training im Wasser die Rettung. Ich konnte Bewegungen machen, die an Land undenkbar waren. Die Therapeuten haben mich Schritt für Schritt begleitet.", name: "Klaus D.", location: "Aqua Reha" },
+      { text: "Meine Rückenschmerzen sind durch den Kurs deutlich besser geworden. Die individuelle Betreuung gibt mir das Vertrauen, dass ich in guten Händen bin.", name: "Renate H.", location: "Aqua Reha" },
+      { text: "Von der ersten Verordnung bis zur letzten Stunde – ich habe mich hier sicher und gut aufgehoben gefühlt. Echte Fürsorge.", name: "Dieter M.", location: "Aqua Reha" },
     ],
   },
 };
