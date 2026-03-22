@@ -28,6 +28,26 @@ const menuLinks = [
 
 const SCROLL_KEY = "chip-scroll-left";
 
+const CollapsibleSection = ({ title, defaultOpen = false, children }: { title: string; defaultOpen?: boolean; children: React.ReactNode }) => {
+  const [open, setOpen] = useState(defaultOpen);
+  return (
+    <div className="border-b border-slate-100">
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full flex items-center justify-between px-6 py-4 text-xs font-semibold uppercase tracking-wider text-slate-400 hover:text-slate-600 transition-colors"
+      >
+        {title}
+        <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${open ? "rotate-180" : ""}`} />
+      </button>
+      {open && (
+        <div className="px-6 pb-4 space-y-1">
+          {children}
+        </div>
+      )}
+    </div>
+  );
+};
+
 const GlobalHeader = () => {
   const location = useLocation();
   const containerRef = useRef<HTMLDivElement>(null);
