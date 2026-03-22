@@ -42,6 +42,7 @@ const HomeFooter = () => (
           <nav className="flex flex-col gap-2 text-sm text-slate-400">
             <Link to="/ueber-uns" onClick={scrollTop} className="hover:text-white transition-colors">Über uns</Link>
             <Link to="/faq" onClick={scrollTop} className="hover:text-white transition-colors">FAQ</Link>
+            <Link to="/kontakt" onClick={scrollTop} className="hover:text-white transition-colors">Kontakt</Link>
             <Link to="/impressum" onClick={scrollTop} className="hover:text-white transition-colors">Impressum</Link>
             <Link to="/datenschutz" onClick={scrollTop} className="hover:text-white transition-colors">Datenschutz</Link>
             <Link to="/agb" onClick={scrollTop} className="hover:text-white transition-colors">AGB</Link>
