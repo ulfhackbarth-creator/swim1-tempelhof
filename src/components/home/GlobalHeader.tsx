@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useLayoutEffect, useCallback } from "react";
-import { Waves, Activity, HeartPulse, PersonStanding, Droplets, Menu, X, MapPin, HelpCircle, Users, Briefcase, Mail } from "lucide-react";
+import { Waves, Activity, HeartPulse, PersonStanding, Droplets, Menu, X, MapPin, HelpCircle, Users, Mail } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import StandortDropdown from "@/components/StandortDropdown";
 import {
@@ -24,7 +24,6 @@ const menuLinks = [
   { label: "Über uns", href: "/#philosophie", Icon: Users },
   { label: "FAQ", href: "/#faq", Icon: HelpCircle },
   { label: "Kontakt", href: "/#standorte", Icon: Mail },
-  { label: "Karriere", href: "/#karriere", Icon: Briefcase },
 ];
 
 const SCROLL_KEY = "chip-scroll-left";
