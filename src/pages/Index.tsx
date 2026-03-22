@@ -224,7 +224,7 @@ const Index = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="bg-white rounded-[2rem] p-6 md:p-8 shadow-lg flex flex-col"
+              className="bg-white rounded-[2rem] p-6 md:p-8 shadow-lg shadow-slate-300/50 border-2 border-slate-200 flex flex-col"
             >
               <div className="flex gap-0.5 mb-5">
                 {[...Array(5)].map((_, j) => (
