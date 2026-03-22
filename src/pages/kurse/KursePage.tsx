@@ -33,14 +33,14 @@ const slideVariants = {
 
 const locationSubtitle: Record<CourseTab, string> = {
   kinderschwimmen: "Finde die passende Schwimmschule in deiner Nähe",
-  wassergewoehnung: "Finde den passenden Standort für Wassergewöhnung",
+  wassergewoehnung: "Finde den passenden Standort für Baby- und Kleinkinderkurse",
   erwachsene: "Finde den passenden Standort für dein Training",
   fitness: "Finde den passenden Standort für dein Training",
   reha: "Finde deinen Standort für Aqua Reha",
 };
 
 const categoryMeta: Record<CourseTab, { name: string; path: string }> = {
-  wassergewoehnung: { name: "Wassergewöhnung", path: "/kurse/wassergewoehnung" },
+  wassergewoehnung: { name: "Baby und Kleinkinder", path: "/kurse/wassergewoehnung" },
   kinderschwimmen: { name: "Kinderschwimmen", path: "/kurse/kinderschwimmen" },
   erwachsene: { name: "Erwachsenenschwimmen", path: "/kurse/erwachsene" },
   fitness: { name: "Aquafitness", path: "/kurse/aquafitness" },

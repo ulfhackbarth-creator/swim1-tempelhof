@@ -10,8 +10,8 @@ export const heroContent: Record<CourseTab, { video: string | string[]; headline
   },
   wassergewoehnung: {
     video: "https://videos.pexels.com/video-files/5888968/5888968-uhd_2560_1440_30fps.mp4",
-    headline: "Die ersten Schritte im Wasser – voller Vertrauen.",
-    subtext: "Ohne Angst, dafür mit viel Freude: In unseren Eltern-Kind-Kursen lernt dein Baby oder Kleinkind das Element Wasser spielerisch kennen. Ein Erlebnis, das euch verbindet.",
+    headline: "Wasser gemeinsam erleben. Von Anfang an.",
+    subtext: "Der erste Kontakt mit dem Wasser ist ein besonderer Moment. In unseren Wassergewöhnungskursen geht es darum, das Element Wasser gemeinsam zu erleben und die Bindung zwischen dir und deinem Kind zu stärken. In warmem Wasser und ruhiger Atmosphäre schaffen wir spielerisch die Grundlage für erste motorische Fähigkeiten – ganz ohne Druck, dafür mit viel Vertrauen.",
   },
   erwachsene: {
     video: ["https://files.manuscdn.com/user_upload_by_module/session_file/310419663028281720/sLFSYxdJMAiQdOXX.mp4", "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028281720/jUDOvskOIkWiOmuC.mp4"],
@@ -32,7 +32,7 @@ export const heroContent: Record<CourseTab, { video: string | string[]; headline
 
 export const courseSectionTitle: Record<CourseTab, string> = {
   kinderschwimmen: "Der Weg zum sicheren Schwimmer",
-  wassergewoehnung: "Wassergewöhnung für die Kleinsten",
+  wassergewoehnung: "Baby und Kleinkinder – unsere Kurse",
   erwachsene: "Schwimmkurse für Erwachsene",
   fitness: "Dein Workout im Wasser",
   reha: "Gesundheit und Mobilität fördern",
@@ -83,13 +83,13 @@ export const coursesByTab: Record<CourseTab, Course[]> = {
   wassergewoehnung: [
     {
       icon: Baby, tag: "Ab 3 Monate", name: "Babyschwimmen",
-      text: "Gemeinsame Zeit im warmen Wasser. Dein Baby lernt erste Bewegungen, baut Vertrauen auf und stärkt spielerisch seine Motorik.",
+      text: "Dein Baby entdeckt das Wasser – in deiner Nähe, in warmem Wasser, in kleinen Gruppen. Gemeinsame Zeit, die Vertrauen schafft.",
       details: "Babyschwimmen fördert die motorische Entwicklung und stärkt die Bindung zwischen Eltern und Kind. In 32 °C warmem Wasser entdecken Babys spielerisch das Element Wasser.",
       highlights: ["Ab 3 Monaten", "Mit Mama oder Papa", "32 °C Wassertemperatur"],
     },
     {
       icon: Users, tag: "Ab 1 Jahr", name: "Eltern-Kind-Kurse",
-      text: "Gemeinsam mit Mama oder Papa das Wasser entdecken. Spaß und Sicherheit für Kleinkinder ab 1 Jahr.",
+      text: "Wasser erleben, Bindung stärken, erste Bewegungen üben – gemeinsam mit dir als Elternteil.",
       details: "Kleinkinder ab 1 Jahr erkunden gemeinsam mit einem Elternteil das Wasser. Mit altersgerechten Spielen und Übungen wird Vertrauen aufgebaut und erste Schwimmbewegungen geübt.",
       highlights: ["Ab 1 Jahr", "Spielerisches Lernen", "Vertrauensaufbau im Wasser"],
     },

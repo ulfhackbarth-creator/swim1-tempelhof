@@ -15,9 +15,9 @@ export const uspsByTab: Record<CourseTab, { title: string; items: UspItem[] }> =
   wassergewoehnung: {
     title: "Warum Eltern uns vertrauen",
     items: [
-      { Icon: Baby, label: "Speziell für die Kleinsten", text: "Unsere Kurse sind auf die motorische Entwicklung von Babys und Kleinkindern abgestimmt." },
-      { Icon: Heart, label: "Bindung stärken", text: "Gemeinsame Zeit im warmen Wasser stärkt die Eltern-Kind-Bindung und fördert das Vertrauen." },
-      { Icon: ShieldCheck, label: "Warmes Wasser (32°C)", text: "Angenehme Wassertemperatur sorgt dafür, dass sich die Kleinsten rundum wohlfühlen." },
+      { Icon: Baby, label: "Auf die Entwicklung abgestimmt", text: "Unsere Kurse folgen dem natürlichen Entwicklungsrhythmus von Babys und Kleinkindern – kein Druck, dafür gezielte Förderung." },
+      { Icon: Heart, label: "Bindung stärken", text: "Gemeinsam im Wasser sein ist mehr als ein Kurs. Es ist Zeit, die euch verbindet – und Vertrauen, das bleibt." },
+      { Icon: ShieldCheck, label: "Warmes Wasser (32°C)", text: "32°C warmes Wasser – damit sich dein Kind von der ersten Sekunde an wohlfühlt." },
     ],
   },
   erwachsene: {
