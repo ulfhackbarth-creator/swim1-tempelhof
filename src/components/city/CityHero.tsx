@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
-import HeroTrustLine from "@/components/HeroTrustLine";
+
 import heroImage from "@/assets/hero-pool.jpg";
 import type { CityConfig } from "@/config/cities";
 
@@ -44,7 +44,7 @@ const CityHero = ({ city }: CityHeroProps) => {
           <p className="mt-4 text-sm text-primary-foreground/70">
             Unverbindlich & kostenlos
           </p>
-          <HeroTrustLine />
+          
         </motion.div>
       </div>
 

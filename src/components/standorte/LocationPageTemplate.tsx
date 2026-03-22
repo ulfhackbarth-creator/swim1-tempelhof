@@ -8,7 +8,7 @@ import {
   LifeBuoy, Dumbbell, HeartPulse, CheckCircle2, ChevronDown,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-import HeroTrustLine from "@/components/HeroTrustLine";
+
 import TestimonialCard from "@/components/TestimonialCard";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Input } from "@/components/ui/input";
@@ -350,7 +350,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
           >
           Jetzt Platz auf der Warteliste sichern <ArrowDown className="w-4 h-4" />
           </motion.button>
-          <HeroTrustLine />
+          
         </div>
       </section>
 

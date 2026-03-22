@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet-async";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSwipeNavigation } from "@/hooks/useSwipeNavigation";
 import { ArrowDown, ChevronDown, Star, Check } from "lucide-react";
-import HeroTrustLine from "@/components/HeroTrustLine";
+
 import TestimonialCard from "@/components/TestimonialCard";
 import { useIsMobile } from "@/hooks/use-mobile";
 import GlobalHeader from "@/components/home/GlobalHeader";
@@ -152,7 +152,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
           >
             Kurs wählen <ArrowDown className="w-4 h-4" />
           </motion.button>
-          <HeroTrustLine />
+          
         </div>
       </section>
 

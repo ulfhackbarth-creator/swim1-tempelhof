@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, ArrowDown, Star, Waves, Droplets, PersonStanding, Activity, HeartPulse, ShieldCheck, Lock, Users, Heart } from "lucide-react";
-import HeroTrustLine from "@/components/HeroTrustLine";
+
 import TestimonialCard from "@/components/TestimonialCard";
 import GlobalHeader from "@/components/home/GlobalHeader";
 import HomeFooter from "@/components/home/HomeFooter";
@@ -96,7 +96,7 @@ const Index = () => {
         >
            Passenden Kurs finden <ArrowDown className="w-4 h-4" />
         </motion.button>
-        <HeroTrustLine />
+        
       </div>
     </section>
 
