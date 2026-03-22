@@ -151,9 +151,9 @@ export const cityConfigs: Record<string, CityConfig> = {
     cityName: "Bremen",
     locationLabel: "SWIM1 in der Waterfront Bremen",
     heroTagline: "SWIM1 in der Waterfront Bremen",
-    heroHeading: "Schwimmkurse für die ganze Familie – jetzt in Bremen!",
+    heroHeading: "Willkommen bei Swim1 in Bremen.",
     heroSubtext:
-      "SWIM1 eröffnet in der Waterfront Bremen. Trag dich kostenlos auf die Warteliste ein und sichere dir 48 Stunden vor allen anderen Zugriff auf die Kursbuchung.",
+      "Deine Premium-Schwimmschule direkt vor Ort. Entdecke unsere Kurse für Kinder und Erwachsene in einer familiären, sicheren Atmosphäre.",
     locationBenefit: {
       title: "In der Waterfront",
       description: "Zentral in Bremen – mit Parkplätzen & bester Anbindung",
