@@ -535,11 +535,11 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
 
                 <div className="flex items-center justify-center gap-3 mt-5">
                   <div className="flex -space-x-2">
-                    <div className="w-8 h-8 rounded-full bg-blue-100 border-2 border-white flex items-center justify-center">
+                    <div className="w-8 h-8 rounded-full bg-secondary border-2 border-white flex items-center justify-center">
                       <Users className="w-4 h-4 text-[#0C2D48]" />
                     </div>
                     <div className="w-8 h-8 rounded-full bg-secondary border-2 border-white flex items-center justify-center text-xs font-bold text-[#0C2D48]">S</div>
-                    <div className="w-8 h-8 rounded-full bg-blue-100/70 border-2 border-white flex items-center justify-center text-xs font-bold text-[#0C2D48]">T</div>
+                    <div className="w-8 h-8 rounded-full bg-secondary/70 border-2 border-white flex items-center justify-center text-xs font-bold text-[#0C2D48]">T</div>
                     <div className="w-8 h-8 rounded-full bg-blue-200/60 border-2 border-white flex items-center justify-center text-xs font-bold text-[#0C2D48]">J</div>
                   </div>
                   <span className="text-sm font-semibold text-[#0C2D48]">{config.waitlistCount} Kursteilnehmer warten bereits</span>
