@@ -348,7 +348,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
                     ))}
                   </div>
                   <Link to={loc.route} onClick={() => window.scrollTo({ top: 0 })}
-                    className={`w-full mt-auto rounded-full py-3 text-sm text-center font-semibold transition-colors ${isActive ? "bg-[#C6FF00] hover:bg-[#B0E000] text-white" : "bg-slate-200 text-slate-500 hover:bg-slate-300"}`}
+                    className={`w-full mt-auto rounded-full py-3 text-sm text-center font-semibold transition-colors ${isActive ? "bg-[#C6FF00] hover:bg-[#B0E000] text-[#0F2D52]" : "bg-slate-200 text-slate-500 hover:bg-slate-300"}`}
                   >
                     {isActive ? "Standort entdecken" : "Zur Warteliste"}
                   </Link>

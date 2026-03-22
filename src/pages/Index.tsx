@@ -283,7 +283,7 @@ const Index = () => {
                   <Link
                     to={loc.route}
                     onClick={() => window.scrollTo({ top: 0 })}
-                    className="w-full mt-auto rounded-full py-3 text-sm text-center font-semibold transition-colors bg-[#C6FF00] hover:bg-[#B0E000] text-white"
+                    className="w-full mt-auto rounded-full py-3 text-sm text-center font-semibold transition-colors bg-[#C6FF00] hover:bg-[#B0E000] text-[#0F2D52]"
                   >
                     Standort entdecken
                   </Link>
