@@ -111,19 +111,20 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
           ]
         })}</script>
       </Helmet>
+      {/* Breadcrumb strip */}
+      <nav aria-label="breadcrumb" className="bg-gray-50 px-4 py-2">
+        <ol className="flex items-center gap-1.5 text-xs text-gray-400 max-w-6xl mx-auto">
+          <li><Link to="/" className="hover:text-gray-600 transition-colors">Startseite</Link></li>
+          <li aria-hidden="true">›</li>
+          <li aria-current="page"><span className="text-gray-500 font-medium">{categoryMeta[tab].name}</span></li>
+        </ol>
+      </nav>
+
       {/* HERO */}
       <section className="relative min-h-[85vh] md:min-h-[90vh] overflow-hidden">
         <HeroVideoBackground videos={videos} />
         <div className={`absolute inset-0 ${tab === "kinderschwimmen" || tab === "erwachsene" ? "bg-[#0F2D52]/35" : "bg-[#0F2D52]/45"}`} />
         <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 md:px-6 min-h-[85vh] md:min-h-[90vh] pt-32 md:pt-[120px] pb-8 md:pb-0">
-          {/* Breadcrumb */}
-           <nav aria-label="breadcrumb" className="absolute top-36 md:top-[130px] left-0 right-0 px-6">
-            <ol className="flex items-center gap-1.5 text-sm text-white/60 justify-center">
-              <li><Link to="/" className="hover:text-white transition-colors">Startseite</Link></li>
-              <li aria-hidden="true">/</li>
-              <li aria-current="page"><span className="text-white/90 font-medium">{categoryMeta[tab].name}</span></li>
-            </ol>
-          </nav>
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold text-white tracking-tight leading-tight md:leading-[1.1] mb-4 md:mb-6">
               {content.headline}
