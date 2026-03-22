@@ -194,7 +194,7 @@ const GlobalHeader = () => {
       {/* Row 2 — Category navigation */}
       <div
         ref={containerRef}
-        className="px-4 md:px-10 pb-3 pt-1 flex flex-row gap-2 overflow-x-auto scrollbar-hide border-t border-white/10"
+        className="max-w-6xl mx-auto px-4 md:px-6 pb-3 pt-1 flex flex-row gap-2 overflow-x-auto scrollbar-hide border-t border-white/10"
       >
         {chips.map((chip) => {
           const isActive = !isHome && location.pathname === chip.path;
