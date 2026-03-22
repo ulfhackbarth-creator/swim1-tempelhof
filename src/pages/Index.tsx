@@ -17,10 +17,9 @@ const heroVideos = [
 ];
 
 const trustStats = [
-  { value: "Über 2.000", label: "Zufriedene Schwimmer" },
-  { value: "4", label: "Moderne Standorte" },
-  { value: "32°C", label: "Warmes Wasser" },
-  { value: "Kleine", label: "Kursgruppen" },
+  { value: "Max. 6 Kinder", label: "Kleine Gruppen" },
+  { value: "Zertifiziert", label: "Einfühlsame Trainer" },
+  { value: "32°C", label: "Warmes Wohlfühlwasser" },
 ];
 
 const categories = [
