@@ -252,13 +252,11 @@ const UeberUns = () => {
             <p className="text-slate-500 text-lg mb-10">
               Finde jetzt den passenden Kurs an einem unserer Standorte in deiner Nähe.
             </p>
-            <Link
-              to="/#standorte"
-              className="inline-flex items-center gap-2 rounded-full px-8 py-4 font-semibold text-base text-[#0C2D48] transition-colors shadow-lg bg-[#C6FF00] hover:bg-[#B0E000]"
-              style={{ boxShadow: "0 8px 24px -4px rgba(198,255,0,0.3)" }}
-            >
-              Standorte entdecken <ArrowRight className="w-4 h-4" />
-            </Link>
+            <StandortDropdown
+              variant="orange-large"
+              label="Standorte entdecken"
+              align="center"
+            />
           </motion.div>
         </div>
       </section>

@@ -170,13 +170,11 @@ const FAQ = () => (
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <Link
-            to="/#standorte"
-            className="inline-flex items-center gap-2 bg-accent text-accent-foreground font-bold px-8 py-3.5 rounded-full text-base hover:brightness-105 transition-all"
-          >
-            <MapPin className="w-5 h-5" />
-            Standorte entdecken
-          </Link>
+          <StandortDropdown
+            variant="orange-large"
+            label="Standorte entdecken"
+            align="center"
+          />
         </motion.div>
       </div>
     </section>
