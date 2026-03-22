@@ -5,23 +5,23 @@ import { Fish, Medal, Trophy, Sun, Baby, Users, LifeBuoy, Timer, Dumbbell, Heart
 export const heroContent: Record<CourseTab, { video: string | string[]; headline: string; subtext: string }> = {
   kinderschwimmen: {
     video: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028281720/oNJkUzlVKWrdgGBV.mp4",
-    headline: "Vom Seepferdchen bis zum Goldabzeichen.",
-    subtext: "Kleine Gruppen · Zertifizierte Trainer · Bewährte Methodik",
+    headline: "Dein Kind lernt schwimmen. Sicher, geduldig und mit Spaß.",
+    subtext: "Vom ersten mutigen Sprung bis zum stolzen Seepferdchen-Abzeichen. Unsere Trainer wissen genau, wie sie Kindern die Angst nehmen und Selbstvertrauen aufbauen.",
   },
   wassergewoehnung: {
     video: "https://videos.pexels.com/video-files/5888968/5888968-uhd_2560_1440_30fps.mp4",
-    headline: "Erste Schritte im Wasser. Für die Kleinsten.",
-    subtext: "Ab 3 Monaten · Mit Mama oder Papa · Spielerische Wassergewöhnung",
+    headline: "Die ersten Schritte im Wasser – voller Vertrauen.",
+    subtext: "Ohne Angst, dafür mit viel Freude: In unseren Eltern-Kind-Kursen lernt dein Baby oder Kleinkind das Element Wasser spielerisch kennen. Ein Erlebnis, das euch verbindet.",
   },
   erwachsene: {
     video: ["https://files.manuscdn.com/user_upload_by_module/session_file/310419663028281720/sLFSYxdJMAiQdOXX.mp4", "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028281720/jUDOvskOIkWiOmuC.mp4"],
-    headline: "Schwimmen lernen ist keine Frage des Alters.",
-    subtext: "Ob kompletter Anfänger oder Technik-Feinschliff – lerne in kleiner Gruppe und geschütztem Rahmen schwimmen.",
+    headline: "Es ist nie zu spät, sich im Wasser sicher zu fühlen.",
+    subtext: "Egal, ob du deine Angst überwinden, von Grund auf neu lernen oder deine Technik perfektionieren möchtest – wir begleiten dich in einem geschützten, diskreten Rahmen.",
   },
   fitness: {
     video: "https://videos.pexels.com/video-files/8050098/8050098-hd_1920_1080_25fps.mp4",
     headline: "Fitness im Wasser. Für jeden.",
-    subtext: "Gelenkschonend · Alle Level · Viel Spaß in der Gruppe",
+    subtext: "Gelenkschonend · Alle Level · Voller Freude und Energie in der Gruppe",
   },
   reha: {
     video: "https://videos.pexels.com/video-files/6539674/6539674-hd_1920_1080_25fps.mp4",
