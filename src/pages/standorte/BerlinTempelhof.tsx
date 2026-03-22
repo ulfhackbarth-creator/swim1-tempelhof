@@ -6,9 +6,8 @@ const config: LocationConfig = {
   slug: "berlin-tempelhof",
   displayName: "Berlin-Tempelhof",
   heroHeadline: "Swim1 Schwimmschule in Berlin-Tempelhof",
-  heroVideos: [
-    "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028281720/gBnQiwwnZrqJaDTm.mp4",
-  ],
+  heroVideos: ["/videos/standort_desktop.mp4"],
+  heroPoster: "/videos/standort_desktop_poster.jpg",
   address: {
     streetAddress: "Ordensmeisterstr. 1–3",
     addressLocality: "Berlin",

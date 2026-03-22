@@ -107,6 +107,7 @@ export interface LocationConfig {
   slug: string;
   heroHeadline: string;
   heroVideos?: string[];
+  heroPoster?: string;
   locationInfo: { icon: LucideIcon; title: string; text: string }[];
   testimonials: { name: string; location: string; text: string; course: string; stars: number }[];
   faqs: { q: string; a: string }[];
@@ -301,7 +302,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
       {/* ═══════════ 1. HERO ═══════════ */}
       <section className="relative min-h-[85vh] md:min-h-[90vh] overflow-hidden">
         {hasVideo ? (
-          <HeroVideoBackground videos={config.heroVideos!} />
+          <HeroVideoBackground videos={config.heroVideos!} poster={config.heroPoster} />
         ) : (
           <img src={heroImage} alt={config.heroHeadline} className="absolute inset-0 w-full h-full object-cover" />
         )}

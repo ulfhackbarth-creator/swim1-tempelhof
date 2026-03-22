@@ -51,6 +51,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
   const isMobile = useIsMobile();
   const content = heroContent[tab];
   const videos = useMemo(() => Array.isArray(content.video) ? content.video : [content.video], [content.video]);
+  const mobileVideos = useMemo(() => content.mobileVideo ? (Array.isArray(content.mobileVideo) ? content.mobileVideo : [content.mobileVideo]) : undefined, [content.mobileVideo]);
   
   const usps = uspsByTab[tab];
   const tests = testimonialsByTab[tab];
@@ -122,7 +123,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
 
       {/* HERO */}
       <section className="relative min-h-[85vh] md:min-h-[90vh] overflow-hidden">
-        <HeroVideoBackground videos={videos} />
+        <HeroVideoBackground videos={videos} mobileVideos={mobileVideos} poster={content.poster} mobilePoster={content.mobilePoster} />
         <div className={`absolute inset-0 ${tab === "kinderschwimmen" || tab === "erwachsene" ? "bg-[#0C2D48]/35" : "bg-[#0C2D48]/45"}`} />
         <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 md:px-6 min-h-[85vh] md:min-h-[90vh] pt-32 md:pt-[120px] pb-8 md:pb-0">
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="max-w-4xl mx-auto">

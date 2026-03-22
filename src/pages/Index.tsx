@@ -7,14 +7,8 @@ import HomeFooter from "@/components/home/HomeFooter";
 import HeroVideoBackground from "@/components/HeroVideoBackground";
 import { standorte } from "@/data/standorteData";
 
-const heroVideos = [
-  "https://videos.pexels.com/video-files/5888968/5888968-uhd_2560_1440_30fps.mp4",
-  "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028281720/oNJkUzlVKWrdgGBV.mp4",
-  "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028281720/sLFSYxdJMAiQdOXX.mp4",
-  "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028281720/jUDOvskOIkWiOmuC.mp4",
-  "https://videos.pexels.com/video-files/8050098/8050098-hd_1920_1080_25fps.mp4",
-  "https://videos.pexels.com/video-files/6539674/6539674-hd_1920_1080_25fps.mp4",
-];
+const heroVideos = ["/videos/startseite_desktop.mp4"];
+const heroMobileVideos = ["/videos/startseite_mobile.mp4"];
 
 const trustStats = [
   { value: "Max. 6 Kinder", label: "Kleine Gruppen" },
@@ -64,7 +58,7 @@ const Index = () => {
 
     {/* ─── HERO ─── */}
     <section className="relative min-h-[85vh] md:min-h-[90vh] overflow-hidden">
-      <HeroVideoBackground videos={heroVideos} />
+      <HeroVideoBackground videos={heroVideos} mobileVideos={heroMobileVideos} poster="/videos/startseite_desktop_poster.jpg" mobilePoster="/videos/startseite_mobile_poster.jpg" />
       <div className="absolute inset-0 bg-[#0C2D48]/45" />
       <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 md:px-6 min-h-[85vh] md:min-h-[90vh] pt-32 md:pt-[120px] pb-8 md:pb-0">
         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="max-w-4xl mx-auto">
