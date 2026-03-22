@@ -22,7 +22,7 @@ const LegalLayout = ({ title, children }: LegalLayoutProps) => {
       <main className="flex-1 px-4 py-12 md:py-20 mt-24">
         <div className="max-w-3xl mx-auto">
           <h1 className="text-3xl md:text-5xl font-bold text-slate-900 mb-4 tracking-tight">{title}</h1>
-          <div className="h-1 w-16 bg-[#1B4F8A] rounded-full mb-10" />
+          <div className="h-1 w-16 bg-[#0C2D48] rounded-full mb-10" />
 
           <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-8 md:p-12">
             <div className="prose prose-slate max-w-none
@@ -31,7 +31,7 @@ const LegalLayout = ({ title, children }: LegalLayoutProps) => {
               prose-p:text-slate-600 prose-p:leading-relaxed
               prose-li:text-slate-600 prose-li:leading-relaxed
               prose-strong:text-slate-800
-              prose-a:text-[#1B4F8A] prose-a:font-semibold hover:prose-a:text-[#0F2D52] prose-a:no-underline hover:prose-a:underline
+              prose-a:text-[#0C2D48] prose-a:font-semibold hover:prose-a:text-[#0C2D48] prose-a:no-underline hover:prose-a:underline
               prose-ul:my-4 prose-ul:pl-0 prose-li:pl-0
             ">
               {children}

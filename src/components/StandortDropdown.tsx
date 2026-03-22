@@ -76,7 +76,7 @@ const StandortDropdown = ({
               className="flex items-center gap-3 w-full"
             >
               <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
-                <MapPin className="w-4 h-4 text-[#1B4F8A]" />
+                <MapPin className="w-4 h-4 text-[#0C2D48]" />
               </div>
               <div className="flex flex-col min-w-0 flex-1">
                 <span className="font-semibold text-sm">{s.name}</span>

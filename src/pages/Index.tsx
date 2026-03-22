@@ -65,7 +65,7 @@ const Index = () => {
     {/* ─── HERO ─── */}
     <section className="relative min-h-[85vh] md:min-h-[90vh] overflow-hidden">
       <HeroVideoBackground videos={heroVideos} />
-      <div className="absolute inset-0 bg-[#0F2D52]/45" />
+      <div className="absolute inset-0 bg-[#0C2D48]/45" />
       <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 md:px-6 min-h-[85vh] md:min-h-[90vh] pt-32 md:pt-[120px] pb-8 md:pb-0">
         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold text-white tracking-tight leading-tight md:leading-[1.1] mb-4 md:mb-6">
@@ -118,16 +118,16 @@ const Index = () => {
                 className="group bg-white rounded-[2rem] p-6 md:p-10 shadow-lg shadow-slate-300/50 border-2 border-slate-200 flex flex-col h-full hover:-translate-y-1 hover:shadow-xl transition-all"
               >
                 <div className="flex items-start gap-4 mb-4">
-                  <div className="w-12 h-12 shrink-0 rounded-2xl bg-blue-50 text-[#1B4F8A] flex items-center justify-center group-hover:scale-105 transition-transform">
+                  <div className="w-12 h-12 shrink-0 rounded-2xl bg-blue-50 text-[#0C2D48] flex items-center justify-center group-hover:scale-105 transition-transform">
                     <cat.Icon className="w-6 h-6" strokeWidth={1.5} />
                   </div>
                   <div className="min-w-0">
-                    <span className="text-xs font-bold uppercase tracking-widest text-[#1B4F8A]">{cat.tag}</span>
+                    <span className="text-xs font-bold uppercase tracking-widest text-[#0C2D48]">{cat.tag}</span>
                     <h3 className="text-xl xl:text-2xl font-bold text-slate-900 break-words hyphens-auto">{cat.title}</h3>
                   </div>
                 </div>
                 <p className="text-slate-600 leading-relaxed mb-6 flex-1">{cat.text}</p>
-                <span className="inline-flex items-center text-[#1B4F8A] font-semibold gap-1 group-hover:gap-2 transition-all">
+                <span className="inline-flex items-center text-[#0C2D48] font-semibold gap-1 group-hover:gap-2 transition-all">
                   Mehr erfahren <ArrowRight className="w-4 h-4" />
                 </span>
               </Link>
@@ -139,7 +139,7 @@ const Index = () => {
     </section>
 
     {/* ─── TRUST STATS ─── */}
-    <section className="bg-[#0F2D52] py-12 md:py-16">
+    <section className="bg-[#0C2D48] py-12 md:py-16">
       <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 px-6">
         {trustStats.map((s, i) => (
           <motion.div
@@ -187,7 +187,7 @@ const Index = () => {
               transition={{ duration: 0.5, delay: i * 0.1 }}
               className="flex flex-row items-start gap-6 text-left"
             >
-              <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-blue-50 text-[#1B4F8A] flex items-center justify-center">
+              <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-blue-50 text-[#0C2D48] flex items-center justify-center">
                 <item.Icon className="w-8 h-8" strokeWidth={1.5} />
               </div>
               <div>
@@ -201,7 +201,7 @@ const Index = () => {
     </section>
 
     {/* ─── TESTIMONIALS ─── */}
-    <section className="py-16 md:py-32 bg-[#0F2D52]">
+    <section className="py-16 md:py-32 bg-[#0C2D48]">
       <div className="max-w-6xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -224,7 +224,7 @@ const Index = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="bg-[#1B4F8A]/40 border border-white/10 rounded-[2rem] p-6 md:p-8 backdrop-blur-sm flex flex-col"
+              className="bg-[#0C2D48]/40 border border-white/10 rounded-[2rem] p-6 md:p-8 backdrop-blur-sm flex flex-col"
             >
               <div className="flex gap-0.5 mb-5">
                 {[...Array(5)].map((_, j) => (
@@ -273,11 +273,11 @@ const Index = () => {
                     ✓ Warteliste
                   </span>
                   <h3 className="text-xl font-bold text-slate-900 mb-1">{loc.name}</h3>
-                  <p className="text-sm font-medium text-[#1B4F8A] mb-0.5">{loc.center}</p>
+                  <p className="text-sm font-medium text-[#0C2D48] mb-0.5">{loc.center}</p>
                   <p className="text-slate-500 text-sm mb-4">{loc.address}</p>
                   <div className="flex flex-wrap gap-1.5 mb-5">
                     {loc.features.map((f) => (
-                      <span key={f} className="text-[11px] font-medium text-[#1B4F8A] bg-blue-50 px-2.5 py-0.5 rounded-full">{f}</span>
+                      <span key={f} className="text-[11px] font-medium text-[#0C2D48] bg-blue-50 px-2.5 py-0.5 rounded-full">{f}</span>
                     ))}
                   </div>
                   <Link
