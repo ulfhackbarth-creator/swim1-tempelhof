@@ -7,8 +7,20 @@ import HomeFooter from "@/components/home/HomeFooter";
 import HeroVideoBackground from "@/components/HeroVideoBackground";
 import { standorte } from "@/data/standorteData";
 
-const heroVideos = ["/videos/startseite_desktop.mp4"];
-const heroMobileVideos = ["/videos/startseite_mobile.mp4"];
+const heroVideos = [
+  "/videos/kinderschwimmen_desktop.mp4",
+  "/videos/baby_kleinkinder_desktop.mp4",
+  "/videos/erwachsene_desktop.mp4",
+  "/videos/aquafitness_desktop.mp4",
+  "/videos/aquareha_desktop.mp4",
+];
+const heroMobileVideos = [
+  "/videos/kinderschwimmen_desktop.mp4",
+  "/videos/baby_kleinkinder_desktop.mp4",
+  "/videos/erwachsene_mobile.mp4",
+  "/videos/aquafitness_desktop.mp4",
+  "/videos/aquareha_desktop.mp4",
+];
 
 const trustStats = [
   { value: "Max. 6 Kinder", label: "Kleine Gruppen" },
@@ -58,7 +70,7 @@ const Index = () => {
 
     {/* ─── HERO ─── */}
     <section className="relative min-h-[85vh] md:min-h-[90vh] overflow-hidden">
-      <HeroVideoBackground videos={heroVideos} mobileVideos={heroMobileVideos} poster="/videos/startseite_desktop_poster.jpg" mobilePoster="/videos/startseite_mobile_poster.jpg" />
+      <HeroVideoBackground videos={heroVideos} mobileVideos={heroMobileVideos} poster="/videos/kinderschwimmen_desktop_poster.jpg" mobilePoster="/videos/kinderschwimmen_desktop_poster.jpg" />
       <div className="absolute inset-0 bg-[#0C2D48]/45" />
       <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 md:px-6 min-h-[85vh] md:min-h-[90vh] pt-32 md:pt-[120px] pb-8 md:pb-0">
         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="max-w-4xl mx-auto">
