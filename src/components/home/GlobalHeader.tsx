@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useLayoutEffect, useCallback } from "react";
-import { Waves, Activity, HeartPulse, PersonStanding, Droplets, Menu, X, MapPin, HelpCircle, Users, Mail } from "lucide-react";
+import { Waves, Activity, HeartPulse, PersonStanding, Droplets, Menu, X, MapPin, HelpCircle, Users, Mail, ChevronDown } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import StandortDropdown from "@/components/StandortDropdown";
 import {
@@ -27,6 +27,26 @@ const menuLinks = [
 ];
 
 const SCROLL_KEY = "chip-scroll-left";
+
+const CollapsibleSection = ({ title, defaultOpen = false, children }: { title: string; defaultOpen?: boolean; children: React.ReactNode }) => {
+  const [open, setOpen] = useState(defaultOpen);
+  return (
+    <div className="border-b border-slate-100">
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full flex items-center justify-between px-6 py-4 text-xs font-semibold uppercase tracking-wider text-slate-400 hover:text-slate-600 transition-colors"
+      >
+        {title}
+        <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${open ? "rotate-180" : ""}`} />
+      </button>
+      {open && (
+        <div className="px-6 pb-4 space-y-1">
+          {children}
+        </div>
+      )}
+    </div>
+  );
+};
 
 const GlobalHeader = () => {
   const location = useLocation();
@@ -141,18 +161,17 @@ const GlobalHeader = () => {
                 <Menu className="w-5 h-5" />
               </button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-80 p-0 bg-white border-slate-200">
-              <SheetHeader className="p-6 pb-4 border-b border-slate-100">
+            <SheetContent side="right" className="w-80 p-0 bg-white border-slate-200 flex flex-col">
+              <SheetHeader className="p-6 pb-4 border-b border-slate-100 flex-shrink-0">
                 <SheetTitle className="text-[#0C2D48] flex items-center gap-2">
                   <Waves className="w-5 h-5" />
                   SWIM1
                 </SheetTitle>
               </SheetHeader>
 
-              {/* Kurse section */}
-              <div className="p-6 border-b border-slate-100">
-                <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-4">Kurse</p>
-                <div className="space-y-1">
+              <div className="flex-1 overflow-y-auto">
+                {/* Kurse section — collapsible */}
+                <CollapsibleSection title="Kurse" defaultOpen>
                   {chips.map((chip) => (
                     <Link
                       key={chip.id}
@@ -164,13 +183,10 @@ const GlobalHeader = () => {
                       {chip.label}
                     </Link>
                   ))}
-                </div>
-              </div>
+                </CollapsibleSection>
 
-              {/* Standorte section */}
-              <div className="p-6 border-b border-slate-100">
-                <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-4">Standorte</p>
-                <div className="space-y-1">
+                {/* Standorte section — collapsible */}
+                <CollapsibleSection title="Standorte" defaultOpen>
                   <Link to="/standorte/berlin-tempelhof" onClick={() => { setMenuOpen(false); window.scrollTo({ top: 0 }); }} className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-700 hover:bg-slate-50 hover:text-[#0C2D48] transition-colors text-sm font-medium">
                     <MapPin className="w-4 h-4 text-slate-400" /> Berlin-Tempelhof
                   </Link>
@@ -183,24 +199,24 @@ const GlobalHeader = () => {
                   <Link to="/standorte/bremen" onClick={() => { setMenuOpen(false); window.scrollTo({ top: 0 }); }} className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-700 hover:bg-slate-50 hover:text-[#0C2D48] transition-colors text-sm font-medium">
                     <MapPin className="w-4 h-4 text-slate-400" /> Bremen
                   </Link>
-                </div>
-              </div>
+                </CollapsibleSection>
 
-              {/* Menu links */}
-              <div className="p-6">
-                <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-4">Mehr</p>
-                <div className="space-y-1">
-                  {menuLinks.map((link) => (
-                    <Link
-                      key={link.label}
-                      to={link.href}
-                      onClick={() => { setMenuOpen(false); }}
-                      className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-700 hover:bg-slate-50 hover:text-[#0C2D48] transition-colors text-sm font-medium"
-                    >
-                      <link.Icon className="w-4 h-4 text-slate-400" />
-                      {link.label}
-                    </Link>
-                  ))}
+                {/* Menu links */}
+                <div className="p-6">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-4">Mehr</p>
+                  <div className="space-y-1">
+                    {menuLinks.map((link) => (
+                      <Link
+                        key={link.label}
+                        to={link.href}
+                        onClick={() => { setMenuOpen(false); }}
+                        className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-700 hover:bg-slate-50 hover:text-[#0C2D48] transition-colors text-sm font-medium"
+                      >
+                        <link.Icon className="w-4 h-4 text-slate-400" />
+                        {link.label}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               </div>
             </SheetContent>
