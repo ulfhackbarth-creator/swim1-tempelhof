@@ -16,6 +16,7 @@ import Bremen from "./pages/standorte/Bremen";
 import Impressum from "./pages/legal/Impressum";
 import Datenschutz from "./pages/legal/Datenschutz";
 import AGB from "./pages/legal/AGB";
+import UeberUns from "./pages/UeberUns";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
