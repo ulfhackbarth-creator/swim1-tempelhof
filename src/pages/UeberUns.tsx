@@ -163,7 +163,7 @@ const UeberUns = () => {
               Wir begleiten euch ein Leben lang.
             </h2>
             <p className="text-slate-500 text-lg">
-              Von den ersten Momenten im Wasser bis zur perfekten Technik. Swim1 ist für die ganze Familie da.
+              Von den ersten Momenten im Wasser bis zur perfekten Technik. SWIM1 ist für die ganze Familie da.
             </p>
           </motion.div>
 
