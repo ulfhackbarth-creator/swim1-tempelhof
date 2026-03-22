@@ -83,7 +83,7 @@ export const coursesByTab: Record<CourseTab, Course[]> = {
   wassergewoehnung: [
     {
       icon: Baby, tag: "Ab 3 Monate", name: "Babyschwimmen",
-      text: "Spielerische Wassergewöhnung für Babys ab 3 Monaten mit einem Elternteil. Fördert Motorik und Bindung.",
+      text: "Gemeinsame Zeit im warmen Wasser. Dein Baby lernt erste Bewegungen, baut Vertrauen auf und stärkt spielerisch seine Motorik.",
       details: "Babyschwimmen fördert die motorische Entwicklung und stärkt die Bindung zwischen Eltern und Kind. In 32 °C warmem Wasser entdecken Babys spielerisch das Element Wasser.",
       highlights: ["Ab 3 Monaten", "Mit Mama oder Papa", "32 °C Wassertemperatur"],
     },
