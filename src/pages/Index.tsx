@@ -82,7 +82,7 @@ const Index = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
           onClick={() => scrollTo("#standorte")}
-          className="mt-8 md:mt-10 inline-flex items-center gap-2 rounded-full px-6 py-3 font-semibold text-base text-white transition-colors shadow-lg bg-[#F97316] hover:bg-[#EA580C]"
+          className="mt-8 md:mt-10 inline-flex items-center gap-2 rounded-full px-6 py-3 font-semibold text-base text-[#0F2D52] transition-colors shadow-lg bg-[#C6FF00] hover:bg-[#B0E000]"
           style={{ boxShadow: "0 8px 24px -4px rgba(249,115,22,0.3)" }}
         >
           Passenden Kurs finden <ArrowDown className="w-4 h-4" />
@@ -283,7 +283,7 @@ const Index = () => {
                   <Link
                     to={loc.route}
                     onClick={() => window.scrollTo({ top: 0 })}
-                    className="w-full mt-auto rounded-full py-3 text-sm text-center font-semibold transition-colors bg-[#F97316] hover:bg-[#EA580C] text-white"
+                    className="w-full mt-auto rounded-full py-3 text-sm text-center font-semibold transition-colors bg-[#C6FF00] hover:bg-[#B0E000] text-white"
                   >
                     Standort entdecken
                   </Link>
