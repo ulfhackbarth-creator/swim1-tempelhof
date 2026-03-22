@@ -7,7 +7,7 @@ const config: LocationConfig = {
   displayName: "Wildau",
   heroVideos: ["/videos/standort_wildau_desktop.mp4"],
   heroPoster: "/videos/standort_wildau_desktop_poster.jpg",
-  heroHeadline: "SWIM1 Schwimmschule in Wildau",
+  heroHeadline: "SWIM1 – Deine Schwimmschule in Wildau",
   address: {
     streetAddress: "Chausseestr. 1",
     addressLocality: "Wildau",
