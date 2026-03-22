@@ -18,6 +18,7 @@ import Datenschutz from "./pages/legal/Datenschutz";
 import AGB from "./pages/legal/AGB";
 import UeberUns from "./pages/UeberUns";
 import FAQ from "./pages/FAQ";
+import Kontakt from "./pages/Kontakt";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
