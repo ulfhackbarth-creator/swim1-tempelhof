@@ -97,7 +97,7 @@ export const coursesByTab: Record<CourseTab, Course[]> = {
   erwachsene: [
     {
       icon: LifeBuoy, tag: "Für Anfänger", name: "Anfängerschwimmen",
-      text: "Überwinde deine Ängste im geschützten Rahmen. Wir gewöhnen dich behutsam ans Wasser und bringen dir die Grundlagen des Brustschwimmens bei.",
+      text: "Es ist nie zu spät, sich im Wasser sicher zu fühlen. Wir begleiten dich behutsam – ohne Druck, ohne Zuschauer.",
       details: "Der perfekte Einstieg für Erwachsene, die noch nicht schwimmen können oder Angst vor dem Wasser haben. In kleinen Gruppen und ohne Zuschauer lernst du die Grundlagen sicher und entspannt.",
       highlights: ["Kleine Gruppen (max. 8)", "Ohne Zuschauer", "Behutsamer Aufbau"],
     },
