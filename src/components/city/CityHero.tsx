@@ -21,28 +21,28 @@ const CityHero = ({ city }: CityHeroProps) => {
       </div>
 
       <div className="container relative z-10 px-4 pt-20 pb-12">
-        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: "easeOut" }} className="max-w-2xl mx-auto text-center">
-          <motion.span initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.2, duration: 0.5 }} className="inline-block px-4 py-1.5 mb-6 text-sm font-medium bg-secondary/90 text-secondary-foreground rounded-full backdrop-blur-sm">
+        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="max-w-2xl mx-auto text-center">
+          <motion.span initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5 }} className="inline-block px-4 py-1.5 mb-6 text-sm font-medium bg-secondary/90 text-secondary-foreground rounded-full backdrop-blur-sm">
             {city.heroTagline}
           </motion.span>
 
-          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.6 }} className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-4 leading-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-4 leading-tight">
             {city.heroHeading}
-          </motion.h1>
+          </h1>
 
-          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.6 }} className="text-base md:text-lg text-primary-foreground/85 max-w-lg mx-auto mb-8">
+          <p className="text-base md:text-lg text-primary-foreground/85 max-w-lg mx-auto mb-8">
             Kleine Gruppen · Zertifizierte Trainer · 32 °C warmes Wasser
-          </motion.p>
+          </p>
 
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5, duration: 0.6 }}>
+          <div>
             <Button variant="cta" size="xl" onClick={scrollToForm}>
               Unverbindlich auf die Warteliste
             </Button>
-          </motion.div>
+          </div>
 
-          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.7, duration: 0.5 }} className="mt-6 text-sm text-primary-foreground/70">
+          <p className="mt-6 text-sm text-primary-foreground/70">
             Unverbindlich & kostenlos
-          </motion.p>
+          </p>
         </motion.div>
       </div>
 
