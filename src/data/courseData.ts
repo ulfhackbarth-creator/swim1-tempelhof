@@ -25,8 +25,8 @@ export const heroContent: Record<CourseTab, { video: string | string[]; headline
   },
   reha: {
     video: "https://videos.pexels.com/video-files/6539674/6539674-hd_1920_1080_25fps.mp4",
-    headline: "Gesundheit beginnt im Wasser.",
-    subtext: "Auf ärztliches Rezept · Krankenkassen-anerkannt · Medizinisch begleitet",
+    headline: "Zurück zu alter Stärke.",
+    subtext: "Wenn der Körper Unterstützung braucht, ist das Wasser das beste Element, um zurück zu alter Stärke zu finden. Mit kleinen Gruppen, warmem Wasser und erfahrenen Trainern.",
   },
 };
 
@@ -119,7 +119,7 @@ export const coursesByTab: Record<CourseTab, Course[]> = {
   reha: [
     {
       icon: HeartPulse, tag: "Auf Rezept", name: "Aquareha",
-      text: "Medizinisches Training im Wasser nach Verletzungen oder bei Gelenkbeschwerden. Von allen gesetzlichen Krankenkassen anerkannt.",
+      text: "Gezielte Bewegung im Wasser – nach Verletzungen, bei Gelenkbeschwerden oder auf ärztliche Empfehlung. Von den gesetzlichen Krankenkassen anerkannt.",
       details: "Aquareha ist ein medizinisch begleitetes Rehabilitationstraining im Wasser. Es hilft bei Gelenkbeschwerden, nach Operationen oder Verletzungen – verordnungsfähig auf Rezept.",
       highlights: ["Auf ärztliches Rezept", "Krankenkassen-anerkannt", "Medizinisch begleitet"],
     },
