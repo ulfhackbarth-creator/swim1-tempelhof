@@ -10,8 +10,8 @@ export const heroContent: Record<CourseTab, { video: string | string[]; headline
   },
   wassergewoehnung: {
     video: "https://videos.pexels.com/video-files/5888968/5888968-uhd_2560_1440_30fps.mp4",
-    headline: "Die ersten Schritte im Wasser – voller Vertrauen.",
-    subtext: "Ohne Angst, dafür mit viel Freude: In unseren Eltern-Kind-Kursen lernt dein Baby oder Kleinkind das Element Wasser spielerisch kennen. Ein Erlebnis, das euch verbindet.",
+    headline: "Wasser gemeinsam erleben. Von Anfang an.",
+    subtext: "Der erste Kontakt mit dem Wasser ist ein besonderer Moment. In unseren Wassergewöhnungskursen geht es darum, das Element Wasser gemeinsam zu erleben und die Bindung zwischen dir und deinem Kind zu stärken. In warmem Wasser und ruhiger Atmosphäre schaffen wir spielerisch die Grundlage für erste motorische Fähigkeiten – ganz ohne Druck, dafür mit viel Vertrauen.",
   },
   erwachsene: {
     video: ["https://files.manuscdn.com/user_upload_by_module/session_file/310419663028281720/sLFSYxdJMAiQdOXX.mp4", "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028281720/jUDOvskOIkWiOmuC.mp4"],
