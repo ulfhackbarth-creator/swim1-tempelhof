@@ -42,6 +42,7 @@ const philosophy = [
   { Icon: ShieldCheck, title: "Sicherheit zuerst", text: "Unsere Trainer sind zertifiziert, pädagogisch geschult und wissen, wie man Sicherheit im Wasser wirklich vermittelt." },
   { Icon: Lock, title: "Geschützter Rahmen", text: "Kein öffentlicher Badebetrieb. Eigene Becken, ruhige Atmosphäre – damit du dich voll auf das Lernen konzentrieren kannst." },
   { Icon: Users, title: "Individuelles Tempo", text: "Jeder Mensch lernt anders. Kleine Gruppen bedeuten echte Aufmerksamkeit – für jedes Kind, jeden Erwachsenen." },
+  { Icon: Heart, title: "Von Krankenkassen anerkannt", text: "Unsere Reha-Kurse sind von den Krankenkassen anerkannt. Das gibt dir zusätzliche Sicherheit und Vertrauen." },
 ];
 
 
