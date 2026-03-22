@@ -5,6 +5,8 @@ import { Helmet } from "react-helmet-async";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSwipeNavigation } from "@/hooks/useSwipeNavigation";
 import { ArrowDown, ChevronDown, Star, Check } from "lucide-react";
+import HeroTrustLine from "@/components/HeroTrustLine";
+import TestimonialCard from "@/components/TestimonialCard";
 import { useIsMobile } from "@/hooks/use-mobile";
 import GlobalHeader from "@/components/home/GlobalHeader";
 import HomeFooter from "@/components/home/HomeFooter";
