@@ -13,7 +13,7 @@ import {
 const HEADER_BG = "#003580";
 
 const chips = [
-  { id: "wassergewoehnung", label: "Babyschwimmen", mobileLabel: "Baby", Icon: Droplets, path: "/kurse/wassergewoehnung" },
+  { id: "wassergewoehnung", label: "Babyschwimmen", mobileLabel: "Baby & Kleinkinder", Icon: Droplets, path: "/kurse/wassergewoehnung" },
   { id: "kinderschwimmen", label: "Kinderschwimmen", mobileLabel: "Kinder", Icon: Waves, path: "/kurse/kinderschwimmen" },
   { id: "erwachsene", label: "Erwachsene", mobileLabel: "Erwachsene", Icon: PersonStanding, path: "/kurse/erwachsene" },
   { id: "fitness", label: "Aquafitness", mobileLabel: "Fitness", Icon: Activity, path: "/kurse/aquafitness" },
