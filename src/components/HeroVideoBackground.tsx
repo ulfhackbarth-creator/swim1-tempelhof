@@ -98,20 +98,23 @@ const HeroVideoBackground = ({ videos, intervalMs = 4000, poster }: HeroVideoBac
     <>
       <video
         ref={videoRefA}
+        autoPlay
         muted
         loop
         playsInline
-        preload="none"
+        preload="auto"
         poster={poster}
         className={baseClass}
         style={{ opacity: slot === "A" ? 1 : 0 }}
       />
       <video
         ref={videoRefB}
+        autoPlay
         muted
         loop
         playsInline
         preload="none"
+        poster={poster}
         className={baseClass}
         style={{ opacity: slot === "B" ? 1 : 0 }}
       />
