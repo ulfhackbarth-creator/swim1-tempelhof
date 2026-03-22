@@ -13,6 +13,7 @@ import { standorte } from "@/data/standorteData";
 const heroVideos = [
   "/videos/kinderschwimmen_desktop.mp4",
   "/videos/baby_kleinkinder_desktop.mp4",
+  "/videos/erwachsene_mobile.mp4",
   "/videos/erwachsene_desktop.mp4",
   "/videos/aquafitness_desktop.mp4",
   "/videos/aquareha_desktop.mp4",
@@ -20,6 +21,7 @@ const heroVideos = [
 const heroMobileVideos = [
   "/videos/kinderschwimmen_desktop.mp4",
   "/videos/baby_kleinkinder_desktop.mp4",
+  "/videos/erwachsene_mobile.mp4",
   "/videos/erwachsene_mobile.mp4",
   "/videos/aquafitness_desktop.mp4",
   "/videos/aquareha_desktop.mp4",
