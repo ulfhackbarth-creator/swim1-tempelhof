@@ -23,17 +23,17 @@ const trustStats = [
 ];
 
 const categories = [
-  { Icon: Droplets, tag: "Ab 3 Monaten", title: "Wassergewöhnung", text: "Gemeinsame Zeit im warmen Wasser. Dein Baby entdeckt spielerisch das Element Wasser.", path: "/kurse/wassergewoehnung" },
-  { Icon: Waves, tag: "Ab 3,5 Jahren", title: "Kinderschwimmen", text: "Vom ersten mutigen Sprung bis zum stolzen Seepferdchen – mit Geduld und Freude.", path: "/kurse/kinderschwimmen" },
-  { Icon: PersonStanding, tag: "Alle Level", title: "Erwachsenenschwimmen", text: "Ängste überwinden oder Technik perfektionieren – in geschütztem, diskretem Rahmen.", path: "/kurse/erwachsene" },
-  { Icon: Activity, tag: "Gelenkschonend", title: "Aquafitness", text: "Effektives Ganzkörpertraining im 32 °C warmen Wasser – voller Freude und Energie.", path: "/kurse/aquafitness" },
-  { Icon: HeartPulse, tag: "Auf Rezept", title: "Aqua Reha", text: "Medizinisch begleitete Rehabilitation im Wasser – für mehr Mobilität und Lebensqualität.", path: "/kurse/reha" },
+  { Icon: Droplets, tag: "Ab 3 Monaten", title: "Baby und Kleinkinder", text: "Wasser gemeinsam erleben, Bindung stärken, erste motorische Fähigkeiten aufbauen.", path: "/kurse/wassergewoehnung" },
+  { Icon: Waves, tag: "Ab 3,5 Jahren", title: "Kinderschwimmen", text: "Schwimmen von Grund auf lernen. Sicherheit im Wasser gewinnen. Eine Fähigkeit fürs Leben.", path: "/kurse/kinderschwimmen" },
+  { Icon: PersonStanding, tag: "Alle Level", title: "Erwachsenenschwimmen", text: "Es ist nie zu spät, schwimmen zu lernen. Sicherer Rahmen, erfahrene Trainer, dein Tempo.", path: "/kurse/erwachsene" },
+  { Icon: Activity, tag: "Gelenkschonend", title: "Aquafitness", text: "Bewegung im Wasser – gelenkschonend, in Gemeinschaft und mit echtem Spaß.", path: "/kurse/aquafitness" },
+  { Icon: HeartPulse, tag: "Auf Rezept", title: "Aqua Reha", text: "Zurück zu alter Stärke. Das Wasser gibt dir den Raum, den du dafür brauchst.", path: "/kurse/reha" },
 ];
 
 const philosophy = [
-  { Icon: ShieldCheck, title: "Sicherheit zuerst", text: "Unsere Trainer sind hochqualifiziert und auf Überlebenstechniken im Wasser geschult." },
-  { Icon: Lock, title: "Geschützter Rahmen", text: "Kein öffentlicher Badebetrieb. Wir lernen in privaten, ruhigen Pools ohne Ablenkung." },
-  { Icon: Users, title: "Individuelles Tempo", text: "Jeder lernt anders. Unsere kleinen Gruppen garantieren persönliche Betreuung." },
+  { Icon: ShieldCheck, title: "Sicherheit zuerst", text: "Unsere Trainer sind zertifiziert, pädagogisch geschult und wissen, wie man Sicherheit im Wasser wirklich vermittelt." },
+  { Icon: Lock, title: "Geschützter Rahmen", text: "Kein öffentlicher Badebetrieb. Eigene Becken, ruhige Atmosphäre – damit du dich voll auf das Lernen konzentrieren kannst." },
+  { Icon: Users, title: "Individuelles Tempo", text: "Jeder Mensch lernt anders. Kleine Gruppen bedeuten echte Aufmerksamkeit – für jedes Kind, jeden Erwachsenen." },
 ];
 
 
@@ -74,7 +74,7 @@ const Index = () => {
             Stolz fürs Leben.
           </h1>
           <p className="text-base md:text-xl text-white/80 max-w-2xl mx-auto">
-            Von der ersten Wassergewöhnung bis zum sicheren Schwimmer. Wir begleiten dein Kind mit Wärme, Geduld und zertifizierten Trainern – in kleinen Gruppen und 32°C warmem Wasser.
+            Vom ersten Schwimmzug bis zum sicheren Schwimmer. Swim1 begleitet dich und deine Familie – mit Wärme, Geduld und zertifizierten Trainern in kleinen Gruppen.
           </p>
         </motion.div>
         <motion.button
@@ -174,7 +174,7 @@ const Index = () => {
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 mb-4">
             Der Swim1-Weg
           </h2>
-          <p className="text-slate-500 text-lg">Mehr als nur Schwimmen lernen</p>
+          <p className="text-slate-500 text-lg">Warum Swim1 anders ist</p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
