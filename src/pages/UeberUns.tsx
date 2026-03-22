@@ -214,12 +214,17 @@ const UeberUns = () => {
                     <Check className="w-4 h-4 text-[#0C2D48]" strokeWidth={3} />
                   </div>
                 )}
-                <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-4 transition-colors duration-200 ${
-                  isSelected ? "bg-white/15" : "bg-secondary text-[#0C2D48]"
-                }`}>
-                  <card.Icon className={`w-6 h-6 transition-colors duration-200 ${isSelected ? "text-white" : ""}`} strokeWidth={1.5} />
+                <div className="flex items-start gap-4 mb-4">
+                  <div className={`w-12 h-12 shrink-0 rounded-2xl flex items-center justify-center transition-colors duration-200 ${
+                    isSelected ? "bg-white/15" : "bg-secondary text-[#0C2D48]"
+                  }`}>
+                    <card.Icon className={`w-6 h-6 transition-colors duration-200 ${isSelected ? "text-white" : ""}`} strokeWidth={1.5} />
+                  </div>
+                  <div className="min-w-0">
+                    <span className={`text-xs font-bold uppercase tracking-widest transition-colors duration-200 ${isSelected ? "text-white/70" : "text-[#0C2D48]"}`}>{card.tag}</span>
+                    <h3 className={`text-xl font-bold transition-colors duration-200 ${isSelected ? "text-white" : "text-slate-900"}`}>{card.title}</h3>
+                  </div>
                 </div>
-                <h3 className={`text-xl font-bold mb-2 transition-colors duration-200 ${isSelected ? "text-white" : "text-slate-900"}`}>{card.title}</h3>
                 <p className={`leading-relaxed mb-4 flex-1 transition-colors duration-200 ${isSelected ? "text-white/80" : "text-slate-600"}`}>{card.text}</p>
 
                 <AnimatePresence initial={false}>
