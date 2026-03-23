@@ -93,8 +93,8 @@ function validateInput(data: unknown): { valid: boolean; error?: string; data?: 
   }
 
   // Validate city (optional, defaults to "tempelhof")
-  const validCities = ["tempelhof", "schwerin", "wildau", "bremen"];
-  const cityValue = typeof city === "string" && validCities.includes(city) ? city : "tempelhof";
+  const validCities = ["berlin-tempelhof", "tempelhof", "schwerin", "wildau", "bremen"];
+  const cityValue = typeof city === "string" && validCities.includes(city) ? city : "berlin-tempelhof";
 
   return {
     valid: true,
@@ -176,7 +176,7 @@ serve(async (req) => {
       
       if (insertError.code === "23505") {
         return new Response(
-          JSON.stringify({ error: "Diese E-Mail ist bereits eingetragen.", code: "DUPLICATE_EMAIL" }),
+          JSON.stringify({ error: "Diese E-Mail ist an diesem Standort bereits eingetragen.", code: "DUPLICATE_EMAIL" }),
           {
             status: 409,
             headers: { ...corsHeaders, "Content-Type": "application/json" },

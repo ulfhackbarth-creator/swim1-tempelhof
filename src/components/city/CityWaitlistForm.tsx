@@ -89,7 +89,7 @@ const CityWaitlistForm = ({ city }: CityWaitlistFormProps) => {
 
       if (!response.ok) {
         if (data.code === "DUPLICATE_EMAIL") {
-          setErrors({ email: "Diese E-Mail ist bereits eingetragen." });
+          setErrors({ email: "Diese E-Mail ist an diesem Standort bereits eingetragen." });
           setIsLoading(false);
           return;
         }
