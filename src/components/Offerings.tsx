@@ -57,7 +57,7 @@ const Offerings = () => {
           delay: index * 0.1
           }} className="bg-card p-4 md:p-5 rounded-xl shadow-card border border-border hover:shadow-lg transition-shadow duration-300">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 md:w-12 md:h-12 shrink-0 rounded-full bg-primary flex items-center justify-center">
+                <div className="w-10 h-10 md:w-12 md:h-12 shrink-0 rounded-full bg-secondary flex items-center justify-center">
                   <offering.icon className="w-5 h-5 md:w-6 md:h-6 text-accent" />
                 </div>
                 <div className="min-w-0">

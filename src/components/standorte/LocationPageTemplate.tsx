@@ -369,7 +369,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
                 transition={{ duration: 0.4, delay: i * 0.08 }}
                 className="flex items-start gap-5"
               >
-                <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-primary flex items-center justify-center">
+                <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-secondary flex items-center justify-center">
                   <item.icon className="w-7 h-7 text-accent" strokeWidth={1.5} />
                 </div>
                 <div>
@@ -426,7 +426,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
               >
                 <AccordionTrigger className="hover:no-underline py-6">
                   <span className="flex items-center gap-4 text-left">
-                     <div className="w-12 h-12 rounded-2xl bg-primary flex items-center justify-center shrink-0">
+                     <div className="w-12 h-12 rounded-2xl bg-secondary flex items-center justify-center shrink-0">
                       <course.icon className="w-6 h-6 text-accent" strokeWidth={1.5} />
                     </div>
                     <span>
