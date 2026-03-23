@@ -545,8 +545,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
       {/* ═══════════ 4. TESTIMONIALS ═══════════ */}
       <section className="bg-[#0C2D48]">
         <ChevronDivider className="text-accent" />
-        <div className="py-16 md:py-32">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-6 py-16 md:py-32">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="text-center mb-12 md:mb-20">
             <h2 className="text-4xl font-bold tracking-tight text-white mb-4">Das sagen andere Eltern & Schwimmer</h2>
             <p className="text-white/70 font-medium">Über 4,9 Sterne von glücklichen Eltern & Schwimmern</p>
@@ -558,9 +557,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
             ))}
           </div>
         </div>
-        </div>
         <ChevronDivider className="text-accent" flip />
-      </section>
       </section>
 
       {/* ═══════════ 5. WARTELISTEN-FORMULAR ═══════════ */}
