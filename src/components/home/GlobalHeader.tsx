@@ -234,7 +234,7 @@ const GlobalHeader = () => {
               }}
               className={`flex items-center gap-2 rounded-full px-4 py-2 cursor-pointer transition-all duration-200 text-sm whitespace-nowrap ${
                 isActive
-                  ? "bg-white/15 border border-white text-white font-bold"
+                  ? "bg-white/15 border border-accent text-white font-bold"
                   : "bg-transparent border border-transparent text-white/70 font-medium hover:text-white hover:bg-white/5"
               }`}
             >
