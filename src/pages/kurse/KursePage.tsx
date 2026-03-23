@@ -330,6 +330,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
             ))}
           </div>
         </div>
+        <SectionDivider fill="#ffffff" />
       </section>
 
       {/* FAQ */}
