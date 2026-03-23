@@ -253,7 +253,7 @@ const Index = () => {
     </section>
 
     {/* Wave Divider → Testimonials */}
-    <div className="w-full bg-[#0C2D48]" style={{ transform: 'translateY(-2px)', willChange: 'transform' }}>
+    <div className="w-full bg-[#0C2D48]" style={{ transform: 'translateY(-2px)', marginBottom: '-2px', willChange: 'transform' }}>
       <svg width="100%" height="40" viewBox="0 -4 1440 44" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" className="block" style={{ display: 'block' }}>
         <path d="M0,20 C240,0 360,40 720,20 C1080,0 1200,40 1440,20 L1440,-4 L0,-4 Z" fill="#ffffff" />
         <path d="M0,20 C240,0 360,40 720,20 C1080,0 1200,40 1440,20" fill="none" stroke="#0C2D48" strokeWidth="2" />
