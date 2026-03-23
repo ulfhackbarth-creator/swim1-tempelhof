@@ -297,7 +297,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
             {usps.items.map((usp, i) => (
               <motion.div key={usp.label} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }} className="flex flex-row items-start gap-6 text-left">
                 <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-secondary flex items-center justify-center">
-                  <usp.Icon className="w-8 h-8 text-accent" strokeWidth={1.5} />
+                  <usp.Icon className="w-8 h-8 text-primary" strokeWidth={1.5} />
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-slate-900 mb-2">{usp.label}</h3>
