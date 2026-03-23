@@ -93,8 +93,8 @@ function validateInput(data: unknown): { valid: boolean; error?: string; data?: 
   }
 
   // Validate city (optional, defaults to "tempelhof")
-  const validCities = ["tempelhof", "schwerin", "wildau", "bremen"];
-  const cityValue = typeof city === "string" && validCities.includes(city) ? city : "tempelhof";
+  const validCities = ["berlin-tempelhof", "tempelhof", "schwerin", "wildau", "bremen"];
+  const cityValue = typeof city === "string" && validCities.includes(city) ? city : "berlin-tempelhof";
 
   return {
     valid: true,
