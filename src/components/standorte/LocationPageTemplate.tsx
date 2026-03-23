@@ -646,7 +646,8 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
       </section>
 
       {/* ═══════════ 6. FAQ ═══════════ */}
-      <section className="py-16 md:py-32 bg-[#0C2D48]">
+      <section className="bg-[#0C2D48]">
+        <ChevronDivider className="text-accent" />
         <div className="max-w-3xl mx-auto px-6 md:px-8">
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white text-center mb-12 md:mb-20">Häufige Fragen</h2>
           {config.faqs.map((faq, i) => (
