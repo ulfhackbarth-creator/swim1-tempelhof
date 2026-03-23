@@ -253,7 +253,7 @@ const Index = () => {
           ))}
         </div>
       </div>
-    </section>
+    </WaveSection>
 
     {/* ─── STANDORTE ─── */}
     <section id="standorte" className="py-16 md:py-32 bg-white scroll-mt-20">
