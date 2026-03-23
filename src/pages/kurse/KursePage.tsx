@@ -294,7 +294,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
       </WaveSection>
 
       {/* USPs */}
-      <section className="py-16 md:py-32 bg-white">
+      <WaveSection background="#ffffff" zIndex={4} divider="smooth" className="py-16 md:py-32">
         <div className="max-w-6xl mx-auto px-6">
           <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="text-4xl font-bold tracking-tight text-slate-900 text-center mb-12 md:mb-20">
             {usps.title}
