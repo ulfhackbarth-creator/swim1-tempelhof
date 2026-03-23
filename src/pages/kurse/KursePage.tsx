@@ -189,7 +189,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
           </button>
           
         </div>
-        <HeroWave fillColor="#f2f6f8" />
+        <HeroWave fillColor="#ffffff" />
       </section>
 
 
