@@ -644,7 +644,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
       </WaveSection>
 
       {/* ═══════════ 6. FAQ ═══════════ */}
-      <section className="py-16 md:py-32 bg-[#0C2D48]">
+      <WaveSection background="#0C2D48" hasDivider zIndex={7} className="py-16 md:py-32">
         <div className="max-w-3xl mx-auto px-6 md:px-8">
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white text-center mb-12 md:mb-20">Häufige Fragen</h2>
           {config.faqs.map((faq, i) => (
