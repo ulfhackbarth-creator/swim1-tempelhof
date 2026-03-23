@@ -291,6 +291,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
             </motion.div>
           ))}
         </div>
+        <SectionDivider fill="#ffffff" />
       </section>
 
       {/* USPs */}
