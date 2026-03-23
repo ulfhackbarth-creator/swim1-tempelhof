@@ -270,8 +270,10 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
         </div>
       </section>
 
+      <SectionDivider fromColor="#f2f6f8" toColor="#0C2D48" />
+
       {/* Trust Stats */}
-      <section className="bg-[#0C2D48] py-12 md:py-16">
+      <section className="bg-[#0C2D48] pb-12 pt-6 md:pb-16 md:pt-8">
         <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 px-6">
           {trustStats[tab].map((s, i) => (
             <motion.div
