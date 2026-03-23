@@ -145,7 +145,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
       </nav>
 
       {/* HERO */}
-      <section className="relative min-h-[85vh] md:min-h-[90vh] overflow-visible">
+      <section className="relative min-h-[85vh] md:min-h-[90vh] overflow-visible" style={{ zIndex: 1 }}>
         <div className="absolute inset-0 overflow-hidden">
           <HeroVideoBackground videos={videos} mobileVideos={mobileVideos} poster={content.poster} mobilePoster={content.mobilePoster} />
           <div className={`absolute inset-0 ${tab === "kinderschwimmen" || tab === "erwachsene" ? "bg-[#0C2D48]/35" : "bg-[#0C2D48]/45"}`} />
