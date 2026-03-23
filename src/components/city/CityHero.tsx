@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
-import HeroWave from "@/components/HeroWave";
 
 import heroImage from "@/assets/hero-pool.jpg";
 import type { CityConfig } from "@/config/cities";
@@ -16,8 +15,8 @@ const CityHero = ({ city }: CityHeroProps) => {
   };
 
   return (
-    <section className="relative min-h-[90vh] md:min-h-screen flex items-center justify-center">
-      <div className="absolute inset-0 z-0 overflow-hidden">
+    <section className="relative min-h-[90vh] md:min-h-screen flex items-center justify-center overflow-hidden">
+      <div className="absolute inset-0 z-0">
         <img src={heroImage} alt={`Modernes Schwimmbad – ${city.cityName}`} className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-primary/75 via-primary/60 to-background/95" />
       </div>
@@ -48,8 +47,6 @@ const CityHero = ({ city }: CityHeroProps) => {
           
         </motion.div>
       </div>
-
-      <HeroWave fillColor="fill-background" />
 
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5, duration: 0.5 }} className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
         <motion.div animate={{ y: [0, 8, 0] }} transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}>
