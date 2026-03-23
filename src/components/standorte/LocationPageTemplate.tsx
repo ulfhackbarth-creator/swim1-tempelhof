@@ -476,10 +476,12 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
                               </div>
                             </div>
                             <button
-                              onClick={(e) => { e.stopPropagation(); scrollToForm(sub.interest); }}
-                              className={`shrink-0 ml-4 inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 text-sm font-bold transition-colors ${
-                                "text-[#0C2D48] bg-[#C6FF00] hover:bg-[#B0E000]"
-                              }`}
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                setSelectedCourse(sub.key);
+                                scrollToForm(sub.interest);
+                              }}
+                              className="shrink-0 ml-4 inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 text-sm font-bold transition-colors text-[#0C2D48] bg-[#C6FF00] hover:bg-[#B0E000]"
                             >
                               Warteliste <ChevronRight className="w-3.5 h-3.5" />
                             </button>
