@@ -387,83 +387,201 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
             <h2 className="text-4xl font-bold tracking-tight text-slate-900 mb-4">Unsere Standorte</h2>
             <p className="text-slate-500">{locationSubtitle[tab]}</p>
           </motion.div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {standorte.map((loc, i) => {
-              const isSelected = selectedLocation === loc.name;
-              return (
-                <motion.div
-                  key={loc.name}
-                  ref={(el) => { if (el) locationCardRefs.current.set(i, el); }}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
-                  onClick={() => handleSelectLocation(loc.name, i)}
-                  className={`relative rounded-[2rem] p-6 shadow-lg shadow-slate-300/50 border-2 flex flex-col transition-all duration-200 cursor-pointer ${
-                    isSelected
-                      ? "bg-[#0C2D48] border-[#0C2D48] shadow-xl shadow-slate-400/30"
-                      : "bg-white border-slate-200 hover:-translate-y-1 hover:shadow-xl"
-                  }`}
-                >
-                  {isSelected && (
-                    <div className="absolute top-4 right-4 w-7 h-7 rounded-full bg-white flex items-center justify-center">
-                      <Check className="w-4 h-4 text-[#0C2D48]" strokeWidth={3} />
-                    </div>
-                  )}
-                  <span className={`inline-block text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-4 w-fit transition-colors duration-200 ${
-                    isSelected ? "bg-white/15 text-white/80" : "bg-green-100 text-green-800"
-                  }`}>
-                    ✓ Warteliste
-                  </span>
-                  <h3 className={`text-xl font-bold mb-1 transition-colors duration-200 ${isSelected ? "text-white" : "text-slate-900"}`}>{loc.name}</h3>
-                  <p className={`text-sm mb-4 transition-colors duration-200 ${isSelected ? "text-white/60" : "text-slate-500"}`}>{loc.address}</p>
-                  <div className="flex flex-wrap gap-1.5 mb-5">
-                    {loc.features.map((f) => (
-                      <span key={f} className={`text-[11px] font-medium px-2.5 py-0.5 rounded-full transition-colors duration-200 ${
-                        isSelected ? "bg-white/15 text-white/80" : "text-[#0C2D48] bg-secondary"
-                      }`}>{f}</span>
-                    ))}
-                  </div>
-
-                  <AnimatePresence initial={false}>
+          {/* Desktop: horizontal scroll slider */}
+          <div className="hidden md:block relative">
+            <div
+              ref={scrollContainerRefK}
+              onScroll={updateScrollButtonsK}
+              className="flex gap-5 overflow-x-auto scrollbar-hide scroll-smooth pb-2"
+              style={{ scrollSnapType: "x mandatory" }}
+            >
+              {standorte.map((loc, i) => {
+                const isSelected = selectedLocation === loc.name;
+                return (
+                  <motion.div
+                    key={loc.name}
+                    ref={(el) => { if (el) locationCardRefs.current.set(i, el); }}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: i * 0.1 }}
+                    onClick={() => handleSelectLocation(loc.name, i)}
+                    className={`relative rounded-[2rem] p-6 shadow-lg shadow-slate-300/50 border-2 flex flex-col transition-all duration-200 cursor-pointer flex-shrink-0 w-[280px] ${
+                      isSelected
+                        ? "bg-[#0C2D48] border-[#0C2D48] shadow-xl shadow-slate-400/30"
+                        : "bg-white border-slate-200 hover:-translate-y-1 hover:shadow-xl"
+                    }`}
+                    style={{ scrollSnapAlign: "start" }}
+                  >
                     {isSelected && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                        className="overflow-hidden"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        <div className="pt-5 border-t border-white/20 mt-2">
-                          <div className="flex items-center gap-2 text-white/70 text-sm mb-4">
-                            <MapPin className="w-4 h-4" />
-                            <span>{loc.address}</span>
-                          </div>
-                          <Link
-                            to={loc.route}
-                            onClick={() => window.scrollTo({ top: 0 })}
-                            className="w-full block mt-auto rounded-full py-3 text-sm text-center font-semibold transition-all bg-[#C6FF00] hover:bg-[#B0E000] hover:scale-105 active:scale-[0.97] text-[#0C2D48]"
-                          >
-                            Standort entdecken
-                          </Link>
-                        </div>
-                      </motion.div>
+                      <div className="absolute top-4 right-4 w-7 h-7 rounded-full bg-white flex items-center justify-center">
+                        <Check className="w-4 h-4 text-[#0C2D48]" strokeWidth={3} />
+                      </div>
                     )}
-                  </AnimatePresence>
+                    <span className={`inline-block text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-4 w-fit transition-colors duration-200 ${
+                      isSelected ? "bg-white/15 text-white/80" : "bg-green-100 text-green-800"
+                    }`}>
+                      ✓ Warteliste
+                    </span>
+                    <h3 className={`text-xl font-bold mb-1 transition-colors duration-200 ${isSelected ? "text-white" : "text-slate-900"}`}>{loc.name}</h3>
+                    <p className={`text-sm mb-4 transition-colors duration-200 ${isSelected ? "text-white/60" : "text-slate-500"}`}>{loc.address}</p>
+                    <div className="flex flex-wrap gap-1.5 mb-5">
+                      {loc.features.map((f) => (
+                        <span key={f} className={`text-[11px] font-medium px-2.5 py-0.5 rounded-full transition-colors duration-200 ${
+                          isSelected ? "bg-white/15 text-white/80" : "text-[#0C2D48] bg-secondary"
+                        }`}>{f}</span>
+                      ))}
+                    </div>
 
-                  {!isSelected && (
-                    <Link
-                      to={loc.route}
-                      onClick={(e) => { e.stopPropagation(); window.scrollTo({ top: 0 }); }}
-                      className="w-full mt-auto rounded-full py-3 text-sm text-center font-semibold transition-colors bg-[#C6FF00] hover:bg-[#B0E000] text-[#0C2D48]"
-                    >
-                      Standort entdecken
-                    </Link>
-                  )}
-                </motion.div>
-              );
-            })}
+                    <AnimatePresence initial={false}>
+                      {isSelected && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                          className="overflow-hidden"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          <div className="pt-5 border-t border-white/20 mt-2">
+                            <div className="flex items-center gap-2 text-white/70 text-sm mb-4">
+                              <MapPin className="w-4 h-4" />
+                              <span>{loc.address}</span>
+                            </div>
+                            <Link
+                              to={loc.route}
+                              onClick={() => window.scrollTo({ top: 0 })}
+                              className="w-full block mt-auto rounded-full py-3 text-sm text-center font-semibold transition-all bg-[#C6FF00] hover:bg-[#B0E000] hover:scale-105 active:scale-[0.97] text-[#0C2D48]"
+                            >
+                              Standort entdecken
+                            </Link>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+
+                    {!isSelected && (
+                      <Link
+                        to={loc.route}
+                        onClick={(e) => { e.stopPropagation(); window.scrollTo({ top: 0 }); }}
+                        className="w-full mt-auto rounded-full py-3 text-sm text-center font-semibold transition-colors bg-[#C6FF00] hover:bg-[#B0E000] text-[#0C2D48]"
+                      >
+                        Standort entdecken
+                      </Link>
+                    )}
+                  </motion.div>
+                );
+              })}
+            </div>
+
+            {canScrollLeftK && (
+              <button
+                onClick={() => scrollByK(-300)}
+                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-10 h-10 rounded-full bg-white shadow-lg border border-slate-200 flex items-center justify-center hover:bg-slate-50 transition-colors z-10"
+              >
+                <ChevronLeft className="w-5 h-5 text-slate-600" />
+              </button>
+            )}
+            {canScrollRightK && (
+              <button
+                onClick={() => scrollByK(300)}
+                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-10 h-10 rounded-full bg-white shadow-lg border border-slate-200 flex items-center justify-center hover:bg-slate-50 transition-colors z-10"
+              >
+                <ChevronRightIcon className="w-5 h-5 text-slate-600" />
+              </button>
+            )}
+          </div>
+
+          {/* Mobile: show first 3, expand with "Mehr" button */}
+          <div className="md:hidden">
+            <div className="grid grid-cols-1 gap-5">
+              {standorte.slice(0, showAllMobile ? standorte.length : 3).map((loc, i) => {
+                const isSelected = selectedLocation === loc.name;
+                return (
+                  <motion.div
+                    key={loc.name}
+                    ref={(el) => { if (el) locationCardRefs.current.set(i, el); }}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: i * 0.1 }}
+                    onClick={() => handleSelectLocation(loc.name, i)}
+                    className={`relative rounded-[2rem] p-6 shadow-lg shadow-slate-300/50 border-2 flex flex-col transition-all duration-200 cursor-pointer ${
+                      isSelected
+                        ? "bg-[#0C2D48] border-[#0C2D48] shadow-xl shadow-slate-400/30"
+                        : "bg-white border-slate-200 hover:-translate-y-1 hover:shadow-xl"
+                    }`}
+                  >
+                    {isSelected && (
+                      <div className="absolute top-4 right-4 w-7 h-7 rounded-full bg-white flex items-center justify-center">
+                        <Check className="w-4 h-4 text-[#0C2D48]" strokeWidth={3} />
+                      </div>
+                    )}
+                    <span className={`inline-block text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-4 w-fit transition-colors duration-200 ${
+                      isSelected ? "bg-white/15 text-white/80" : "bg-green-100 text-green-800"
+                    }`}>
+                      ✓ Warteliste
+                    </span>
+                    <h3 className={`text-xl font-bold mb-1 transition-colors duration-200 ${isSelected ? "text-white" : "text-slate-900"}`}>{loc.name}</h3>
+                    <p className={`text-sm mb-4 transition-colors duration-200 ${isSelected ? "text-white/60" : "text-slate-500"}`}>{loc.address}</p>
+                    <div className="flex flex-wrap gap-1.5 mb-5">
+                      {loc.features.map((f) => (
+                        <span key={f} className={`text-[11px] font-medium px-2.5 py-0.5 rounded-full transition-colors duration-200 ${
+                          isSelected ? "bg-white/15 text-white/80" : "text-[#0C2D48] bg-secondary"
+                        }`}>{f}</span>
+                      ))}
+                    </div>
+
+                    <AnimatePresence initial={false}>
+                      {isSelected && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                          className="overflow-hidden"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          <div className="pt-5 border-t border-white/20 mt-2">
+                            <div className="flex items-center gap-2 text-white/70 text-sm mb-4">
+                              <MapPin className="w-4 h-4" />
+                              <span>{loc.address}</span>
+                            </div>
+                            <Link
+                              to={loc.route}
+                              onClick={() => window.scrollTo({ top: 0 })}
+                              className="w-full block mt-auto rounded-full py-3 text-sm text-center font-semibold transition-all bg-[#C6FF00] hover:bg-[#B0E000] hover:scale-105 active:scale-[0.97] text-[#0C2D48]"
+                            >
+                              Standort entdecken
+                            </Link>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+
+                    {!isSelected && (
+                      <Link
+                        to={loc.route}
+                        onClick={(e) => { e.stopPropagation(); window.scrollTo({ top: 0 }); }}
+                        className="w-full mt-auto rounded-full py-3 text-sm text-center font-semibold transition-colors bg-[#C6FF00] hover:bg-[#B0E000] text-[#0C2D48]"
+                      >
+                        Standort entdecken
+                      </Link>
+                    )}
+                  </motion.div>
+                );
+              })}
+            </div>
+
+            {!showAllMobile && standorte.length > 3 && (
+              <button
+                onClick={() => setShowAllMobile(true)}
+                className="mt-6 mx-auto flex items-center gap-2 text-sm font-semibold text-[#0C2D48] hover:text-[#0C2D48]/80 transition-colors"
+              >
+                <ChevronDown className="w-4 h-4" />
+                Alle {standorte.length} Standorte anzeigen
+              </button>
+            )}
           </div>
         </div>
       </section>
