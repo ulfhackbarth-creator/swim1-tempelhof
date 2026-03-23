@@ -360,7 +360,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
       </section>
 
       {/* ═══════════ 2. STANDORT & AUSSTATTUNG ═══════════ */}
-      <section className="py-16 md:py-32 bg-white">
+      <section className="py-16 md:py-32 bg-white" style={{ position: 'relative', zIndex: 2 }}>
         <div className="max-w-4xl mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="text-center mb-12 md:mb-20">
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 mb-4">Standort & Ausstattung</h2>
