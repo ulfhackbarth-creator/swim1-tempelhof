@@ -7,7 +7,7 @@ import {
   ChevronRight, Star, Users, Baby, Fish,
   LifeBuoy, Dumbbell, HeartPulse, CheckCircle2, ChevronDown,
 } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
+import { WaveDivider, ChevronDivider } from "@/components/SectionDividers";
 
 import TestimonialCard from "@/components/TestimonialCard";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
