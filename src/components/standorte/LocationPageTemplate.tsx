@@ -661,6 +661,11 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
         </div>
       </section>
 
+      {/* Section Divider */}
+      <div className="w-full flex justify-center bg-[#0C2D48]">
+        <div className="w-[90%] max-w-6xl h-[2px] bg-[#C6FF00]/40 rounded-full" />
+      </div>
+
       <HomeFooter />
     </div>
   );
