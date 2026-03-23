@@ -9,7 +9,7 @@ const config: LocationConfig = {
   heroVideos: ["/videos/standort_desktop.mp4"],
   heroPoster: "/videos/standort_desktop_poster.jpg",
   address: {
-    streetAddress: "Weidenweg 9",
+    streetAddress: "Weidenweg 1",
     addressLocality: "Erlangen",
     postalCode: "91058",
   },
