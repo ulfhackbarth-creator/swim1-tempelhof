@@ -67,7 +67,22 @@ const scrollTo = (id: string) => {
 
 const Index = () => {
   const [selectedLocation, setSelectedLocation] = useState<string | null>(null);
+  const [showAllMobile, setShowAllMobile] = useState(false);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
   const locationCardRefs = useRef<Map<number, HTMLDivElement>>(new Map());
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  const updateScrollButtons = useCallback(() => {
+    const el = scrollContainerRef.current;
+    if (!el) return;
+    setCanScrollLeft(el.scrollLeft > 10);
+    setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 10);
+  }, []);
+
+  const scrollBy = useCallback((amount: number) => {
+    scrollContainerRef.current?.scrollBy({ left: amount, behavior: "smooth" });
+  }, []);
 
   const handleSelectLocation = useCallback((name: string, index: number) => {
     const isClosing = selectedLocation === name;
