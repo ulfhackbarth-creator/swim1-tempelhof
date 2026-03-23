@@ -13,6 +13,7 @@ import BerlinTempelhof from "./pages/standorte/BerlinTempelhof";
 import Schwerin from "./pages/standorte/Schwerin";
 import Wildau from "./pages/standorte/Wildau";
 import Bremen from "./pages/standorte/Bremen";
+import Erlangen from "./pages/standorte/Erlangen";
 import Impressum from "./pages/legal/Impressum";
 import Datenschutz from "./pages/legal/Datenschutz";
 import AGB from "./pages/legal/AGB";
@@ -40,6 +41,7 @@ const App = () => (
           <Route path="/standorte/schwerin" element={<Schwerin />} />
           <Route path="/standorte/wildau" element={<Wildau />} />
           <Route path="/standorte/bremen" element={<Bremen />} />
+          <Route path="/standorte/erlangen" element={<Erlangen />} />
           {/* Legacy routes redirect */}
           <Route path="/schwerin" element={<Schwerin />} />
           <Route path="/wildau" element={<Wildau />} />
