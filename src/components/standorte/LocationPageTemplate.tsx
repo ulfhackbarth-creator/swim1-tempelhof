@@ -562,7 +562,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
       </WaveSection>
 
       {/* ═══════════ 5. WARTELISTEN-FORMULAR ═══════════ */}
-      <WaveSection background="#f2f6f8" zIndex={6} divider="smooth" id="warteliste" className="py-16 md:py-32 px-4 scroll-mt-0">
+      <WaveSection background="#f2f6f8" zIndex={6} divider="organic" id="warteliste" className="py-16 md:py-32 px-4 scroll-mt-0">
         <div ref={formRef} className="max-w-lg mx-auto">
           {isSubmitted ? (
             <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="text-center bg-white p-8 md:p-12 rounded-[2rem] shadow-xl shadow-slate-200/40 border border-slate-100">
