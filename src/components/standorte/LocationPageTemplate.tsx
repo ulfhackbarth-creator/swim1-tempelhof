@@ -546,7 +546,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
       </WaveSection>
 
       {/* ═══════════ 4. TESTIMONIALS ═══════════ */}
-      <section className="py-16 md:py-32 bg-[#0C2D48]">
+      <WaveSection background="#0C2D48" zIndex={5} divider="smooth" className="py-16 md:py-32">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="text-center mb-12 md:mb-20">
             <h2 className="text-4xl font-bold tracking-tight text-white mb-4">Das sagen andere Eltern & Schwimmer</h2>
