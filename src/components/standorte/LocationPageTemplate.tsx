@@ -228,6 +228,30 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
       interests: checked ? [...prev.interests, id] : prev.interests.filter((i) => i !== id),
     }));
     setErrors((prev) => ({ ...prev, interests: "" }));
+
+    // Sync: find the course that matches this interest and select/deselect it
+    for (const c of courses) {
+      if (c.subCourses.length > 0) {
+        const sub = c.subCourses.find((s) => s.interest === id);
+        if (sub) {
+          if (checked) {
+            setSelectedCourse(sub.key);
+            setActiveAccordion(c.id);
+          } else if (selectedCourse === sub.key) {
+            setSelectedCourse(null);
+          }
+          return;
+        }
+      } else if ((c as any).interest === id) {
+        if (checked) {
+          setSelectedCourse(c.id);
+          setActiveAccordion(c.id);
+        } else if (selectedCourse === c.id) {
+          setSelectedCourse(null);
+        }
+        return;
+      }
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
