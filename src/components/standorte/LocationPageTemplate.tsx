@@ -543,7 +543,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
             ))}
           </Accordion>
         </div>
-      </section>
+      </WaveSection>
 
       {/* ═══════════ 4. TESTIMONIALS ═══════════ */}
       <section className="py-16 md:py-32 bg-[#0C2D48]">
