@@ -4,7 +4,7 @@ import { useLocation, useNavigate, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSwipeNavigation } from "@/hooks/useSwipeNavigation";
-import { ArrowDown, ChevronDown, Star, Check, MapPin } from "lucide-react";
+import { ArrowDown, ChevronDown, ChevronLeft, ChevronRight as ChevronRightIcon, Star, Check, MapPin } from "lucide-react";
 import { HeroWave } from "@/components/HeroWave";
 
 import TestimonialCard from "@/components/TestimonialCard";
