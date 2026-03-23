@@ -59,7 +59,7 @@ const Benefits = () => {
               className="flex flex-col items-center text-center p-6"
             >
               <div className="w-16 h-16 mb-4 rounded-2xl bg-secondary flex items-center justify-center shadow-soft">
-                <benefit.icon className="w-8 h-8 text-accent" />
+                <benefit.icon className="w-8 h-8 text-primary" />
               </div>
               <h3 className="font-semibold text-foreground mb-2">
                 {benefit.title}
