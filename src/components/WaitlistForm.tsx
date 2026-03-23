@@ -117,7 +117,7 @@ const WaitlistForm = () => {
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
             className="max-w-md mx-auto text-center bg-card p-8 md:p-10 rounded-2xl shadow-card"
           >
             <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-success/10 flex items-center justify-center">
@@ -142,7 +142,7 @@ const WaitlistForm = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
           className="max-w-md mx-auto"
         >
           <div className="text-center mb-8">

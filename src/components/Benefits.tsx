@@ -37,7 +37,7 @@ const Benefits = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
           className="text-center mb-12"
         >
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
@@ -55,7 +55,7 @@ const Benefits = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
               className="flex flex-col items-center text-center p-6"
             >
               <div className="w-16 h-16 mb-4 rounded-2xl bg-secondary flex items-center justify-center shadow-soft">
@@ -75,7 +75,7 @@ const Benefits = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.4 }}
+          transition={{ duration: 0.5, delay: 0.4, ease: "easeOut" }}
           className="mt-12 text-center"
         >
           <Button variant="cta" size="lg" onClick={scrollToForm}>

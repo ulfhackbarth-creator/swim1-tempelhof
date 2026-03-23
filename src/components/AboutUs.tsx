@@ -27,7 +27,7 @@ const AboutUs = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
           className="max-w-3xl mx-auto text-center mb-12"
         >
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
@@ -45,7 +45,7 @@ const AboutUs = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
               className="bg-card p-6 rounded-xl shadow-soft text-center"
             >
               <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-secondary flex items-center justify-center">

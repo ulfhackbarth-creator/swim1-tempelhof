@@ -117,7 +117,7 @@ const CityWaitlistForm = ({ city }: CityWaitlistFormProps) => {
     return (
       <section id="warteliste" className="py-16 md:py-24 bg-background">
         <div className="container px-4">
-          <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5 }} className="max-w-md mx-auto text-center bg-card p-8 md:p-10 rounded-2xl shadow-card">
+          <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5, ease: "easeOut" }} className="max-w-md mx-auto text-center bg-card p-8 md:p-10 rounded-2xl shadow-card">
             <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-success/10 flex items-center justify-center">
               <CheckCircle2 className="w-8 h-8 text-success" />
             </div>
@@ -132,7 +132,7 @@ const CityWaitlistForm = ({ city }: CityWaitlistFormProps) => {
   return (
     <section id="warteliste" className="py-16 md:py-24 bg-background">
       <div className="container px-4">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="max-w-md mx-auto">
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: "easeOut" }} className="max-w-md mx-auto">
           <div className="text-center mb-8">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">Sichere dir deinen Platz</h2>
             <p className="text-muted-foreground">

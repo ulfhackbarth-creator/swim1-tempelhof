@@ -36,7 +36,7 @@ const TestimonialCard = ({ text, name, location, index, variant = "light", cours
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.5, delay: index * 0.1 }}
+        transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
         className="relative bg-white/[0.07] backdrop-blur-sm border border-white/10 rounded-[2rem] p-6 md:p-10 h-full flex flex-col overflow-hidden"
       >
         <Quote className="absolute top-5 right-5 w-12 h-12 text-white/[0.06]" strokeWidth={1} />
@@ -64,7 +64,7 @@ const TestimonialCard = ({ text, name, location, index, variant = "light", cours
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+      transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
       className="relative bg-white rounded-[2rem] p-6 md:p-10 shadow-lg shadow-slate-300/50 border-2 border-slate-200 h-full flex flex-col overflow-hidden"
     >
       <Quote className="absolute top-5 right-5 w-12 h-12 text-orange-100" strokeWidth={1} />
