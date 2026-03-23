@@ -9,7 +9,7 @@ const Hero = () => {
       behavior: "smooth"
     });
   };
-  return <section className="relative z-10 min-h-[90vh] md:min-h-screen flex items-center justify-center">
+  return <section className="relative min-h-[90vh] md:min-h-screen flex items-center justify-center">
       {/* Background Image */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <img src={heroImage} alt="Modernes Schwimmbad mit kristallklarem Wasser" className="w-full h-full object-cover" />

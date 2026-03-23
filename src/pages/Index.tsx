@@ -95,7 +95,7 @@ const Index = () => {
     <GlobalHeader />
 
     {/* ─── HERO ─── */}
-    <section className="relative z-10 min-h-[85vh] md:min-h-[90vh]">
+    <section className="relative min-h-[85vh] md:min-h-[90vh]">
       <div className="absolute inset-0 overflow-hidden">
         <HeroVideoBackground videos={heroVideos} mobileVideos={heroMobileVideos} poster="/videos/kinderschwimmen_desktop_poster.jpg" mobilePoster="/videos/kinderschwimmen_desktop_poster.jpg" />
       </div>

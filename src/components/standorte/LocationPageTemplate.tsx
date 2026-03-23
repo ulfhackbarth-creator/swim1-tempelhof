@@ -323,7 +323,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
       </nav>
 
       {/* ═══════════ 1. HERO ═══════════ */}
-      <section className="relative z-10 min-h-[85vh] md:min-h-[90vh]">
+      <section className="relative min-h-[85vh] md:min-h-[90vh]">
         <div className="absolute inset-0 overflow-hidden">
           {hasVideo ? (
             <HeroVideoBackground videos={config.heroVideos!} poster={config.heroPoster} />

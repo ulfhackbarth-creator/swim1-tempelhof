@@ -16,7 +16,7 @@ const CityHero = ({ city }: CityHeroProps) => {
   };
 
   return (
-    <section className="relative z-10 min-h-[90vh] md:min-h-screen flex items-center justify-center">
+    <section className="relative min-h-[90vh] md:min-h-screen flex items-center justify-center">
       <div className="absolute inset-0 z-0 overflow-hidden">
         <img src={heroImage} alt={`Modernes Schwimmbad – ${city.cityName}`} className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-primary/75 via-primary/60 to-background/95" />
