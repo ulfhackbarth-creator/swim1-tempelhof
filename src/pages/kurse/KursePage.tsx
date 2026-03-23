@@ -294,8 +294,10 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
         </div>
       </section>
 
+      <SectionDivider fromColor="#0C2D48" toColor="#ffffff" />
+
       {/* USPs */}
-      <section className="py-16 md:py-32 bg-white">
+      <section className="pt-8 pb-16 md:pt-12 md:pb-32 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="text-4xl font-bold tracking-tight text-slate-900 text-center mb-12 md:mb-20">
             {usps.title}

@@ -196,8 +196,10 @@ const Index = () => {
       </div>
     </section>
 
+    <SectionDivider fromColor="#0C2D48" toColor="#ffffff" />
+
     {/* ─── PHILOSOPHIE ─── */}
-    <section className="py-16 md:py-32 bg-white">
+    <section className="pt-8 pb-16 md:pt-12 md:pb-32 bg-white">
       <div className="max-w-6xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
