@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
 
 import heroImage from "@/assets/hero-pool.jpg";
+import { HeroWave } from "@/components/HeroWave";
 import type { CityConfig } from "@/config/cities";
 
 interface CityHeroProps {
