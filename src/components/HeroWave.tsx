@@ -1,7 +1,7 @@
 const HeroWave = ({ fillColor = "fill-[#f2f6f8]" }: { fillColor?: string }) => (
-  <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] pointer-events-none z-0">
+  <div className="absolute bottom-0 left-0 w-full leading-[0] pointer-events-none z-20 translate-y-[99%]">
     <svg
-      className="relative block w-[calc(100%+1.3px)] h-[40px] md:h-[60px] lg:h-[80px]"
+      className="relative block w-full h-[40px] md:h-[60px] lg:h-[80px]"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 1200 120"
       preserveAspectRatio="none"
