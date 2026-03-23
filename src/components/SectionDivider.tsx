@@ -13,9 +13,9 @@ const SectionDivider = ({ fromColor, toColor = "#0f172a" }: SectionDividerProps)
       xmlns="http://www.w3.org/2000/svg"
       className="block"
     >
-      <polygon points="0,0 480,40 1440,0" fill={fromColor} />
+      <polygon points="0,0 960,40 1440,0" fill={fromColor} />
       <polyline
-        points="0,0 480,40 1440,0"
+        points="0,0 960,40 1440,0"
         fill="none"
         stroke="#C6FF00"
         strokeWidth="2"
