@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -42,10 +42,10 @@ const App = () => (
           <Route path="/standorte/wildau" element={<Wildau />} />
           <Route path="/standorte/bremen" element={<Bremen />} />
           <Route path="/standorte/erlangen" element={<Erlangen />} />
-          {/* Legacy routes redirect */}
-          <Route path="/schwerin" element={<Schwerin />} />
-          <Route path="/wildau" element={<Wildau />} />
-          <Route path="/bremen" element={<Bremen />} />
+          {/* Legacy routes → permanent redirects */}
+          <Route path="/schwerin" element={<Navigate to="/standorte/schwerin" replace />} />
+          <Route path="/wildau" element={<Navigate to="/standorte/wildau" replace />} />
+          <Route path="/bremen" element={<Navigate to="/standorte/bremen" replace />} />
           <Route path="/impressum" element={<Impressum />} />
           <Route path="/datenschutz" element={<Datenschutz />} />
           <Route path="/ueber-uns" element={<UeberUns />} />
