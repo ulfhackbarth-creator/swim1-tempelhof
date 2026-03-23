@@ -271,7 +271,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
       </section>
 
       {/* Trust Stats */}
-      <WaveSection background="#0C2D48" zIndex={3} divider="smooth" className="py-12 md:py-16">
+      <WaveSection background="#0C2D48" zIndex={3} divider="organic" className="py-12 md:py-16">
         <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 px-6">
           {trustStats[tab].map((s, i) => (
             <motion.div
@@ -294,7 +294,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
       </WaveSection>
 
       {/* USPs */}
-      <WaveSection background="#ffffff" zIndex={4} divider="smooth" className="py-16 md:py-32">
+      <WaveSection background="#ffffff" zIndex={4} divider="organic" className="py-16 md:py-32">
         <div className="max-w-6xl mx-auto px-6">
           <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="text-4xl font-bold tracking-tight text-slate-900 text-center mb-12 md:mb-20">
             {usps.title}
@@ -316,7 +316,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
       </WaveSection>
 
       {/* TESTIMONIALS */}
-      <WaveSection background="#0C2D48" zIndex={5} divider="smooth" className="py-16 md:py-32">
+      <WaveSection background="#0C2D48" zIndex={5} divider="organic" className="py-16 md:py-32">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="text-center mb-12 md:mb-20">
             <h2 className="text-4xl font-bold tracking-tight text-white mb-4">Das sagen andere Eltern & Schwimmer</h2>
@@ -331,7 +331,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
       </WaveSection>
 
       {/* FAQ */}
-      <WaveSection background="#ffffff" zIndex={6} divider="smooth" className="py-16 md:py-32">
+      <WaveSection background="#ffffff" zIndex={6} divider="organic" className="py-16 md:py-32">
         <div className="max-w-3xl mx-auto px-6 md:px-8">
           <h2 className="text-4xl font-bold tracking-tight text-slate-900 text-center mb-12 md:mb-20">{faqs.title}</h2>
           {faqs.items.map((faq, i) => (
@@ -347,7 +347,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
       </WaveSection>
 
       {/* STANDORTE */}
-      <WaveSection background="#f8fafc" zIndex={7} divider="smooth" id="standorte" className="py-16 md:py-32 scroll-mt-20">
+      <WaveSection background="#f8fafc" zIndex={7} divider="organic" id="standorte" className="py-16 md:py-32 scroll-mt-20">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-12 md:mb-20">
             <h2 className="text-4xl font-bold tracking-tight text-slate-900 mb-4">Unsere Standorte</h2>
@@ -434,7 +434,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
         </div>
       </WaveSection>
 
-      <WaveSection background="#0f172a" zIndex={8} divider="sharp">
+      <WaveSection background="#0f172a" zIndex={8} divider="chevron">
         <HomeFooter />
       </WaveSection>
     </>

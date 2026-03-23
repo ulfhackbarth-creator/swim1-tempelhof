@@ -173,7 +173,7 @@ const Index = () => {
     </section>
 
     {/* ─── TRUST STATS ─── */}
-    <WaveSection background="#0C2D48" zIndex={3} divider="smooth" className="py-12 md:py-16">
+    <WaveSection background="#0C2D48" zIndex={3} divider="organic" className="py-12 md:py-16">
       <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 px-6">
         {trustStats.map((s, i) => (
           <motion.div
@@ -196,7 +196,7 @@ const Index = () => {
     </WaveSection>
 
     {/* ─── PHILOSOPHIE ─── */}
-    <WaveSection background="#ffffff" zIndex={4} divider="smooth" className="py-16 md:py-32">
+    <WaveSection background="#ffffff" zIndex={4} divider="organic" className="py-16 md:py-32">
       <div className="max-w-6xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -235,7 +235,7 @@ const Index = () => {
     </WaveSection>
 
     {/* ─── TESTIMONIALS ─── */}
-    <WaveSection background="#0C2D48" zIndex={5} divider="smooth" className="py-16 md:py-32">
+    <WaveSection background="#0C2D48" zIndex={5} divider="organic" className="py-16 md:py-32">
       <div className="max-w-6xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -259,7 +259,7 @@ const Index = () => {
     </WaveSection>
 
     {/* ─── STANDORTE ─── */}
-    <WaveSection background="#ffffff" zIndex={6} divider="smooth" id="standorte" className="py-16 md:py-32 scroll-mt-20">
+    <WaveSection background="#ffffff" zIndex={6} divider="organic" id="standorte" className="py-16 md:py-32 scroll-mt-20">
       <div className="max-w-6xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -358,7 +358,7 @@ const Index = () => {
       </div>
     </WaveSection>
 
-    <WaveSection background="#0f172a" zIndex={7} divider="sharp">
+    <WaveSection background="#0f172a" zIndex={7} divider="chevron">
       <HomeFooter />
     </WaveSection>
   </main>

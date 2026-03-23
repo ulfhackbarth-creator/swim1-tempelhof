@@ -1,9 +1,9 @@
 /**
- * WAVE-SECTION-DIVIDER
+ * SWIM1 WAVE-SECTION-DIVIDER
  *
- * Two styles:
- *   'smooth' → gentle sine wave
- *   'sharp'  → pointed triangle teeth
+ * Styles:
+ *   'organic' → Organic water waves
+ *   'chevron' → Even triangle teeth
  *
  * Rules:
  *   - Hero has NO divider (divider={null} or omit)
@@ -11,23 +11,22 @@
  */
 import { useId, useRef, useEffect, useState } from 'react';
 
-const DIVIDER_HEIGHT = 60;
+const DIVIDER_HEIGHT = 80;
 
-function smoothWavePath(sectionHeight: number, divH: number, numWaves = 3): string {
+function organicWavePath(sectionHeight: number, divH: number): string {
   const total = sectionHeight + divH;
   const wr = divH / total;
-  const mid = wr / 2;
-  const pw = 1 / numWaves;
-  let d = `M0,${mid}`;
-  for (let i = 0; i < numWaves; i++) {
-    const x = i * pw;
-    d += ` C${x + pw * 0.25},0 ${x + pw * 0.75},0 ${x + pw * 0.5},${mid}`;
-    d += ` C${x + pw * 1.25},${wr} ${x + pw * 1.75},${wr} ${x + pw},${mid}`;
-  }
-  return d + ` L1,1 L0,1 Z`;
+  return [
+    `M0,${wr}`,
+    ` C0.08,${wr * 0.3} 0.18,0 0.28,${wr * 0.15}`,
+    ` C0.38,${wr * 0.3} 0.42,${wr * 0.6} 0.52,${wr * 0.4}`,
+    ` C0.62,${wr * 0.2} 0.68,0 0.78,${wr * 0.1}`,
+    ` C0.88,${wr * 0.2} 0.94,${wr * 0.5} 1,${wr * 0.3}`,
+    ` L1,1 L0,1 Z`,
+  ].join('');
 }
 
-function sharpWavePath(sectionHeight: number, divH: number, numTeeth = 5): string {
+function chevronPath(sectionHeight: number, divH: number, numTeeth = 6): string {
   const total = sectionHeight + divH;
   const wr = divH / total;
   const pw = 1 / numTeeth;
@@ -42,9 +41,9 @@ function sharpWavePath(sectionHeight: number, divH: number, numTeeth = 5): strin
 interface WaveSectionProps {
   children: React.ReactNode;
   background: string;
-  /** Divider style at the top edge (null = no divider, e.g. Hero) */
-  divider?: 'smooth' | 'sharp' | null;
-  /** Must be ascending for each section! */
+  /** Divider style at top edge. null = no divider (Hero). */
+  divider?: 'organic' | 'chevron' | null;
+  /** MUST be ascending for each section! */
   zIndex: number;
   className?: string;
   style?: React.CSSProperties;
@@ -70,9 +69,9 @@ export function WaveSection({
     const update = () => {
       const h = sectionRef.current!.getBoundingClientRect().height;
       const path =
-        divider === 'smooth'
-          ? smoothWavePath(h, DIVIDER_HEIGHT, 3)
-          : sharpWavePath(h, DIVIDER_HEIGHT, 5);
+        divider === 'organic'
+          ? organicWavePath(h, DIVIDER_HEIGHT)
+          : chevronPath(h, DIVIDER_HEIGHT, 6);
       setWavePath(path);
     };
     update();

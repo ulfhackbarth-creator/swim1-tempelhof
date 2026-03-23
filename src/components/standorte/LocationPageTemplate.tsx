@@ -396,7 +396,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
       </section>
 
       {/* ═══════════ TRUST STATS BAR ═══════════ */}
-      <WaveSection background="#0C2D48" zIndex={3} divider="smooth" className="py-12 md:py-16">
+      <WaveSection background="#0C2D48" zIndex={3} divider="organic" className="py-12 md:py-16">
         <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 px-6">
           {trustStats.map((s, i) => (
             <motion.div
@@ -415,7 +415,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
       </WaveSection>
 
       {/* ═══════════ 3. KURSANGEBOT AKKORDEON ═══════════ */}
-      <WaveSection background="#f2f6f8" zIndex={4} divider="smooth" className="py-16 md:py-32 px-4 md:px-6">
+      <WaveSection background="#f2f6f8" zIndex={4} divider="organic" className="py-16 md:py-32 px-4 md:px-6">
         <div className="max-w-3xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="text-center mb-12 md:mb-16">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mb-4">Unser Kursangebot</h2>
@@ -546,7 +546,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
       </WaveSection>
 
       {/* ═══════════ 4. TESTIMONIALS ═══════════ */}
-      <WaveSection background="#0C2D48" zIndex={5} divider="smooth" className="py-16 md:py-32">
+      <WaveSection background="#0C2D48" zIndex={5} divider="organic" className="py-16 md:py-32">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="text-center mb-12 md:mb-20">
             <h2 className="text-4xl font-bold tracking-tight text-white mb-4">Das sagen andere Eltern & Schwimmer</h2>
@@ -562,7 +562,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
       </WaveSection>
 
       {/* ═══════════ 5. WARTELISTEN-FORMULAR ═══════════ */}
-      <WaveSection background="#f2f6f8" zIndex={6} divider="smooth" id="warteliste" className="py-16 md:py-32 px-4 scroll-mt-0">
+      <WaveSection background="#f2f6f8" zIndex={6} divider="organic" id="warteliste" className="py-16 md:py-32 px-4 scroll-mt-0">
         <div ref={formRef} className="max-w-lg mx-auto">
           {isSubmitted ? (
             <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="text-center bg-white p-8 md:p-12 rounded-[2rem] shadow-xl shadow-slate-200/40 border border-slate-100">
@@ -647,7 +647,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
       </WaveSection>
 
       {/* ═══════════ 6. FAQ ═══════════ */}
-      <WaveSection background="#0C2D48" zIndex={7} divider="smooth" className="py-16 md:py-32">
+      <WaveSection background="#0C2D48" zIndex={7} divider="organic" className="py-16 md:py-32">
         <div className="max-w-3xl mx-auto px-6 md:px-8">
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white text-center mb-12 md:mb-20">Häufige Fragen</h2>
           {config.faqs.map((faq, i) => (
@@ -662,7 +662,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
         </div>
       </WaveSection>
 
-      <WaveSection background="#0f172a" zIndex={8} divider="sharp">
+      <WaveSection background="#0f172a" zIndex={8} divider="chevron">
         <HomeFooter />
       </WaveSection>
     </div>
