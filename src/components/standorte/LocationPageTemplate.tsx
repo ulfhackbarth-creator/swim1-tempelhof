@@ -19,6 +19,7 @@ import { z } from "zod";
 import GlobalHeader from "@/components/home/GlobalHeader";
 import HomeFooter from "@/components/home/HomeFooter";
 import HeroVideoBackground from "@/components/HeroVideoBackground";
+import HeroWave from "@/components/HeroWave";
 import heroImage from "@/assets/hero-pool.jpg";
 
 /* ─── SHARED DATA ─── */
@@ -349,6 +350,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
           </button>
           
         </div>
+        <HeroWave fillColor="fill-white" />
       </section>
 
       {/* ═══════════ 2. STANDORT & AUSSTATTUNG ═══════════ */}

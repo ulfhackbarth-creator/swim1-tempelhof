@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
 import heroImage from "@/assets/hero-pool.jpg";
+import HeroWave from "@/components/HeroWave";
 const Hero = () => {
   const scrollToForm = () => {
     document.getElementById("warteliste")?.scrollIntoView({
@@ -87,6 +88,8 @@ const Hero = () => {
           </motion.p>
         </motion.div>
       </div>
+
+      <HeroWave fillColor="fill-background" />
 
       {/* Scroll indicator */}
       <motion.div initial={{

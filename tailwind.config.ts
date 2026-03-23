@@ -83,8 +83,12 @@ export default {
           to: { height: "0" },
         },
         "wave": {
-          "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-8px)" },
+          "0%, 100%": { transform: "translateX(0)" },
+          "50%": { transform: "translateX(-25%)" },
+        },
+        "wave-slow": {
+          "0%, 100%": { transform: "translateX(0)" },
+          "50%": { transform: "translateX(-15%)" },
         },
         "float": {
           "0%, 100%": { transform: "translateY(0)" },
@@ -105,7 +109,8 @@ export default {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "wave": "wave 3s ease-in-out infinite",
+        "wave": "wave 15s ease-in-out infinite",
+        "wave-slow": "wave-slow 20s ease-in-out infinite",
         "float": "float 4s ease-in-out infinite",
         "ripple": "ripple 1.5s ease-out infinite",
       },
