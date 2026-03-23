@@ -287,6 +287,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
             </motion.div>
           ))}
         </div>
+        <ChevronDivider className="text-accent" flip />
       </section>
 
       {/* USPs */}
