@@ -41,6 +41,7 @@ const LegalLayout = ({ title, children }: LegalLayoutProps) => {
         </div>
       </main>
 
+      <SectionDivider fromColor="#f8fafc" />
       <HomeFooter />
     </div>
   );
