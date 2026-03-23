@@ -645,6 +645,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
             </motion.div>
           )}
         </div>
+        <SectionDivider fill="#0C2D48" />
       </section>
 
       {/* ═══════════ 6. FAQ ═══════════ */}

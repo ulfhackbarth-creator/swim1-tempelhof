@@ -259,6 +259,7 @@ const Index = () => {
           ))}
         </div>
       </div>
+      <SectionDivider fill="#ffffff" />
     </section>
 
     {/* ─── STANDORTE ─── */}

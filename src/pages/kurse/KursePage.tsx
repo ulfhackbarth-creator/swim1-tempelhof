@@ -347,6 +347,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
             </div>
           ))}
         </div>
+        <SectionDivider fill="#f8fafc" />
       </section>
 
       {/* STANDORTE */}
