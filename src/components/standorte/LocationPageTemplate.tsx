@@ -338,7 +338,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
         </div>
 
         <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 md:px-6 min-h-[85vh] md:min-h-[90vh] pt-32 md:pt-[120px] pb-8 md:pb-0" style={{ paddingBottom: '120px' }}>
-          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="max-w-4xl mx-auto">
+          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: "easeOut" }} className="max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold text-white tracking-tight leading-tight md:leading-[1.1] mb-4 md:mb-6">
               {config.heroHeadline}
             </h1>
@@ -362,7 +362,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
       {/* ═══════════ 2. STANDORT & AUSSTATTUNG ═══════════ */}
       <section className="py-16 md:py-32 bg-white">
         <div className="max-w-4xl mx-auto px-6">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="text-center mb-12 md:mb-20">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, ease: "easeOut" }} className="text-center mb-12 md:mb-20">
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 mb-4">Standort & Ausstattung</h2>
             <p className="text-slate-500">Alles, was du brauchst – an einem Ort.</p>
           </motion.div>
@@ -374,7 +374,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.08 }}
+                transition={{ duration: 0.4, delay: i * 0.08, ease: "easeOut" }}
                 className="flex items-start gap-5"
               >
                 <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-secondary flex items-center justify-center">
@@ -405,7 +405,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
+              transition={{ duration: 0.5, delay: i * 0.08, ease: "easeOut" }}
               className="text-center"
             >
               <span className="block text-2xl md:text-3xl font-bold text-white tracking-tight mb-1">{s.value}</span>
@@ -420,7 +420,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
       {/* ═══════════ 3. KURSANGEBOT AKKORDEON ═══════════ */}
       <section className="pt-8 pb-16 md:pt-12 md:pb-32 bg-secondary/50 px-4 md:px-6">
         <div className="max-w-3xl mx-auto">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="text-center mb-12 md:mb-16">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, ease: "easeOut" }} className="text-center mb-12 md:mb-16">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mb-4">Unser Kursangebot</h2>
             <p className="text-slate-500">Wähle eine Kategorie und sichere dir deinen Platz. Keine versteckten Kosten – transparente Preise.</p>
           </motion.div>
@@ -559,7 +559,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
       {/* ═══════════ 4. TESTIMONIALS ═══════════ */}
       <section className="pb-16 pt-4 md:pb-32 md:pt-8 bg-[#0C2D48]">
         <div className="max-w-6xl mx-auto px-6">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="text-center mb-12 md:mb-20">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, ease: "easeOut" }} className="text-center mb-12 md:mb-20">
             <h2 className="text-4xl font-bold tracking-tight text-white mb-4">Das sagen andere Eltern & Schwimmer</h2>
             <p className="text-white/70 font-medium">Über 4,9 Sterne von glücklichen Eltern & Schwimmern</p>
           </motion.div>
@@ -584,7 +584,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
               <p className="text-slate-600">Du bist jetzt auf der Warteliste. Wir melden uns mit Startinfo und Kursplätzen zuerst bei dir.</p>
             </motion.div>
           ) : (
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, ease: "easeOut" }}>
               <div className="text-center mb-10">
                 <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 mb-4">Sichere dir jetzt deinen Platz!</h2>
                 <p className="text-slate-500">

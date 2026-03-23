@@ -166,7 +166,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
           <div className={`absolute inset-0 ${tab === "kinderschwimmen" || tab === "erwachsene" ? "bg-[#0C2D48]/35" : "bg-[#0C2D48]/45"}`} />
         </div>
         <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 md:px-6 min-h-[85vh] md:min-h-[90vh] pt-32 md:pt-[120px] pb-8 md:pb-0" style={{ paddingBottom: '120px' }}>
-          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="max-w-4xl mx-auto">
+          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: "easeOut" }} className="max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold text-white tracking-tight leading-tight md:leading-[1.1] mb-4 md:mb-6">
               {content.headline}
             </h1>
@@ -212,7 +212,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
                   initial={{ opacity: 0, y: 15 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: i * 0.06 }}
+                  transition={{ duration: 0.3, delay: i * 0.06, ease: "easeOut" }}
                   onClick={() => handleSelectCourse(course.name, i)}
                   className={`relative rounded-[2rem] p-6 md:p-10 shadow-lg shadow-slate-300/50 border-2 transition-all duration-200 cursor-pointer flex flex-col ${
                     isSelected
@@ -295,7 +295,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
+              transition={{ duration: 0.5, delay: i * 0.08, ease: "easeOut" }}
               className="text-center"
             >
               <span className="block text-2xl md:text-3xl font-bold text-white tracking-tight mb-1">
@@ -314,12 +314,12 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
       {/* USPs */}
       <section className="pt-8 pb-16 md:pt-12 md:pb-32 bg-white">
         <div className="max-w-6xl mx-auto px-6">
-          <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="text-4xl font-bold tracking-tight text-slate-900 text-center mb-12 md:mb-20">
+          <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, ease: "easeOut" }} className="text-4xl font-bold tracking-tight text-slate-900 text-center mb-12 md:mb-20">
             {usps.title}
           </motion.h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
             {usps.items.map((usp, i) => (
-              <motion.div key={usp.label} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }} className="flex flex-row items-start gap-6 text-left">
+              <motion.div key={usp.label} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1, ease: "easeOut" }} className="flex flex-row items-start gap-6 text-left">
                 <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-secondary flex items-center justify-center">
                   <usp.Icon className="w-8 h-8 text-primary" strokeWidth={1.5} />
                 </div>
@@ -344,7 +344,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
       {/* TESTIMONIALS */}
       <section className="pb-16 pt-4 md:pb-32 md:pt-8 bg-[#0C2D48]">
         <div className="max-w-6xl mx-auto px-6">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="text-center mb-12 md:mb-20">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, ease: "easeOut" }} className="text-center mb-12 md:mb-20">
             <h2 className="text-4xl font-bold tracking-tight text-white mb-4">Das sagen andere Eltern & Schwimmer</h2>
             <p className="text-white/70 font-medium">Über 4,9 Sterne von glücklichen Eltern & Schwimmern</p>
           </motion.div>
@@ -383,7 +383,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
       {/* STANDORTE */}
       <section id="standorte" className="pb-16 pt-4 md:pb-32 md:pt-8 bg-slate-50 scroll-mt-20">
         <div className="max-w-6xl mx-auto px-6">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-12 md:mb-20">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: "easeOut" }} className="text-center mb-12 md:mb-20">
             <h2 className="text-4xl font-bold tracking-tight text-slate-900 mb-4">Unsere Standorte</h2>
             <p className="text-slate-500">{locationSubtitle[tab]}</p>
           </motion.div>
@@ -404,7 +404,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: i * 0.1 }}
+                    transition={{ duration: 0.5, delay: i * 0.1, ease: "easeOut" }}
                     onClick={() => handleSelectLocation(loc.name, i)}
                     className={`relative rounded-[2rem] p-6 shadow-lg shadow-slate-300/50 border-2 flex flex-col transition-all duration-200 cursor-pointer flex-shrink-0 w-[280px] ${
                       isSelected
@@ -504,7 +504,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: i * 0.1 }}
+                    transition={{ duration: 0.5, delay: i * 0.1, ease: "easeOut" }}
                     onClick={() => handleSelectLocation(loc.name, i)}
                     className={`relative rounded-[2rem] p-6 shadow-lg shadow-slate-300/50 border-2 flex flex-col transition-all duration-200 cursor-pointer ${
                       isSelected

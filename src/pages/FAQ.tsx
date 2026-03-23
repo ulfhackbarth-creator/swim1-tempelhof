@@ -93,7 +93,7 @@ const FAQ = () => (
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
           className="text-3xl md:text-5xl font-bold text-primary-foreground mb-4"
         >
           Häufige Fragen
@@ -101,7 +101,7 @@ const FAQ = () => (
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.15 }}
+          transition={{ duration: 0.5, delay: 0.15, ease: "easeOut" }}
           className="text-base md:text-lg text-primary-foreground/80 max-w-xl mx-auto"
         >
           Alles, was du über unsere Schwimmkurse, die Anmeldung und unsere Standorte wissen musst.
@@ -150,7 +150,7 @@ const FAQ = () => (
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
           className="text-2xl md:text-3xl font-bold text-primary-foreground mb-4"
         >
           Deine Frage war nicht dabei?
@@ -159,7 +159,7 @@ const FAQ = () => (
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1 }}
+          transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
           className="text-primary-foreground/80 mb-8"
         >
           Wir helfen dir gerne weiter. Finde deinen Standort und kontaktiere das Team vor Ort.
@@ -168,7 +168,7 @@ const FAQ = () => (
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
         >
           <StandortDropdown
             variant="orange-large"
