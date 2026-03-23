@@ -559,6 +559,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
             ))}
           </div>
         </div>
+        <SectionDivider fill="#f2f6f8" />
       </section>
 
       {/* ═══════════ 5. WARTELISTEN-FORMULAR ═══════════ */}
