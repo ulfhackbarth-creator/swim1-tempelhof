@@ -344,7 +344,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
       </WaveSection>
 
       {/* STANDORTE */}
-      <section id="standorte" className="py-16 md:py-32 bg-slate-50 scroll-mt-20">
+      <WaveSection id="standorte" background="#f8fafc" hasDivider zIndex={7} className="py-16 md:py-32 scroll-mt-20">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-12 md:mb-20">
             <h2 className="text-4xl font-bold tracking-tight text-slate-900 mb-4">Unsere Standorte</h2>
