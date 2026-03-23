@@ -271,7 +271,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
       </section>
 
       {/* Trust Stats */}
-      <WaveSection background="#0C2D48" zIndex={3} divider="smooth" className="py-12 md:py-16">
+      <WaveSection background="#0C2D48" zIndex={3} divider="organic" className="py-12 md:py-16">
         <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 px-6">
           {trustStats[tab].map((s, i) => (
             <motion.div
