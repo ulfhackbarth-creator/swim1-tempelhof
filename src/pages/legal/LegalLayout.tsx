@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { useLocation } from "react-router-dom";
 import GlobalHeader from "@/components/home/GlobalHeader";
 import HomeFooter from "@/components/home/HomeFooter";
+import SectionDivider from "@/components/SectionDivider";
 
 interface LegalLayoutProps {
   title: string;
@@ -40,6 +41,7 @@ const LegalLayout = ({ title, children }: LegalLayoutProps) => {
         </div>
       </main>
 
+      <SectionDivider fromColor="#f8fafc" />
       <HomeFooter />
     </div>
   );

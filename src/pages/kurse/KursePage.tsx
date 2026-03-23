@@ -11,6 +11,7 @@ import TestimonialCard from "@/components/TestimonialCard";
 import { useIsMobile } from "@/hooks/use-mobile";
 import GlobalHeader from "@/components/home/GlobalHeader";
 import HomeFooter from "@/components/home/HomeFooter";
+import SectionDivider from "@/components/SectionDivider";
 import StandortDropdown from "@/components/StandortDropdown";
 import type { CourseTab } from "@/types/course";
 import { heroContent, coursesByTab, courseSectionTitle, gridClass, trustStats } from "@/data/courseData";
@@ -433,6 +434,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
         </div>
       </section>
 
+      <SectionDivider fromColor="#f8fafc" />
       <HomeFooter />
     </>
   );
