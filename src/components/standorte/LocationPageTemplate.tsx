@@ -267,6 +267,9 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
       }
       setIsSubmitted(true);
       toast({ title: "Erfolgreich eingetragen!", description: "Du erhältst alle Neuigkeiten zuerst." });
+      setTimeout(() => {
+        formRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+      }, 100);
     } catch {
       toast({ title: "Fehler", description: "Bitte versuche es später erneut.", variant: "destructive" });
     } finally {
