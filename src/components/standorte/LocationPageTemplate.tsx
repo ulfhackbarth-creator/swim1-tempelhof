@@ -408,6 +408,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
             </motion.div>
           ))}
         </div>
+        <ChevronDivider className="text-accent" flip />
       </section>
 
       {/* ═══════════ 3. KURSANGEBOT AKKORDEON ═══════════ */}
