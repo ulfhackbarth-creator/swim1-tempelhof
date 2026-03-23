@@ -9,13 +9,13 @@ const config: LocationConfig = {
   heroVideos: ["/videos/standort_desktop.mp4"],
   heroPoster: "/videos/standort_desktop_poster.jpg",
   address: {
-    streetAddress: "Weidenweg 9",
+    streetAddress: "Weidenweg 1",
     addressLocality: "Erlangen",
     postalCode: "91058",
   },
   geoText: "Unser Standort im Weidenweg – gut erreichbar für Familien aus Erlangen, Büchenbach, Bruck und dem gesamten Erlanger Stadtgebiet. Kostenlose Parkplätze, warmes Wasser. Alles, was du brauchst, um anzufangen.",
   locationInfo: [
-    { icon: MapPin, title: "Adresse", text: "Weidenweg 9, 91058 Erlangen" },
+    { icon: MapPin, title: "Adresse", text: "Weidenweg 1, 91058 Erlangen" },
     { icon: Train, title: "ÖPNV", text: "Bushaltestelle Weidenweg, ca. 3 Min. Fußweg" },
     { icon: Clock, title: "Öffnungszeiten", text: "Mo–Fr 07:00–21:00 · Sa–So 08:00–18:00" },
     { icon: Car, title: "Kostenlose Parkplätze", text: "Direkt vor der Tür" },
