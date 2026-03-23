@@ -356,9 +356,11 @@ const Index = () => {
           })}
         </div>
       </div>
-    </section>
+    </WaveSection>
 
-    <HomeFooter />
+    <WaveSection background="#0f172a" zIndex={7} divider="sharp">
+      <HomeFooter />
+    </WaveSection>
   </main>
   );
 };
