@@ -288,7 +288,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
             </motion.div>
           ))}
         </div>
-      </section>
+      </WaveSection>
 
       {/* USPs */}
       <section className="py-16 md:py-32 bg-white">
