@@ -304,6 +304,7 @@ const Index = () => {
         <div className="hidden md:block relative">
           <div
             ref={scrollContainerRef}
+            onScroll={updateScrollButtons}
             className="flex gap-5 overflow-x-auto scrollbar-hide scroll-smooth pb-2"
             style={{ scrollSnapType: "x mandatory" }}
           >
