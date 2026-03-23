@@ -412,7 +412,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
             </motion.div>
           ))}
         </div>
-      </section>
+      </WaveSection>
 
       {/* ═══════════ 3. KURSANGEBOT AKKORDEON ═══════════ */}
       <section className="py-16 md:py-32 bg-secondary/50 px-4 md:px-6">
