@@ -144,7 +144,7 @@ const GlobalHeader = () => {
         </Link>
 
         <div className="flex items-center gap-2">
-          <StandortDropdown variant="ghost-header" align="end" />
+          <StandortDropdown variant="ghost-header" align="end" label={standortLabel} />
 
           {/* Burger menu */}
           <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
