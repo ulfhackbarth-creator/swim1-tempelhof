@@ -21,6 +21,7 @@ import HomeFooter from "@/components/home/HomeFooter";
 import HeroVideoBackground from "@/components/HeroVideoBackground";
 import heroImage from "@/assets/hero-pool.jpg";
 import { HeroWave } from "@/components/HeroWave";
+import { SectionDivider } from "@/components/SectionDivider";
 
 /* ─── SHARED DATA ─── */
 
@@ -389,6 +390,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
             {config.geoText}
           </p>
         </div>
+        <SectionDivider fill="#0C2D48" />
       </section>
 
       {/* ═══════════ TRUST STATS BAR ═══════════ */}
@@ -408,6 +410,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
             </motion.div>
           ))}
         </div>
+        <SectionDivider fill="#f2f6f8" />
       </section>
 
       {/* ═══════════ 3. KURSANGEBOT AKKORDEON ═══════════ */}
@@ -539,6 +542,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
             ))}
           </Accordion>
         </div>
+        <SectionDivider fill="#0C2D48" />
       </section>
 
       {/* ═══════════ 4. TESTIMONIALS ═══════════ */}
@@ -555,6 +559,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
             ))}
           </div>
         </div>
+        <SectionDivider fill="#f2f6f8" />
       </section>
 
       {/* ═══════════ 5. WARTELISTEN-FORMULAR ═══════════ */}
@@ -640,6 +645,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
             </motion.div>
           )}
         </div>
+        <SectionDivider fill="#0C2D48" />
       </section>
 
       {/* ═══════════ 6. FAQ ═══════════ */}

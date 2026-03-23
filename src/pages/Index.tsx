@@ -9,6 +9,7 @@ import GlobalHeader from "@/components/home/GlobalHeader";
 import HomeFooter from "@/components/home/HomeFooter";
 import HeroVideoBackground from "@/components/HeroVideoBackground";
 import { HeroWave } from "@/components/HeroWave";
+import { SectionDivider } from "@/components/SectionDivider";
 import { standorte } from "@/data/standorteData";
 
 const heroVideos = [
@@ -169,6 +170,7 @@ const Index = () => {
         </div>
 
       </div>
+      <SectionDivider fill="#0C2D48" />
     </section>
 
     {/* ─── TRUST STATS ─── */}
@@ -192,6 +194,7 @@ const Index = () => {
           </motion.div>
         ))}
       </div>
+      <SectionDivider fill="#ffffff" />
     </section>
 
     {/* ─── PHILOSOPHIE ─── */}
@@ -231,6 +234,7 @@ const Index = () => {
           ))}
         </div>
       </div>
+      <SectionDivider fill="#0C2D48" />
     </section>
 
     {/* ─── TESTIMONIALS ─── */}
@@ -255,6 +259,7 @@ const Index = () => {
           ))}
         </div>
       </div>
+      <SectionDivider fill="#ffffff" />
     </section>
 
     {/* ─── STANDORTE ─── */}
