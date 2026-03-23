@@ -22,7 +22,7 @@ const CityHero = ({ city }: CityHeroProps) => {
         <div className="absolute inset-0 bg-gradient-to-b from-primary/75 via-primary/60 to-background/95" />
       </div>
 
-      <div className="container relative z-10 px-4 pt-20 pb-12">
+      <div className="container relative z-10 px-4 pt-20 pb-12" style={{ paddingBottom: '120px' }}>
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="max-w-2xl mx-auto text-center">
           <motion.span initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5 }} className="inline-block px-4 py-1.5 mb-6 text-sm font-medium bg-secondary/90 text-secondary-foreground rounded-full backdrop-blur-sm">
             {city.heroTagline}
