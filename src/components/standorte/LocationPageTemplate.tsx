@@ -349,6 +349,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
           </button>
           
         </div>
+        <HeroWave fillColor="fill-white" />
       </section>
 
       {/* ═══════════ 2. STANDORT & AUSSTATTUNG ═══════════ */}
