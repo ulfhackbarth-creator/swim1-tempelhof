@@ -24,8 +24,8 @@ const CityAboutUs = ({ city }: CityAboutUsProps) => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
           {highlights.map((highlight, index) => (
             <motion.div key={highlight.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: index * 0.1 }} className="bg-card p-6 rounded-xl shadow-soft text-center">
-              <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-secondary flex items-center justify-center">
-                <highlight.icon className="w-6 h-6 text-primary" />
+              <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-primary flex items-center justify-center">
+                <highlight.icon className="w-6 h-6 text-accent" />
               </div>
               <h3 className="font-semibold text-foreground mb-2">{highlight.title}</h3>
               <p className="text-sm text-muted-foreground">{highlight.description}</p>
