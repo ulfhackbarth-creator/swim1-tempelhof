@@ -11,14 +11,11 @@ import {
 import { standorte } from "@/data/standorteData";
 
 interface StandortDropdownProps {
-  /** Query params appended to route, e.g. "?course=seepferdchen" */
   queryParams?: string;
-  /** Visual variant */
   variant?: "orange" | "orange-large" | "ghost-header";
-  /** Label override */
   label?: string;
-  /** Alignment of dropdown */
   align?: "start" | "end" | "center";
+  isActive?: boolean;
 }
 
 const StandortDropdown = ({
@@ -26,6 +23,7 @@ const StandortDropdown = ({
   variant = "orange",
   label = "Standorte",
   align = "end",
+  isActive = false,
 }: StandortDropdownProps) => {
   const isLarge = variant === "orange-large";
   const isGhostHeader = variant === "ghost-header";
