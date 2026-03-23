@@ -122,7 +122,7 @@ const Index = () => {
     </section>
 
     {/* ─── KURS-ÜBERSICHT ─── */}
-    <section id="kurse" className="py-16 md:py-28 bg-secondary/50">
+    <WaveSection id="kurse" background="#f2f6f8" hasDivider zIndex={2} className="py-16 md:py-28">
       <div className="max-w-6xl mx-auto px-6">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
