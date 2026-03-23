@@ -102,7 +102,7 @@ const Index = () => {
     }
   }, [selectedLocation]);
   return (
-  <main className="min-h-screen">
+  <main className="min-h-screen overflow-x-hidden">
     <Helmet>
       <title>SWIM1 Schwimmschule | Schwimmkurse für Kinder & Erwachsene</title>
       <meta name="description" content="Premium Schwimmschule an 4 Standorten. Vom Seepferdchen bis zur perfekten Kraultechnik. Kleine Gruppen, 32°C warmes Wasser." />
@@ -253,11 +253,10 @@ const Index = () => {
     </section>
 
     {/* Wave Divider → Testimonials */}
-    <div className="w-full bg-[#0C2D48] -mt-px">
+    <div className="w-full bg-[#0C2D48]" style={{ marginTop: '-2px' }}>
       <svg width="100%" height="40" viewBox="0 0 1440 40" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" className="block">
         <rect x="0" y="0" width="1440" height="2" fill="#ffffff" />
         <path d="M0,20 C240,0 360,40 720,20 C1080,0 1200,40 1440,20 L1440,0 L0,0 Z" fill="#ffffff" />
-        <path d="M0,20 C240,0 360,40 720,20 C1080,0 1200,40 1440,20" fill="none" stroke="#0C2D48" strokeWidth="2" />
       </svg>
     </div>
 
