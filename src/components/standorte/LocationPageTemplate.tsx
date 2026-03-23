@@ -7,7 +7,6 @@ import {
   ChevronRight, Star, Users, Baby, Fish,
   LifeBuoy, Dumbbell, HeartPulse, CheckCircle2, ChevronDown,
 } from "lucide-react";
-import { WaveDivider, ChevronDivider } from "@/components/SectionDividers";
 import type { LucideIcon } from "lucide-react";
 
 import TestimonialCard from "@/components/TestimonialCard";
@@ -352,8 +351,6 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
         </div>
       </section>
 
-      <WaveDivider className="text-white" />
-
       {/* ═══════════ 2. STANDORT & AUSSTATTUNG ═══════════ */}
       <section className="py-16 md:py-32 bg-white">
         <div className="max-w-4xl mx-auto px-6">
@@ -391,9 +388,8 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
       </section>
 
       {/* ═══════════ TRUST STATS BAR ═══════════ */}
-      <section className="bg-[#0C2D48]">
-        <ChevronDivider className="text-accent" />
-        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 px-6 py-12 md:py-16">
+      <section className="bg-[#0C2D48] py-12 md:py-16">
+        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 px-6">
           {trustStats.map((s, i) => (
             <motion.div
               key={s.label}
@@ -408,7 +404,6 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
             </motion.div>
           ))}
         </div>
-        <ChevronDivider className="text-accent" flip />
       </section>
 
       {/* ═══════════ 3. KURSANGEBOT AKKORDEON ═══════════ */}
@@ -543,9 +538,8 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
       </section>
 
       {/* ═══════════ 4. TESTIMONIALS ═══════════ */}
-      <section className="bg-[#0C2D48]">
-        <ChevronDivider className="text-accent" />
-        <div className="max-w-6xl mx-auto px-6 py-16 md:py-32">
+      <section className="py-16 md:py-32 bg-[#0C2D48]">
+        <div className="max-w-6xl mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="text-center mb-12 md:mb-20">
             <h2 className="text-4xl font-bold tracking-tight text-white mb-4">Das sagen andere Eltern & Schwimmer</h2>
             <p className="text-white/70 font-medium">Über 4,9 Sterne von glücklichen Eltern & Schwimmern</p>
@@ -557,7 +551,6 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
             ))}
           </div>
         </div>
-        <ChevronDivider className="text-accent" flip />
       </section>
 
       {/* ═══════════ 5. WARTELISTEN-FORMULAR ═══════════ */}
@@ -646,9 +639,8 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
       </section>
 
       {/* ═══════════ 6. FAQ ═══════════ */}
-      <section className="bg-[#0C2D48]">
-        <ChevronDivider className="text-accent" />
-        <div className="max-w-3xl mx-auto px-6 md:px-8 py-16 md:py-32">
+      <section className="py-16 md:py-32 bg-[#0C2D48]">
+        <div className="max-w-3xl mx-auto px-6 md:px-8">
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white text-center mb-12 md:mb-20">Häufige Fragen</h2>
           {config.faqs.map((faq, i) => (
             <div key={i} className="border-b border-white/10 py-6">
