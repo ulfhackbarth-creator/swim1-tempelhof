@@ -352,6 +352,8 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
         </div>
       </section>
 
+      <WaveDivider className="text-white" />
+
       {/* ═══════════ 2. STANDORT & AUSSTATTUNG ═══════════ */}
       <section className="py-16 md:py-32 bg-white">
         <div className="max-w-4xl mx-auto px-6">
