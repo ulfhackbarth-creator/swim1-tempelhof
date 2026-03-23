@@ -6,7 +6,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useSwipeNavigation } from "@/hooks/useSwipeNavigation";
 import { ArrowDown, ChevronDown, Star, Check, MapPin } from "lucide-react";
 import { HeroWave } from "@/components/HeroWave";
-import { WaveSection } from "@/components/WaveSection";
 
 import TestimonialCard from "@/components/TestimonialCard";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -145,7 +144,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
       </nav>
 
       {/* HERO */}
-      <section className="relative min-h-[85vh] md:min-h-[90vh] overflow-visible" style={{ zIndex: 1 }}>
+      <section className="relative min-h-[85vh] md:min-h-[90vh] overflow-visible">
         <div className="absolute inset-0 overflow-hidden">
           <HeroVideoBackground videos={videos} mobileVideos={mobileVideos} poster={content.poster} mobilePoster={content.mobilePoster} />
           <div className={`absolute inset-0 ${tab === "kinderschwimmen" || tab === "erwachsene" ? "bg-[#0C2D48]/35" : "bg-[#0C2D48]/45"}`} />
@@ -181,7 +180,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
 
 
       {/* KURSANGEBOT + TRUST */}
-      <section id="kurse-section" ref={kurseSectionRef} className="bg-secondary/50 py-16 md:py-24 px-4 md:px-6 scroll-mt-[0px]" style={{ position: 'relative', zIndex: 2 }}>
+      <section id="kurse-section" ref={kurseSectionRef} className="bg-secondary/50 py-16 md:py-24 px-4 md:px-6 scroll-mt-[0px]">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 text-center mb-12 md:mb-16">
             {courseSectionTitle[tab]}
@@ -271,7 +270,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
       </section>
 
       {/* Trust Stats */}
-      <WaveSection background="#0C2D48" zIndex={3} divider="organic" className="py-12 md:py-16">
+      <section className="bg-[#0C2D48] py-12 md:py-16">
         <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 px-6">
           {trustStats[tab].map((s, i) => (
             <motion.div
@@ -291,10 +290,10 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
             </motion.div>
           ))}
         </div>
-      </WaveSection>
+      </section>
 
       {/* USPs */}
-      <WaveSection background="#ffffff" zIndex={4} divider="organic" className="py-16 md:py-32">
+      <section className="py-16 md:py-32 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="text-4xl font-bold tracking-tight text-slate-900 text-center mb-12 md:mb-20">
             {usps.title}
@@ -313,10 +312,10 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
             ))}
           </div>
         </div>
-      </WaveSection>
+      </section>
 
       {/* TESTIMONIALS */}
-      <WaveSection background="#0C2D48" zIndex={5} divider="organic" className="py-16 md:py-32">
+      <section className="py-16 md:py-32 bg-[#0C2D48]">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="text-center mb-12 md:mb-20">
             <h2 className="text-4xl font-bold tracking-tight text-white mb-4">Das sagen andere Eltern & Schwimmer</h2>
@@ -328,10 +327,10 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
             ))}
           </div>
         </div>
-      </WaveSection>
+      </section>
 
       {/* FAQ */}
-      <WaveSection background="#ffffff" zIndex={6} divider="organic" className="py-16 md:py-32">
+      <section className="py-16 md:py-32 bg-white">
         <div className="max-w-3xl mx-auto px-6 md:px-8">
           <h2 className="text-4xl font-bold tracking-tight text-slate-900 text-center mb-12 md:mb-20">{faqs.title}</h2>
           {faqs.items.map((faq, i) => (
@@ -344,10 +343,10 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
             </div>
           ))}
         </div>
-      </WaveSection>
+      </section>
 
       {/* STANDORTE */}
-      <WaveSection background="#f8fafc" zIndex={7} divider="organic" id="standorte" className="py-16 md:py-32 scroll-mt-20">
+      <section id="standorte" className="py-16 md:py-32 bg-slate-50 scroll-mt-20">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-12 md:mb-20">
             <h2 className="text-4xl font-bold tracking-tight text-slate-900 mb-4">Unsere Standorte</h2>
@@ -432,11 +431,9 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
             })}
           </div>
         </div>
-      </WaveSection>
+      </section>
 
-      <WaveSection background="#0f172a" zIndex={8} divider="chevron">
-        <HomeFooter />
-      </WaveSection>
+      <HomeFooter />
     </>
   );
 

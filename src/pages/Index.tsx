@@ -9,7 +9,6 @@ import GlobalHeader from "@/components/home/GlobalHeader";
 import HomeFooter from "@/components/home/HomeFooter";
 import HeroVideoBackground from "@/components/HeroVideoBackground";
 import { HeroWave } from "@/components/HeroWave";
-import { WaveSection } from "@/components/WaveSection";
 import { standorte } from "@/data/standorteData";
 
 const heroVideos = [
@@ -96,7 +95,7 @@ const Index = () => {
     <GlobalHeader />
 
     {/* ─── HERO ─── */}
-    <section className="relative min-h-[85vh] md:min-h-[90vh]" style={{ zIndex: 1 }}>
+    <section className="relative min-h-[85vh] md:min-h-[90vh]">
       <div className="absolute inset-0 overflow-hidden">
         <HeroVideoBackground videos={heroVideos} mobileVideos={heroMobileVideos} poster="/videos/kinderschwimmen_desktop_poster.jpg" mobilePoster="/videos/kinderschwimmen_desktop_poster.jpg" />
         <div className="absolute inset-0 bg-[#0C2D48]/45" />
@@ -125,7 +124,7 @@ const Index = () => {
     </section>
 
     {/* ─── KURS-ÜBERSICHT ─── */}
-    <section id="kurse" className="py-16 md:py-28 bg-secondary/50" style={{ position: 'relative', zIndex: 2 }}>
+    <section id="kurse" className="py-16 md:py-28 bg-secondary/50">
       <div className="max-w-6xl mx-auto px-6">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -173,7 +172,7 @@ const Index = () => {
     </section>
 
     {/* ─── TRUST STATS ─── */}
-    <WaveSection background="#0C2D48" zIndex={3} divider="organic" className="py-12 md:py-16">
+    <section className="bg-[#0C2D48] py-12 md:py-16">
       <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 px-6">
         {trustStats.map((s, i) => (
           <motion.div
@@ -193,10 +192,10 @@ const Index = () => {
           </motion.div>
         ))}
       </div>
-    </WaveSection>
+    </section>
 
     {/* ─── PHILOSOPHIE ─── */}
-    <WaveSection background="#ffffff" zIndex={4} divider="organic" className="py-16 md:py-32">
+    <section className="py-16 md:py-32 bg-white">
       <div className="max-w-6xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -232,10 +231,10 @@ const Index = () => {
           ))}
         </div>
       </div>
-    </WaveSection>
+    </section>
 
     {/* ─── TESTIMONIALS ─── */}
-    <WaveSection background="#0C2D48" zIndex={5} divider="organic" className="py-16 md:py-32">
+    <section className="py-16 md:py-32 bg-[#0C2D48]">
       <div className="max-w-6xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -256,10 +255,10 @@ const Index = () => {
           ))}
         </div>
       </div>
-    </WaveSection>
+    </section>
 
     {/* ─── STANDORTE ─── */}
-    <WaveSection background="#ffffff" zIndex={6} divider="organic" id="standorte" className="py-16 md:py-32 scroll-mt-20">
+    <section id="standorte" className="py-16 md:py-32 bg-white scroll-mt-20">
       <div className="max-w-6xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -356,11 +355,9 @@ const Index = () => {
           })}
         </div>
       </div>
-    </WaveSection>
+    </section>
 
-    <WaveSection background="#0f172a" zIndex={7} divider="chevron">
-      <HomeFooter />
-    </WaveSection>
+    <HomeFooter />
   </main>
   );
 };
