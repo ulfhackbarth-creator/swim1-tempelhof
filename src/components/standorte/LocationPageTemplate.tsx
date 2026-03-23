@@ -370,7 +370,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
                 className="flex items-start gap-5"
               >
                 <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-secondary flex items-center justify-center">
-                  <item.icon className="w-7 h-7 text-accent" strokeWidth={1.5} />
+                  <item.icon className="w-7 h-7 text-primary" strokeWidth={1.5} />
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-slate-900 mb-1">{item.title}</h3>
