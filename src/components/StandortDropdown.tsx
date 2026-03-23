@@ -11,14 +11,11 @@ import {
 import { standorte } from "@/data/standorteData";
 
 interface StandortDropdownProps {
-  /** Query params appended to route, e.g. "?course=seepferdchen" */
   queryParams?: string;
-  /** Visual variant */
   variant?: "orange" | "orange-large" | "ghost-header";
-  /** Label override */
   label?: string;
-  /** Alignment of dropdown */
   align?: "start" | "end" | "center";
+  isActive?: boolean;
 }
 
 const StandortDropdown = ({
@@ -26,6 +23,7 @@ const StandortDropdown = ({
   variant = "orange",
   label = "Standorte",
   align = "end",
+  isActive = false,
 }: StandortDropdownProps) => {
   const isLarge = variant === "orange-large";
   const isGhostHeader = variant === "ghost-header";
@@ -37,10 +35,12 @@ const StandortDropdown = ({
         <button
           className={`inline-flex items-center gap-2 rounded-full transition-all active:scale-[0.97] ${
             isGhostHeader
-              ? `border border-white/50 px-4 py-2 text-sm font-medium transition-colors duration-200 rounded-lg ${
-                  isOpen
-                    ? "bg-white/15 border-white text-white font-bold"
-                    : "bg-transparent text-white/80 hover:bg-white/10 hover:text-white"
+              ? `px-4 py-2 text-sm font-medium transition-colors duration-200 rounded-lg ${
+                  isActive && !isOpen
+                    ? "border border-accent bg-white/15 text-white font-bold"
+                    : isOpen
+                      ? "border border-white bg-white/15 text-white font-bold"
+                      : "border border-white/50 bg-transparent text-white/80 hover:bg-white/10 hover:text-white"
                 }`
               : isLarge
                 ? "px-6 py-3.5 text-base shadow-lg font-bold text-[#0C2D48] bg-[#C6FF00] hover:bg-[#B0E000]"
