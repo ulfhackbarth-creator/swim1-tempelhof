@@ -31,8 +31,8 @@ const courses = [
     title: "Baby und Kleinkinder",
     description: "Babyschwimmen & Eltern-Kind-Kurse. Wasser gemeinsam erleben, Bindung stärken.",
     subCourses: [
-      { name: "Babyschwimmen", key: "babyschwimmen", interest: "baby", desc: "Ab 3 Monaten – spielerisch das Wasser entdecken." },
-      { name: "Eltern-Kind-Kurse", key: "eltern-kind-kurse", interest: "baby", desc: "Ab 1 Jahr – gemeinsam mit Mama oder Papa." },
+      { name: "Babyschwimmen", key: "babyschwimmen", interest: "babyschwimmen", desc: "Ab 3 Monaten – spielerisch das Wasser entdecken." },
+      { name: "Eltern-Kind-Kurse", key: "eltern-kind-kurse", interest: "eltern-kind-kurse", desc: "Ab 1 Jahr – gemeinsam mit Mama oder Papa." },
     ],
     courseKeys: ["babyschwimmen", "eltern-kind", "wassergewoehnung", "wassergewöhnung"],
   },
@@ -43,10 +43,10 @@ const courses = [
     description: "Schwimmen von Grund auf lernen. Kleine Gruppen, klarer Weg, echte Sicherheit im Wasser.",
     subCourses: [
       { name: "Seepferdchen", key: "seepferdchen", interest: "seepferdchen", desc: "Ab 3,5 Jahren – der erste Schritt zum sicheren Schwimmer." },
-      { name: "Bronze", key: "bronze", interest: "fortgeschrittene", desc: "Aufbaukurs nach dem Seepferdchen." },
-      { name: "Silber", key: "silber", interest: "fortgeschrittene", desc: "Für sichere Schwimmer – Ausdauer & Technik." },
-      { name: "Gold", key: "gold", interest: "fortgeschrittene", desc: "Das höchste Jugendschwimmabzeichen." },
-      { name: "Ferienintensivkurse", key: "ferienintensivkurse", interest: "seepferdchen", desc: "Tägliche Einheiten in den Schulferien." },
+      { name: "Bronze", key: "bronze", interest: "bronze", desc: "Aufbaukurs nach dem Seepferdchen." },
+      { name: "Silber", key: "silber", interest: "silber", desc: "Für sichere Schwimmer – Ausdauer & Technik." },
+      { name: "Gold", key: "gold", interest: "gold", desc: "Das höchste Jugendschwimmabzeichen." },
+      { name: "Ferienintensivkurse", key: "ferienintensivkurse", interest: "ferienintensivkurse", desc: "Tägliche Einheiten in den Schulferien." },
     ],
     courseKeys: ["seepferdchen", "bronze", "silber", "gold", "ferienintensivkurse", "kinderschwimmen"],
   },
@@ -56,8 +56,8 @@ const courses = [
     title: "Erwachsenenschwimmen",
     description: "Anfängerschwimmen & Technik. Sicherer Rahmen, erfahrene Trainer, dein Tempo.",
     subCourses: [
-      { name: "Anfängerschwimmen", key: "anfaengerschwimmen", interest: "erwachsene", desc: "Schwimmen lernen – behutsam und ohne Zuschauer." },
-      { name: "Technik", key: "technik", interest: "erwachsene", desc: "Kraulen lernen und Technik verbessern." },
+      { name: "Anfängerschwimmen", key: "anfaengerschwimmen", interest: "anfaengerschwimmen", desc: "Schwimmen lernen – behutsam und ohne Zuschauer." },
+      { name: "Technik", key: "technik", interest: "technik", desc: "Kraulen lernen und Technik verbessern." },
     ],
     courseKeys: ["anfängerschwimmen", "anfaengerschwimmen", "technik", "erwachsene", "erwachsenenschwimmen"],
   },
@@ -89,10 +89,15 @@ const formSchema = z.object({
 });
 
 const interestOptions = [
-  { id: "baby", label: "Wassergewöhnung / Babyschwimmen" },
-  { id: "seepferdchen", label: "Seepferdchen (ab 3,5 Jahren)" },
-  { id: "fortgeschrittene", label: "Fortgeschrittene (Bronze / Silber / Gold)" },
-  { id: "erwachsene", label: "Erwachsenenkurse" },
+  { id: "babyschwimmen", label: "Babyschwimmen" },
+  { id: "eltern-kind-kurse", label: "Eltern-Kind-Kurse" },
+  { id: "seepferdchen", label: "Seepferdchen" },
+  { id: "bronze", label: "Bronze" },
+  { id: "silber", label: "Silber" },
+  { id: "gold", label: "Gold" },
+  { id: "ferienintensivkurse", label: "Ferienintensivkurse" },
+  { id: "anfaengerschwimmen", label: "Anfängerschwimmen" },
+  { id: "technik", label: "Technik (Erwachsene)" },
   { id: "aquafitness", label: "Aquafitness" },
   { id: "aquareha", label: "Aqua Reha" },
 ];
