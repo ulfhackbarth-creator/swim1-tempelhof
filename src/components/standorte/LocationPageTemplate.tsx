@@ -558,7 +558,9 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
             ))}
           </div>
         </div>
+        </div>
         <ChevronDivider className="text-accent" flip />
+      </section>
       </section>
 
       {/* ═══════════ 5. WARTELISTEN-FORMULAR ═══════════ */}
