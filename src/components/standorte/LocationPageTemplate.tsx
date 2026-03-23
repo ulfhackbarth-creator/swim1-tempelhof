@@ -412,7 +412,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
       </WaveSection>
 
       {/* ═══════════ 3. KURSANGEBOT AKKORDEON ═══════════ */}
-      <section className="py-16 md:py-32 bg-secondary/50 px-4 md:px-6">
+      <WaveSection background="#f2f6f8" hasDivider zIndex={4} className="py-16 md:py-32 px-4 md:px-6">
         <div className="max-w-3xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="text-center mb-12 md:mb-16">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mb-4">Unser Kursangebot</h2>
