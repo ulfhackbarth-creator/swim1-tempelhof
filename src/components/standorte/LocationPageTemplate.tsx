@@ -452,6 +452,12 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
                               const wasActive = selectedCourse === sub.key;
                               setSelectedCourse(wasActive ? null : sub.key);
                               if (!wasActive) {
+                                setFormData((prev) => ({
+                                  ...prev,
+                                  interests: prev.interests.includes(sub.interest)
+                                    ? prev.interests
+                                    : [...prev.interests, sub.interest],
+                                }));
                                 setTimeout(() => {
                                   const card = courseCardRefs.current[sub.key];
                                   if (card) {
@@ -476,10 +482,12 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
                               </div>
                             </div>
                             <button
-                              onClick={(e) => { e.stopPropagation(); scrollToForm(sub.interest); }}
-                              className={`shrink-0 ml-4 inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 text-sm font-bold transition-colors ${
-                                "text-[#0C2D48] bg-[#C6FF00] hover:bg-[#B0E000]"
-                              }`}
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                setSelectedCourse(sub.key);
+                                scrollToForm(sub.interest);
+                              }}
+                              className="shrink-0 ml-4 inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 text-sm font-bold transition-colors text-[#0C2D48] bg-[#C6FF00] hover:bg-[#B0E000]"
                             >
                               Warteliste <ChevronRight className="w-3.5 h-3.5" />
                             </button>
@@ -497,7 +505,13 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
                             onClick={() => {
                               const wasActive = selectedCourse === course.id;
                               setSelectedCourse(wasActive ? null : course.id);
-                              if (!wasActive) {
+                              if (!wasActive && (course as any).interest) {
+                                setFormData((prev) => ({
+                                  ...prev,
+                                  interests: prev.interests.includes((course as any).interest)
+                                    ? prev.interests
+                                    : [...prev.interests, (course as any).interest],
+                                }));
                                 setTimeout(() => {
                                   const card = courseCardRefs.current[course.id];
                                   if (card) {
@@ -522,10 +536,12 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
                               </div>
                             </div>
                             <button
-                              onClick={(e) => { e.stopPropagation(); scrollToForm((course as any).interest); }}
-                              className={`shrink-0 ml-4 inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 text-sm font-bold transition-colors ${
-                                "text-[#0C2D48] bg-[#C6FF00] hover:bg-[#B0E000]"
-                              }`}
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                setSelectedCourse(course.id);
+                                scrollToForm((course as any).interest);
+                              }}
+                              className="shrink-0 ml-4 inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 text-sm font-bold transition-colors text-[#0C2D48] bg-[#C6FF00] hover:bg-[#B0E000]"
                             >
                               Warteliste <ChevronRight className="w-3.5 h-3.5" />
                             </button>
