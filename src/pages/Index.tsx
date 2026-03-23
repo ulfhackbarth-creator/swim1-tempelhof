@@ -167,7 +167,7 @@ const Index = () => {
         </div>
 
       </div>
-    </section>
+    </WaveSection>
 
     {/* ─── TRUST STATS ─── */}
     <section className="bg-[#0C2D48] py-12 md:py-16">
