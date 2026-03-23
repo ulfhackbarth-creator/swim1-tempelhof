@@ -207,9 +207,9 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
                   )}
                   <div className="flex items-start gap-4 mb-4">
                     <div className={`w-12 h-12 shrink-0 rounded-2xl flex items-center justify-center transition-colors duration-200 ${
-                      isSelected ? "bg-white/15" : "bg-secondary text-[#0C2D48]"
+                      isSelected ? "bg-white/15" : "bg-primary"
                     }`}>
-                      <course.icon className={`w-6 h-6 transition-colors duration-200 ${isSelected ? "text-white" : ""}`} strokeWidth={1.5} />
+                      <course.icon className={`w-6 h-6 transition-colors duration-200 ${isSelected ? "text-white" : "text-accent"}`} strokeWidth={1.5} />
                     </div>
                     <div className="min-w-0">
                       <span className={`text-xs font-bold uppercase tracking-widest transition-colors duration-200 ${isSelected ? "text-white/70" : "text-[#0C2D48]"}`}>{course.tag}</span>
@@ -296,8 +296,8 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
             {usps.items.map((usp, i) => (
               <motion.div key={usp.label} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }} className="flex flex-row items-start gap-6 text-left">
-                <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-blue-50 text-[#1a6fb5] flex items-center justify-center">
-                  <usp.Icon className="w-8 h-8" strokeWidth={1.5} />
+                <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-primary flex items-center justify-center">
+                  <usp.Icon className="w-8 h-8 text-accent" strokeWidth={1.5} />
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-slate-900 mb-2">{usp.label}</h3>
