@@ -6,7 +6,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useSwipeNavigation } from "@/hooks/useSwipeNavigation";
 import { ArrowDown, ChevronDown, Star, Check, MapPin } from "lucide-react";
 import { HeroWave } from "@/components/HeroWave";
-import { SectionDivider } from "@/components/SectionDivider";
 
 import TestimonialCard from "@/components/TestimonialCard";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -267,7 +266,6 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
           </div>
 
         </div>
-        <SectionDivider fill="#0C2D48" />
       </section>
 
       {/* Trust Stats */}
@@ -291,7 +289,6 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
             </motion.div>
           ))}
         </div>
-        <SectionDivider fill="#ffffff" />
       </section>
 
       {/* USPs */}
@@ -314,7 +311,6 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
             ))}
           </div>
         </div>
-        <SectionDivider fill="#0C2D48" />
       </section>
 
       {/* TESTIMONIALS */}
@@ -330,7 +326,6 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
             ))}
           </div>
         </div>
-        <SectionDivider fill="#ffffff" />
       </section>
 
       {/* FAQ */}
@@ -347,7 +342,6 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
             </div>
           ))}
         </div>
-        <SectionDivider fill="#f8fafc" />
       </section>
 
       {/* STANDORTE */}
