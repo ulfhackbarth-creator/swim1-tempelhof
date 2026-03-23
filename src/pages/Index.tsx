@@ -282,7 +282,7 @@ const Index = () => {
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 mb-4">
             SWIM1 in deiner Nähe
           </h2>
-          <p className="text-slate-500 font-medium">4 Standorte – immer in deiner Nähe</p>
+          <p className="text-slate-500 font-medium">5 Standorte – immer in deiner Nähe</p>
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">

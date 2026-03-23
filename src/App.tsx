@@ -41,6 +41,7 @@ const App = () => (
           <Route path="/standorte/schwerin" element={<Schwerin />} />
           <Route path="/standorte/wildau" element={<Wildau />} />
           <Route path="/standorte/bremen" element={<Bremen />} />
+          <Route path="/standorte/erlangen" element={<Erlangen />} />
           {/* Legacy routes redirect */}
           <Route path="/schwerin" element={<Schwerin />} />
           <Route path="/wildau" element={<Wildau />} />
