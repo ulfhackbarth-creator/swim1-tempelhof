@@ -20,6 +20,7 @@ import GlobalHeader from "@/components/home/GlobalHeader";
 import HomeFooter from "@/components/home/HomeFooter";
 import HeroVideoBackground from "@/components/HeroVideoBackground";
 import heroImage from "@/assets/hero-pool.jpg";
+import { HeroWave } from "@/components/HeroWave";
 
 /* ─── SHARED DATA ─── */
 
