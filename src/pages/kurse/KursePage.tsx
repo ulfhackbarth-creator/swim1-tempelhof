@@ -207,7 +207,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
                   )}
                   <div className="flex items-start gap-4 mb-4">
                     <div className={`w-12 h-12 shrink-0 rounded-2xl flex items-center justify-center transition-colors duration-200 ${
-                      isSelected ? "bg-white/15" : "bg-primary"
+                      isSelected ? "bg-white/15" : "bg-secondary"
                     }`}>
                       <course.icon className={`w-6 h-6 transition-colors duration-200 ${isSelected ? "text-white" : "text-accent"}`} strokeWidth={1.5} />
                     </div>
