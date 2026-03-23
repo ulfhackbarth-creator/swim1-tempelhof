@@ -275,6 +275,7 @@ const Kontakt = () => {
         </div>
       </section>
 
+      <SectionDivider fromColor="#ffffff" />
       <HomeFooter />
     </div>
   );

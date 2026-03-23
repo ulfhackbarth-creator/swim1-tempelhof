@@ -434,6 +434,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
         </div>
       </section>
 
+      <SectionDivider fromColor="#f8fafc" />
       <HomeFooter />
     </>
   );

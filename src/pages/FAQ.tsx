@@ -179,6 +179,7 @@ const FAQ = () => (
       </div>
     </section>
 
+    <SectionDivider fromColor="#0C2D48" />
     <HomeFooter />
   </>
 );

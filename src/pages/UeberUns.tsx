@@ -326,6 +326,7 @@ const UeberUns = () => {
         </div>
       </section>
 
+      <SectionDivider fromColor="#ffffff" />
       <HomeFooter />
     </div>
   );
