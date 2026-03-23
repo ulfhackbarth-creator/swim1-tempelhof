@@ -170,6 +170,7 @@ const Index = () => {
         </div>
 
       </div>
+      <SectionDivider fill="#0C2D48" />
     </section>
 
     {/* ─── TRUST STATS ─── */}
