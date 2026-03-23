@@ -542,6 +542,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
             ))}
           </Accordion>
         </div>
+        <SectionDivider fill="#0C2D48" />
       </section>
 
       {/* ═══════════ 4. TESTIMONIALS ═══════════ */}
