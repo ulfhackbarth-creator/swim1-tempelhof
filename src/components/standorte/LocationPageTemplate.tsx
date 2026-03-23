@@ -390,6 +390,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
             {config.geoText}
           </p>
         </div>
+        <SectionDivider fill="#0C2D48" />
       </section>
 
       {/* ═══════════ TRUST STATS BAR ═══════════ */}
