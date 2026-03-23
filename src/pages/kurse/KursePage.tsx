@@ -5,6 +5,7 @@ import { Helmet } from "react-helmet-async";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSwipeNavigation } from "@/hooks/useSwipeNavigation";
 import { ArrowDown, ChevronDown, Star, Check, MapPin } from "lucide-react";
+import { WaveDivider, ChevronDivider } from "@/components/SectionDividers";
 
 import TestimonialCard from "@/components/TestimonialCard";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -172,8 +173,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
         </div>
       </section>
 
-
-
+      <WaveDivider className="text-secondary/50" />
 
       {/* KURSANGEBOT + TRUST */}
       <section id="kurse-section" ref={kurseSectionRef} className="bg-secondary/50 py-16 md:py-24 px-4 md:px-6 scroll-mt-[0px]">
@@ -265,8 +265,9 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
       </section>
 
       {/* Trust Stats */}
-      <section className="bg-[#0C2D48] py-12 md:py-16">
-        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 px-6">
+      <section className="bg-[#0C2D48]">
+        <ChevronDivider className="text-accent" />
+        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 px-6 py-12 md:py-16">
           {trustStats[tab].map((s, i) => (
             <motion.div
               key={s.label}
@@ -285,6 +286,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
             </motion.div>
           ))}
         </div>
+        <ChevronDivider className="text-accent" flip />
       </section>
 
       {/* USPs */}
@@ -310,8 +312,9 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
       </section>
 
       {/* TESTIMONIALS */}
-      <section className="py-16 md:py-32 bg-[#0C2D48]">
-        <div className="max-w-6xl mx-auto px-6">
+      <section className="bg-[#0C2D48]">
+        <ChevronDivider className="text-accent" />
+        <div className="max-w-6xl mx-auto px-6 py-16 md:py-32">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="text-center mb-12 md:mb-20">
             <h2 className="text-4xl font-bold tracking-tight text-white mb-4">Das sagen andere Eltern & Schwimmer</h2>
             <p className="text-white/70 font-medium">Über 4,9 Sterne von glücklichen Eltern & Schwimmern</p>
@@ -322,6 +325,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
             ))}
           </div>
         </div>
+        <ChevronDivider className="text-accent" flip />
       </section>
 
       {/* FAQ */}
