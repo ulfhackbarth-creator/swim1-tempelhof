@@ -102,7 +102,7 @@ const Index = () => {
     }
   }, [selectedLocation]);
   return (
-  <main className="min-h-screen">
+  <main className="min-h-screen overflow-x-hidden">
     <Helmet>
       <title>SWIM1 Schwimmschule | Schwimmkurse für Kinder & Erwachsene</title>
       <meta name="description" content="Premium Schwimmschule an 4 Standorten. Vom Seepferdchen bis zur perfekten Kraultechnik. Kleine Gruppen, 32°C warmes Wasser." />
