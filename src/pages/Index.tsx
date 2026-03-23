@@ -118,7 +118,7 @@ const Index = () => {
         </button>
         
       </div>
-      <HeroWave fillColor="fill-secondary/50" />
+      <HeroWave fillColor="fill-[#f2f6f8]" />
     </section>
 
     {/* ─── KURS-ÜBERSICHT ─── */}
