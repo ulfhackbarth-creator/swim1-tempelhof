@@ -144,12 +144,12 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
       </nav>
 
       {/* HERO */}
-      <section className="relative min-h-[85vh] md:min-h-[90vh] overflow-visible">
+      <section style={{ position: "relative", overflow: "visible", zIndex: 1 }} className="min-h-[85vh] md:min-h-[90vh]">
         <div className="absolute inset-0 overflow-hidden">
           <HeroVideoBackground videos={videos} mobileVideos={mobileVideos} poster={content.poster} mobilePoster={content.mobilePoster} />
           <div className={`absolute inset-0 ${tab === "kinderschwimmen" || tab === "erwachsene" ? "bg-[#0C2D48]/35" : "bg-[#0C2D48]/45"}`} />
         </div>
-        <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 md:px-6 min-h-[85vh] md:min-h-[90vh] pt-32 md:pt-[120px] pb-8 md:pb-0" style={{ paddingBottom: '120px' }}>
+        <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 md:px-6 min-h-[85vh] md:min-h-[90vh] pt-32 md:pt-[120px]" style={{ paddingBottom: '120px' }}>
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold text-white tracking-tight leading-tight md:leading-[1.1] mb-4 md:mb-6">
               {content.headline}
@@ -171,9 +171,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
           >
             Kurs wählen <ArrowDown className="w-4 h-4" />
           </button>
-          
         </div>
-        <HeroWave fillColor="#f2f6f8" />
       </section>
 
 
