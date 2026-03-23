@@ -194,6 +194,7 @@ const Index = () => {
           </motion.div>
         ))}
       </div>
+      <SectionDivider fill="#ffffff" />
     </section>
 
     {/* ─── PHILOSOPHIE ─── */}
