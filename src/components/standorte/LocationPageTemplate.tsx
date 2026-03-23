@@ -657,7 +657,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
             </div>
           ))}
         </div>
-      </section>
+      </WaveSection>
 
       <HomeFooter />
     </div>
