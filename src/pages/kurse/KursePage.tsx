@@ -432,9 +432,11 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
             })}
           </div>
         </div>
-      </section>
+      </WaveSection>
 
-      <HomeFooter />
+      <WaveSection background="#0f172a" zIndex={8} divider="sharp">
+        <HomeFooter />
+      </WaveSection>
     </>
   );
 
