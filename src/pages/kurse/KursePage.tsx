@@ -328,7 +328,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
             ))}
           </div>
         </div>
-      </section>
+      </WaveSection>
 
       {/* FAQ */}
       <section className="py-16 md:py-32 bg-white">
