@@ -315,8 +315,15 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
         </div>
       </section>
 
+      {/* Wave Divider → Testimonials */}
+      <div className="w-full bg-[#0C2D48]">
+        <svg width="100%" height="40" viewBox="0 0 1440 40" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" className="block">
+          <path d="M0,20 C240,0 360,40 720,20 C1080,0 1200,40 1440,20 L1440,0 L0,0 Z" fill="#ffffff" />
+        </svg>
+      </div>
+
       {/* TESTIMONIALS */}
-      <section className="py-16 md:py-32 bg-[#0C2D48]">
+      <section className="pb-16 pt-4 md:pb-32 md:pt-8 bg-[#0C2D48]">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="text-center mb-12 md:mb-20">
             <h2 className="text-4xl font-bold tracking-tight text-white mb-4">Das sagen andere Eltern & Schwimmer</h2>
