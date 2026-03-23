@@ -259,7 +259,7 @@ const Index = () => {
     </WaveSection>
 
     {/* ─── STANDORTE ─── */}
-    <section id="standorte" className="py-16 md:py-32 bg-white scroll-mt-20">
+    <WaveSection background="#ffffff" zIndex={6} divider="smooth" id="standorte" className="py-16 md:py-32 scroll-mt-20">
       <div className="max-w-6xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
