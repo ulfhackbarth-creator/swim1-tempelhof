@@ -434,7 +434,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
         </div>
       </WaveSection>
 
-      <WaveSection background="#0f172a" zIndex={8} divider="sharp">
+      <WaveSection background="#0f172a" zIndex={8} divider="chevron">
         <HomeFooter />
       </WaveSection>
     </>

@@ -358,7 +358,7 @@ const Index = () => {
       </div>
     </WaveSection>
 
-    <WaveSection background="#0f172a" zIndex={7} divider="sharp">
+    <WaveSection background="#0f172a" zIndex={7} divider="chevron">
       <HomeFooter />
     </WaveSection>
   </main>
