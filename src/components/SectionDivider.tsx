@@ -9,6 +9,7 @@ const SectionDivider = ({ fromColor, toColor = "#0f172a" }: SectionDividerProps)
     style={{
       backgroundColor: toColor,
       transform: 'translateY(-2px)',
+      marginBottom: '-2px',
       willChange: 'transform',
     }}
   >
