@@ -54,6 +54,8 @@ const CityHero = ({ city }: CityHeroProps) => {
           <ChevronDown className="w-8 h-8 text-primary-foreground/60" />
         </motion.div>
       </motion.div>
+
+      <HeroWave fillColor="#f2f6f8" />
     </section>
   );
 };
