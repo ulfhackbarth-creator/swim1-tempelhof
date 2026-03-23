@@ -631,7 +631,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
 
                 <div className="space-y-3">
                   <Label className="text-slate-900 font-semibold">Interesse an</Label>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
                     {interestOptions.map((option) => {
                       const isActive = formData.interests.includes(option.id);
                       return (
