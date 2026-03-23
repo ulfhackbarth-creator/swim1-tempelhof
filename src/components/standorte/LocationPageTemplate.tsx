@@ -549,9 +549,9 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
       </section>
 
       {/* Wave Divider → Testimonials */}
-      <div className="w-full bg-[#0C2D48] -mt-px">
+      <div className="w-full bg-[#0C2D48]" style={{ marginTop: -3 }}>
         <svg width="100%" height="40" viewBox="0 0 1440 40" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" className="block">
-          <rect x="0" y="0" width="1440" height="2" fill="#f2f6f8" />
+          <rect x="0" y="0" width="1440" height="4" fill="#f2f6f8" />
           <path d="M0,20 C240,0 360,40 720,20 C1080,0 1200,40 1440,20 L1440,0 L0,0 Z" fill="#f2f6f8" />
           <path d="M0,20 C240,0 360,40 720,20 C1080,0 1200,40 1440,20" fill="none" stroke="#0C2D48" strokeWidth="2" />
         </svg>
