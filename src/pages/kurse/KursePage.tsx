@@ -341,7 +341,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
             </div>
           ))}
         </div>
-      </section>
+      </WaveSection>
 
       {/* STANDORTE */}
       <section id="standorte" className="py-16 md:py-32 bg-slate-50 scroll-mt-20">
