@@ -89,6 +89,8 @@ const Hero = () => {
         </motion.div>
       </div>
 
+      <HeroWave fillColor="fill-background" />
+
       {/* Scroll indicator */}
       <motion.div initial={{
       opacity: 0
