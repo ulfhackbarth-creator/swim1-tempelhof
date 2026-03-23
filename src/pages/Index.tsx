@@ -172,10 +172,9 @@ const Index = () => {
       </div>
     </section>
 
-    <SectionDivider fromColor="#f2f6f8" toColor="#0C2D48" />
 
     {/* ─── TRUST STATS ─── */}
-    <section className="bg-[#0C2D48] pb-12 pt-6 md:pb-16 md:pt-8">
+    <section className="bg-[#0C2D48] py-12 md:py-16">
       <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 px-6">
         {trustStats.map((s, i) => (
           <motion.div
@@ -197,8 +196,10 @@ const Index = () => {
       </div>
     </section>
 
+    <SectionDivider fromColor="#0C2D48" toColor="#ffffff" />
+
     {/* ─── PHILOSOPHIE ─── */}
-    <section className="py-16 md:py-32 bg-white">
+    <section className="pt-8 pb-16 md:pt-12 md:pb-32 bg-white">
       <div className="max-w-6xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

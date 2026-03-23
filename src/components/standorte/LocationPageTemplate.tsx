@@ -395,10 +395,9 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
         </div>
       </section>
 
-      <SectionDivider fromColor="#ffffff" toColor="#0C2D48" />
 
       {/* ═══════════ TRUST STATS BAR ═══════════ */}
-      <section className="bg-[#0C2D48] pb-12 pt-6 md:pb-16 md:pt-8">
+      <section className="bg-[#0C2D48] py-12 md:py-16">
         <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 px-6">
           {trustStats.map((s, i) => (
             <motion.div
@@ -416,8 +415,10 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
         </div>
       </section>
 
+      <SectionDivider fromColor="#0C2D48" toColor="#f2f6f8" />
+
       {/* ═══════════ 3. KURSANGEBOT AKKORDEON ═══════════ */}
-      <section className="py-16 md:py-32 bg-secondary/50 px-4 md:px-6">
+      <section className="pt-8 pb-16 md:pt-12 md:pb-32 bg-secondary/50 px-4 md:px-6">
         <div className="max-w-3xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="text-center mb-12 md:mb-16">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mb-4">Unser Kursangebot</h2>

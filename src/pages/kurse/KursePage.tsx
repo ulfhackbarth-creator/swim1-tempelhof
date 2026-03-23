@@ -270,10 +270,9 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
         </div>
       </section>
 
-      <SectionDivider fromColor="#f2f6f8" toColor="#0C2D48" />
 
       {/* Trust Stats */}
-      <section className="bg-[#0C2D48] pb-12 pt-6 md:pb-16 md:pt-8">
+      <section className="bg-[#0C2D48] py-12 md:py-16">
         <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 px-6">
           {trustStats[tab].map((s, i) => (
             <motion.div
@@ -295,8 +294,10 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
         </div>
       </section>
 
+      <SectionDivider fromColor="#0C2D48" toColor="#ffffff" />
+
       {/* USPs */}
-      <section className="py-16 md:py-32 bg-white">
+      <section className="pt-8 pb-16 md:pt-12 md:pb-32 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="text-4xl font-bold tracking-tight text-slate-900 text-center mb-12 md:mb-20">
             {usps.title}
