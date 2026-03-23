@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import GlobalHeader from "@/components/home/GlobalHeader";
 import HomeFooter from "@/components/home/HomeFooter";
+import SectionDivider from "@/components/SectionDivider";
 import StandortDropdown from "@/components/StandortDropdown";
 import {
   Accordion,

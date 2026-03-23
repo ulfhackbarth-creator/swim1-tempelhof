@@ -7,6 +7,7 @@ import { ShieldCheck, Users, Heart, Baby, Waves, PersonStanding, HeartPulse, Act
 import StandortDropdown from "@/components/StandortDropdown";
 import GlobalHeader from "@/components/home/GlobalHeader";
 import HomeFooter from "@/components/home/HomeFooter";
+import SectionDivider from "@/components/SectionDivider";
 import HeroVideoBackground from "@/components/HeroVideoBackground";
 
 const philosophy = [
