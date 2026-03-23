@@ -8,16 +8,14 @@ const SectionDivider = ({ fromColor, toColor = "#0f172a" }: SectionDividerProps)
     <svg
       width="100%"
       height="40"
-      viewBox="0 0 1440 40"
+      viewBox="0 -4 1440 44"
       preserveAspectRatio="none"
       xmlns="http://www.w3.org/2000/svg"
       className="block"
     >
-      {/* Full-width overlap strip to kill sub-pixel gaps on mobile Safari */}
-      <rect x="0" y="0" width="1440" height="4" fill={fromColor} />
-      <polygon points="0,0 960,40 1440,0" fill={fromColor} />
+      <polygon points="0,-4 960,40 1440,-4" fill={fromColor} />
       <polyline
-        points="0,0 960,40 1440,0"
+        points="0,-4 960,40 1440,-4"
         fill="none"
         stroke="#C6FF00"
         strokeWidth="2"
