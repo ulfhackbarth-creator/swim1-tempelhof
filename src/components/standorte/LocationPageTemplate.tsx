@@ -427,7 +427,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
                 <AccordionTrigger className="hover:no-underline py-6">
                   <span className="flex items-center gap-4 text-left">
                      <div className="w-12 h-12 rounded-2xl bg-secondary flex items-center justify-center shrink-0">
-                      <course.icon className="w-6 h-6 text-accent" strokeWidth={1.5} />
+                      <course.icon className="w-6 h-6 text-primary" strokeWidth={1.5} />
                     </div>
                     <span>
                       <span className="text-lg font-bold text-slate-900 block">{course.title}</span>
