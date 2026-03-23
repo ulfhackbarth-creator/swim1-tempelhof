@@ -193,7 +193,7 @@ const Index = () => {
           </motion.div>
         ))}
       </div>
-    </section>
+    </WaveSection>
 
     {/* ─── PHILOSOPHIE ─── */}
     <section className="py-16 md:py-32 bg-white">
