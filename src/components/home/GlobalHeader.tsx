@@ -56,6 +56,8 @@ const GlobalHeader = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const isHome = location.pathname === "/";
+  const activeStandort = standorte.find((s) => location.pathname.startsWith(s.route));
+  const standortLabel = activeStandort ? activeStandort.name : "Standorte";
 
   // Hide-on-scroll-down, show-on-scroll-up
   const [isVisible, setIsVisible] = useState(true);
