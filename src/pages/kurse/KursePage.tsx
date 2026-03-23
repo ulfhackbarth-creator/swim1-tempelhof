@@ -313,7 +313,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
             ))}
           </div>
         </div>
-      </section>
+      </WaveSection>
 
       {/* TESTIMONIALS */}
       <section className="py-16 md:py-32 bg-[#0C2D48]">
