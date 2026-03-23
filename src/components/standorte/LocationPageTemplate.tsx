@@ -644,7 +644,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
             </motion.div>
           )}
         </div>
-      </section>
+      </WaveSection>
 
       {/* ═══════════ 6. FAQ ═══════════ */}
       <section className="py-16 md:py-32 bg-[#0C2D48]">
