@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, useLayoutEffect, useCallback } from "react
 import { Waves, Activity, HeartPulse, PersonStanding, Droplets, Menu, X, MapPin, HelpCircle, Users, Mail, ChevronDown } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import StandortDropdown from "@/components/StandortDropdown";
+import { standorte } from "@/data/standorteData";
 import {
   Sheet,
   SheetContent,
@@ -55,6 +56,8 @@ const GlobalHeader = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const isHome = location.pathname === "/";
+  const activeStandort = standorte.find((s) => location.pathname.startsWith(s.route));
+  const standortLabel = activeStandort ? activeStandort.name : "Standorte";
 
   // Hide-on-scroll-down, show-on-scroll-up
   const [isVisible, setIsVisible] = useState(true);
@@ -141,7 +144,7 @@ const GlobalHeader = () => {
         </Link>
 
         <div className="flex items-center gap-2">
-          <StandortDropdown variant="ghost-header" align="end" />
+          <StandortDropdown variant="ghost-header" align="end" label={standortLabel} />
 
           {/* Burger menu */}
           <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
