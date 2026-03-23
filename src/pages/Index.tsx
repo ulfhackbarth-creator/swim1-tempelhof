@@ -353,7 +353,7 @@ const Index = () => {
           })}
         </div>
       </div>
-    </section>
+    </WaveSection>
 
     <HomeFooter />
   </main>
