@@ -268,7 +268,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
       </WaveSection>
 
       {/* Trust Stats */}
-      <section className="bg-[#0C2D48] py-12 md:py-16">
+      <WaveSection background="#0C2D48" hasDivider zIndex={3} className="py-12 md:py-16">
         <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 px-6">
           {trustStats[tab].map((s, i) => (
             <motion.div
