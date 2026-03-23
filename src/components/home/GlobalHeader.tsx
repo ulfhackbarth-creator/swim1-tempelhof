@@ -167,18 +167,16 @@ const GlobalHeader = () => {
               <div className="flex-1 overflow-y-auto">
                 {/* Standorte section — collapsible, collapsed by default */}
                 <CollapsibleSection title="Standorte">
-                  <Link to="/standorte/berlin-tempelhof" onClick={() => { setMenuOpen(false); window.scrollTo({ top: 0 }); }} className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-700 hover:bg-slate-50 hover:text-[#0C2D48] transition-colors text-sm font-medium">
-                    <MapPin className="w-4 h-4 text-slate-400" /> Berlin-Tempelhof
-                  </Link>
-                  <Link to="/standorte/schwerin" onClick={() => { setMenuOpen(false); window.scrollTo({ top: 0 }); }} className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-700 hover:bg-slate-50 hover:text-[#0C2D48] transition-colors text-sm font-medium">
-                    <MapPin className="w-4 h-4 text-slate-400" /> Schwerin
-                  </Link>
-                  <Link to="/standorte/wildau" onClick={() => { setMenuOpen(false); window.scrollTo({ top: 0 }); }} className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-700 hover:bg-slate-50 hover:text-[#0C2D48] transition-colors text-sm font-medium">
-                    <MapPin className="w-4 h-4 text-slate-400" /> Wildau
-                  </Link>
-                  <Link to="/standorte/bremen" onClick={() => { setMenuOpen(false); window.scrollTo({ top: 0 }); }} className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-700 hover:bg-slate-50 hover:text-[#0C2D48] transition-colors text-sm font-medium">
-                    <MapPin className="w-4 h-4 text-slate-400" /> Bremen
-                  </Link>
+                  {standorte.map((s) => (
+                    <Link
+                      key={s.route}
+                      to={s.route}
+                      onClick={() => { setMenuOpen(false); window.scrollTo({ top: 0 }); }}
+                      className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-700 hover:bg-slate-50 hover:text-[#0C2D48] transition-colors text-sm font-medium"
+                    >
+                      <MapPin className="w-4 h-4 text-slate-400" /> {s.name}
+                    </Link>
+                  ))}
                 </CollapsibleSection>
 
                 {/* Kurse section — collapsible, collapsed by default */}
