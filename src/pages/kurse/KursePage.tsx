@@ -355,8 +355,16 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
         </div>
       </section>
 
+      {/* Wave Divider → Standorte */}
+      <div className="w-full bg-slate-50">
+        <svg width="100%" height="40" viewBox="0 0 1440 40" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" className="block">
+          <path d="M0,20 C240,0 360,40 720,20 C1080,0 1200,40 1440,20 L1440,0 L0,0 Z" fill="#ffffff" />
+          <path d="M0,20 C240,0 360,40 720,20 C1080,0 1200,40 1440,20" fill="none" stroke="#0C2D48" strokeWidth="2" />
+        </svg>
+      </div>
+
       {/* STANDORTE */}
-      <section id="standorte" className="py-16 md:py-32 bg-slate-50 scroll-mt-20">
+      <section id="standorte" className="pb-16 pt-4 md:pb-32 md:pt-8 bg-slate-50 scroll-mt-20">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-12 md:mb-20">
             <h2 className="text-4xl font-bold tracking-tight text-slate-900 mb-4">Unsere Standorte</h2>
