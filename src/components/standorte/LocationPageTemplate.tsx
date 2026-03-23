@@ -452,6 +452,12 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
                               const wasActive = selectedCourse === sub.key;
                               setSelectedCourse(wasActive ? null : sub.key);
                               if (!wasActive) {
+                                setFormData((prev) => ({
+                                  ...prev,
+                                  interests: prev.interests.includes(sub.interest)
+                                    ? prev.interests
+                                    : [...prev.interests, sub.interest],
+                                }));
                                 setTimeout(() => {
                                   const card = courseCardRefs.current[sub.key];
                                   if (card) {
