@@ -63,9 +63,13 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
   const [selectedLocation, setSelectedLocation] = useState<string | null>(null);
+  const [showAllMobile, setShowAllMobile] = useState(false);
+  const [canScrollLeftK, setCanScrollLeftK] = useState(false);
+  const [canScrollRightK, setCanScrollRightK] = useState(true);
   const kurseSectionRef = useRef<HTMLElement>(null);
   const cardRefs = useRef<Map<number, HTMLDivElement>>(new Map());
   const locationCardRefs = useRef<Map<number, HTMLDivElement>>(new Map());
+  const scrollContainerRefK = useRef<HTMLDivElement>(null);
   const location = useLocation();
   const navigate = useNavigate();
 
