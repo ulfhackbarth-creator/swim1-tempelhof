@@ -267,6 +267,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
           </div>
 
         </div>
+        <SectionDivider fill="#0C2D48" />
       </section>
 
       {/* Trust Stats */}
