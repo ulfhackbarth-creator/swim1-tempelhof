@@ -21,6 +21,7 @@ import HomeFooter from "@/components/home/HomeFooter";
 import HeroVideoBackground from "@/components/HeroVideoBackground";
 import heroImage from "@/assets/hero-pool.jpg";
 import { HeroWave } from "@/components/HeroWave";
+import { WaveSection } from "@/components/WaveSection";
 
 /* ─── SHARED DATA ─── */
 
@@ -326,7 +327,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
       </nav>
 
       {/* ═══════════ 1. HERO ═══════════ */}
-      <section className="relative min-h-[85vh] md:min-h-[90vh]">
+      <section className="relative min-h-[85vh] md:min-h-[90vh]" style={{ zIndex: 1 }}>
         <div className="absolute inset-0 overflow-hidden">
           {hasVideo ? (
             <HeroVideoBackground videos={config.heroVideos!} poster={config.heroPoster} />
@@ -359,7 +360,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
       </section>
 
       {/* ═══════════ 2. STANDORT & AUSSTATTUNG ═══════════ */}
-      <section className="py-16 md:py-32 bg-white">
+      <section className="py-16 md:py-32 bg-white" style={{ position: 'relative', zIndex: 2 }}>
         <div className="max-w-4xl mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="text-center mb-12 md:mb-20">
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 mb-4">Standort & Ausstattung</h2>
@@ -395,7 +396,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
       </section>
 
       {/* ═══════════ TRUST STATS BAR ═══════════ */}
-      <section className="bg-[#0C2D48] py-12 md:py-16">
+      <WaveSection background="#0C2D48" zIndex={3} divider="smooth" className="py-12 md:py-16">
         <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 px-6">
           {trustStats.map((s, i) => (
             <motion.div
@@ -411,10 +412,10 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
             </motion.div>
           ))}
         </div>
-      </section>
+      </WaveSection>
 
       {/* ═══════════ 3. KURSANGEBOT AKKORDEON ═══════════ */}
-      <section className="py-16 md:py-32 bg-secondary/50 px-4 md:px-6">
+      <WaveSection background="#f2f6f8" zIndex={4} divider="smooth" className="py-16 md:py-32 px-4 md:px-6">
         <div className="max-w-3xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="text-center mb-12 md:mb-16">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mb-4">Unser Kursangebot</h2>
@@ -542,10 +543,10 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
             ))}
           </Accordion>
         </div>
-      </section>
+      </WaveSection>
 
       {/* ═══════════ 4. TESTIMONIALS ═══════════ */}
-      <section className="py-16 md:py-32 bg-[#0C2D48]">
+      <WaveSection background="#0C2D48" zIndex={5} divider="smooth" className="py-16 md:py-32">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="text-center mb-12 md:mb-20">
             <h2 className="text-4xl font-bold tracking-tight text-white mb-4">Das sagen andere Eltern & Schwimmer</h2>
@@ -558,11 +559,11 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
             ))}
           </div>
         </div>
-      </section>
+      </WaveSection>
 
       {/* ═══════════ 5. WARTELISTEN-FORMULAR ═══════════ */}
-      <section ref={formRef} id="warteliste" className="py-16 md:py-32 bg-secondary/50 px-4 scroll-mt-0">
-        <div className="max-w-lg mx-auto">
+      <WaveSection background="#f2f6f8" zIndex={6} divider="smooth" id="warteliste" className="py-16 md:py-32 px-4 scroll-mt-0">
+        <div ref={formRef} className="max-w-lg mx-auto">
           {isSubmitted ? (
             <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="text-center bg-white p-8 md:p-12 rounded-[2rem] shadow-xl shadow-slate-200/40 border border-slate-100">
               <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-green-50 flex items-center justify-center">
@@ -643,10 +644,10 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
             </motion.div>
           )}
         </div>
-      </section>
+      </WaveSection>
 
       {/* ═══════════ 6. FAQ ═══════════ */}
-      <section className="py-16 md:py-32 bg-[#0C2D48]">
+      <WaveSection background="#0C2D48" zIndex={7} divider="smooth" className="py-16 md:py-32">
         <div className="max-w-3xl mx-auto px-6 md:px-8">
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white text-center mb-12 md:mb-20">Häufige Fragen</h2>
           {config.faqs.map((faq, i) => (
@@ -659,9 +660,11 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
             </div>
           ))}
         </div>
-      </section>
+      </WaveSection>
 
-      <HomeFooter />
+      <WaveSection background="#0f172a" zIndex={8} divider="sharp">
+        <HomeFooter />
+      </WaveSection>
     </div>
   );
 };
