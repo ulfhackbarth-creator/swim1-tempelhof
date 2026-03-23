@@ -662,13 +662,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
         </div>
       </section>
 
-      {/* Section Divider – Zacke als Farbübergang */}
-      <div className="w-full bg-slate-900 relative">
-        <svg width="100%" height="40" viewBox="0 0 1440 40" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" className="block">
-          <polygon points="0,0 480,40 1440,0" fill="#0C2D48" />
-          <polyline points="0,0 480,40 1440,0" fill="none" stroke="#C6FF00" strokeWidth="2" strokeLinejoin="round" />
-        </svg>
-      </div>
+      <SectionDivider fromColor="#0C2D48" />
 
       <HomeFooter />
     </div>
