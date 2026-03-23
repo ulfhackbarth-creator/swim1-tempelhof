@@ -31,8 +31,8 @@ const courses = [
     title: "Baby und Kleinkinder",
     description: "Babyschwimmen & Eltern-Kind-Kurse. Wasser gemeinsam erleben, Bindung stärken.",
     subCourses: [
-      { name: "Babyschwimmen", key: "babyschwimmen", interest: "babyschwimmen", desc: "Ab 3 Monaten – spielerisch das Wasser entdecken." },
-      { name: "Eltern-Kind-Kurse", key: "eltern-kind-kurse", interest: "eltern-kind-kurse", desc: "Ab 1 Jahr – gemeinsam mit Mama oder Papa." },
+      { name: "Babyschwimmen", key: "babyschwimmen", interest: "baby", desc: "Ab 3 Monaten – spielerisch das Wasser entdecken." },
+      { name: "Eltern-Kind-Kurse", key: "eltern-kind-kurse", interest: "baby", desc: "Ab 1 Jahr – gemeinsam mit Mama oder Papa." },
     ],
     courseKeys: ["babyschwimmen", "eltern-kind", "wassergewoehnung", "wassergewöhnung"],
   },
@@ -43,10 +43,10 @@ const courses = [
     description: "Schwimmen von Grund auf lernen. Kleine Gruppen, klarer Weg, echte Sicherheit im Wasser.",
     subCourses: [
       { name: "Seepferdchen", key: "seepferdchen", interest: "seepferdchen", desc: "Ab 3,5 Jahren – der erste Schritt zum sicheren Schwimmer." },
-      { name: "Bronze", key: "bronze", interest: "bronze", desc: "Aufbaukurs nach dem Seepferdchen." },
-      { name: "Silber", key: "silber", interest: "silber", desc: "Für sichere Schwimmer – Ausdauer & Technik." },
-      { name: "Gold", key: "gold", interest: "gold", desc: "Das höchste Jugendschwimmabzeichen." },
-      { name: "Ferienintensivkurse", key: "ferienintensivkurse", interest: "ferienintensivkurse", desc: "Tägliche Einheiten in den Schulferien." },
+      { name: "Bronze", key: "bronze", interest: "fortgeschrittene", desc: "Aufbaukurs nach dem Seepferdchen." },
+      { name: "Silber", key: "silber", interest: "fortgeschrittene", desc: "Für sichere Schwimmer – Ausdauer & Technik." },
+      { name: "Gold", key: "gold", interest: "fortgeschrittene", desc: "Das höchste Jugendschwimmabzeichen." },
+      { name: "Ferienintensivkurse", key: "ferienintensivkurse", interest: "seepferdchen", desc: "Tägliche Einheiten in den Schulferien." },
     ],
     courseKeys: ["seepferdchen", "bronze", "silber", "gold", "ferienintensivkurse", "kinderschwimmen"],
   },
@@ -56,8 +56,8 @@ const courses = [
     title: "Erwachsenenschwimmen",
     description: "Anfängerschwimmen & Technik. Sicherer Rahmen, erfahrene Trainer, dein Tempo.",
     subCourses: [
-      { name: "Anfängerschwimmen", key: "anfaengerschwimmen", interest: "anfaengerschwimmen", desc: "Schwimmen lernen – behutsam und ohne Zuschauer." },
-      { name: "Technik", key: "technik", interest: "technik", desc: "Kraulen lernen und Technik verbessern." },
+      { name: "Anfängerschwimmen", key: "anfaengerschwimmen", interest: "erwachsene", desc: "Schwimmen lernen – behutsam und ohne Zuschauer." },
+      { name: "Technik", key: "technik", interest: "erwachsene", desc: "Kraulen lernen und Technik verbessern." },
     ],
     courseKeys: ["anfängerschwimmen", "anfaengerschwimmen", "technik", "erwachsene", "erwachsenenschwimmen"],
   },
@@ -89,15 +89,10 @@ const formSchema = z.object({
 });
 
 const interestOptions = [
-  { id: "babyschwimmen", label: "Babyschwimmen" },
-  { id: "eltern-kind-kurse", label: "Eltern-Kind-Kurse" },
-  { id: "seepferdchen", label: "Seepferdchen" },
-  { id: "bronze", label: "Bronze" },
-  { id: "silber", label: "Silber" },
-  { id: "gold", label: "Gold" },
-  { id: "ferienintensivkurse", label: "Ferienintensivkurse" },
-  { id: "anfaengerschwimmen", label: "Anfängerschwimmen" },
-  { id: "technik", label: "Technik (Erwachsene)" },
+  { id: "baby", label: "Wassergewöhnung / Babyschwimmen" },
+  { id: "seepferdchen", label: "Seepferdchen (ab 3,5 Jahren)" },
+  { id: "fortgeschrittene", label: "Fortgeschrittene (Bronze / Silber / Gold)" },
+  { id: "erwachsene", label: "Erwachsenenkurse" },
   { id: "aquafitness", label: "Aquafitness" },
   { id: "aquareha", label: "Aqua Reha" },
 ];
@@ -228,30 +223,6 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
       interests: checked ? [...prev.interests, id] : prev.interests.filter((i) => i !== id),
     }));
     setErrors((prev) => ({ ...prev, interests: "" }));
-
-    // Sync: find the course that matches this interest and select/deselect it
-    for (const c of courses) {
-      if (c.subCourses.length > 0) {
-        const sub = c.subCourses.find((s) => s.interest === id);
-        if (sub) {
-          if (checked) {
-            setSelectedCourse(sub.key);
-            setActiveAccordion(c.id);
-          } else if (selectedCourse === sub.key) {
-            setSelectedCourse(null);
-          }
-          return;
-        }
-      } else if ((c as any).interest === id) {
-        if (checked) {
-          setSelectedCourse(c.id);
-          setActiveAccordion(c.id);
-        } else if (selectedCourse === c.id) {
-          setSelectedCourse(null);
-        }
-        return;
-      }
-    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -481,12 +452,6 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
                               const wasActive = selectedCourse === sub.key;
                               setSelectedCourse(wasActive ? null : sub.key);
                               if (!wasActive) {
-                                setFormData((prev) => ({
-                                  ...prev,
-                                  interests: prev.interests.includes(sub.interest)
-                                    ? prev.interests
-                                    : [...prev.interests, sub.interest],
-                                }));
                                 setTimeout(() => {
                                   const card = courseCardRefs.current[sub.key];
                                   if (card) {
@@ -511,12 +476,10 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
                               </div>
                             </div>
                             <button
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                setSelectedCourse(sub.key);
-                                scrollToForm(sub.interest);
-                              }}
-                              className="shrink-0 ml-4 inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 text-sm font-bold transition-colors text-[#0C2D48] bg-[#C6FF00] hover:bg-[#B0E000]"
+                              onClick={(e) => { e.stopPropagation(); scrollToForm(sub.interest); }}
+                              className={`shrink-0 ml-4 inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 text-sm font-bold transition-colors ${
+                                "text-[#0C2D48] bg-[#C6FF00] hover:bg-[#B0E000]"
+                              }`}
                             >
                               Warteliste <ChevronRight className="w-3.5 h-3.5" />
                             </button>
@@ -534,13 +497,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
                             onClick={() => {
                               const wasActive = selectedCourse === course.id;
                               setSelectedCourse(wasActive ? null : course.id);
-                              if (!wasActive && (course as any).interest) {
-                                setFormData((prev) => ({
-                                  ...prev,
-                                  interests: prev.interests.includes((course as any).interest)
-                                    ? prev.interests
-                                    : [...prev.interests, (course as any).interest],
-                                }));
+                              if (!wasActive) {
                                 setTimeout(() => {
                                   const card = courseCardRefs.current[course.id];
                                   if (card) {
@@ -565,12 +522,10 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
                               </div>
                             </div>
                             <button
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                setSelectedCourse(course.id);
-                                scrollToForm((course as any).interest);
-                              }}
-                              className="shrink-0 ml-4 inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 text-sm font-bold transition-colors text-[#0C2D48] bg-[#C6FF00] hover:bg-[#B0E000]"
+                              onClick={(e) => { e.stopPropagation(); scrollToForm((course as any).interest); }}
+                              className={`shrink-0 ml-4 inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 text-sm font-bold transition-colors ${
+                                "text-[#0C2D48] bg-[#C6FF00] hover:bg-[#B0E000]"
+                              }`}
                             >
                               Warteliste <ChevronRight className="w-3.5 h-3.5" />
                             </button>
@@ -655,7 +610,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
 
                 <div className="space-y-3">
                   <Label className="text-slate-900 font-semibold">Interesse an</Label>
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                     {interestOptions.map((option) => {
                       const isActive = formData.interests.includes(option.id);
                       return (
