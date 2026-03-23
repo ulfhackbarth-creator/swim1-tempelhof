@@ -331,7 +331,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
       </WaveSection>
 
       {/* FAQ */}
-      <WaveSection background="#ffffff" zIndex={6} divider="smooth" className="py-16 md:py-32">
+      <WaveSection background="#ffffff" zIndex={6} divider="organic" className="py-16 md:py-32">
         <div className="max-w-3xl mx-auto px-6 md:px-8">
           <h2 className="text-4xl font-bold tracking-tight text-slate-900 text-center mb-12 md:mb-20">{faqs.title}</h2>
           {faqs.items.map((faq, i) => (
