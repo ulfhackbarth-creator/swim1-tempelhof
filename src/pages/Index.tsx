@@ -108,16 +108,13 @@ const Index = () => {
             Für Kinder & Erwachsene · Kleine Gruppen · 32 °C warmes Wasser
           </p>
         </motion.div>
-        <motion.button
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+        <button
           onClick={() => scrollTo("#kurse")}
           className="mt-8 md:mt-10 inline-flex items-center gap-2 rounded-full px-6 py-3 font-semibold text-base text-[#0C2D48] transition-all shadow-lg bg-[#C6FF00] hover:bg-[#B0E000] hover:scale-105 active:scale-[0.97]"
           style={{ boxShadow: "0 8px 24px -4px rgba(198,255,0,0.3)" }}
         >
            Passenden Kurs finden <ArrowDown className="w-4 h-4" />
-        </motion.button>
+        </button>
         
       </div>
     </section>

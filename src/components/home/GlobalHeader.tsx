@@ -60,8 +60,6 @@ const GlobalHeader = () => {
   const [isVisible, setIsVisible] = useState(true);
   const lastScrollY = useRef(0);
   const suppressHideUntil = useRef(0);
-  const scrollUpAccumulator = useRef(0);
-  const SCROLL_UP_THRESHOLD = 60;
 
   const handleScroll = useCallback(() => {
     const currentScrollY = window.scrollY;
@@ -69,18 +67,12 @@ const GlobalHeader = () => {
 
     if (currentScrollY < 50) {
       setIsVisible(true);
-      scrollUpAccumulator.current = 0;
     } else if (Date.now() < suppressHideUntil.current) {
       setIsVisible(false);
-      scrollUpAccumulator.current = 0;
     } else if (delta > 0) {
       setIsVisible(false);
-      scrollUpAccumulator.current = 0;
-    } else {
-      scrollUpAccumulator.current += Math.abs(delta);
-      if (scrollUpAccumulator.current >= SCROLL_UP_THRESHOLD) {
-        setIsVisible(true);
-      }
+    } else if (delta < -5) {
+      setIsVisible(true);
     }
     lastScrollY.current = currentScrollY;
   }, []);

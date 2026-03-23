@@ -81,10 +81,7 @@ const UeberUns = () => {
               Eigene Standorte · Warmes Wasser · Eine Philosophie des Vertrauens
             </p>
           </motion.div>
-          <motion.button
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+          <button
             onClick={() => {
               const el = document.getElementById("mission");
               if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY, behavior: "smooth" });
@@ -93,7 +90,7 @@ const UeberUns = () => {
             style={{ boxShadow: "0 8px 24px -4px rgba(198,255,0,0.3)" }}
           >
             Mehr erfahren <ArrowDown className="w-4 h-4" />
-          </motion.button>
+          </button>
           
         </div>
       </section>

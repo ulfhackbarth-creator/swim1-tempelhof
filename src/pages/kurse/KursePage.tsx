@@ -155,10 +155,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
               {content.subtext}
             </p>
           </motion.div>
-          <motion.button
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+          <button
             onClick={() => {
               const el = document.getElementById('kurse-section');
               if (el) {
@@ -170,7 +167,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
             style={{ boxShadow: "0 8px 24px -4px rgba(198,255,0,0.3)" }}
           >
             Kurs wählen <ArrowDown className="w-4 h-4" />
-          </motion.button>
+          </button>
           
         </div>
       </section>
