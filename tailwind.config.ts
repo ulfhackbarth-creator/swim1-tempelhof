@@ -83,8 +83,12 @@ export default {
           to: { height: "0" },
         },
         "wave": {
-          "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-8px)" },
+          "0%, 100%": { transform: "translateX(0)" },
+          "50%": { transform: "translateX(-25%)" },
+        },
+        "wave-slow": {
+          "0%, 100%": { transform: "translateX(0)" },
+          "50%": { transform: "translateX(-15%)" },
         },
         "float": {
           "0%, 100%": { transform: "translateY(0)" },
