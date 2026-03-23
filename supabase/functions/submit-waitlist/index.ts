@@ -176,7 +176,7 @@ serve(async (req) => {
       
       if (insertError.code === "23505") {
         return new Response(
-          JSON.stringify({ error: "Diese E-Mail ist bereits eingetragen.", code: "DUPLICATE_EMAIL" }),
+          JSON.stringify({ error: "Diese E-Mail ist an diesem Standort bereits eingetragen.", code: "DUPLICATE_EMAIL" }),
           {
             status: 409,
             headers: { ...corsHeaders, "Content-Type": "application/json" },
