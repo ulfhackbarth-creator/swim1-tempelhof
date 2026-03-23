@@ -358,6 +358,7 @@ const Index = () => {
       </div>
     </section>
 
+    <SectionDivider fromColor="#ffffff" />
     <HomeFooter />
   </main>
   );
