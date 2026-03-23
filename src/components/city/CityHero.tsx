@@ -55,7 +55,7 @@ const CityHero = ({ city }: CityHeroProps) => {
         </motion.div>
       </motion.div>
 
-      <HeroWave fillColor="#f2f6f8" />
+      <HeroWave fillColor="#ffffff" />
     </section>
   );
 };
