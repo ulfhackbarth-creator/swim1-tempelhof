@@ -76,7 +76,18 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
   const isSwipe = (location.state as any)?.isSwipe === true;
   const direction = (location.state as any)?.direction ?? 1;
 
-  useEffect(() => { setOpenIndex(null); setSelectedCourse(null); setSelectedLocation(null); }, [tab]);
+  useEffect(() => { setOpenIndex(null); setSelectedCourse(null); setSelectedLocation(null); setShowAllMobile(false); }, [tab]);
+
+  const updateScrollButtonsK = useCallback(() => {
+    const el = scrollContainerRefK.current;
+    if (!el) return;
+    setCanScrollLeftK(el.scrollLeft > 10);
+    setCanScrollRightK(el.scrollLeft < el.scrollWidth - el.clientWidth - 10);
+  }, []);
+
+  const scrollByK = useCallback((amount: number) => {
+    scrollContainerRefK.current?.scrollBy({ left: amount, behavior: "smooth" });
+  }, []);
 
   const handleSelectLocation = useCallback((name: string, index: number) => {
     const isClosing = selectedLocation === name;
