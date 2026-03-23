@@ -248,6 +248,7 @@ const KursePage = ({ tab }: { tab: CourseTab }) => {
                           <StandortDropdown
                             variant="orange-large"
                             align="start"
+                            label="Standort wählen"
                             queryParams={`?course=${courseParam}`}
                           />
                         </div>
