@@ -109,7 +109,8 @@ export default {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "wave": "wave 3s ease-in-out infinite",
+        "wave": "wave 15s ease-in-out infinite",
+        "wave-slow": "wave-slow 20s ease-in-out infinite",
         "float": "float 4s ease-in-out infinite",
         "ripple": "ripple 1.5s ease-out infinite",
       },
