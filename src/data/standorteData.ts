@@ -12,5 +12,5 @@ export const standorte: Standort[] = [
   { name: "Schwerin", center: "Schlosspark-Center", address: "Marienplatz 5–6, 19053 Schwerin", route: "/standorte/schwerin", status: "coming-soon", features: ["32 °C Wasser", "Zentrale Lage"] },
   { name: "Wildau", center: "A10 Center", address: "Chausseestr. 1, 15745 Wildau", route: "/standorte/wildau", status: "coming-soon", features: ["32 °C Wasser", "Parkplätze"] },
   { name: "Bremen", center: "Waterfront", address: "AG-Weser-Str. 3, 28237 Bremen", route: "/standorte/bremen", status: "coming-soon", features: ["32 °C Wasser", "Zentrale Lage"] },
-  { name: "Erlangen", center: "Weidenweg", address: "Weidenweg 9, 91058 Erlangen", route: "/standorte/erlangen", status: "coming-soon", features: ["32 °C Wasser", "Parkplätze", "Alle Kurse"] },
+  { name: "Erlangen", center: "Weidenweg", address: "Weidenweg 1, 91058 Erlangen", route: "/standorte/erlangen", status: "coming-soon", features: ["32 °C Wasser", "Parkplätze", "Alle Kurse"] },
 ];
