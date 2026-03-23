@@ -556,7 +556,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
             ))}
           </div>
         </div>
-      </section>
+      </WaveSection>
 
       {/* ═══════════ 5. WARTELISTEN-FORMULAR ═══════════ */}
       <section ref={formRef} id="warteliste" className="py-16 md:py-32 bg-secondary/50 px-4 scroll-mt-0">
