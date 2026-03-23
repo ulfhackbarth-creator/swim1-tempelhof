@@ -2,15 +2,16 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
 import heroImage from "@/assets/hero-pool.jpg";
+import { HeroWave } from "@/components/HeroWave";
 const Hero = () => {
   const scrollToForm = () => {
     document.getElementById("warteliste")?.scrollIntoView({
       behavior: "smooth"
     });
   };
-  return <section className="relative min-h-[90vh] md:min-h-screen flex items-center justify-center overflow-hidden">
+  return <section className="relative min-h-[90vh] md:min-h-screen flex items-center justify-center overflow-visible">
       {/* Background Image */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 overflow-hidden">
         <img src={heroImage} alt="Modernes Schwimmbad mit kristallklarem Wasser" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-primary/75 via-primary/60 to-background/95" />
       </div>
@@ -107,6 +108,8 @@ const Hero = () => {
           <ChevronDown className="w-8 h-8 text-primary-foreground/60" />
         </motion.div>
       </motion.div>
+
+      <HeroWave fillColor="#f2f6f8" />
     </section>;
 };
 export default Hero;

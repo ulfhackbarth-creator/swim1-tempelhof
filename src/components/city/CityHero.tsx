@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
 
 import heroImage from "@/assets/hero-pool.jpg";
+import { HeroWave } from "@/components/HeroWave";
 import type { CityConfig } from "@/config/cities";
 
 interface CityHeroProps {
@@ -15,8 +16,8 @@ const CityHero = ({ city }: CityHeroProps) => {
   };
 
   return (
-    <section className="relative min-h-[90vh] md:min-h-screen flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 z-0">
+    <section className="relative min-h-[90vh] md:min-h-screen flex items-center justify-center overflow-visible">
+      <div className="absolute inset-0 z-0 overflow-hidden">
         <img src={heroImage} alt={`Modernes Schwimmbad – ${city.cityName}`} className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-primary/75 via-primary/60 to-background/95" />
       </div>
@@ -53,6 +54,8 @@ const CityHero = ({ city }: CityHeroProps) => {
           <ChevronDown className="w-8 h-8 text-primary-foreground/60" />
         </motion.div>
       </motion.div>
+
+      <HeroWave fillColor="#f2f6f8" />
     </section>
   );
 };
