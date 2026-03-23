@@ -390,7 +390,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
             {config.geoText}
           </p>
         </div>
-      </section>
+      </WaveSection>
 
       {/* ═══════════ TRUST STATS BAR ═══════════ */}
       <section className="bg-[#0C2D48] py-12 md:py-16">
