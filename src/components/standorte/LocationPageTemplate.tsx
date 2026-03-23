@@ -8,6 +8,7 @@ import {
   LifeBuoy, Dumbbell, HeartPulse, CheckCircle2, ChevronDown,
 } from "lucide-react";
 import { WaveDivider, ChevronDivider } from "@/components/SectionDividers";
+import type { LucideIcon } from "lucide-react";
 
 import TestimonialCard from "@/components/TestimonialCard";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
