@@ -20,6 +20,7 @@ import GlobalHeader from "@/components/home/GlobalHeader";
 import HomeFooter from "@/components/home/HomeFooter";
 import HeroVideoBackground from "@/components/HeroVideoBackground";
 import heroImage from "@/assets/hero-pool.jpg";
+import { HeroWave } from "@/components/HeroWave";
 
 /* ─── SHARED DATA ─── */
 
@@ -322,13 +323,15 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
       </nav>
 
       {/* ═══════════ 1. HERO ═══════════ */}
-      <section className="relative min-h-[85vh] md:min-h-[90vh] overflow-hidden">
-        {hasVideo ? (
-          <HeroVideoBackground videos={config.heroVideos!} poster={config.heroPoster} />
-        ) : (
-          <img src={heroImage} alt={config.heroHeadline} className="absolute inset-0 w-full h-full object-cover" />
-        )}
-        <div className="absolute inset-0 bg-[#0C2D48]/45" />
+      <section className="relative min-h-[85vh] md:min-h-[90vh]">
+        <div className="absolute inset-0 overflow-hidden">
+          {hasVideo ? (
+            <HeroVideoBackground videos={config.heroVideos!} poster={config.heroPoster} />
+          ) : (
+            <img src={heroImage} alt={config.heroHeadline} className="absolute inset-0 w-full h-full object-cover" />
+          )}
+          <div className="absolute inset-0 bg-[#0C2D48]/45" />
+        </div>
 
         <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 md:px-6 min-h-[85vh] md:min-h-[90vh] pt-32 md:pt-[120px] pb-8 md:pb-0">
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="max-w-4xl mx-auto">
@@ -349,6 +352,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
           </button>
           
         </div>
+        <HeroWave fillColor="#ffffff" />
       </section>
 
       {/* ═══════════ 2. STANDORT & AUSSTATTUNG ═══════════ */}
