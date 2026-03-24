@@ -172,7 +172,7 @@ const Index = () => {
                 onClick={() => window.scrollTo({ top: 0 })}
                 className="group bg-white rounded-[2rem] overflow-hidden shadow-lg shadow-slate-300/50 border-2 border-slate-200 flex flex-col h-full hover:-translate-y-1 hover:shadow-xl transition-all"
               >
-                <div className="relative overflow-hidden aspect-[4/3]">
+                <div className="relative overflow-hidden aspect-[16/9]">
                   <img
                     src={cat.image}
                     alt={cat.title}
