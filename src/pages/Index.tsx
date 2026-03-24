@@ -42,11 +42,11 @@ const trustStats = [
 ];
 
 const categories = [
-  { Icon: Droplets, tag: "Ab 3 Monaten", title: "Baby und Kleinkinder", text: "Wasser gemeinsam erleben, Bindung stärken, erste motorische Fähigkeiten aufbauen.", path: "/kurse/wassergewoehnung" },
-  { Icon: Waves, tag: "Ab 3,5 Jahren", title: "Kinderschwimmen", text: "Schwimmen von Grund auf lernen. Sicherheit im Wasser gewinnen. Eine Fähigkeit fürs Leben.", path: "/kurse/kinderschwimmen" },
-  { Icon: PersonStanding, tag: "Alle Level", title: "Erwachsenenschwimmen", text: "Es ist nie zu spät, schwimmen zu lernen. Sicherer Rahmen, erfahrene Trainer, dein Tempo.", path: "/kurse/erwachsene" },
-  { Icon: Activity, tag: "Gelenkschonend", title: "Aquafitness", text: "Bewegung im Wasser – gelenkschonend, in Gemeinschaft und mit echtem Spaß.", path: "/kurse/aquafitness" },
-  { Icon: HeartPulse, tag: "Auf Rezept", title: "Aqua Reha", text: "Zurück zu alter Stärke. Das Wasser gibt dir den Raum, den du dafür brauchst.", path: "/kurse/reha" },
+  { Icon: Droplets, tag: "Ab 3 Monaten", title: "Baby und Kleinkinder", text: "Wasser gemeinsam erleben, Bindung stärken, erste motorische Fähigkeiten aufbauen.", path: "/kurse/wassergewoehnung", image: babyImg },
+  { Icon: Waves, tag: "Ab 3,5 Jahren", title: "Kinderschwimmen", text: "Schwimmen von Grund auf lernen. Sicherheit im Wasser gewinnen. Eine Fähigkeit fürs Leben.", path: "/kurse/kinderschwimmen", image: kinderImg },
+  { Icon: PersonStanding, tag: "Alle Level", title: "Erwachsenenschwimmen", text: "Es ist nie zu spät, schwimmen zu lernen. Sicherer Rahmen, erfahrene Trainer, dein Tempo.", path: "/kurse/erwachsene", image: erwachseneImg },
+  { Icon: Activity, tag: "Gelenkschonend", title: "Aquafitness", text: "Bewegung im Wasser – gelenkschonend, in Gemeinschaft und mit echtem Spaß.", path: "/kurse/aquafitness", image: aquafitnessImg },
+  { Icon: HeartPulse, tag: "Auf Rezept", title: "Aqua Reha", text: "Zurück zu alter Stärke. Das Wasser gibt dir den Raum, den du dafür brauchst.", path: "/kurse/reha", image: aquarehaImg },
 ];
 
 const philosophy = [
