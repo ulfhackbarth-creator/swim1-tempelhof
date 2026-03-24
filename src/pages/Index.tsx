@@ -7,7 +7,7 @@ import { ArrowRight, ArrowDown, Star, Waves, Droplets, PersonStanding, Activity,
 import babyImg from "@/assets/courses/baby-kleinkinder.jpg";
 import kinderImg from "@/assets/courses/kinderschwimmen.jpg";
 import erwachseneImg from "@/assets/courses/erwachsene.jpg";
-import aquafitnessImg from "@/assets/courses/aquafitness.jpg";
+import aquafitnessImg from "@/assets/courses/aquafitness.png";
 import aquarehaImg from "@/assets/courses/aquareha.jpg";
 
 import TestimonialCard from "@/components/TestimonialCard";
