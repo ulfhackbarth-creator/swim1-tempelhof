@@ -170,21 +170,29 @@ const Index = () => {
               <Link
                 to={cat.path}
                 onClick={() => window.scrollTo({ top: 0 })}
-                className="group bg-white rounded-[2rem] p-6 md:p-10 shadow-lg shadow-slate-300/50 border-2 border-slate-200 flex flex-col h-full hover:-translate-y-1 hover:shadow-xl transition-all"
+                className="group bg-white rounded-[2rem] overflow-hidden shadow-lg shadow-slate-300/50 border-2 border-slate-200 flex flex-col h-full hover:-translate-y-1 hover:shadow-xl transition-all"
               >
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="w-12 h-12 shrink-0 rounded-2xl bg-secondary text-[#0C2D48] flex items-center justify-center group-hover:scale-105 transition-transform">
-                    <cat.Icon className="w-6 h-6" strokeWidth={1.5} />
-                  </div>
-                  <div className="min-w-0">
-                    <span className="text-xs font-bold uppercase tracking-widest text-[#0C2D48]">{cat.tag}</span>
-                    <h3 className="text-xl xl:text-2xl font-bold text-slate-900 break-words hyphens-auto">{cat.title}</h3>
+                <div className="relative overflow-hidden aspect-[4/3]">
+                  <img
+                    src={cat.image}
+                    alt={cat.title}
+                    loading="lazy"
+                    width={800}
+                    height={640}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute top-4 left-4 w-11 h-11 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-md">
+                    <cat.Icon className="w-5 h-5 text-[#0C2D48]" strokeWidth={1.5} />
                   </div>
                 </div>
-                <p className="text-slate-600 leading-relaxed mb-6 flex-1">{cat.text}</p>
-                <span className="inline-flex items-center text-[#0C2D48] font-semibold gap-1 group-hover:gap-2 transition-all">
-                  Mehr erfahren <ArrowRight className="w-4 h-4" />
-                </span>
+                <div className="p-5 md:p-6 flex flex-col flex-1">
+                  <span className="text-xs font-bold uppercase tracking-widest text-[#0C2D48] mb-1">{cat.tag}</span>
+                  <h3 className="text-xl xl:text-2xl font-bold text-slate-900 mb-2">{cat.title}</h3>
+                  <p className="text-slate-600 leading-relaxed mb-5 flex-1">{cat.text}</p>
+                  <span className="inline-flex items-center text-[#0C2D48] font-semibold gap-1 group-hover:gap-2 transition-all">
+                    Mehr erfahren <ArrowRight className="w-4 h-4" />
+                  </span>
+                </div>
               </Link>
             </motion.div>
           ))}
