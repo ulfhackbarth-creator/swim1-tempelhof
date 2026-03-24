@@ -4,6 +4,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, ArrowDown, Star, Waves, Droplets, PersonStanding, Activity, HeartPulse, ShieldCheck, Lock, Users, Heart, Check, MapPin, ChevronLeft, ChevronRight as ChevronRightIcon, ChevronDown } from "lucide-react";
 
+import babyImg from "@/assets/courses/baby-kleinkinder.jpg";
+import kinderImg from "@/assets/courses/kinderschwimmen.jpg";
+import erwachseneImg from "@/assets/courses/erwachsene.jpg";
+import aquafitnessImg from "@/assets/courses/aquafitness.jpg";
+import aquarehaImg from "@/assets/courses/aquareha.jpg";
+
 import TestimonialCard from "@/components/TestimonialCard";
 import GlobalHeader from "@/components/home/GlobalHeader";
 import HomeFooter from "@/components/home/HomeFooter";
@@ -36,11 +42,11 @@ const trustStats = [
 ];
 
 const categories = [
-  { Icon: Droplets, tag: "Ab 3 Monaten", title: "Baby und Kleinkinder", text: "Wasser gemeinsam erleben, Bindung stärken, erste motorische Fähigkeiten aufbauen.", path: "/kurse/wassergewoehnung" },
-  { Icon: Waves, tag: "Ab 3,5 Jahren", title: "Kinderschwimmen", text: "Schwimmen von Grund auf lernen. Sicherheit im Wasser gewinnen. Eine Fähigkeit fürs Leben.", path: "/kurse/kinderschwimmen" },
-  { Icon: PersonStanding, tag: "Alle Level", title: "Erwachsenenschwimmen", text: "Es ist nie zu spät, schwimmen zu lernen. Sicherer Rahmen, erfahrene Trainer, dein Tempo.", path: "/kurse/erwachsene" },
-  { Icon: Activity, tag: "Gelenkschonend", title: "Aquafitness", text: "Bewegung im Wasser – gelenkschonend, in Gemeinschaft und mit echtem Spaß.", path: "/kurse/aquafitness" },
-  { Icon: HeartPulse, tag: "Auf Rezept", title: "Aqua Reha", text: "Zurück zu alter Stärke. Das Wasser gibt dir den Raum, den du dafür brauchst.", path: "/kurse/reha" },
+  { Icon: Droplets, tag: "Ab 3 Monaten", title: "Baby und Kleinkinder", text: "Wasser gemeinsam erleben, Bindung stärken, erste motorische Fähigkeiten aufbauen.", path: "/kurse/wassergewoehnung", image: babyImg },
+  { Icon: Waves, tag: "Ab 3,5 Jahren", title: "Kinderschwimmen", text: "Schwimmen von Grund auf lernen. Sicherheit im Wasser gewinnen. Eine Fähigkeit fürs Leben.", path: "/kurse/kinderschwimmen", image: kinderImg },
+  { Icon: PersonStanding, tag: "Alle Level", title: "Erwachsenenschwimmen", text: "Es ist nie zu spät, schwimmen zu lernen. Sicherer Rahmen, erfahrene Trainer, dein Tempo.", path: "/kurse/erwachsene", image: erwachseneImg },
+  { Icon: Activity, tag: "Gelenkschonend", title: "Aquafitness", text: "Bewegung im Wasser – gelenkschonend, in Gemeinschaft und mit echtem Spaß.", path: "/kurse/aquafitness", image: aquafitnessImg },
+  { Icon: HeartPulse, tag: "Auf Rezept", title: "Aqua Reha", text: "Zurück zu alter Stärke. Das Wasser gibt dir den Raum, den du dafür brauchst.", path: "/kurse/reha", image: aquarehaImg },
 ];
 
 const philosophy = [
@@ -164,21 +170,29 @@ const Index = () => {
               <Link
                 to={cat.path}
                 onClick={() => window.scrollTo({ top: 0 })}
-                className="group bg-white rounded-[2rem] p-6 md:p-10 shadow-lg shadow-slate-300/50 border-2 border-slate-200 flex flex-col h-full hover:-translate-y-1 hover:shadow-xl transition-all"
+                className="group bg-white rounded-[2rem] overflow-hidden shadow-lg shadow-slate-300/50 border-2 border-slate-200 flex flex-col h-full hover:-translate-y-1 hover:shadow-xl transition-all"
               >
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="w-12 h-12 shrink-0 rounded-2xl bg-secondary text-[#0C2D48] flex items-center justify-center group-hover:scale-105 transition-transform">
-                    <cat.Icon className="w-6 h-6" strokeWidth={1.5} />
-                  </div>
-                  <div className="min-w-0">
-                    <span className="text-xs font-bold uppercase tracking-widest text-[#0C2D48]">{cat.tag}</span>
-                    <h3 className="text-xl xl:text-2xl font-bold text-slate-900 break-words hyphens-auto">{cat.title}</h3>
+                <div className="relative overflow-hidden aspect-[4/3]">
+                  <img
+                    src={cat.image}
+                    alt={cat.title}
+                    loading="lazy"
+                    width={800}
+                    height={640}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute top-4 left-4 w-11 h-11 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-md">
+                    <cat.Icon className="w-5 h-5 text-[#0C2D48]" strokeWidth={1.5} />
                   </div>
                 </div>
-                <p className="text-slate-600 leading-relaxed mb-6 flex-1">{cat.text}</p>
-                <span className="inline-flex items-center text-[#0C2D48] font-semibold gap-1 group-hover:gap-2 transition-all">
-                  Mehr erfahren <ArrowRight className="w-4 h-4" />
-                </span>
+                <div className="p-5 md:p-6 flex flex-col flex-1">
+                  <span className="text-xs font-bold uppercase tracking-widest text-[#0C2D48] mb-1">{cat.tag}</span>
+                  <h3 className="text-xl xl:text-2xl font-bold text-slate-900 mb-2">{cat.title}</h3>
+                  <p className="text-slate-600 leading-relaxed mb-5 flex-1">{cat.text}</p>
+                  <span className="inline-flex items-center text-[#0C2D48] font-semibold gap-1 group-hover:gap-2 transition-all">
+                    Mehr erfahren <ArrowRight className="w-4 h-4" />
+                  </span>
+                </div>
               </Link>
             </motion.div>
           ))}
