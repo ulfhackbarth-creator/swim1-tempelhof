@@ -4,6 +4,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, ArrowDown, Star, Waves, Droplets, PersonStanding, Activity, HeartPulse, ShieldCheck, Lock, Users, Heart, Check, MapPin, ChevronLeft, ChevronRight as ChevronRightIcon, ChevronDown } from "lucide-react";
 
+import babyImg from "@/assets/courses/baby-kleinkinder.jpg";
+import kinderImg from "@/assets/courses/kinderschwimmen.jpg";
+import erwachseneImg from "@/assets/courses/erwachsene.jpg";
+import aquafitnessImg from "@/assets/courses/aquafitness.jpg";
+import aquarehaImg from "@/assets/courses/aquareha.jpg";
+
 import TestimonialCard from "@/components/TestimonialCard";
 import GlobalHeader from "@/components/home/GlobalHeader";
 import HomeFooter from "@/components/home/HomeFooter";
