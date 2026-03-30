@@ -99,8 +99,8 @@ const CityWaitlistForm = ({ city }: CityWaitlistFormProps) => {
       setIsSubmitted(true);
 
       // GTM dataLayer event
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
+      (window as any).dataLayer = (window as any).dataLayer || [];
+      (window as any).dataLayer.push({
         'event': 'warteliste_eintrag',
         'standort': city.slug,
       });
