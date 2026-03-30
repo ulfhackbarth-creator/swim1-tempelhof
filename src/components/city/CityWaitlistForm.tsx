@@ -97,6 +97,14 @@ const CityWaitlistForm = ({ city }: CityWaitlistFormProps) => {
       }
 
       setIsSubmitted(true);
+
+      // GTM dataLayer event
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        'event': 'warteliste_eintrag',
+        'standort': city.slug,
+      });
+
       toast({
         title: "Erfolgreich eingetragen!",
         description: "Du erhältst alle Neuigkeiten zuerst.",
