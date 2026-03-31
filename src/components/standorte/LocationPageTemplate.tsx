@@ -505,6 +505,9 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
                           </div>
                         );
                       })}
+                      {config.courseAppendText && (
+                        <p className="text-sm text-slate-500 italic pt-2">{config.courseAppendText}</p>
+                      )}
                     </div>
                   ) : (
                     <div className="space-y-3">
@@ -551,6 +554,9 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
                           </div>
                         );
                       })()}
+                      {config.courseAppendText && (
+                        <p className="text-sm text-slate-500 italic pt-2">{config.courseAppendText}</p>
+                      )}
                     </div>
                   )}
                 </AccordionContent>
