@@ -112,6 +112,8 @@ export interface LocationConfig {
   heroHeadline: string;
   heroVideos?: string[];
   heroPoster?: string;
+  heroBadge?: string;
+  heroSubline?: string;
   locationInfo: { icon: LucideIcon; title: string; text: string }[];
   testimonials: { name: string; location: string; text: string; course: string; stars: number }[];
   faqs: { q: string; a: string }[];
@@ -120,6 +122,11 @@ export interface LocationConfig {
   metaDescription: string;
   displayName: string;
   geoText: string;
+  courseHeading?: string;
+  courseSubline?: string;
+  courseAppendText?: string;
+  waitlistHeading?: string;
+  waitlistIntro?: string;
   address: {
     streetAddress: string;
     addressLocality: string;
@@ -339,11 +346,16 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
 
         <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 md:px-6 min-h-[85vh] md:min-h-[90vh] pt-32 md:pt-[120px] pb-8 md:pb-0" style={{ paddingBottom: '120px' }}>
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: "easeOut" }} className="max-w-4xl mx-auto">
+            {config.heroBadge && (
+              <span className="inline-block px-4 py-1.5 mb-6 text-sm font-bold bg-[#C6FF00] text-[#0C2D48] rounded-full">
+                {config.heroBadge}
+              </span>
+            )}
             <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold text-white tracking-tight leading-tight md:leading-[1.1] mb-4 md:mb-6">
               {config.heroHeadline}
             </h1>
             <p className="text-base md:text-lg text-white/85 max-w-2xl mx-auto">
-              Kleine Gruppen · Zertifizierte Trainer · 32 °C warmes Wasser
+              {config.heroSubline || "Kleine Gruppen · Zertifizierte Trainer · 32 °C warmes Wasser"}
             </p>
           </motion.div>
 
@@ -421,8 +433,8 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
       <section className="pt-8 pb-16 md:pt-12 md:pb-32 bg-secondary/50 px-4 md:px-6">
         <div className="max-w-3xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, ease: "easeOut" }} className="text-center mb-12 md:mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mb-4">Unser Kursangebot</h2>
-            <p className="text-slate-500">Wähle eine Kategorie und sichere dir deinen Platz. Keine versteckten Kosten – transparente Preise.</p>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mb-4">{config.courseHeading || "Unser Kursangebot"}</h2>
+            <p className="text-slate-500">{config.courseSubline || "Wähle eine Kategorie und sichere dir deinen Platz. Keine versteckten Kosten – transparente Preise."}</p>
           </motion.div>
 
           <Accordion type="single" collapsible value={activeAccordion} onValueChange={setActiveAccordion} className="space-y-3">
@@ -493,6 +505,9 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
                           </div>
                         );
                       })}
+                      {config.courseAppendText && (
+                        <p className="text-sm text-slate-500 italic pt-2">{config.courseAppendText}</p>
+                      )}
                     </div>
                   ) : (
                     <div className="space-y-3">
@@ -539,6 +554,9 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
                           </div>
                         );
                       })()}
+                      {config.courseAppendText && (
+                        <p className="text-sm text-slate-500 italic pt-2">{config.courseAppendText}</p>
+                      )}
                     </div>
                   )}
                 </AccordionContent>
@@ -586,9 +604,9 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
           ) : (
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, ease: "easeOut" }}>
               <div className="text-center mb-10">
-                <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 mb-4">Sichere dir jetzt deinen Platz!</h2>
+                <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 mb-4">{config.waitlistHeading || "Sichere dir jetzt deinen Platz!"}</h2>
                 <p className="text-slate-500">
-                  Bereits über {config.waitlistCount} Kursteilnehmer stehen auf der Liste. Trag dich jetzt unverbindlich ein, bevor die Warteliste schließt.
+                  {config.waitlistIntro || `Bereits über ${config.waitlistCount} Kursteilnehmer stehen auf der Liste. Trag dich jetzt unverbindlich ein, bevor die Warteliste schließt.`}
                 </p>
 
                 <div className="flex items-center justify-center gap-3 mt-5">
