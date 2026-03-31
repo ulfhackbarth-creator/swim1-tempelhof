@@ -33,6 +33,7 @@ const config: LocationConfig = {
     { q: "Wo genau befindet sich der Standort?", a: "Unser Standort befindet sich in der Waterfront Bremen an der Weser, mit hervorragender Anbindung per Straßenbahn und über 4.000 kostenlosen Parkplätzen." },
   ],
   waitlistCount: "60+",
+  plzExample: "28237",
   metaTitle: "Schwimmschule Bremen | Kurse & Warteliste | SWIM1",
   metaDescription: "Deine Premium Schwimmschule in Bremen. Jetzt unverbindlich auf die Warteliste für Kinderschwimmen, Babyschwimmen und Erwachsenenkurse eintragen.",
 };

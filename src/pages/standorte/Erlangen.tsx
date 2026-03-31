@@ -33,6 +33,7 @@ const config: LocationConfig = {
     { q: "Wann startet der Standort?", a: "Eröffnung zur Saison 2026 – sobald der genaue Starttermin feststeht, informieren wir alle Wartelisten-Teilnehmer als Erste." },
   ],
   waitlistCount: "80+",
+  plzExample: "91058",
   metaTitle: "Schwimmschule Erlangen | Kurse & Warteliste | SWIM1",
   metaDescription: "SWIM1 Erlangen – Schwimmkurse für Kinder & Erwachsene. Kleine Gruppen, 32 °C warmes Wasser, zertifizierte Trainer. Jetzt Platz auf der Warteliste sichern.",
 };

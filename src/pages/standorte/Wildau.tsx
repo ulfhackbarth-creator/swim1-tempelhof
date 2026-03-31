@@ -33,6 +33,7 @@ const config: LocationConfig = {
     { q: "Wo genau befindet sich der Standort?", a: "Unser Standort befindet sich im A10 Center Wildau an der Chausseestraße, mit hervorragender Anbindung über die A10 und ausreichend kostenlosen Parkplätzen." },
   ],
   waitlistCount: "50+",
+  plzExample: "15745",
   metaTitle: "Schwimmschule Wildau | Kurse & Warteliste | SWIM1",
   metaDescription: "Deine Premium Schwimmschule in Wildau. Jetzt unverbindlich auf die Warteliste für Kinderschwimmen, Babyschwimmen und Erwachsenenkurse eintragen.",
 };

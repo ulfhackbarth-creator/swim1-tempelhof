@@ -127,6 +127,7 @@ export interface LocationConfig {
   courseAppendText?: string;
   waitlistHeading?: string;
   waitlistIntro?: string;
+  plzExample?: string;
   address: {
     streetAddress: string;
     addressLocality: string;
@@ -637,7 +638,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
 
                 <div className="space-y-2">
                   <Label htmlFor="wl-plz" className="text-slate-900 font-semibold">PLZ / Stadtteil</Label>
-                  <Input id="wl-plz" placeholder="z.B. 12099" value={formData.plz} onChange={(e) => { setFormData({ ...formData, plz: e.target.value }); setErrors((p) => ({ ...p, plz: "" })); }} className={`bg-slate-50 border-slate-200 ${errors.plz ? "border-destructive" : ""}`} />
+                  <Input id="wl-plz" placeholder={`z.B. ${config.plzExample || "12099"}`} value={formData.plz} onChange={(e) => { setFormData({ ...formData, plz: e.target.value }); setErrors((p) => ({ ...p, plz: "" })); }} className={`bg-slate-50 border-slate-200 ${errors.plz ? "border-destructive" : ""}`} />
                   {errors.plz && <p className="text-sm text-destructive">{errors.plz}</p>}
                 </div>
 
