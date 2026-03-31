@@ -9,7 +9,7 @@ const config: LocationConfig = {
   heroPoster: "/videos/standort_schwerin_desktop_poster.jpg",
   heroHeadline: "SWIM1 kommt nach Schwerin! Eröffnung 2026.",
   heroBadge: "Bald in deiner Nähe!",
-  heroSubline: "Sichere dir jetzt deinen Platz auf der Warteliste für unsere neue Schwimmschule in Schwerin. Kleine Gruppen · Zertifizierte Trainer · 32 °C warmes Wasser.",
+  heroSubline: "Kleine Gruppen · Zertifizierte Trainer · 32 °C warmes Wasser.",
   address: {
     streetAddress: "Marienplatz 5–6",
     addressLocality: "Schwerin",
