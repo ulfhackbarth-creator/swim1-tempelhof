@@ -127,6 +127,7 @@ export interface LocationConfig {
   courseAppendText?: string;
   waitlistHeading?: string;
   waitlistIntro?: string;
+  plzExample?: string;
   address: {
     streetAddress: string;
     addressLocality: string;
