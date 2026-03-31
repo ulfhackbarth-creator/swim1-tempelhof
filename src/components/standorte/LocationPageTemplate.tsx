@@ -598,9 +598,9 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
           ) : (
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, ease: "easeOut" }}>
               <div className="text-center mb-10">
-                <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 mb-4">Sichere dir jetzt deinen Platz!</h2>
+                <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 mb-4">{config.waitlistHeading || "Sichere dir jetzt deinen Platz!"}</h2>
                 <p className="text-slate-500">
-                  Bereits über {config.waitlistCount} Kursteilnehmer stehen auf der Liste. Trag dich jetzt unverbindlich ein, bevor die Warteliste schließt.
+                  {config.waitlistIntro || `Bereits über ${config.waitlistCount} Kursteilnehmer stehen auf der Liste. Trag dich jetzt unverbindlich ein, bevor die Warteliste schließt.`}
                 </p>
 
                 <div className="flex items-center justify-center gap-3 mt-5">
