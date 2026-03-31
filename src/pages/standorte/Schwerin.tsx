@@ -41,6 +41,7 @@ const config: LocationConfig = {
     { q: "Wo genau befindet sich der Standort?", a: "Der neue Standort wird im Schlosspark-Center entstehen. Aktuell laufen die Vorbereitungen." },
   ],
   waitlistCount: "80+",
+  plzExample: "19053",
   metaTitle: "Schwimmschule Schwerin | Kurse & Warteliste | SWIM1",
   metaDescription: "Deine Premium Schwimmschule in Schwerin. Jetzt unverbindlich auf die Warteliste für Kinderschwimmen, Babyschwimmen und Erwachsenenkurse eintragen.",
 };

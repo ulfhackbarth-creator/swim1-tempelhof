@@ -33,6 +33,7 @@ const config: LocationConfig = {
     { q: "Wann startet der Standort?", a: "Eröffnung zur Saison 2026 – sobald der genaue Starttermin feststeht, informieren wir alle Wartelisten-Teilnehmer als Erste." },
   ],
   waitlistCount: "120+",
+  plzExample: "12099",
   metaTitle: "Schwimmschule Berlin-Tempelhof | Kurse & Warteliste | SWIM1",
   metaDescription: "Deine Premium Schwimmschule in Berlin-Tempelhof. Jetzt unverbindlich auf die Warteliste für Kinderschwimmen, Babyschwimmen und Erwachsenenkurse eintragen.",
 };
