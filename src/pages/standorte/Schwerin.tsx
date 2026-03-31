@@ -33,11 +33,12 @@ const config: LocationConfig = {
     { name: "Anne S.", location: "Schwerin-Weststadt", text: "Toll, dass es bald auch Aquafitness im Schlosspark-Center gibt. Ich bin schon auf der Warteliste – kann es kaum erwarten!", course: "Aquafitness", stars: 5 },
   ],
   faqs: [
+    { q: "Wann genau eröffnet der Standort Schwerin?", a: "Wir planen die Eröffnung für das Jahr 2026. Sobald der genaue Termin feststeht, informieren wir alle Personen auf der Warteliste als Erstes." },
     { q: "Was muss ich zum ersten Termin mitbringen?", a: "Badekleidung, Handtuch, Badelatschen und für Kinder ggf. eine Schwimmwindel. Föhns und Umkleiden sind vorhanden." },
     { q: "Darf ich beim Kurs zuschauen?", a: "Bei Kinderkursen gibt es einen Eltern-Wartebereich mit Blick auf das Becken. Bei Erwachsenenkursen ist das Bad ohne Zuschauer – für ein entspanntes Lernumfeld." },
     { q: "Ist die Eintragung verbindlich?", a: "Nein, die Warteliste ist zu 100 % unverbindlich und kostenlos. Du gehst keinerlei Verpflichtung ein." },
     { q: "Werden die Kosten von der Krankenkasse übernommen?", a: "Für unsere zertifizierten Aqua Reha Kurse übernehmen alle gesetzlichen Krankenkassen die Kosten bei Vorlage eines ärztlichen Rezepts." },
-    { q: "Wo genau befindet sich der Standort?", a: "Unser Standort befindet sich im Schlosspark-Center Schwerin am Marienplatz, zentral gelegen mit guter ÖPNV-Anbindung und ausreichend Parkmöglichkeiten." },
+    { q: "Wo genau befindet sich der Standort?", a: "Der neue Standort wird im Schlosspark-Center entstehen. Aktuell laufen die Vorbereitungen." },
   ],
   waitlistCount: "80+",
   metaTitle: "Schwimmschule Schwerin | Kurse & Warteliste | SWIM1",
