@@ -112,6 +112,8 @@ export interface LocationConfig {
   heroHeadline: string;
   heroVideos?: string[];
   heroPoster?: string;
+  heroBadge?: string;
+  heroSubline?: string;
   locationInfo: { icon: LucideIcon; title: string; text: string }[];
   testimonials: { name: string; location: string; text: string; course: string; stars: number }[];
   faqs: { q: string; a: string }[];
@@ -120,6 +122,11 @@ export interface LocationConfig {
   metaDescription: string;
   displayName: string;
   geoText: string;
+  courseHeading?: string;
+  courseSubline?: string;
+  courseAppendText?: string;
+  waitlistHeading?: string;
+  waitlistIntro?: string;
   address: {
     streetAddress: string;
     addressLocality: string;
