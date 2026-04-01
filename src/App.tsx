@@ -14,6 +14,7 @@ import Schwerin from "./pages/standorte/Schwerin";
 import Wildau from "./pages/standorte/Wildau";
 import Bremen from "./pages/standorte/Bremen";
 import Erlangen from "./pages/standorte/Erlangen";
+import Standorte from "./pages/Standorte";
 import Impressum from "./pages/legal/Impressum";
 import Datenschutz from "./pages/legal/Datenschutz";
 import AGB from "./pages/legal/AGB";
@@ -42,6 +43,7 @@ const App = () => (
           <Route path="/standorte/wildau" element={<Wildau />} />
           <Route path="/standorte/bremen" element={<Bremen />} />
           <Route path="/standorte/erlangen" element={<Erlangen />} />
+          <Route path="/standorte" element={<Standorte />} />
           {/* Legacy routes → permanent redirects */}
           <Route path="/schwerin" element={<Navigate to="/standorte/schwerin" replace />} />
           <Route path="/wildau" element={<Navigate to="/standorte/wildau" replace />} />

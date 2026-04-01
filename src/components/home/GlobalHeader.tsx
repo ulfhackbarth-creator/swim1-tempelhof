@@ -177,6 +177,13 @@ const GlobalHeader = () => {
                       <MapPin className="w-4 h-4 text-slate-400" /> {s.name}
                     </Link>
                   ))}
+                  <Link
+                    to="/standorte"
+                    onClick={() => { setMenuOpen(false); window.scrollTo({ top: 0 }); }}
+                    className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-primary font-semibold hover:bg-slate-50 transition-colors text-sm mt-1 border-t border-slate-100 pt-3"
+                  >
+                    Alle Standorte →
+                  </Link>
                 </CollapsibleSection>
 
                 {/* Kurse section — collapsible, collapsed by default */}
