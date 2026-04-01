@@ -30,7 +30,7 @@ const config: LocationConfig = {
   testimonials: [
     { name: "Laura M.", location: "Bremen-Mitte", text: "Wir freuen uns riesig, dass SWIM1 nach Bremen kommt! Endlich eine professionelle Schwimmschule mit warmem Wasser direkt vor der Haustür.", course: "Seepferdchenkurs", stars: 5 },
     { name: "Stefan K.", location: "Bremen-Nord", text: "Meine Kinder lieben Wasser und wir haben lange nach einem guten Kursangebot in Bremen gesucht. SWIM1 klingt perfekt!", course: "Wassergewöhnung", stars: 5 },
-    { name: "Maria S.", location: "Bremen-Ost", text: "Toll, dass es bald auch Aquafitness im Oland Center Bremen gibt. Ich bin schon auf der Warteliste – kann es kaum erwarten!", course: "Aquafitness", stars: 5 },
+    { name: "Maria S.", location: "Bremen-Ost", text: "Toll, dass es bald auch Aquafitness im Roland Center Bremen gibt. Ich bin schon auf der Warteliste – kann es kaum erwarten!", course: "Aquafitness", stars: 5 },
   ],
   faqs: [
     { q: "Wann genau eröffnet der Standort Bremen?", a: "Wir planen die Eröffnung für das Jahr 2026. Sobald der genaue Termin feststeht, informieren wir alle Personen auf der Warteliste als Erstes." },
