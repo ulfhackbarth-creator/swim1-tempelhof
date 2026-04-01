@@ -41,7 +41,7 @@ const config: LocationConfig = {
     { q: "Wo genau befindet sich der Standort?", a: "Der neue Standort wird im Roland Center, Alter Dorfweg 30-50, 28259 Bremen entstehen. Aktuell laufen die Vorbereitungen." },
   ],
   waitlistCount: "60+",
-  plzExample: "28237",
+  plzExample: "28259",
   metaTitle: "Schwimmschule Bremen | Kurse & Warteliste | SWIM1",
   metaDescription: "Deine Premium Schwimmschule in Bremen. Jetzt unverbindlich auf die Warteliste für Kinderschwimmen, Babyschwimmen und Erwachsenenkurse eintragen.",
 };
