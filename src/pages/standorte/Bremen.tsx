@@ -22,8 +22,8 @@ const config: LocationConfig = {
   waitlistHeading: "Sei von Anfang an dabei – trag dich unverbindlich ein!",
   waitlistIntro: "Die Plätze für unsere Neueröffnung 2026 sind limitiert. Sichere dir jetzt unverbindlich deinen Platz auf der Warteliste.",
   locationInfo: [
-    { icon: MapPin, title: "Adresse", text: "Roland Center, AG-Weser-Str. 3, 28237 Bremen" },
-    { icon: Train, title: "ÖPNV", text: "Straßenbahn Linie 3 & 5, Haltestelle Waterfront" },
+    { icon: MapPin, title: "Adresse", text: "Roland Center, Alter Dorfweg 30-50, 28259 Bremen" },
+    { icon: Train, title: "ÖPNV", text: "Gute ÖPNV-Anbindung, Haltestelle Roland Center" },
     { icon: Clock, title: "Öffnungszeiten", text: "Mo–Fr 07:00–21:00 · Sa 08:00–18:00" },
     { icon: Car, title: "Kostenlose Parkplätze", text: "Ausreichend Parkplätze am Roland Center" },
   ],
