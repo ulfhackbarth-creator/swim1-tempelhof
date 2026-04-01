@@ -15,7 +15,7 @@ const config: LocationConfig = {
     addressLocality: "Bremen",
     postalCode: "28237",
   },
-  geoText: "Wir bauen aktuell für dich! Ab 2026 findest du unseren neuen Standort im Oland Center – ideal erreichbar für Familien aus Gröpelingen, Walle, Findorff und der Bremer Neustadt. Dank der Straßenbahn-Anbindung (Linie 3 & 5) und ausreichend Parkmöglichkeiten sind wir deine zentrale Schwimmschule an der Weser. Werde Teil der SWIM1-Familie!",
+  geoText: "Wir bauen aktuell für dich! Ab 2026 findest du unseren neuen Standort im Roland Center – ideal erreichbar für Familien aus Gröpelingen, Walle, Findorff und der Bremer Neustadt. Dank der Straßenbahn-Anbindung (Linie 3 & 5) und ausreichend Parkmöglichkeiten sind wir deine zentrale Schwimmschule an der Weser. Werde Teil der SWIM1-Familie!",
   courseHeading: "Unsere geplanten Kurse ab 2026",
   courseSubline: "Wähle eine Kategorie und trag dich in die Warteliste ein.",
   courseAppendText: "Trag dich in die Warteliste ein, um als Erstes über den Kursstart informiert zu werden.",
