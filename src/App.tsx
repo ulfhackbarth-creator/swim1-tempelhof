@@ -14,6 +14,7 @@ import Schwerin from "./pages/standorte/Schwerin";
 import Wildau from "./pages/standorte/Wildau";
 import Bremen from "./pages/standorte/Bremen";
 import Erlangen from "./pages/standorte/Erlangen";
+import Standorte from "./pages/Standorte";
 import Impressum from "./pages/legal/Impressum";
 import Datenschutz from "./pages/legal/Datenschutz";
 import AGB from "./pages/legal/AGB";
