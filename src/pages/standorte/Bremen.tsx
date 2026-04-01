@@ -22,7 +22,7 @@ const config: LocationConfig = {
   waitlistHeading: "Sei von Anfang an dabei – trag dich unverbindlich ein!",
   waitlistIntro: "Die Plätze für unsere Neueröffnung 2026 sind limitiert. Sichere dir jetzt unverbindlich deinen Platz auf der Warteliste.",
   locationInfo: [
-    { icon: MapPin, title: "Adresse", text: "Oland Center, AG-Weser-Str. 3, 28237 Bremen" },
+    { icon: MapPin, title: "Adresse", text: "Roland Center, AG-Weser-Str. 3, 28237 Bremen" },
     { icon: Train, title: "ÖPNV", text: "Straßenbahn Linie 3 & 5, Haltestelle Waterfront" },
     { icon: Clock, title: "Öffnungszeiten", text: "Mo–Fr 07:00–21:00 · Sa 08:00–18:00" },
     { icon: Car, title: "Kostenlose Parkplätze", text: "Ausreichend Parkplätze am Oland Center" },
