@@ -35,6 +35,7 @@ const HomeFooter = () => (
             <Link to="/standorte/wildau" onClick={scrollTop} className="hover:text-white transition-colors">Wildau</Link>
             <Link to="/standorte/bremen" onClick={scrollTop} className="hover:text-white transition-colors">Bremen</Link>
             <Link to="/standorte/erlangen" onClick={scrollTop} className="hover:text-white transition-colors">Erlangen</Link>
+            <Link to="/standorte" onClick={scrollTop} className="hover:text-white transition-colors font-medium">Alle Standorte</Link>
           </nav>
         </div>
 

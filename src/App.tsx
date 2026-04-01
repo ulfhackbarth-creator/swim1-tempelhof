@@ -43,6 +43,7 @@ const App = () => (
           <Route path="/standorte/wildau" element={<Wildau />} />
           <Route path="/standorte/bremen" element={<Bremen />} />
           <Route path="/standorte/erlangen" element={<Erlangen />} />
+          <Route path="/standorte" element={<Standorte />} />
           {/* Legacy routes → permanent redirects */}
           <Route path="/schwerin" element={<Navigate to="/standorte/schwerin" replace />} />
           <Route path="/wildau" element={<Navigate to="/standorte/wildau" replace />} />
