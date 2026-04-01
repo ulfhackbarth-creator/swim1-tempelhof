@@ -25,7 +25,7 @@ const config: LocationConfig = {
     { icon: MapPin, title: "Adresse", text: "Roland Center, AG-Weser-Str. 3, 28237 Bremen" },
     { icon: Train, title: "ÖPNV", text: "Straßenbahn Linie 3 & 5, Haltestelle Waterfront" },
     { icon: Clock, title: "Öffnungszeiten", text: "Mo–Fr 07:00–21:00 · Sa 08:00–18:00" },
-    { icon: Car, title: "Kostenlose Parkplätze", text: "Ausreichend Parkplätze am Oland Center" },
+    { icon: Car, title: "Kostenlose Parkplätze", text: "Ausreichend Parkplätze am Roland Center" },
   ],
   testimonials: [
     { name: "Laura M.", location: "Bremen-Mitte", text: "Wir freuen uns riesig, dass SWIM1 nach Bremen kommt! Endlich eine professionelle Schwimmschule mit warmem Wasser direkt vor der Haustür.", course: "Seepferdchenkurs", stars: 5 },
