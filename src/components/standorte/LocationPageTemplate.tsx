@@ -401,6 +401,17 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
             ))}
           </div>
 
+          {/* Google Maps Placeholder */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.3, ease: "easeOut" }}
+            className="mt-10 md:mt-14 w-full h-[200px] md:h-[250px] rounded-2xl bg-slate-100 flex items-center justify-center"
+          >
+            <p className="text-slate-400 text-sm font-medium">Kartenansicht folgt in Kürze</p>
+          </motion.div>
+
           {/* Geo-Targeting Text */}
           <p className="text-sm text-slate-400 leading-relaxed mt-10 md:mt-14 text-center max-w-2xl mx-auto">
             {config.geoText}
