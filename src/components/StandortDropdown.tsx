@@ -80,6 +80,14 @@ const StandortDropdown = ({
             </Link>
           </DropdownMenuItem>
         ))}
+        <DropdownMenuItem asChild className="cursor-pointer rounded-xl px-3 py-3 focus:bg-primary/5 focus:text-primary mt-1 border-t border-border/30">
+          <Link to="/standorte" onClick={() => window.scrollTo({ top: 0 })} className="flex items-center gap-3 w-full">
+            <div className="w-8 h-8 rounded-lg bg-accent/20 flex items-center justify-center flex-shrink-0">
+              <MapPin className="w-4 h-4 text-primary" />
+            </div>
+            <span className="font-semibold text-sm">Alle Standorte →</span>
+          </Link>
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );
