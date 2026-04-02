@@ -23,7 +23,7 @@ const config: LocationConfig = {
   waitlistHeading: "Sei von Anfang an dabei – trag dich unverbindlich ein!",
   waitlistIntro: "Die Plätze für unsere Neueröffnung 2026 sind limitiert. Sichere dir jetzt unverbindlich deinen Platz auf der Warteliste.",
   locationInfo: [
-    { icon: MapPin, title: "Adresse", text: "Schlosspark-Center · Genaue Adresse folgt in Kürze" },
+    { icon: MapPin, title: "Adresse", text: "Marienplatz 5–6, 19053 Schwerin" },
     { icon: Train, title: "ÖPNV", text: "Zentral am Marienplatz · Gute ÖPNV-Anbindung" },
     { icon: Clock, title: "Öffnungszeiten", text: "Mo–Fr 07:00–21:00 · Sa 08:00–18:00" },
     { icon: Car, title: "Kostenlose Parkplätze", text: "Ausreichend Parkmöglichkeiten im Center" },
