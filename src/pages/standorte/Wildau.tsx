@@ -4,6 +4,7 @@ import type { LocationConfig } from "@/components/standorte/LocationPageTemplate
 
 const config: LocationConfig = {
   slug: "wildau",
+  mapIframeSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2439.432867825026!2d13.605720976670836!3d52.31395695927572!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a83f1cc671c271%3A0xeded9fea5e352c8b!2sA10%20Center!5e0!3m2!1sde!2sde!4v1711999999999!5m2!1sde!2sde",
   displayName: "Wildau",
   heroVideos: ["/videos/standort_wildau_desktop.mp4"],
   heroPoster: "/videos/standort_wildau_desktop_poster.jpg",

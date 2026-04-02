@@ -4,6 +4,7 @@ import type { LocationConfig } from "@/components/standorte/LocationPageTemplate
 
 const config: LocationConfig = {
   slug: "schwerin",
+  mapIframeSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2371.748643884323!2d11.407122176717524!3d53.62819375262334!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47adda1fd263952f%3A0xa3b60da8fb8f122!2sSchlo%C3%9Fpark-Center%20Schwerin!5e0!3m2!1sde!2sde!4v1711999999999!5m2!1sde!2sde",
   displayName: "Schwerin",
   heroVideos: ["/videos/standort_schwerin_desktop.mp4"],
   heroPoster: "/videos/standort_schwerin_desktop_poster.jpg",

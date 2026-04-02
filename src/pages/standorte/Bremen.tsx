@@ -4,6 +4,7 @@ import type { LocationConfig } from "@/components/standorte/LocationPageTemplate
 
 const config: LocationConfig = {
   slug: "bremen",
+  mapIframeSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2393.448550244171!2d8.738576776702522!3d53.04713090001797!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b0d647711a6469%3A0x4c1e21cb16629592!2sRoland-Center%20Bremen!5e0!3m2!1sde!2sde!4v1711999999999!5m2!1sde!2sde",
   displayName: "Bremen",
   heroVideos: ["/videos/standort_bremen_desktop.mp4"],
   heroPoster: "/videos/standort_bremen_desktop_poster.jpg",
