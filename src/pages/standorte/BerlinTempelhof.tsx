@@ -23,7 +23,7 @@ const config: LocationConfig = {
   waitlistHeading: "Sei von Anfang an dabei – trag dich unverbindlich ein!",
   waitlistIntro: "Die Plätze für unsere Neueröffnung 2026 sind limitiert. Sichere dir jetzt unverbindlich deinen Platz auf der Warteliste.",
   locationInfo: [
-    { icon: MapPin, title: "Adresse", text: "Tempelhofer Hafen · Genaue Adresse folgt in Kürze" },
+    { icon: MapPin, title: "Adresse", text: "Ordensmeisterstr. 1–3, 12099 Berlin" },
     { icon: Train, title: "ÖPNV", text: "Direkte Anbindung an die U6" },
     { icon: Clock, title: "Öffnungszeiten", text: "Mo–Fr 07:00–21:00 · Sa 08:00–18:00" },
     { icon: Car, title: "Kostenlose Parkplätze", text: "Kostenlose Parkplätze am Tempelhofer Hafen" },
@@ -39,7 +39,7 @@ const config: LocationConfig = {
     { q: "Darf ich beim Kurs zuschauen?", a: "Bei Kinderkursen gibt es einen Eltern-Wartebereich mit Blick auf das Becken. Bei Erwachsenenkursen ist das Bad ohne Zuschauer – für ein entspanntes Lernumfeld." },
     { q: "Ist die Eintragung verbindlich?", a: "Nein, die Warteliste ist zu 100 % unverbindlich und kostenlos. Du gehst keinerlei Verpflichtung ein." },
     { q: "Werden die Kosten von der Krankenkasse übernommen?", a: "Für unsere zertifizierten Aqua Reha Kurse übernehmen alle gesetzlichen Krankenkassen die Kosten bei Vorlage eines ärztlichen Rezepts." },
-    { q: "Wo genau befindet sich der Standort?", a: "Der neue Standort wird im Tempelhofer Hafen in Berlin entstehen. Aktuell laufen die Vorbereitungen – die genaue Adresse geben wir rechtzeitig bekannt." },
+    { q: "Wo genau befindet sich der Standort?", a: "Unser Standort befindet sich im Tempelhofer Hafen, Ordensmeisterstr. 1–3, 12099 Berlin." },
   ],
   waitlistCount: "60+",
   plzExample: "12099",

@@ -23,7 +23,7 @@ const config: LocationConfig = {
   waitlistHeading: "Sei von Anfang an dabei – trag dich unverbindlich ein!",
   waitlistIntro: "Die Plätze für unsere Neueröffnung 2026 sind limitiert. Sichere dir jetzt unverbindlich deinen Platz auf der Warteliste.",
   locationInfo: [
-    { icon: MapPin, title: "Adresse", text: "Weidenweg, Erlangen · Genaue Adresse folgt in Kürze" },
+    { icon: MapPin, title: "Adresse", text: "Weidenweg 1, 91058 Erlangen" },
     { icon: Train, title: "ÖPNV", text: "Gut erreichbar im Erlanger Stadtgebiet" },
     { icon: Clock, title: "Öffnungszeiten", text: "Mo–Fr 07:00–21:00 · Sa 08:00–18:00" },
     { icon: Car, title: "Kostenlose Parkplätze", text: "Kostenlose Parkplätze vorhanden" },
@@ -39,7 +39,7 @@ const config: LocationConfig = {
     { q: "Darf ich beim Kurs zuschauen?", a: "Bei Kinderkursen gibt es einen Eltern-Wartebereich mit Blick auf das Becken. Bei Erwachsenenkursen ist das Bad ohne Zuschauer – für ein entspanntes Lernumfeld." },
     { q: "Ist die Eintragung verbindlich?", a: "Nein, die Warteliste ist zu 100 % unverbindlich und kostenlos. Du gehst keinerlei Verpflichtung ein." },
     { q: "Werden die Kosten von der Krankenkasse übernommen?", a: "Für unsere zertifizierten Aqua Reha Kurse übernehmen alle gesetzlichen Krankenkassen die Kosten bei Vorlage eines ärztlichen Rezepts." },
-    { q: "Wo genau befindet sich der Standort?", a: "Der neue Standort wird im Weidenweg entstehen. Aktuell laufen die Vorbereitungen." },
+    { q: "Wo genau befindet sich der Standort?", a: "Unser Standort befindet sich im Weidenweg 1, 91058 Erlangen." },
   ],
   waitlistCount: "60+",
   plzExample: "91058",
