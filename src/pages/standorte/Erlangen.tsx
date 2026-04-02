@@ -23,7 +23,7 @@ const config: LocationConfig = {
   waitlistHeading: "Sei von Anfang an dabei – trag dich unverbindlich ein!",
   waitlistIntro: "Die Plätze für unsere Neueröffnung 2026 sind limitiert. Sichere dir jetzt unverbindlich deinen Platz auf der Warteliste.",
   locationInfo: [
-    { icon: MapPin, title: "Adresse", text: "Weidenweg, Erlangen · Genaue Adresse folgt in Kürze" },
+    { icon: MapPin, title: "Adresse", text: "Weidenweg 1, 91058 Erlangen" },
     { icon: Train, title: "ÖPNV", text: "Gut erreichbar im Erlanger Stadtgebiet" },
     { icon: Clock, title: "Öffnungszeiten", text: "Mo–Fr 07:00–21:00 · Sa 08:00–18:00" },
     { icon: Car, title: "Kostenlose Parkplätze", text: "Kostenlose Parkplätze vorhanden" },
