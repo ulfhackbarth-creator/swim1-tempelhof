@@ -4,6 +4,7 @@ import type { LocationConfig } from "@/components/standorte/LocationPageTemplate
 
 const config: LocationConfig = {
   slug: "berlin-tempelhof",
+  mapIframeSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2430.730303666358!2d13.385576876676834!3d52.45517554023247!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a84557745e0d4d%3A0x32972a08c4cee669!2sOrdensmeisterstra%C3%9Fe%201-3%2C%2012099%20Berlin!5e0!3m2!1sde!2sde!4v1711999999999!5m2!1sde!2sde",
   displayName: "Berlin-Tempelhof",
   heroHeadline: "SWIM1 kommt nach Berlin-Tempelhof! Eröffnung 2026.",
   heroBadge: "Bald in deiner Nähe!",

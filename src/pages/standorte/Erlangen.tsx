@@ -4,6 +4,7 @@ import type { LocationConfig } from "@/components/standorte/LocationPageTemplate
 
 const config: LocationConfig = {
   slug: "erlangen",
+  mapIframeSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2586.666710433244!2d10.98567427656911!3d49.56183695587932!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a1ff2399b210cd%3A0xa79c44182f8be3d9!2sWeidenweg%201%2C%2091058%20Erlangen!5e0!3m2!1sde!2sde!4v1711999999999!5m2!1sde!2sde",
   displayName: "Erlangen",
   heroHeadline: "SWIM1 kommt nach Erlangen! Eröffnung 2026.",
   heroVideos: ["/videos/standort_desktop.mp4"],
