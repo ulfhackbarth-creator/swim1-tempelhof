@@ -39,7 +39,7 @@ const config: LocationConfig = {
     { q: "Darf ich beim Kurs zuschauen?", a: "Bei Kinderkursen gibt es einen Eltern-Wartebereich mit Blick auf das Becken. Bei Erwachsenenkursen ist das Bad ohne Zuschauer – für ein entspanntes Lernumfeld." },
     { q: "Ist die Eintragung verbindlich?", a: "Nein, die Warteliste ist zu 100 % unverbindlich und kostenlos. Du gehst keinerlei Verpflichtung ein." },
     { q: "Werden die Kosten von der Krankenkasse übernommen?", a: "Für unsere zertifizierten Aqua Reha Kurse übernehmen alle gesetzlichen Krankenkassen die Kosten bei Vorlage eines ärztlichen Rezepts." },
-    { q: "Wo genau befindet sich der Standort?", a: "Der neue Standort wird im Weidenweg entstehen. Aktuell laufen die Vorbereitungen." },
+    { q: "Wo genau befindet sich der Standort?", a: "Unser Standort befindet sich im Weidenweg 1, 91058 Erlangen." },
   ],
   waitlistCount: "60+",
   plzExample: "91058",
