@@ -119,6 +119,7 @@ export interface LocationConfig {
   testimonials: { name: string; location: string; text: string; course: string; stars: number }[];
   faqs: { q: string; a: string }[];
   waitlistCount: string;
+  mapIframeSrc?: string;
   metaTitle: string;
   metaDescription: string;
   displayName: string;
