@@ -2,22 +2,37 @@ import { useState, useEffect } from "react";
 import { ArrowRight } from "lucide-react";
 
 export function MobileStickyCTA() {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isHeroVisible, setIsHeroVisible] = useState(true);
+  const [isFormVisible, setIsFormVisible] = useState(false);
 
   useEffect(() => {
     const heroElement = document.getElementById("hero");
-    if (!heroElement) return;
+    const formElement = document.getElementById("warteliste");
 
-    const observer = new IntersectionObserver(
+    const heroObserver = new IntersectionObserver(
       ([entry]) => {
-        setIsVisible(!entry.isIntersecting);
+        setIsHeroVisible(entry.isIntersecting);
       },
       { threshold: 0.1 }
     );
 
-    observer.observe(heroElement);
-    return () => observer.disconnect();
+    const formObserver = new IntersectionObserver(
+      ([entry]) => {
+        setIsFormVisible(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+
+    if (heroElement) heroObserver.observe(heroElement);
+    if (formElement) formObserver.observe(formElement);
+
+    return () => {
+      heroObserver.disconnect();
+      formObserver.disconnect();
+    };
   }, []);
+
+  const isVisible = !isHeroVisible && !isFormVisible;
 
   const scrollToForm = () => {
     const form = document.getElementById("warteliste");
