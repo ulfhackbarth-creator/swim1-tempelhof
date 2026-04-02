@@ -611,7 +611,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
       </section>
 
       {/* ═══════════ 5. WARTELISTEN-FORMULAR ═══════════ */}
-      <section ref={formRef} id="warteliste" className="py-16 md:py-32 bg-secondary/50 px-4 scroll-mt-0">
+      <section ref={formRef} id="warteliste" className="py-16 md:py-32 bg-secondary/50 px-4 scroll-mt-24">
         <div className="max-w-lg mx-auto">
           {isSubmitted ? (
             <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="text-center bg-white p-8 md:p-12 rounded-[2rem] shadow-xl shadow-slate-200/40 border border-slate-100">
