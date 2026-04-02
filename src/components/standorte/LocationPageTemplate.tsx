@@ -23,6 +23,7 @@ import heroImage from "@/assets/hero-pool.jpg";
 import { HeroWave } from "@/components/HeroWave";
 import SectionDivider from "@/components/SectionDivider";
 import GoogleMapConsent from "@/components/GoogleMapConsent";
+import { MobileStickyCTA } from "@/components/MobileStickyCTA";
 
 /* ─── SHARED DATA ─── */
 
@@ -337,7 +338,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
       </nav>
 
       {/* ═══════════ 1. HERO ═══════════ */}
-      <section className="relative min-h-[85vh] md:min-h-[90vh]">
+      <section id="hero" className="relative min-h-[85vh] md:min-h-[90vh]">
         <div className="absolute inset-0 overflow-hidden">
           {hasVideo ? (
             <HeroVideoBackground videos={config.heroVideos!} poster={config.heroPoster} />
@@ -611,7 +612,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
       </section>
 
       {/* ═══════════ 5. WARTELISTEN-FORMULAR ═══════════ */}
-      <section ref={formRef} id="warteliste" className="py-16 md:py-32 bg-secondary/50 px-4 scroll-mt-0">
+      <section ref={formRef} id="warteliste" className="py-16 md:py-32 bg-secondary/50 px-4 scroll-mt-24">
         <div className="max-w-lg mx-auto">
           {isSubmitted ? (
             <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="text-center bg-white p-8 md:p-12 rounded-[2rem] shadow-xl shadow-slate-200/40 border border-slate-100">
@@ -714,6 +715,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
       <SectionDivider fromColor="#0C2D48" />
 
       <HomeFooter />
+      <MobileStickyCTA />
     </div>
   );
 };
