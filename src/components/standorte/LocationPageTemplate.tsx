@@ -715,6 +715,7 @@ const LocationPageTemplate = ({ config }: { config: LocationConfig }) => {
       <SectionDivider fromColor="#0C2D48" />
 
       <HomeFooter />
+      <MobileStickyCTA />
     </div>
   );
 };
