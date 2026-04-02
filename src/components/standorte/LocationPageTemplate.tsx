@@ -22,6 +22,7 @@ import HeroVideoBackground from "@/components/HeroVideoBackground";
 import heroImage from "@/assets/hero-pool.jpg";
 import { HeroWave } from "@/components/HeroWave";
 import SectionDivider from "@/components/SectionDivider";
+import GoogleMapConsent from "@/components/GoogleMapConsent";
 
 /* ─── SHARED DATA ─── */
 
