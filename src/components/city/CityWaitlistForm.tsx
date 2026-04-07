@@ -193,7 +193,7 @@ const CityWaitlistForm = ({ city }: CityWaitlistFormProps) => {
             </div>
 
             <Button type="submit" variant="cta" size="lg" className="w-full" disabled={isLoading}>
-              {isLoading ? "Wird eingetragen..." : "Jetzt Platz auf der Warteliste sichern"}
+              {isLoading ? "Wird eingetragen..." : "Jetzt eintragen für mehr Infos"}
             </Button>
 
             <p className="text-xs text-center text-muted-foreground">
