@@ -17,7 +17,7 @@ const config: LocationConfig = {
     postalCode: "91058",
   },
   geoText: "Wir bauen aktuell für dich! Ab 2026 findest du unseren neuen Standort im Weidenweg – gut erreichbar für Familien aus Erlangen, Büchenbach, Bruck und dem gesamten Stadtgebiet. Kostenlose Parkplätze und warmes Wasser warten auf dich. Werde Teil der SWIM1-Familie!",
-  courseHeading: "Unsere geplanten Kurse ab 2026",
+  courseHeading: "Unser Kursangebot",
   courseSubline: "Wähle eine Kategorie und trag dich in die Warteliste ein.",
   courseAppendText: "Trag dich in die Warteliste ein, um als Erstes über den Kursstart informiert zu werden.",
   waitlistHeading: "Sei von Anfang an dabei – trag dich unverbindlich ein!",
