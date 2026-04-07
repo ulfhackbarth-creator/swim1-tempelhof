@@ -29,7 +29,7 @@ const Standorte = () => (
   <>
     <Helmet>
       <title>SWIM1 Standorte – Alle Schwimmschulen im Überblick</title>
-      <meta name="description" content="Alle SWIM1 Standorte auf einen Blick: Berlin-Tempelhof, Schwerin, Wildau, Bremen und Erlangen. Eröffnung 2026 – jetzt Platz auf der Warteliste sichern." />
+      <meta name="description" content="Alle SWIM1 Standorte auf einen Blick: Berlin-Tempelhof, Schwerin, Wildau, Bremen und Erlangen. Eröffnung 2026 – jetzt eintragen für mehr Infos." />
     </Helmet>
     <GlobalHeader />
 
